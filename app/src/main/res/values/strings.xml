@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Police Security</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="powered">Powered by Nisira Systems</string>
+
+    <string name="title_activity_navigation_police">NavigationPolice</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
