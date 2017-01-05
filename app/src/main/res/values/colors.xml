@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#a7a7a7</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="rojo">#FF3300</color>
+    <color name="naranja">#FFCC00</color>
+    <color name="verde">#B3FF00</color>
 </resources>

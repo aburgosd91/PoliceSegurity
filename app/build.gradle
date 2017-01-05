@@ -50,6 +50,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
     compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.7'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.9'
     /*VZAVALA*/
