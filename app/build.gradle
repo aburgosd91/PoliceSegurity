@@ -32,5 +32,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.7'
+    compile files('src/main/java/libs/NisiraCore.jar')
     testCompile 'junit:junit:4.12'
 }
