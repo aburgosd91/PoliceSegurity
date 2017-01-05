@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,15 +26,7 @@ public class NavigationPolice_Activity extends AppCompatActivity
         setContentView(R.layout.activity_navigation_police);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //getSupportActionBar().setIcon(R.drawable.ic_menu_manage);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -63,16 +57,11 @@ public class NavigationPolice_Activity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -100,8 +89,32 @@ public class NavigationPolice_Activity extends AppCompatActivity
 
         }
 
+        //AQUI SE AGREGA EL TITULO DEL ELEMENTO SELECCIONADO
+        selectItem((String) item.getTitle());
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private void selectItem(String title) {
+        // Enviar título como arguemento del fragmento
+        Bundle args = new Bundle();
+        args.putString("numero de la seccion", title);
+
+        Fragment fragment = Lista_Fragment.newInstance("ejemplo","ejemplo2");
+        fragment.setArguments(args);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.main_content, fragment)
+                .commit();
+
+        // Cerrar drawer
+
+        setTitle(title); // Setear título actual
+
+    }
+
 }
