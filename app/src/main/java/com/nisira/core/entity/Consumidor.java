@@ -1,277 +1,561 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
-public class Consumidor {
-	private String idempresa;
+@Tabla(nombre = "CONSUMIDOR")
+@XStreamAlias("CONSUMIDOR")
 
-	private String idconsumidor;
-	
-	private String tipo;
-	
-	private String jerarquia;
-	
-	private String descripcion;
-	
-	private String idccosto;
-	
+public class Consumidor implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idconsumidor") 
+	@XStreamAlias("idconsumidor") 
+	private String idconsumidor = "" ;
+	@Columna
+	@SerializedName("tipo") 
+	@XStreamAlias("tipo") 
+	private String tipo = "" ;
+	@Columna
+	@SerializedName("jerarquia") 
+	@XStreamAlias("jerarquia") 
+	private String jerarquia = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("idccosto") 
+	@XStreamAlias("idccosto") 
+	private String idccosto = "" ;
+	@Columna
+	@SerializedName("fecha_ingreso") 
+	@XStreamAlias("fecha_ingreso") 
 	private Date fecha_ingreso;
-	
+	@Columna
+	@SerializedName("fecha_baja") 
+	@XStreamAlias("fecha_baja") 
 	private Date fecha_baja;
-	
-	private String idsucursal;
-	
-	private Float area;
-	
-	private String idtenergia;
-	
-	private Float caudal;
-	
-	private String idpertenece;
-	
-	private String tipocalculo;
-	
-	private Float costo_mof;
-	
-	private Float costo_mex;
-	
-	private String tipomaquina;
-	
-	private String idproducto;
-	
-	private Float planificado;
-	
-	private Float producido;
-	
-	private String grupo;
-	
-	private Float estado;
-	
-	private String sincroniza;
-	
+	@Columna
+	@SerializedName("idsucursal") 
+	@XStreamAlias("idsucursal") 
+	private String idsucursal = "" ;
+	@Columna
+	@SerializedName("area") 
+	@XStreamAlias("area") 
+	private Double area = 0.00 ;
+	@Columna
+	@SerializedName("idtenergia") 
+	@XStreamAlias("idtenergia") 
+	private String idtenergia = "" ;
+	@Columna
+	@SerializedName("caudal") 
+	@XStreamAlias("caudal") 
+	private Double caudal = 0.00 ;
+	@Columna
+	@SerializedName("idpertenece") 
+	@XStreamAlias("idpertenece") 
+	private String idpertenece = "" ;
+	@Columna
+	@SerializedName("tipocalculo") 
+	@XStreamAlias("tipocalculo") 
+	private String tipocalculo = "" ;
+	@Columna
+	@SerializedName("costo_mof") 
+	@XStreamAlias("costo_mof") 
+	private Double costo_mof = 0.00 ;
+	@Columna
+	@SerializedName("costo_mex") 
+	@XStreamAlias("costo_mex") 
+	private Double costo_mex = 0.00 ;
+	@Columna
+	@SerializedName("tipomaquina") 
+	@XStreamAlias("tipomaquina") 
+	private String tipomaquina = "" ;
+	@Columna
+	@SerializedName("idproducto") 
+	@XStreamAlias("idproducto") 
+	private String idproducto = "" ;
+	@Columna
+	@SerializedName("planificado") 
+	@XStreamAlias("planificado") 
+	private Double planificado = 0.00 ;
+	@Columna
+	@SerializedName("producido") 
+	@XStreamAlias("producido") 
+	private Double producido = 0.00 ;
+	@Columna
+	@SerializedName("grupo") 
+	@XStreamAlias("grupo") 
+	private String grupo = "" ;
+	@Columna
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
+	private Double estado = 0.00 ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private Float escarga;
-	
-	private String marca;
-	
-	private String placa;
-	
-	private String regmtc;
-	
-	private Float nroejes;
-	
-	private Float cargautil;
-	
-	private String tipovehiculo;
-	
-	private Float anio;
-	
-	private Float kminicial;
-	
-	private String idcontrolador;
-	
-	private String nro_valvula;
-	
-	private String idserie;
-	
-	private Float kilometros;
-	
-	private String idnivelconsumidor;
-	
-	private String descripcioncorta;
-	
-	private String codigo_control;
-	
-	private Float es_titulo;
-	
-	private Float gastoxactividad;
-	
-	private Float final_;
-	
-	private String cuenta_abono;
-	
-	private String cuenta_cargo;
-	
-	private String cuenta_destino;
-	
-	private Float idactividad;
-	
-	private Float idsiembra;
-	
-	private Float idcampana;
-	
-	private Float idordenproduccion;
-	
-	private Float idloteproduccion;
-	
-	private Float creacc;
-	
-	private Float es_produccion;
-	
-	private String codigo_lotizar;
-	
-	private Float vventa_mof;
-	
-	private Float vventa_mex;
-	
-	private String idunidadnegocio;
-	
-	private String idclaseccosto;
-	
-	private String idcuentac_pt;
-	
-	private String idcuentaa_pt;
-	
-	private String idcuentac_pp;
-	
-	private String idcuentaa_pp;
-	
-	private Float tipo_costeo;
-	
-	private String idfuncion;
-	
-	private String idmotivo_reval;
-	
-	private String idsucursal_reval;
-	
-	private String idalmacen_reval;
-	
-	private String iddocumento_reval;
-	
-	private String idfactordistribucion;
-	
-	private Float costoha_mex;
-	
-	private Float costoha_mof;
-	
-	private Float distr_costofinal;
-	
-	private Float esxperiodo;
-	
-	private String nombre_registro;
-	
-	private String nro_registro;
-	
-	private String tipo_costo;
-	
-	private Float idparteproduccion;
-	
-	private Float algoritmoprecio;
-	
-	private String idprovlote;
-	
-	private String idmedida;
-	
-	private Float descarga;
-	
-	private Float esvehtercero;
-	
-	private Float genera_viajet;
-	
-	private Float genera_remtransportista;
-	
-	private String idviajet;
-	
-	private String idremtransportista;
-	
-	private Float nrv_asignacion;
-	
-	private String growercode;
-	
-	private Float ver_transformacion;
-	
-	private String idcuenta_cp;
-	
-	private Float capacidad;
-	
-	private String idalmacen;
-	
-	private String idfuenteagua;
-	
-	private String idclieprov_vehtercero;
-	
-	private Float es_servicio;
-	
-	private String idcuentadiv9;
-	
-	private Float esalquilado;
-	
-	private Float no_participadistribucion;
-	
-	private Float es_mantenimiento;
-	
-	private String idgrupo_maq;
-	
-	private Float distribucion_dwh;
-	
-	private String nombre_corto;
-	
-	private String idsubsectorconsumidor;
-	
-	private Float es_cosecha;
-	
-	private Float capacidad_tanque;
-	
-	private String idbasedatos;
-	
-	private String idactivo;
-	
-	private String idingresosalidaactivo;
-	
-	private String idctaactivo;
-	
-	private Float es_reproceso;
-	
-	private Float es_reempaque;
-	
-	private Float es_avicola;
-	
-	private String tipo_presupuesto;
-	
-	private Float es_empaque;
-	
-	private String idconsumidor_spring;
-	
-	private Float es_lote_campo;
-	
-	private Float es_secado;
-	
-	private Float certificado;
-	
+	@Columna
+	@SerializedName("escarga") 
+	@XStreamAlias("escarga") 
+	private Double escarga = 0.00 ;
+	@Columna
+	@SerializedName("marca") 
+	@XStreamAlias("marca") 
+	private String marca = "" ;
+	@Columna
+	@SerializedName("placa") 
+	@XStreamAlias("placa") 
+	private String placa = "" ;
+	@Columna
+	@SerializedName("regmtc") 
+	@XStreamAlias("regmtc") 
+	private String regmtc = "" ;
+	@Columna
+	@SerializedName("nroejes") 
+	@XStreamAlias("nroejes") 
+	private Double nroejes = 0.00 ;
+	@Columna
+	@SerializedName("cargautil") 
+	@XStreamAlias("cargautil") 
+	private Double cargautil = 0.00 ;
+	@Columna
+	@SerializedName("tipovehiculo") 
+	@XStreamAlias("tipovehiculo") 
+	private String tipovehiculo = "" ;
+	@Columna
+	@SerializedName("anio") 
+	@XStreamAlias("anio") 
+	private Double anio = 0.00 ;
+	@Columna
+	@SerializedName("kminicial") 
+	@XStreamAlias("kminicial") 
+	private Double kminicial = 0.00 ;
+	@Columna
+	@SerializedName("idcontrolador") 
+	@XStreamAlias("idcontrolador") 
+	private String idcontrolador = "" ;
+	@Columna
+	@SerializedName("nro_valvula") 
+	@XStreamAlias("nro_valvula") 
+	private String nro_valvula = "" ;
+	@Columna
+	@SerializedName("idserie") 
+	@XStreamAlias("idserie") 
+	private String idserie = "" ;
+	@Columna
+	@SerializedName("kilometros") 
+	@XStreamAlias("kilometros") 
+	private Double kilometros = 0.00 ;
+	@Columna
+	@SerializedName("idnivelconsumidor") 
+	@XStreamAlias("idnivelconsumidor") 
+	private String idnivelconsumidor = "" ;
+	@Columna
+	@SerializedName("descripcioncorta") 
+	@XStreamAlias("descripcioncorta") 
+	private String descripcioncorta = "" ;
+	@Columna
+	@SerializedName("codigo_control") 
+	@XStreamAlias("codigo_control") 
+	private String codigo_control = "" ;
+	@Columna
+	@SerializedName("es_titulo") 
+	@XStreamAlias("es_titulo") 
+	private Double es_titulo = 0.00 ;
+	@Columna
+	@SerializedName("gastoxactividad") 
+	@XStreamAlias("gastoxactividad") 
+	private Double gastoxactividad = 0.00 ;
+	@Columna
+	@SerializedName("final") 
+	@XStreamAlias("final") 
+	private Double final_ = 0.00 ;
+	@Columna
+	@SerializedName("cuenta_abono") 
+	@XStreamAlias("cuenta_abono") 
+	private String cuenta_abono = "" ;
+	@Columna
+	@SerializedName("cuenta_cargo") 
+	@XStreamAlias("cuenta_cargo") 
+	private String cuenta_cargo = "" ;
+	@Columna
+	@SerializedName("cuenta_destino") 
+	@XStreamAlias("cuenta_destino") 
+	private String cuenta_destino = "" ;
+	@Columna
+	@SerializedName("idactividad") 
+	@XStreamAlias("idactividad") 
+	private Double idactividad = 0.00 ;
+	@Columna
+	@SerializedName("idsiembra") 
+	@XStreamAlias("idsiembra") 
+	private Double idsiembra = 0.00 ;
+	@Columna
+	@SerializedName("idcampana") 
+	@XStreamAlias("idcampana") 
+	private Double idcampana = 0.00 ;
+	@Columna
+	@SerializedName("idordenproduccion") 
+	@XStreamAlias("idordenproduccion") 
+	private Double idordenproduccion = 0.00 ;
+	@Columna
+	@SerializedName("idloteproduccion") 
+	@XStreamAlias("idloteproduccion") 
+	private Double idloteproduccion = 0.00 ;
+	@Columna
+	@SerializedName("creacc") 
+	@XStreamAlias("creacc") 
+	private Double creacc = 0.00 ;
+	@Columna
+	@SerializedName("es_produccion") 
+	@XStreamAlias("es_produccion") 
+	private Double es_produccion = 0.00 ;
+	@Columna
+	@SerializedName("codigo_lotizar") 
+	@XStreamAlias("codigo_lotizar") 
+	private String codigo_lotizar = "" ;
+	@Columna
+	@SerializedName("vventa_mof") 
+	@XStreamAlias("vventa_mof") 
+	private Double vventa_mof = 0.00 ;
+	@Columna
+	@SerializedName("vventa_mex") 
+	@XStreamAlias("vventa_mex") 
+	private Double vventa_mex = 0.00 ;
+	@Columna
+	@SerializedName("idunidadnegocio") 
+	@XStreamAlias("idunidadnegocio") 
+	private String idunidadnegocio = "" ;
+	@Columna
+	@SerializedName("idclaseccosto") 
+	@XStreamAlias("idclaseccosto") 
+	private String idclaseccosto = "" ;
+	@Columna
+	@SerializedName("idcuentac_pt") 
+	@XStreamAlias("idcuentac_pt") 
+	private String idcuentac_pt = "" ;
+	@Columna
+	@SerializedName("idcuentaa_pt") 
+	@XStreamAlias("idcuentaa_pt") 
+	private String idcuentaa_pt = "" ;
+	@Columna
+	@SerializedName("idcuentac_pp") 
+	@XStreamAlias("idcuentac_pp") 
+	private String idcuentac_pp = "" ;
+	@Columna
+	@SerializedName("idcuentaa_pp") 
+	@XStreamAlias("idcuentaa_pp") 
+	private String idcuentaa_pp = "" ;
+	@Columna
+	@SerializedName("tipo_costeo") 
+	@XStreamAlias("tipo_costeo") 
+	private Double tipo_costeo = 0.00 ;
+	@Columna
+	@SerializedName("idfuncion") 
+	@XStreamAlias("idfuncion") 
+	private String idfuncion = "" ;
+	@Columna
+	@SerializedName("idmotivo_reval") 
+	@XStreamAlias("idmotivo_reval") 
+	private String idmotivo_reval = "" ;
+	@Columna
+	@SerializedName("idsucursal_reval") 
+	@XStreamAlias("idsucursal_reval") 
+	private String idsucursal_reval = "" ;
+	@Columna
+	@SerializedName("idalmacen_reval") 
+	@XStreamAlias("idalmacen_reval") 
+	private String idalmacen_reval = "" ;
+	@Columna
+	@SerializedName("iddocumento_reval") 
+	@XStreamAlias("iddocumento_reval") 
+	private String iddocumento_reval = "" ;
+	@Columna
+	@SerializedName("idfactordistribucion") 
+	@XStreamAlias("idfactordistribucion") 
+	private String idfactordistribucion = "" ;
+	@Columna
+	@SerializedName("costoha_mex") 
+	@XStreamAlias("costoha_mex") 
+	private Double costoha_mex = 0.00 ;
+	@Columna
+	@SerializedName("costoha_mof") 
+	@XStreamAlias("costoha_mof") 
+	private Double costoha_mof = 0.00 ;
+	@Columna
+	@SerializedName("distr_costofinal") 
+	@XStreamAlias("distr_costofinal") 
+	private Double distr_costofinal = 0.00 ;
+	@Columna
+	@SerializedName("esxperiodo") 
+	@XStreamAlias("esxperiodo") 
+	private Double esxperiodo = 0.00 ;
+	@Columna
+	@SerializedName("nombre_registro") 
+	@XStreamAlias("nombre_registro") 
+	private String nombre_registro = "" ;
+	@Columna
+	@SerializedName("nro_registro") 
+	@XStreamAlias("nro_registro") 
+	private String nro_registro = "" ;
+	@Columna
+	@SerializedName("tipo_costo") 
+	@XStreamAlias("tipo_costo") 
+	private String tipo_costo = "" ;
+	@Columna
+	@SerializedName("idparteproduccion") 
+	@XStreamAlias("idparteproduccion") 
+	private Double idparteproduccion = 0.00 ;
+	@Columna
+	@SerializedName("algoritmoprecio") 
+	@XStreamAlias("algoritmoprecio") 
+	private Double algoritmoprecio = 0.00 ;
+	@Columna
+	@SerializedName("idprovlote") 
+	@XStreamAlias("idprovlote") 
+	private String idprovlote = "" ;
+	@Columna
+	@SerializedName("idmedida") 
+	@XStreamAlias("idmedida") 
+	private String idmedida = "" ;
+	@Columna
+	@SerializedName("descarga") 
+	@XStreamAlias("descarga") 
+	private Double descarga = 0.00 ;
+	@Columna
+	@SerializedName("esvehtercero") 
+	@XStreamAlias("esvehtercero") 
+	private Double esvehtercero = 0.00 ;
+	@Columna
+	@SerializedName("genera_viajet") 
+	@XStreamAlias("genera_viajet") 
+	private Double genera_viajet = 0.00 ;
+	@Columna
+	@SerializedName("genera_remtransportista") 
+	@XStreamAlias("genera_remtransportista") 
+	private Double genera_remtransportista = 0.00 ;
+	@Columna
+	@SerializedName("idviajet") 
+	@XStreamAlias("idviajet") 
+	private String idviajet = "" ;
+	@Columna
+	@SerializedName("idremtransportista") 
+	@XStreamAlias("idremtransportista") 
+	private String idremtransportista = "" ;
+	@Columna
+	@SerializedName("nrv_asignacion") 
+	@XStreamAlias("nrv_asignacion") 
+	private Double nrv_asignacion = 0.00 ;
+	@Columna
+	@SerializedName("growercode") 
+	@XStreamAlias("growercode") 
+	private String growercode = "" ;
+	@Columna
+	@SerializedName("ver_transformacion") 
+	@XStreamAlias("ver_transformacion") 
+	private Double ver_transformacion = 0.00 ;
+	@Columna
+	@SerializedName("idcuenta_cp") 
+	@XStreamAlias("idcuenta_cp") 
+	private String idcuenta_cp = "" ;
+	@Columna
+	@SerializedName("capacidad") 
+	@XStreamAlias("capacidad") 
+	private Double capacidad = 0.00 ;
+	@Columna
+	@SerializedName("idalmacen") 
+	@XStreamAlias("idalmacen") 
+	private String idalmacen = "" ;
+	@Columna
+	@SerializedName("idfuenteagua") 
+	@XStreamAlias("idfuenteagua") 
+	private String idfuenteagua = "" ;
+	@Columna
+	@SerializedName("idclieprov_vehtercero") 
+	@XStreamAlias("idclieprov_vehtercero") 
+	private String idclieprov_vehtercero = "" ;
+	@Columna
+	@SerializedName("es_servicio") 
+	@XStreamAlias("es_servicio") 
+	private Double es_servicio = 0.00 ;
+	@Columna
+	@SerializedName("idcuentadiv9") 
+	@XStreamAlias("idcuentadiv9") 
+	private String idcuentadiv9 = "" ;
+	@Columna
+	@SerializedName("esalquilado") 
+	@XStreamAlias("esalquilado") 
+	private Double esalquilado = 0.00 ;
+	@Columna
+	@SerializedName("no_participadistribucion") 
+	@XStreamAlias("no_participadistribucion") 
+	private Double no_participadistribucion = 0.00 ;
+	@Columna
+	@SerializedName("es_mantenimiento") 
+	@XStreamAlias("es_mantenimiento") 
+	private Double es_mantenimiento = 0.00 ;
+	@Columna
+	@SerializedName("idgrupo_maq") 
+	@XStreamAlias("idgrupo_maq") 
+	private String idgrupo_maq = "" ;
+	@Columna
+	@SerializedName("distribucion_dwh") 
+	@XStreamAlias("distribucion_dwh") 
+	private Double distribucion_dwh = 0.00 ;
+	@Columna
+	@SerializedName("nombre_corto") 
+	@XStreamAlias("nombre_corto") 
+	private String nombre_corto = "" ;
+	@Columna
+	@SerializedName("idsubsectorconsumidor") 
+	@XStreamAlias("idsubsectorconsumidor") 
+	private String idsubsectorconsumidor = "" ;
+	@Columna
+	@SerializedName("es_cosecha") 
+	@XStreamAlias("es_cosecha") 
+	private Double es_cosecha = 0.00 ;
+	@Columna
+	@SerializedName("capacidad_tanque") 
+	@XStreamAlias("capacidad_tanque") 
+	private Double capacidad_tanque = 0.00 ;
+	@Columna
+	@SerializedName("idbasedatos") 
+	@XStreamAlias("idbasedatos") 
+	private String idbasedatos = "" ;
+	@Columna
+	@SerializedName("idactivo") 
+	@XStreamAlias("idactivo") 
+	private String idactivo = "" ;
+	@Columna
+	@SerializedName("idingresosalidaactivo") 
+	@XStreamAlias("idingresosalidaactivo") 
+	private String idingresosalidaactivo = "" ;
+	@Columna
+	@SerializedName("idctaactivo") 
+	@XStreamAlias("idctaactivo") 
+	private String idctaactivo = "" ;
+	@Columna
+	@SerializedName("es_reproceso") 
+	@XStreamAlias("es_reproceso") 
+	private Double es_reproceso = 0.00 ;
+	@Columna
+	@SerializedName("es_reempaque") 
+	@XStreamAlias("es_reempaque") 
+	private Double es_reempaque = 0.00 ;
+	@Columna
+	@SerializedName("es_avicola") 
+	@XStreamAlias("es_avicola") 
+	private Double es_avicola = 0.00 ;
+	@Columna
+	@SerializedName("tipo_presupuesto") 
+	@XStreamAlias("tipo_presupuesto") 
+	private String tipo_presupuesto = "" ;
+	@Columna
+	@SerializedName("es_empaque") 
+	@XStreamAlias("es_empaque") 
+	private Double es_empaque = 0.00 ;
+	@Columna
+	@SerializedName("idconsumidor_spring") 
+	@XStreamAlias("idconsumidor_spring") 
+	private String idconsumidor_spring = "" ;
+	@Columna
+	@SerializedName("es_lote_campo") 
+	@XStreamAlias("es_lote_campo") 
+	private Double es_lote_campo = 0.00 ;
+	@Columna
+	@SerializedName("es_secado") 
+	@XStreamAlias("es_secado") 
+	private Double es_secado = 0.00 ;
+	@Columna
+	@SerializedName("certificado") 
+	@XStreamAlias("certificado") 
+	private Double certificado = 0.00 ;
+	@Columna
+	@SerializedName("tipo_precio_fuente") 
+	@XStreamAlias("tipo_precio_fuente") 
 	private Integer tipo_precio_fuente;
-	
-	private String codigo_parcela;
-	
-	private Float costokm_mof;
-	
-	private Float costokm_mex;
-	
-	private Float costodia_mof;
-	
-	private Float costodia_mex;
-	
-	private String idlinea_avicola;
-	
+	@Columna
+	@SerializedName("codigo_parcela") 
+	@XStreamAlias("codigo_parcela") 
+	private String codigo_parcela = "" ;
+	@Columna
+	@SerializedName("costokm_mof") 
+	@XStreamAlias("costokm_mof") 
+	private Double costokm_mof = 0.00 ;
+	@Columna
+	@SerializedName("costokm_mex") 
+	@XStreamAlias("costokm_mex") 
+	private Double costokm_mex = 0.00 ;
+	@Columna
+	@SerializedName("costodia_mof") 
+	@XStreamAlias("costodia_mof") 
+	private Double costodia_mof = 0.00 ;
+	@Columna
+	@SerializedName("costodia_mex") 
+	@XStreamAlias("costodia_mex") 
+	private Double costodia_mex = 0.00 ;
+	@Columna
+	@SerializedName("idlinea_avicola") 
+	@XStreamAlias("idlinea_avicola") 
+	private String idlinea_avicola = "" ;
+	@Columna
+	@SerializedName("permanencia") 
+	@XStreamAlias("permanencia") 
 	private Integer permanencia;
-	
+	@Columna
+	@SerializedName("dias_genpresup") 
+	@XStreamAlias("dias_genpresup") 
 	private Integer dias_genpresup;
-	
-	private String idmedida_maq;
-	
-	private Float capacidad_maq;
-	
-	private Float vventa_um_mof;
-	
-	private Float vventa_um_mex;
-	
-	private String tipo_registro_parte;
-	
-	private Float ver_digitacion;
-	
-	private Float es_lote_vivero;
-	
-	private Float fn_distr_var1_m2;
+	@Columna
+	@SerializedName("idmedida_maq") 
+	@XStreamAlias("idmedida_maq") 
+	private String idmedida_maq = "" ;
+	@Columna
+	@SerializedName("capacidad_maq") 
+	@XStreamAlias("capacidad_maq") 
+	private Double capacidad_maq = 0.00 ;
+	@Columna
+	@SerializedName("vventa_um_mof") 
+	@XStreamAlias("vventa_um_mof") 
+	private Double vventa_um_mof = 0.00 ;
+	@Columna
+	@SerializedName("vventa_um_mex") 
+	@XStreamAlias("vventa_um_mex") 
+	private Double vventa_um_mex = 0.00 ;
+	@Columna
+	@SerializedName("tipo_registro_parte") 
+	@XStreamAlias("tipo_registro_parte") 
+	private String tipo_registro_parte = "" ;
+	@Columna
+	@SerializedName("ver_digitacion") 
+	@XStreamAlias("ver_digitacion") 
+	private Double ver_digitacion = 0.00 ;
+	@Columna
+	@SerializedName("es_lote_vivero") 
+	@XStreamAlias("es_lote_vivero") 
+	private Double es_lote_vivero = 0.00 ;
+	@Columna
+	@SerializedName("fn_distr_var1_m2") 
+	@XStreamAlias("fn_distr_var1_m2") 
+	private Double fn_distr_var1_m2 = 0.00 ;
 
 
 
@@ -348,11 +632,11 @@ public class Consumidor {
 		return this.idsucursal;
 	}
 
-	public void setArea(Float area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 
-	public Float getArea() {
+	public Double getArea() {
 		return this.area;
 	}
 
@@ -364,11 +648,11 @@ public class Consumidor {
 		return this.idtenergia;
 	}
 
-	public void setCaudal(Float caudal) {
+	public void setCaudal(Double caudal) {
 		this.caudal = caudal;
 	}
 
-	public Float getCaudal() {
+	public Double getCaudal() {
 		return this.caudal;
 	}
 
@@ -388,19 +672,19 @@ public class Consumidor {
 		return this.tipocalculo;
 	}
 
-	public void setCosto_mof(Float costo_mof) {
+	public void setCosto_mof(Double costo_mof) {
 		this.costo_mof = costo_mof;
 	}
 
-	public Float getCosto_mof() {
+	public Double getCosto_mof() {
 		return this.costo_mof;
 	}
 
-	public void setCosto_mex(Float costo_mex) {
+	public void setCosto_mex(Double costo_mex) {
 		this.costo_mex = costo_mex;
 	}
 
-	public Float getCosto_mex() {
+	public Double getCosto_mex() {
 		return this.costo_mex;
 	}
 
@@ -420,19 +704,19 @@ public class Consumidor {
 		return this.idproducto;
 	}
 
-	public void setPlanificado(Float planificado) {
+	public void setPlanificado(Double planificado) {
 		this.planificado = planificado;
 	}
 
-	public Float getPlanificado() {
+	public Double getPlanificado() {
 		return this.planificado;
 	}
 
-	public void setProducido(Float producido) {
+	public void setProducido(Double producido) {
 		this.producido = producido;
 	}
 
-	public Float getProducido() {
+	public Double getProducido() {
 		return this.producido;
 	}
 
@@ -444,11 +728,11 @@ public class Consumidor {
 		return this.grupo;
 	}
 
-	public void setEstado(Float estado) {
+	public void setEstado(Double estado) {
 		this.estado = estado;
 	}
 
-	public Float getEstado() {
+	public Double getEstado() {
 		return this.estado;
 	}
 
@@ -468,11 +752,11 @@ public class Consumidor {
 		return this.fechacreacion;
 	}
 
-	public void setEscarga(Float escarga) {
+	public void setEscarga(Double escarga) {
 		this.escarga = escarga;
 	}
 
-	public Float getEscarga() {
+	public Double getEscarga() {
 		return this.escarga;
 	}
 
@@ -500,19 +784,19 @@ public class Consumidor {
 		return this.regmtc;
 	}
 
-	public void setNroejes(Float nroejes) {
+	public void setNroejes(Double nroejes) {
 		this.nroejes = nroejes;
 	}
 
-	public Float getNroejes() {
+	public Double getNroejes() {
 		return this.nroejes;
 	}
 
-	public void setCargautil(Float cargautil) {
+	public void setCargautil(Double cargautil) {
 		this.cargautil = cargautil;
 	}
 
-	public Float getCargautil() {
+	public Double getCargautil() {
 		return this.cargautil;
 	}
 
@@ -524,19 +808,19 @@ public class Consumidor {
 		return this.tipovehiculo;
 	}
 
-	public void setAnio(Float anio) {
+	public void setAnio(Double anio) {
 		this.anio = anio;
 	}
 
-	public Float getAnio() {
+	public Double getAnio() {
 		return this.anio;
 	}
 
-	public void setKminicial(Float kminicial) {
+	public void setKminicial(Double kminicial) {
 		this.kminicial = kminicial;
 	}
 
-	public Float getKminicial() {
+	public Double getKminicial() {
 		return this.kminicial;
 	}
 
@@ -564,11 +848,11 @@ public class Consumidor {
 		return this.idserie;
 	}
 
-	public void setKilometros(Float kilometros) {
+	public void setKilometros(Double kilometros) {
 		this.kilometros = kilometros;
 	}
 
-	public Float getKilometros() {
+	public Double getKilometros() {
 		return this.kilometros;
 	}
 
@@ -596,27 +880,27 @@ public class Consumidor {
 		return this.codigo_control;
 	}
 
-	public void setEs_titulo(Float es_titulo) {
+	public void setEs_titulo(Double es_titulo) {
 		this.es_titulo = es_titulo;
 	}
 
-	public Float getEs_titulo() {
+	public Double getEs_titulo() {
 		return this.es_titulo;
 	}
 
-	public void setGastoxactividad(Float gastoxactividad) {
+	public void setGastoxactividad(Double gastoxactividad) {
 		this.gastoxactividad = gastoxactividad;
 	}
 
-	public Float getGastoxactividad() {
+	public Double getGastoxactividad() {
 		return this.gastoxactividad;
 	}
 
-	public void setFinal(Float final_) {
+	public void setFinal(Double final_) {
 		this.final_ = final_;
 	}
 
-	public Float getFinal() {
+	public Double getFinal() {
 		return this.final_;
 	}
 
@@ -644,59 +928,59 @@ public class Consumidor {
 		return this.cuenta_destino;
 	}
 
-	public void setIdactividad(Float idactividad) {
+	public void setIdactividad(Double idactividad) {
 		this.idactividad = idactividad;
 	}
 
-	public Float getIdactividad() {
+	public Double getIdactividad() {
 		return this.idactividad;
 	}
 
-	public void setIdsiembra(Float idsiembra) {
+	public void setIdsiembra(Double idsiembra) {
 		this.idsiembra = idsiembra;
 	}
 
-	public Float getIdsiembra() {
+	public Double getIdsiembra() {
 		return this.idsiembra;
 	}
 
-	public void setIdcampana(Float idcampana) {
+	public void setIdcampana(Double idcampana) {
 		this.idcampana = idcampana;
 	}
 
-	public Float getIdcampana() {
+	public Double getIdcampana() {
 		return this.idcampana;
 	}
 
-	public void setIdordenproduccion(Float idordenproduccion) {
+	public void setIdordenproduccion(Double idordenproduccion) {
 		this.idordenproduccion = idordenproduccion;
 	}
 
-	public Float getIdordenproduccion() {
+	public Double getIdordenproduccion() {
 		return this.idordenproduccion;
 	}
 
-	public void setIdloteproduccion(Float idloteproduccion) {
+	public void setIdloteproduccion(Double idloteproduccion) {
 		this.idloteproduccion = idloteproduccion;
 	}
 
-	public Float getIdloteproduccion() {
+	public Double getIdloteproduccion() {
 		return this.idloteproduccion;
 	}
 
-	public void setCreacc(Float creacc) {
+	public void setCreacc(Double creacc) {
 		this.creacc = creacc;
 	}
 
-	public Float getCreacc() {
+	public Double getCreacc() {
 		return this.creacc;
 	}
 
-	public void setEs_produccion(Float es_produccion) {
+	public void setEs_produccion(Double es_produccion) {
 		this.es_produccion = es_produccion;
 	}
 
-	public Float getEs_produccion() {
+	public Double getEs_produccion() {
 		return this.es_produccion;
 	}
 
@@ -708,19 +992,19 @@ public class Consumidor {
 		return this.codigo_lotizar;
 	}
 
-	public void setVventa_mof(Float vventa_mof) {
+	public void setVventa_mof(Double vventa_mof) {
 		this.vventa_mof = vventa_mof;
 	}
 
-	public Float getVventa_mof() {
+	public Double getVventa_mof() {
 		return this.vventa_mof;
 	}
 
-	public void setVventa_mex(Float vventa_mex) {
+	public void setVventa_mex(Double vventa_mex) {
 		this.vventa_mex = vventa_mex;
 	}
 
-	public Float getVventa_mex() {
+	public Double getVventa_mex() {
 		return this.vventa_mex;
 	}
 
@@ -772,11 +1056,11 @@ public class Consumidor {
 		return this.idcuentaa_pp;
 	}
 
-	public void setTipo_costeo(Float tipo_costeo) {
+	public void setTipo_costeo(Double tipo_costeo) {
 		this.tipo_costeo = tipo_costeo;
 	}
 
-	public Float getTipo_costeo() {
+	public Double getTipo_costeo() {
 		return this.tipo_costeo;
 	}
 
@@ -828,35 +1112,35 @@ public class Consumidor {
 		return this.idfactordistribucion;
 	}
 
-	public void setCostoha_mex(Float costoha_mex) {
+	public void setCostoha_mex(Double costoha_mex) {
 		this.costoha_mex = costoha_mex;
 	}
 
-	public Float getCostoha_mex() {
+	public Double getCostoha_mex() {
 		return this.costoha_mex;
 	}
 
-	public void setCostoha_mof(Float costoha_mof) {
+	public void setCostoha_mof(Double costoha_mof) {
 		this.costoha_mof = costoha_mof;
 	}
 
-	public Float getCostoha_mof() {
+	public Double getCostoha_mof() {
 		return this.costoha_mof;
 	}
 
-	public void setDistr_costofinal(Float distr_costofinal) {
+	public void setDistr_costofinal(Double distr_costofinal) {
 		this.distr_costofinal = distr_costofinal;
 	}
 
-	public Float getDistr_costofinal() {
+	public Double getDistr_costofinal() {
 		return this.distr_costofinal;
 	}
 
-	public void setEsxperiodo(Float esxperiodo) {
+	public void setEsxperiodo(Double esxperiodo) {
 		this.esxperiodo = esxperiodo;
 	}
 
-	public Float getEsxperiodo() {
+	public Double getEsxperiodo() {
 		return this.esxperiodo;
 	}
 
@@ -884,19 +1168,19 @@ public class Consumidor {
 		return this.tipo_costo;
 	}
 
-	public void setIdparteproduccion(Float idparteproduccion) {
+	public void setIdparteproduccion(Double idparteproduccion) {
 		this.idparteproduccion = idparteproduccion;
 	}
 
-	public Float getIdparteproduccion() {
+	public Double getIdparteproduccion() {
 		return this.idparteproduccion;
 	}
 
-	public void setAlgoritmoprecio(Float algoritmoprecio) {
+	public void setAlgoritmoprecio(Double algoritmoprecio) {
 		this.algoritmoprecio = algoritmoprecio;
 	}
 
-	public Float getAlgoritmoprecio() {
+	public Double getAlgoritmoprecio() {
 		return this.algoritmoprecio;
 	}
 
@@ -916,35 +1200,35 @@ public class Consumidor {
 		return this.idmedida;
 	}
 
-	public void setDescarga(Float descarga) {
+	public void setDescarga(Double descarga) {
 		this.descarga = descarga;
 	}
 
-	public Float getDescarga() {
+	public Double getDescarga() {
 		return this.descarga;
 	}
 
-	public void setEsvehtercero(Float esvehtercero) {
+	public void setEsvehtercero(Double esvehtercero) {
 		this.esvehtercero = esvehtercero;
 	}
 
-	public Float getEsvehtercero() {
+	public Double getEsvehtercero() {
 		return this.esvehtercero;
 	}
 
-	public void setGenera_viajet(Float genera_viajet) {
+	public void setGenera_viajet(Double genera_viajet) {
 		this.genera_viajet = genera_viajet;
 	}
 
-	public Float getGenera_viajet() {
+	public Double getGenera_viajet() {
 		return this.genera_viajet;
 	}
 
-	public void setGenera_remtransportista(Float genera_remtransportista) {
+	public void setGenera_remtransportista(Double genera_remtransportista) {
 		this.genera_remtransportista = genera_remtransportista;
 	}
 
-	public Float getGenera_remtransportista() {
+	public Double getGenera_remtransportista() {
 		return this.genera_remtransportista;
 	}
 
@@ -964,11 +1248,11 @@ public class Consumidor {
 		return this.idremtransportista;
 	}
 
-	public void setNrv_asignacion(Float nrv_asignacion) {
+	public void setNrv_asignacion(Double nrv_asignacion) {
 		this.nrv_asignacion = nrv_asignacion;
 	}
 
-	public Float getNrv_asignacion() {
+	public Double getNrv_asignacion() {
 		return this.nrv_asignacion;
 	}
 
@@ -980,11 +1264,11 @@ public class Consumidor {
 		return this.growercode;
 	}
 
-	public void setVer_transformacion(Float ver_transformacion) {
+	public void setVer_transformacion(Double ver_transformacion) {
 		this.ver_transformacion = ver_transformacion;
 	}
 
-	public Float getVer_transformacion() {
+	public Double getVer_transformacion() {
 		return this.ver_transformacion;
 	}
 
@@ -996,11 +1280,11 @@ public class Consumidor {
 		return this.idcuenta_cp;
 	}
 
-	public void setCapacidad(Float capacidad) {
+	public void setCapacidad(Double capacidad) {
 		this.capacidad = capacidad;
 	}
 
-	public Float getCapacidad() {
+	public Double getCapacidad() {
 		return this.capacidad;
 	}
 
@@ -1028,11 +1312,11 @@ public class Consumidor {
 		return this.idclieprov_vehtercero;
 	}
 
-	public void setEs_servicio(Float es_servicio) {
+	public void setEs_servicio(Double es_servicio) {
 		this.es_servicio = es_servicio;
 	}
 
-	public Float getEs_servicio() {
+	public Double getEs_servicio() {
 		return this.es_servicio;
 	}
 
@@ -1044,27 +1328,27 @@ public class Consumidor {
 		return this.idcuentadiv9;
 	}
 
-	public void setEsalquilado(Float esalquilado) {
+	public void setEsalquilado(Double esalquilado) {
 		this.esalquilado = esalquilado;
 	}
 
-	public Float getEsalquilado() {
+	public Double getEsalquilado() {
 		return this.esalquilado;
 	}
 
-	public void setNo_participadistribucion(Float no_participadistribucion) {
+	public void setNo_participadistribucion(Double no_participadistribucion) {
 		this.no_participadistribucion = no_participadistribucion;
 	}
 
-	public Float getNo_participadistribucion() {
+	public Double getNo_participadistribucion() {
 		return this.no_participadistribucion;
 	}
 
-	public void setEs_mantenimiento(Float es_mantenimiento) {
+	public void setEs_mantenimiento(Double es_mantenimiento) {
 		this.es_mantenimiento = es_mantenimiento;
 	}
 
-	public Float getEs_mantenimiento() {
+	public Double getEs_mantenimiento() {
 		return this.es_mantenimiento;
 	}
 
@@ -1076,11 +1360,11 @@ public class Consumidor {
 		return this.idgrupo_maq;
 	}
 
-	public void setDistribucion_dwh(Float distribucion_dwh) {
+	public void setDistribucion_dwh(Double distribucion_dwh) {
 		this.distribucion_dwh = distribucion_dwh;
 	}
 
-	public Float getDistribucion_dwh() {
+	public Double getDistribucion_dwh() {
 		return this.distribucion_dwh;
 	}
 
@@ -1100,19 +1384,19 @@ public class Consumidor {
 		return this.idsubsectorconsumidor;
 	}
 
-	public void setEs_cosecha(Float es_cosecha) {
+	public void setEs_cosecha(Double es_cosecha) {
 		this.es_cosecha = es_cosecha;
 	}
 
-	public Float getEs_cosecha() {
+	public Double getEs_cosecha() {
 		return this.es_cosecha;
 	}
 
-	public void setCapacidad_tanque(Float capacidad_tanque) {
+	public void setCapacidad_tanque(Double capacidad_tanque) {
 		this.capacidad_tanque = capacidad_tanque;
 	}
 
-	public Float getCapacidad_tanque() {
+	public Double getCapacidad_tanque() {
 		return this.capacidad_tanque;
 	}
 
@@ -1148,27 +1432,27 @@ public class Consumidor {
 		return this.idctaactivo;
 	}
 
-	public void setEs_reproceso(Float es_reproceso) {
+	public void setEs_reproceso(Double es_reproceso) {
 		this.es_reproceso = es_reproceso;
 	}
 
-	public Float getEs_reproceso() {
+	public Double getEs_reproceso() {
 		return this.es_reproceso;
 	}
 
-	public void setEs_reempaque(Float es_reempaque) {
+	public void setEs_reempaque(Double es_reempaque) {
 		this.es_reempaque = es_reempaque;
 	}
 
-	public Float getEs_reempaque() {
+	public Double getEs_reempaque() {
 		return this.es_reempaque;
 	}
 
-	public void setEs_avicola(Float es_avicola) {
+	public void setEs_avicola(Double es_avicola) {
 		this.es_avicola = es_avicola;
 	}
 
-	public Float getEs_avicola() {
+	public Double getEs_avicola() {
 		return this.es_avicola;
 	}
 
@@ -1180,11 +1464,11 @@ public class Consumidor {
 		return this.tipo_presupuesto;
 	}
 
-	public void setEs_empaque(Float es_empaque) {
+	public void setEs_empaque(Double es_empaque) {
 		this.es_empaque = es_empaque;
 	}
 
-	public Float getEs_empaque() {
+	public Double getEs_empaque() {
 		return this.es_empaque;
 	}
 
@@ -1196,27 +1480,27 @@ public class Consumidor {
 		return this.idconsumidor_spring;
 	}
 
-	public void setEs_lote_campo(Float es_lote_campo) {
+	public void setEs_lote_campo(Double es_lote_campo) {
 		this.es_lote_campo = es_lote_campo;
 	}
 
-	public Float getEs_lote_campo() {
+	public Double getEs_lote_campo() {
 		return this.es_lote_campo;
 	}
 
-	public void setEs_secado(Float es_secado) {
+	public void setEs_secado(Double es_secado) {
 		this.es_secado = es_secado;
 	}
 
-	public Float getEs_secado() {
+	public Double getEs_secado() {
 		return this.es_secado;
 	}
 
-	public void setCertificado(Float certificado) {
+	public void setCertificado(Double certificado) {
 		this.certificado = certificado;
 	}
 
-	public Float getCertificado() {
+	public Double getCertificado() {
 		return this.certificado;
 	}
 
@@ -1236,35 +1520,35 @@ public class Consumidor {
 		return this.codigo_parcela;
 	}
 
-	public void setCostokm_mof(Float costokm_mof) {
+	public void setCostokm_mof(Double costokm_mof) {
 		this.costokm_mof = costokm_mof;
 	}
 
-	public Float getCostokm_mof() {
+	public Double getCostokm_mof() {
 		return this.costokm_mof;
 	}
 
-	public void setCostokm_mex(Float costokm_mex) {
+	public void setCostokm_mex(Double costokm_mex) {
 		this.costokm_mex = costokm_mex;
 	}
 
-	public Float getCostokm_mex() {
+	public Double getCostokm_mex() {
 		return this.costokm_mex;
 	}
 
-	public void setCostodia_mof(Float costodia_mof) {
+	public void setCostodia_mof(Double costodia_mof) {
 		this.costodia_mof = costodia_mof;
 	}
 
-	public Float getCostodia_mof() {
+	public Double getCostodia_mof() {
 		return this.costodia_mof;
 	}
 
-	public void setCostodia_mex(Float costodia_mex) {
+	public void setCostodia_mex(Double costodia_mex) {
 		this.costodia_mex = costodia_mex;
 	}
 
-	public Float getCostodia_mex() {
+	public Double getCostodia_mex() {
 		return this.costodia_mex;
 	}
 
@@ -1300,27 +1584,27 @@ public class Consumidor {
 		return this.idmedida_maq;
 	}
 
-	public void setCapacidad_maq(Float capacidad_maq) {
+	public void setCapacidad_maq(Double capacidad_maq) {
 		this.capacidad_maq = capacidad_maq;
 	}
 
-	public Float getCapacidad_maq() {
+	public Double getCapacidad_maq() {
 		return this.capacidad_maq;
 	}
 
-	public void setVventa_um_mof(Float vventa_um_mof) {
+	public void setVventa_um_mof(Double vventa_um_mof) {
 		this.vventa_um_mof = vventa_um_mof;
 	}
 
-	public Float getVventa_um_mof() {
+	public Double getVventa_um_mof() {
 		return this.vventa_um_mof;
 	}
 
-	public void setVventa_um_mex(Float vventa_um_mex) {
+	public void setVventa_um_mex(Double vventa_um_mex) {
 		this.vventa_um_mex = vventa_um_mex;
 	}
 
-	public Float getVventa_um_mex() {
+	public Double getVventa_um_mex() {
 		return this.vventa_um_mex;
 	}
 
@@ -1332,27 +1616,27 @@ public class Consumidor {
 		return this.tipo_registro_parte;
 	}
 
-	public void setVer_digitacion(Float ver_digitacion) {
+	public void setVer_digitacion(Double ver_digitacion) {
 		this.ver_digitacion = ver_digitacion;
 	}
 
-	public Float getVer_digitacion() {
+	public Double getVer_digitacion() {
 		return this.ver_digitacion;
 	}
 
-	public void setEs_lote_vivero(Float es_lote_vivero) {
+	public void setEs_lote_vivero(Double es_lote_vivero) {
 		this.es_lote_vivero = es_lote_vivero;
 	}
 
-	public Float getEs_lote_vivero() {
+	public Double getEs_lote_vivero() {
 		return this.es_lote_vivero;
 	}
 
-	public void setFn_distr_var1_m2(Float fn_distr_var1_m2) {
+	public void setFn_distr_var1_m2(Double fn_distr_var1_m2) {
 		this.fn_distr_var1_m2 = fn_distr_var1_m2;
 	}
 
-	public Float getFn_distr_var1_m2() {
+	public Double getFn_distr_var1_m2() {
 		return this.fn_distr_var1_m2;
 	}
 

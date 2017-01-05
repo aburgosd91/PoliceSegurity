@@ -1,40 +1,59 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "DOCREFERENCIA")
 @XStreamAlias("DOCREFERENCIA")
-public class Docreferencia {
-	private String idbasedatos;
-	
-	@XStreamAlias("IDEMPRESA")
-	private String idempresa;
-	
-	@XStreamAlias("IDORIGEN")
-	private String idorigen;
-	
-	@XStreamAlias("TABLA")
-	private String tabla;
-	
-	@XStreamAlias("IDREFERENCIA")
-	private String idreferencia;
-	
-	@XStreamAlias("IDDOCUMENTO")
-	private String iddocumento;
-	
-	@XStreamAlias("SERIE")
-	private String serie;
-	
-	@XStreamAlias("NUMERO")
-	private String numero;
-	
-	@XStreamAlias("FECHA")
+
+public class Docreferencia implements Serializable {
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@Columna
+	@SerializedName("idorigen") 
+	@XStreamAlias("idorigen") 
+	private String idorigen = "" ;
+	@Columna
+	@SerializedName("tabla") 
+	@XStreamAlias("tabla") 
+	private String tabla = "" ;
+	@Columna
+	@SerializedName("idreferencia") 
+	@XStreamAlias("idreferencia") 
+	private String idreferencia = "" ;
+	@Columna
+	@SerializedName("iddocumento") 
+	@XStreamAlias("iddocumento") 
+	private String iddocumento = "" ;
+	@Columna
+	@SerializedName("serie") 
+	@XStreamAlias("serie") 
+	private String serie = "" ;
+	@Columna
+	@SerializedName("numero") 
+	@XStreamAlias("numero") 
+	private String numero = "" ;
+	@Columna
+	@SerializedName("fecha") 
+	@XStreamAlias("fecha") 
 	private Date fecha;
-	
-	@XStreamAlias("EXONERADO")
-	private Float exonerado;
-	
-	@XStreamAlias("ARCHIVAR")
-	private Float archivar;
+	@Columna
+	@SerializedName("exonerado") 
+	@XStreamAlias("exonerado") 
+	private Double exonerado = 0.00 ;
+	@Columna
+	@SerializedName("archivar") 
+	@XStreamAlias("archivar") 
+	private Double archivar = 0.00 ;
 
 
 
@@ -103,38 +122,24 @@ public class Docreferencia {
 		return this.fecha;
 	}
 
-	public void setExonerado(Float exonerado) {
+	public void setExonerado(Double exonerado) {
 		this.exonerado = exonerado;
 	}
 
-	public Float getExonerado() {
+	public Double getExonerado() {
 		return this.exonerado;
 	}
 
-	public void setArchivar(Float archivar) {
+	public void setArchivar(Double archivar) {
 		this.archivar = archivar;
 	}
 
-	public Float getArchivar() {
+	public Double getArchivar() {
 		return this.archivar;
 	}
 
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

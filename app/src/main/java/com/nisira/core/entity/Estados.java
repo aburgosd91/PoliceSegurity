@@ -1,25 +1,52 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Estados {
-	private String idbasedatos;
-	
-	private String idestado;
-	
-	private String descripcion;
-	
-	private Float orden;
-	
-	private Float verflujo;
-	
-	private String accion;
-	
-	private String sincroniza;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "ESTADOS")
+@XStreamAlias("ESTADOS")
+
+public class Estados implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idestado") 
+	@XStreamAlias("idestado") 
+	private String idestado = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("orden") 
+	@XStreamAlias("orden") 
+	private Double orden = 0.00 ;
+	@Columna
+	@SerializedName("verflujo") 
+	@XStreamAlias("verflujo") 
+	private Double verflujo = 0.00 ;
+	@Columna
+	@SerializedName("accion") 
+	@XStreamAlias("accion") 
+	private String accion = "" ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private String color;
+	@Columna
+	@SerializedName("color") 
+	@XStreamAlias("color") 
+	private String color = "" ;
 
 
 
@@ -40,19 +67,19 @@ public class Estados {
 		return this.descripcion;
 	}
 
-	public void setOrden(Float orden) {
+	public void setOrden(Double orden) {
 		this.orden = orden;
 	}
 
-	public Float getOrden() {
+	public Double getOrden() {
 		return this.orden;
 	}
 
-	public void setVerflujo(Float verflujo) {
+	public void setVerflujo(Double verflujo) {
 		this.verflujo = verflujo;
 	}
 
-	public Float getVerflujo() {
+	public Double getVerflujo() {
 		return this.verflujo;
 	}
 
@@ -91,19 +118,5 @@ public class Estados {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

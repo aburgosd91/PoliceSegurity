@@ -1,41 +1,53 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "DORDENSERVICIOCLIENTE")
 @XStreamAlias("DORDENSERVICIOCLIENTE")
-public class Dordenserviciocliente {
-	
-	@XStreamAlias("IDEMPRESA")
-	private String idempresa;
-	
-	@XStreamAlias("IDORDENSERVICIO")
-	private String idordenservicio;
-	
-	@XStreamAlias("ITEM")
-	private String item;
-	
-	@XStreamAlias("IDVEHICULO")
-	private String idvehiculo;
-	
-	@XStreamAlias("PLACA_CLIENTE")
-	private String placa_cliente;
-	
-	@XStreamAlias("HORA_REQ")
-	private Float hora_req;
-	
-	@XStreamAlias("FECHA_FIN_SERVICIO")
+
+public class Dordenserviciocliente implements Serializable {
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@Columna
+	@SerializedName("idordenservicio") 
+	@XStreamAlias("idordenservicio") 
+	private String idordenservicio = "" ;
+	@Columna
+	@SerializedName("item") 
+	@XStreamAlias("item") 
+	private String item = "" ;
+	@Columna
+	@SerializedName("idvehiculo") 
+	@XStreamAlias("idvehiculo") 
+	private String idvehiculo = "" ;
+	@Columna
+	@SerializedName("placa_cliente") 
+	@XStreamAlias("placa_cliente") 
+	private String placa_cliente = "" ;
+	@Columna
+	@SerializedName("hora_req") 
+	@XStreamAlias("hora_req") 
+	private Double hora_req = 0.00 ;
+	@Columna
+	@SerializedName("fecha_fin_servicio") 
+	@XStreamAlias("fecha_fin_servicio") 
 	private Date fecha_fin_servicio;
-	
-	@XStreamAlias("FECHACREACION")
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-        
-	@XStreamAlias("IDREFERENCIA")
-	private String idreferencia;
-	
-	@XStreamAlias("ITEMREFERENCIA")
-	private String itemreferencia;
-	private String vehiculo;
-	private Date hora_reqConvert;
+
+
 
 	/* Sets & Gets */
 	public void setIdempresa(String idempresa) {
@@ -78,11 +90,11 @@ public class Dordenserviciocliente {
 		return this.placa_cliente;
 	}
 
-	public void setHora_req(Float hora_req) {
+	public void setHora_req(Double hora_req) {
 		this.hora_req = hora_req;
 	}
 
-	public Float getHora_req() {
+	public Double getHora_req() {
 		return this.hora_req;
 	}
 
@@ -105,61 +117,5 @@ public class Dordenserviciocliente {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the vehiculo
-     */
-    public String getVehiculo() {
-        return vehiculo;
-    }
-
-    /**
-     * @param vehiculo the vehiculo to set
-     */
-    public void setVehiculo(String vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    /**
-     * @return the hora_reqConvert
-     */
-    public Date getHora_reqConvert() {
-        return hora_reqConvert;
-    }
-
-    /**
-     * @param hora_reqConvert the hora_reqConvert to set
-     */
-    public void setHora_reqConvert(Date hora_reqConvert) {
-        this.hora_reqConvert = hora_reqConvert;
-    }
-
-    /**
-     * @return the idreferencia
-     */
-    public String getIdreferencia() {
-        return idreferencia;
-    }
-
-    /**
-     * @param idreferencia the idreferencia to set
-     */
-    public void setIdreferencia(String idreferencia) {
-        this.idreferencia = idreferencia;
-    }
-
-    /**
-     * @return the itemreferencia
-     */
-    public String getItemreferencia() {
-        return itemreferencia;
-    }
-
-    /**
-     * @param itemreferencia the itemreferencia to set
-     */
-    public void setItemreferencia(String itemreferencia) {
-        this.itemreferencia = itemreferencia;
-    }
 
 }

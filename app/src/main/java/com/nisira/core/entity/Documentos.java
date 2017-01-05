@@ -1,78 +1,157 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
-public class Documentos {
+@Tabla(nombre = "DOCUMENTOS")
+@XStreamAlias("DOCUMENTOS")
 
-	private String idbasedatos;
-
-	private String idempresa;
-
-	private String iddocumento;
-	
-	private String descripcion;
-	
-	private String codigo_sunat;
-	
-	private Float es_honorarios;
-	
-	private Float es_importacion;
-	
-	private Float incluir_cronograma;
-	
-	private Float pide_referencia;
-	
-	private String registrar_en;
-	
-	private Float estado;
-	
-	private String sincroniza;
-	
+public class Documentos implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("iddocumento") 
+	@XStreamAlias("iddocumento") 
+	private String iddocumento = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("codigo_sunat") 
+	@XStreamAlias("codigo_sunat") 
+	private String codigo_sunat = "" ;
+	@Columna
+	@SerializedName("es_honorarios") 
+	@XStreamAlias("es_honorarios") 
+	private Double es_honorarios = 0.00 ;
+	@Columna
+	@SerializedName("es_importacion") 
+	@XStreamAlias("es_importacion") 
+	private Double es_importacion = 0.00 ;
+	@Columna
+	@SerializedName("incluir_cronograma") 
+	@XStreamAlias("incluir_cronograma") 
+	private Double incluir_cronograma = 0.00 ;
+	@Columna
+	@SerializedName("pide_referencia") 
+	@XStreamAlias("pide_referencia") 
+	private Double pide_referencia = 0.00 ;
+	@Columna
+	@SerializedName("registrar_en") 
+	@XStreamAlias("registrar_en") 
+	private String registrar_en = "" ;
+	@Columna
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
+	private Double estado = 0.00 ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private Float factor;
-	
-	private Float incluir_igv;
-	
-	private String mostrar_en;
-	
-	private Float retener_igv;
-	
-	private Float es_4ta5ta;
-	
-	private Float num_grande;
-	
-	private Float es_rrhh;
-	
-	private Float retener_odoc;
-	
-	private Float solo_impuesto;
-	
-	private Float sin_igv;
-	
-	private Float pide_doccompra;
-	
-	private String idregistro_sunat;
-	
-	private Float para_declaracion;
-	
-	private Float es_leasing;
-	
-	private Float es_nodomiciliado;
-	
-	private Float es_noemitido;
-	
-	private Float es_electronico;
-	
-	private String inicial_docelectronico;
-	
-	private Float incluir_docan_compra_le;
-	
-	private String idtipotitulo_sunat;
-	
-	private Float es_dieta;
-	
-	private Float para_ppago;
+	@Columna
+	@SerializedName("factor") 
+	@XStreamAlias("factor") 
+	private Double factor = 0.00 ;
+	@Columna
+	@SerializedName("incluir_igv") 
+	@XStreamAlias("incluir_igv") 
+	private Double incluir_igv = 0.00 ;
+	@Columna
+	@SerializedName("mostrar_en") 
+	@XStreamAlias("mostrar_en") 
+	private String mostrar_en = "" ;
+	@Columna
+	@SerializedName("retener_igv") 
+	@XStreamAlias("retener_igv") 
+	private Double retener_igv = 0.00 ;
+	@Columna
+	@SerializedName("es_4ta5ta") 
+	@XStreamAlias("es_4ta5ta") 
+	private Double es_4ta5ta = 0.00 ;
+	@Columna
+	@SerializedName("num_grande") 
+	@XStreamAlias("num_grande") 
+	private Double num_grande = 0.00 ;
+	@Columna
+	@SerializedName("es_rrhh") 
+	@XStreamAlias("es_rrhh") 
+	private Double es_rrhh = 0.00 ;
+	@Columna
+	@SerializedName("retener_odoc") 
+	@XStreamAlias("retener_odoc") 
+	private Double retener_odoc = 0.00 ;
+	@Columna
+	@SerializedName("solo_impuesto") 
+	@XStreamAlias("solo_impuesto") 
+	private Double solo_impuesto = 0.00 ;
+	@Columna
+	@SerializedName("sin_igv") 
+	@XStreamAlias("sin_igv") 
+	private Double sin_igv = 0.00 ;
+	@Columna
+	@SerializedName("pide_doccompra") 
+	@XStreamAlias("pide_doccompra") 
+	private Double pide_doccompra = 0.00 ;
+	@Columna
+	@SerializedName("idregistro_sunat") 
+	@XStreamAlias("idregistro_sunat") 
+	private String idregistro_sunat = "" ;
+	@Columna
+	@SerializedName("para_declaracion") 
+	@XStreamAlias("para_declaracion") 
+	private Double para_declaracion = 0.00 ;
+	@Columna
+	@SerializedName("es_leasing") 
+	@XStreamAlias("es_leasing") 
+	private Double es_leasing = 0.00 ;
+	@Columna
+	@SerializedName("es_nodomiciliado") 
+	@XStreamAlias("es_nodomiciliado") 
+	private Double es_nodomiciliado = 0.00 ;
+	@Columna
+	@SerializedName("es_noemitido") 
+	@XStreamAlias("es_noemitido") 
+	private Double es_noemitido = 0.00 ;
+	@Columna
+	@SerializedName("es_electronico") 
+	@XStreamAlias("es_electronico") 
+	private Double es_electronico = 0.00 ;
+	@Columna
+	@SerializedName("inicial_docelectronico") 
+	@XStreamAlias("inicial_docelectronico") 
+	private String inicial_docelectronico = "" ;
+	@Columna
+	@SerializedName("incluir_docan_compra_le") 
+	@XStreamAlias("incluir_docan_compra_le") 
+	private Double incluir_docan_compra_le = 0.00 ;
+	@Columna
+	@SerializedName("idtipotitulo_sunat") 
+	@XStreamAlias("idtipotitulo_sunat") 
+	private String idtipotitulo_sunat = "" ;
+	@Columna
+	@SerializedName("es_dieta") 
+	@XStreamAlias("es_dieta") 
+	private Double es_dieta = 0.00 ;
+	@Columna
+	@SerializedName("para_ppago") 
+	@XStreamAlias("para_ppago") 
+	private Double para_ppago = 0.00 ;
 
 
 
@@ -109,35 +188,35 @@ public class Documentos {
 		return this.codigo_sunat;
 	}
 
-	public void setEs_honorarios(Float es_honorarios) {
+	public void setEs_honorarios(Double es_honorarios) {
 		this.es_honorarios = es_honorarios;
 	}
 
-	public Float getEs_honorarios() {
+	public Double getEs_honorarios() {
 		return this.es_honorarios;
 	}
 
-	public void setEs_importacion(Float es_importacion) {
+	public void setEs_importacion(Double es_importacion) {
 		this.es_importacion = es_importacion;
 	}
 
-	public Float getEs_importacion() {
+	public Double getEs_importacion() {
 		return this.es_importacion;
 	}
 
-	public void setIncluir_cronograma(Float incluir_cronograma) {
+	public void setIncluir_cronograma(Double incluir_cronograma) {
 		this.incluir_cronograma = incluir_cronograma;
 	}
 
-	public Float getIncluir_cronograma() {
+	public Double getIncluir_cronograma() {
 		return this.incluir_cronograma;
 	}
 
-	public void setPide_referencia(Float pide_referencia) {
+	public void setPide_referencia(Double pide_referencia) {
 		this.pide_referencia = pide_referencia;
 	}
 
-	public Float getPide_referencia() {
+	public Double getPide_referencia() {
 		return this.pide_referencia;
 	}
 
@@ -149,11 +228,11 @@ public class Documentos {
 		return this.registrar_en;
 	}
 
-	public void setEstado(Float estado) {
+	public void setEstado(Double estado) {
 		this.estado = estado;
 	}
 
-	public Float getEstado() {
+	public Double getEstado() {
 		return this.estado;
 	}
 
@@ -173,19 +252,19 @@ public class Documentos {
 		return this.fechacreacion;
 	}
 
-	public void setFactor(Float factor) {
+	public void setFactor(Double factor) {
 		this.factor = factor;
 	}
 
-	public Float getFactor() {
+	public Double getFactor() {
 		return this.factor;
 	}
 
-	public void setIncluir_igv(Float incluir_igv) {
+	public void setIncluir_igv(Double incluir_igv) {
 		this.incluir_igv = incluir_igv;
 	}
 
-	public Float getIncluir_igv() {
+	public Double getIncluir_igv() {
 		return this.incluir_igv;
 	}
 
@@ -197,67 +276,67 @@ public class Documentos {
 		return this.mostrar_en;
 	}
 
-	public void setRetener_igv(Float retener_igv) {
+	public void setRetener_igv(Double retener_igv) {
 		this.retener_igv = retener_igv;
 	}
 
-	public Float getRetener_igv() {
+	public Double getRetener_igv() {
 		return this.retener_igv;
 	}
 
-	public void setEs_4ta5ta(Float es_4ta5ta) {
+	public void setEs_4ta5ta(Double es_4ta5ta) {
 		this.es_4ta5ta = es_4ta5ta;
 	}
 
-	public Float getEs_4ta5ta() {
+	public Double getEs_4ta5ta() {
 		return this.es_4ta5ta;
 	}
 
-	public void setNum_grande(Float num_grande) {
+	public void setNum_grande(Double num_grande) {
 		this.num_grande = num_grande;
 	}
 
-	public Float getNum_grande() {
+	public Double getNum_grande() {
 		return this.num_grande;
 	}
 
-	public void setEs_rrhh(Float es_rrhh) {
+	public void setEs_rrhh(Double es_rrhh) {
 		this.es_rrhh = es_rrhh;
 	}
 
-	public Float getEs_rrhh() {
+	public Double getEs_rrhh() {
 		return this.es_rrhh;
 	}
 
-	public void setRetener_odoc(Float retener_odoc) {
+	public void setRetener_odoc(Double retener_odoc) {
 		this.retener_odoc = retener_odoc;
 	}
 
-	public Float getRetener_odoc() {
+	public Double getRetener_odoc() {
 		return this.retener_odoc;
 	}
 
-	public void setSolo_impuesto(Float solo_impuesto) {
+	public void setSolo_impuesto(Double solo_impuesto) {
 		this.solo_impuesto = solo_impuesto;
 	}
 
-	public Float getSolo_impuesto() {
+	public Double getSolo_impuesto() {
 		return this.solo_impuesto;
 	}
 
-	public void setSin_igv(Float sin_igv) {
+	public void setSin_igv(Double sin_igv) {
 		this.sin_igv = sin_igv;
 	}
 
-	public Float getSin_igv() {
+	public Double getSin_igv() {
 		return this.sin_igv;
 	}
 
-	public void setPide_doccompra(Float pide_doccompra) {
+	public void setPide_doccompra(Double pide_doccompra) {
 		this.pide_doccompra = pide_doccompra;
 	}
 
-	public Float getPide_doccompra() {
+	public Double getPide_doccompra() {
 		return this.pide_doccompra;
 	}
 
@@ -269,43 +348,43 @@ public class Documentos {
 		return this.idregistro_sunat;
 	}
 
-	public void setPara_declaracion(Float para_declaracion) {
+	public void setPara_declaracion(Double para_declaracion) {
 		this.para_declaracion = para_declaracion;
 	}
 
-	public Float getPara_declaracion() {
+	public Double getPara_declaracion() {
 		return this.para_declaracion;
 	}
 
-	public void setEs_leasing(Float es_leasing) {
+	public void setEs_leasing(Double es_leasing) {
 		this.es_leasing = es_leasing;
 	}
 
-	public Float getEs_leasing() {
+	public Double getEs_leasing() {
 		return this.es_leasing;
 	}
 
-	public void setEs_nodomiciliado(Float es_nodomiciliado) {
+	public void setEs_nodomiciliado(Double es_nodomiciliado) {
 		this.es_nodomiciliado = es_nodomiciliado;
 	}
 
-	public Float getEs_nodomiciliado() {
+	public Double getEs_nodomiciliado() {
 		return this.es_nodomiciliado;
 	}
 
-	public void setEs_noemitido(Float es_noemitido) {
+	public void setEs_noemitido(Double es_noemitido) {
 		this.es_noemitido = es_noemitido;
 	}
 
-	public Float getEs_noemitido() {
+	public Double getEs_noemitido() {
 		return this.es_noemitido;
 	}
 
-	public void setEs_electronico(Float es_electronico) {
+	public void setEs_electronico(Double es_electronico) {
 		this.es_electronico = es_electronico;
 	}
 
-	public Float getEs_electronico() {
+	public Double getEs_electronico() {
 		return this.es_electronico;
 	}
 
@@ -317,11 +396,11 @@ public class Documentos {
 		return this.inicial_docelectronico;
 	}
 
-	public void setIncluir_docan_compra_le(Float incluir_docan_compra_le) {
+	public void setIncluir_docan_compra_le(Double incluir_docan_compra_le) {
 		this.incluir_docan_compra_le = incluir_docan_compra_le;
 	}
 
-	public Float getIncluir_docan_compra_le() {
+	public Double getIncluir_docan_compra_le() {
 		return this.incluir_docan_compra_le;
 	}
 
@@ -333,38 +412,24 @@ public class Documentos {
 		return this.idtipotitulo_sunat;
 	}
 
-	public void setEs_dieta(Float es_dieta) {
+	public void setEs_dieta(Double es_dieta) {
 		this.es_dieta = es_dieta;
 	}
 
-	public Float getEs_dieta() {
+	public Double getEs_dieta() {
 		return this.es_dieta;
 	}
 
-	public void setPara_ppago(Float para_ppago) {
+	public void setPara_ppago(Double para_ppago) {
 		this.para_ppago = para_ppago;
 	}
 
-	public Float getPara_ppago() {
+	public Double getPara_ppago() {
 		return this.para_ppago;
 	}
 
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

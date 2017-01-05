@@ -1,226 +1,451 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
-import java.util.List;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Cotizacionventas {
-	private String idbasedatos;
-	
-	private String idempresa;
-	
-	private String idcotizacionv;
-	
-	private String idemisor;
-	
-	private String idsucursal;
-	
-	private String idalmacen;
-	
-	private String iddocumento;
-	
-	private String periodo;
-	
-	private String serie;
-	
-	private String numero;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "COTIZACIONVENTAS")
+@XStreamAlias("COTIZACIONVENTAS")
+
+public class Cotizacionventas implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idcotizacionv") 
+	@XStreamAlias("idcotizacionv") 
+	private String idcotizacionv = "" ;
+	@Columna
+	@SerializedName("idemisor") 
+	@XStreamAlias("idemisor") 
+	private String idemisor = "" ;
+	@Columna
+	@SerializedName("idsucursal") 
+	@XStreamAlias("idsucursal") 
+	private String idsucursal = "" ;
+	@Columna
+	@SerializedName("idalmacen") 
+	@XStreamAlias("idalmacen") 
+	private String idalmacen = "" ;
+	@Columna
+	@SerializedName("iddocumento") 
+	@XStreamAlias("iddocumento") 
+	private String iddocumento = "" ;
+	@Columna
+	@SerializedName("periodo") 
+	@XStreamAlias("periodo") 
+	private String periodo = "" ;
+	@Columna
+	@SerializedName("serie") 
+	@XStreamAlias("serie") 
+	private String serie = "" ;
+	@Columna
+	@SerializedName("numero") 
+	@XStreamAlias("numero") 
+	private String numero = "" ;
+	@Columna
+	@SerializedName("fecha") 
+	@XStreamAlias("fecha") 
 	private Date fecha;
-	
-	private String idclieprov;
-	
-	private String idproyecto;
-	
-	private Float tcambio;
-	
-	private String idmoneda;
-	
-	private String glosa;
-	
-	private String idestado;
-	
-	private String idestadoold;
-	
-	private Float vventa;
-	
-	private Float impuesto;
-	
-	private Float impuesto_i;
-	
-	private Float importe;
-	
+	@Columna
+	@SerializedName("idclieprov") 
+	@XStreamAlias("idclieprov") 
+	private String idclieprov = "" ;
+	@Columna
+	@SerializedName("idproyecto") 
+	@XStreamAlias("idproyecto") 
+	private String idproyecto = "" ;
+	@Columna
+	@SerializedName("tcambio") 
+	@XStreamAlias("tcambio") 
+	private Double tcambio = 0.00 ;
+	@Columna
+	@SerializedName("idmoneda") 
+	@XStreamAlias("idmoneda") 
+	private String idmoneda = "" ;
+	@Columna
+	@SerializedName("glosa") 
+	@XStreamAlias("glosa") 
+	private String glosa = "" ;
+	@Columna
+	@SerializedName("idestado") 
+	@XStreamAlias("idestado") 
+	private String idestado = "" ;
+	@Columna
+	@SerializedName("idestadoold") 
+	@XStreamAlias("idestadoold") 
+	private String idestadoold = "" ;
+	@Columna
+	@SerializedName("vventa") 
+	@XStreamAlias("vventa") 
+	private Double vventa = 0.00 ;
+	@Columna
+	@SerializedName("impuesto") 
+	@XStreamAlias("impuesto") 
+	private Double impuesto = 0.00 ;
+	@Columna
+	@SerializedName("impuesto_i") 
+	@XStreamAlias("impuesto_i") 
+	private Double impuesto_i = 0.00 ;
+	@Columna
+	@SerializedName("importe") 
+	@XStreamAlias("importe") 
+	private Double importe = 0.00 ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private String sincroniza;
-	
-	private String contacto;
-	
-	private String lugar_entrega;
-	
-	private String solicitado;
-	
-	private Float tcmoneda;
-	
-	private Float subtotalsindscto;
-	
-	private Float descuento;
-	
-	private Float subtotalcondscto;
-	
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("contacto") 
+	@XStreamAlias("contacto") 
+	private String contacto = "" ;
+	@Columna
+	@SerializedName("lugar_entrega") 
+	@XStreamAlias("lugar_entrega") 
+	private String lugar_entrega = "" ;
+	@Columna
+	@SerializedName("solicitado") 
+	@XStreamAlias("solicitado") 
+	private String solicitado = "" ;
+	@Columna
+	@SerializedName("tcmoneda") 
+	@XStreamAlias("tcmoneda") 
+	private Double tcmoneda = 0.00 ;
+	@Columna
+	@SerializedName("subtotalsindscto") 
+	@XStreamAlias("subtotalsindscto") 
+	private Double subtotalsindscto = 0.00 ;
+	@Columna
+	@SerializedName("descuento") 
+	@XStreamAlias("descuento") 
+	private Double descuento = 0.00 ;
+	@Columna
+	@SerializedName("subtotalcondscto") 
+	@XStreamAlias("subtotalcondscto") 
+	private Double subtotalcondscto = 0.00 ;
+	@Columna
+	@SerializedName("fechavigencia") 
+	@XStreamAlias("fechavigencia") 
 	private Date fechavigencia;
-	
-	private Float duracionvigencia;
-	
-	private Float confirmastock;
-	
+	@Columna
+	@SerializedName("duracionvigencia") 
+	@XStreamAlias("duracionvigencia") 
+	private Double duracionvigencia = 0.00 ;
+	@Columna
+	@SerializedName("confirmastock") 
+	@XStreamAlias("confirmastock") 
+	private Double confirmastock = 0.00 ;
+	@Columna
+	@SerializedName("fechavisita") 
+	@XStreamAlias("fechavisita") 
 	private Date fechavisita;
-	
-	private String idfpago;
-	
-	private String plazoentrega;
-	
-	private String ventana;
-	
-	private String idvendedor;
-	
-	private Float comision;
-	
-	private String idembalaje;
-	
-	private String garantia;
-	
-	private String idprevaloriza;
-	
-	private String referencia;
-	
-	private Float multivendedores;
-	
-	private Float pesobruto;
-	
-	private Float pesotara;
-	
-	private Float pesoneto;
-	
-	private String idtipocontenedor;
-	
-	private String nrocontenedor;
-	
-	private String ciudadorigen;
-	
-	private String ciudaddestino;
-	
+	@Columna
+	@SerializedName("idfpago") 
+	@XStreamAlias("idfpago") 
+	private String idfpago = "" ;
+	@Columna
+	@SerializedName("plazoentrega") 
+	@XStreamAlias("plazoentrega") 
+	private String plazoentrega = "" ;
+	@Columna
+	@SerializedName("ventana") 
+	@XStreamAlias("ventana") 
+	private String ventana = "" ;
+	@Columna
+	@SerializedName("idvendedor") 
+	@XStreamAlias("idvendedor") 
+	private String idvendedor = "" ;
+	@Columna
+	@SerializedName("comision") 
+	@XStreamAlias("comision") 
+	private Double comision = 0.00 ;
+	@Columna
+	@SerializedName("idembalaje") 
+	@XStreamAlias("idembalaje") 
+	private String idembalaje = "" ;
+	@Columna
+	@SerializedName("garantia") 
+	@XStreamAlias("garantia") 
+	private String garantia = "" ;
+	@Columna
+	@SerializedName("idprevaloriza") 
+	@XStreamAlias("idprevaloriza") 
+	private String idprevaloriza = "" ;
+	@Columna
+	@SerializedName("referencia") 
+	@XStreamAlias("referencia") 
+	private String referencia = "" ;
+	@Columna
+	@SerializedName("multivendedores") 
+	@XStreamAlias("multivendedores") 
+	private Double multivendedores = 0.00 ;
+	@Columna
+	@SerializedName("pesobruto") 
+	@XStreamAlias("pesobruto") 
+	private Double pesobruto = 0.00 ;
+	@Columna
+	@SerializedName("pesotara") 
+	@XStreamAlias("pesotara") 
+	private Double pesotara = 0.00 ;
+	@Columna
+	@SerializedName("pesoneto") 
+	@XStreamAlias("pesoneto") 
+	private Double pesoneto = 0.00 ;
+	@Columna
+	@SerializedName("idtipocontenedor") 
+	@XStreamAlias("idtipocontenedor") 
+	private String idtipocontenedor = "" ;
+	@Columna
+	@SerializedName("nrocontenedor") 
+	@XStreamAlias("nrocontenedor") 
+	private String nrocontenedor = "" ;
+	@Columna
+	@SerializedName("ciudadorigen") 
+	@XStreamAlias("ciudadorigen") 
+	private String ciudadorigen = "" ;
+	@Columna
+	@SerializedName("ciudaddestino") 
+	@XStreamAlias("ciudaddestino") 
+	private String ciudaddestino = "" ;
+	@Columna
+	@SerializedName("fechaembarque") 
+	@XStreamAlias("fechaembarque") 
 	private Date fechaembarque;
-	
+	@Columna
+	@SerializedName("fechaarribo") 
+	@XStreamAlias("fechaarribo") 
 	private Date fechaarribo;
-	
-	private String idpuertoorigen;
-	
-	private String idpuertodestino;
-	
-	private String puertociudadori;
-	
-	private String puertociudaddes;
-	
-	private String idubigeo;
-	
-	private String container;
-	
-	private String idtipoprecio;
-	
-	private String idflete;
-	
-	private Float exonerado;
-	
-	private Float es_proyecto;
-	
-	private String smfcred;
-	
-	private String smfvenc;
-	
-	private String idunidadnegocio;
-	
-	private String idsubunidadnegocio;
-	
-	private Float area_ha;
-	
-	private Float redondeo;
-	
-	private Float fleteusd;
-	
-	private String idagentecarga;
-	
-	private String idcondventa;
-	
-	private String idlineaaerea;
-	
-	private String nro_forma_pago;
-	
-	private String nro_manual;
-	
-	private String idclieprov_destino;
-	
+	@Columna
+	@SerializedName("idpuertoorigen") 
+	@XStreamAlias("idpuertoorigen") 
+	private String idpuertoorigen = "" ;
+	@Columna
+	@SerializedName("idpuertodestino") 
+	@XStreamAlias("idpuertodestino") 
+	private String idpuertodestino = "" ;
+	@Columna
+	@SerializedName("puertociudadori") 
+	@XStreamAlias("puertociudadori") 
+	private String puertociudadori = "" ;
+	@Columna
+	@SerializedName("puertociudaddes") 
+	@XStreamAlias("puertociudaddes") 
+	private String puertociudaddes = "" ;
+	@Columna
+	@SerializedName("idubigeo") 
+	@XStreamAlias("idubigeo") 
+	private String idubigeo = "" ;
+	@Columna
+	@SerializedName("container") 
+	@XStreamAlias("container") 
+	private String container = "" ;
+	@Columna
+	@SerializedName("idtipoprecio") 
+	@XStreamAlias("idtipoprecio") 
+	private String idtipoprecio = "" ;
+	@Columna
+	@SerializedName("idflete") 
+	@XStreamAlias("idflete") 
+	private String idflete = "" ;
+	@Columna
+	@SerializedName("exonerado") 
+	@XStreamAlias("exonerado") 
+	private Double exonerado = 0.00 ;
+	@Columna
+	@SerializedName("es_proyecto") 
+	@XStreamAlias("es_proyecto") 
+	private Double es_proyecto = 0.00 ;
+	@Columna
+	@SerializedName("smfcred") 
+	@XStreamAlias("smfcred") 
+	private String smfcred = "" ;
+	@Columna
+	@SerializedName("smfvenc") 
+	@XStreamAlias("smfvenc") 
+	private String smfvenc = "" ;
+	@Columna
+	@SerializedName("idunidadnegocio") 
+	@XStreamAlias("idunidadnegocio") 
+	private String idunidadnegocio = "" ;
+	@Columna
+	@SerializedName("idsubunidadnegocio") 
+	@XStreamAlias("idsubunidadnegocio") 
+	private String idsubunidadnegocio = "" ;
+	@Columna
+	@SerializedName("area_ha") 
+	@XStreamAlias("area_ha") 
+	private Double area_ha = 0.00 ;
+	@Columna
+	@SerializedName("redondeo") 
+	@XStreamAlias("redondeo") 
+	private Double redondeo = 0.00 ;
+	@Columna
+	@SerializedName("fleteusd") 
+	@XStreamAlias("fleteusd") 
+	private Double fleteusd = 0.00 ;
+	@Columna
+	@SerializedName("idagentecarga") 
+	@XStreamAlias("idagentecarga") 
+	private String idagentecarga = "" ;
+	@Columna
+	@SerializedName("idcondventa") 
+	@XStreamAlias("idcondventa") 
+	private String idcondventa = "" ;
+	@Columna
+	@SerializedName("idlineaaerea") 
+	@XStreamAlias("idlineaaerea") 
+	private String idlineaaerea = "" ;
+	@Columna
+	@SerializedName("nro_forma_pago") 
+	@XStreamAlias("nro_forma_pago") 
+	private String nro_forma_pago = "" ;
+	@Columna
+	@SerializedName("nro_manual") 
+	@XStreamAlias("nro_manual") 
+	private String nro_manual = "" ;
+	@Columna
+	@SerializedName("idclieprov_destino") 
+	@XStreamAlias("idclieprov_destino") 
+	private String idclieprov_destino = "" ;
+	@Columna
+	@SerializedName("prioridad") 
+	@XStreamAlias("prioridad") 
 	private Integer prioridad;
-	
-	private String nrobuckin;
-	
-	private String contenedor;
-	
-	private Float peso_real;
-	
-	private String nro_viaje;
-	
-	private String nombre_nave;
-	
-	private String iddocumento_pf;
-	
-	private String serie_pf;
-	
-	private String numero_pf;
-	
+	@Columna
+	@SerializedName("nrobuckin") 
+	@XStreamAlias("nrobuckin") 
+	private String nrobuckin = "" ;
+	@Columna
+	@SerializedName("contenedor") 
+	@XStreamAlias("contenedor") 
+	private String contenedor = "" ;
+	@Columna
+	@SerializedName("peso_real") 
+	@XStreamAlias("peso_real") 
+	private Double peso_real = 0.00 ;
+	@Columna
+	@SerializedName("nro_viaje") 
+	@XStreamAlias("nro_viaje") 
+	private String nro_viaje = "" ;
+	@Columna
+	@SerializedName("nombre_nave") 
+	@XStreamAlias("nombre_nave") 
+	private String nombre_nave = "" ;
+	@Columna
+	@SerializedName("iddocumento_pf") 
+	@XStreamAlias("iddocumento_pf") 
+	private String iddocumento_pf = "" ;
+	@Columna
+	@SerializedName("serie_pf") 
+	@XStreamAlias("serie_pf") 
+	private String serie_pf = "" ;
+	@Columna
+	@SerializedName("numero_pf") 
+	@XStreamAlias("numero_pf") 
+	private String numero_pf = "" ;
+	@Columna
+	@SerializedName("fecha_pf") 
+	@XStreamAlias("fecha_pf") 
 	private Date fecha_pf;
-	
-	private String glosa_l;
-	
-	private String awb;
-	
-	private String idcultivo;
-	
-	private String idvariedad;
-	
-	private String idestadobanco;
-	
+	@Columna
+	@SerializedName("glosa_l") 
+	@XStreamAlias("glosa_l") 
+	private String glosa_l = "" ;
+	@Columna
+	@SerializedName("awb") 
+	@XStreamAlias("awb") 
+	private String awb = "" ;
+	@Columna
+	@SerializedName("idcultivo") 
+	@XStreamAlias("idcultivo") 
+	private String idcultivo = "" ;
+	@Columna
+	@SerializedName("idvariedad") 
+	@XStreamAlias("idvariedad") 
+	private String idvariedad = "" ;
+	@Columna
+	@SerializedName("idestadobanco") 
+	@XStreamAlias("idestadobanco") 
+	private String idestadobanco = "" ;
+	@Columna
+	@SerializedName("idtg30campaniaveh") 
+	@XStreamAlias("idtg30campaniaveh") 
 	private Integer idtg30campaniaveh;
-	
-	private String idbanco;
-	
-	private String ofrecio_seguro;
-	
-	private Float copropietario;
-	
-	private String idtipocredito;
-	
-	private String cuota;
-	
-	private Float vventapublico_conigv;
-	
-	private Float importedscto1_conigv;
-	
-	private Float importedscto2_conigv;
-	
-	private Float importedscto3_conigv;
-	
-	private Float accesorios_conigv;
-	
-	private String idcopropietario;
-	
-	private String idtg10tipocotizacion;
-	
+	@Columna
+	@SerializedName("idbanco") 
+	@XStreamAlias("idbanco") 
+	private String idbanco = "" ;
+	@Columna
+	@SerializedName("ofrecio_seguro") 
+	@XStreamAlias("ofrecio_seguro") 
+	private String ofrecio_seguro = "" ;
+	@Columna
+	@SerializedName("copropietario") 
+	@XStreamAlias("copropietario") 
+	private Double copropietario = 0.00 ;
+	@Columna
+	@SerializedName("idtipocredito") 
+	@XStreamAlias("idtipocredito") 
+	private String idtipocredito = "" ;
+	@Columna
+	@SerializedName("cuota") 
+	@XStreamAlias("cuota") 
+	private String cuota = "" ;
+	@Columna
+	@SerializedName("vventapublico_conigv") 
+	@XStreamAlias("vventapublico_conigv") 
+	private Double vventapublico_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto1_conigv") 
+	@XStreamAlias("importedscto1_conigv") 
+	private Double importedscto1_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto2_conigv") 
+	@XStreamAlias("importedscto2_conigv") 
+	private Double importedscto2_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto3_conigv") 
+	@XStreamAlias("importedscto3_conigv") 
+	private Double importedscto3_conigv = 0.00 ;
+	@Columna
+	@SerializedName("accesorios_conigv") 
+	@XStreamAlias("accesorios_conigv") 
+	private Double accesorios_conigv = 0.00 ;
+	@Columna
+	@SerializedName("idcopropietario") 
+	@XStreamAlias("idcopropietario") 
+	private String idcopropietario = "" ;
+	@Columna
+	@SerializedName("idtg10tipocotizacion") 
+	@XStreamAlias("idtg10tipocotizacion") 
+	private String idtg10tipocotizacion = "" ;
+	@Columna
+	@SerializedName("idtg30cotvent_web") 
+	@XStreamAlias("idtg30cotvent_web") 
 	private Integer idtg30cotvent_web;
-	
-	private Float cuotainicial;
-	
-	private String idctacte;
-        private String razon_social;
-        private List<Dcotizacionventas> listDcotizacionventas;
+	@Columna
+	@SerializedName("cuotainicial") 
+	@XStreamAlias("cuotainicial") 
+	private Double cuotainicial = 0.00 ;
+	@Columna
+	@SerializedName("idctacte") 
+	@XStreamAlias("idctacte") 
+	private String idctacte = "" ;
+
+
 
 	/* Sets & Gets */
 	public void setIdempresa(String idempresa) {
@@ -319,11 +544,11 @@ public class Cotizacionventas {
 		return this.idproyecto;
 	}
 
-	public void setTcambio(Float tcambio) {
+	public void setTcambio(Double tcambio) {
 		this.tcambio = tcambio;
 	}
 
-	public Float getTcambio() {
+	public Double getTcambio() {
 		return this.tcambio;
 	}
 
@@ -359,35 +584,35 @@ public class Cotizacionventas {
 		return this.idestadoold;
 	}
 
-	public void setVventa(Float vventa) {
+	public void setVventa(Double vventa) {
 		this.vventa = vventa;
 	}
 
-	public Float getVventa() {
+	public Double getVventa() {
 		return this.vventa;
 	}
 
-	public void setImpuesto(Float impuesto) {
+	public void setImpuesto(Double impuesto) {
 		this.impuesto = impuesto;
 	}
 
-	public Float getImpuesto() {
+	public Double getImpuesto() {
 		return this.impuesto;
 	}
 
-	public void setImpuesto_i(Float impuesto_i) {
+	public void setImpuesto_i(Double impuesto_i) {
 		this.impuesto_i = impuesto_i;
 	}
 
-	public Float getImpuesto_i() {
+	public Double getImpuesto_i() {
 		return this.impuesto_i;
 	}
 
-	public void setImporte(Float importe) {
+	public void setImporte(Double importe) {
 		this.importe = importe;
 	}
 
-	public Float getImporte() {
+	public Double getImporte() {
 		return this.importe;
 	}
 
@@ -431,35 +656,35 @@ public class Cotizacionventas {
 		return this.solicitado;
 	}
 
-	public void setTcmoneda(Float tcmoneda) {
+	public void setTcmoneda(Double tcmoneda) {
 		this.tcmoneda = tcmoneda;
 	}
 
-	public Float getTcmoneda() {
+	public Double getTcmoneda() {
 		return this.tcmoneda;
 	}
 
-	public void setSubtotalsindscto(Float subtotalsindscto) {
+	public void setSubtotalsindscto(Double subtotalsindscto) {
 		this.subtotalsindscto = subtotalsindscto;
 	}
 
-	public Float getSubtotalsindscto() {
+	public Double getSubtotalsindscto() {
 		return this.subtotalsindscto;
 	}
 
-	public void setDescuento(Float descuento) {
+	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
 
-	public Float getDescuento() {
+	public Double getDescuento() {
 		return this.descuento;
 	}
 
-	public void setSubtotalcondscto(Float subtotalcondscto) {
+	public void setSubtotalcondscto(Double subtotalcondscto) {
 		this.subtotalcondscto = subtotalcondscto;
 	}
 
-	public Float getSubtotalcondscto() {
+	public Double getSubtotalcondscto() {
 		return this.subtotalcondscto;
 	}
 
@@ -471,19 +696,19 @@ public class Cotizacionventas {
 		return this.fechavigencia;
 	}
 
-	public void setDuracionvigencia(Float duracionvigencia) {
+	public void setDuracionvigencia(Double duracionvigencia) {
 		this.duracionvigencia = duracionvigencia;
 	}
 
-	public Float getDuracionvigencia() {
+	public Double getDuracionvigencia() {
 		return this.duracionvigencia;
 	}
 
-	public void setConfirmastock(Float confirmastock) {
+	public void setConfirmastock(Double confirmastock) {
 		this.confirmastock = confirmastock;
 	}
 
-	public Float getConfirmastock() {
+	public Double getConfirmastock() {
 		return this.confirmastock;
 	}
 
@@ -527,11 +752,11 @@ public class Cotizacionventas {
 		return this.idvendedor;
 	}
 
-	public void setComision(Float comision) {
+	public void setComision(Double comision) {
 		this.comision = comision;
 	}
 
-	public Float getComision() {
+	public Double getComision() {
 		return this.comision;
 	}
 
@@ -567,35 +792,35 @@ public class Cotizacionventas {
 		return this.referencia;
 	}
 
-	public void setMultivendedores(Float multivendedores) {
+	public void setMultivendedores(Double multivendedores) {
 		this.multivendedores = multivendedores;
 	}
 
-	public Float getMultivendedores() {
+	public Double getMultivendedores() {
 		return this.multivendedores;
 	}
 
-	public void setPesobruto(Float pesobruto) {
+	public void setPesobruto(Double pesobruto) {
 		this.pesobruto = pesobruto;
 	}
 
-	public Float getPesobruto() {
+	public Double getPesobruto() {
 		return this.pesobruto;
 	}
 
-	public void setPesotara(Float pesotara) {
+	public void setPesotara(Double pesotara) {
 		this.pesotara = pesotara;
 	}
 
-	public Float getPesotara() {
+	public Double getPesotara() {
 		return this.pesotara;
 	}
 
-	public void setPesoneto(Float pesoneto) {
+	public void setPesoneto(Double pesoneto) {
 		this.pesoneto = pesoneto;
 	}
 
-	public Float getPesoneto() {
+	public Double getPesoneto() {
 		return this.pesoneto;
 	}
 
@@ -711,19 +936,19 @@ public class Cotizacionventas {
 		return this.idflete;
 	}
 
-	public void setExonerado(Float exonerado) {
+	public void setExonerado(Double exonerado) {
 		this.exonerado = exonerado;
 	}
 
-	public Float getExonerado() {
+	public Double getExonerado() {
 		return this.exonerado;
 	}
 
-	public void setEs_proyecto(Float es_proyecto) {
+	public void setEs_proyecto(Double es_proyecto) {
 		this.es_proyecto = es_proyecto;
 	}
 
-	public Float getEs_proyecto() {
+	public Double getEs_proyecto() {
 		return this.es_proyecto;
 	}
 
@@ -759,27 +984,27 @@ public class Cotizacionventas {
 		return this.idsubunidadnegocio;
 	}
 
-	public void setArea_ha(Float area_ha) {
+	public void setArea_ha(Double area_ha) {
 		this.area_ha = area_ha;
 	}
 
-	public Float getArea_ha() {
+	public Double getArea_ha() {
 		return this.area_ha;
 	}
 
-	public void setRedondeo(Float redondeo) {
+	public void setRedondeo(Double redondeo) {
 		this.redondeo = redondeo;
 	}
 
-	public Float getRedondeo() {
+	public Double getRedondeo() {
 		return this.redondeo;
 	}
 
-	public void setFleteusd(Float fleteusd) {
+	public void setFleteusd(Double fleteusd) {
 		this.fleteusd = fleteusd;
 	}
 
-	public Float getFleteusd() {
+	public Double getFleteusd() {
 		return this.fleteusd;
 	}
 
@@ -855,11 +1080,11 @@ public class Cotizacionventas {
 		return this.contenedor;
 	}
 
-	public void setPeso_real(Float peso_real) {
+	public void setPeso_real(Double peso_real) {
 		this.peso_real = peso_real;
 	}
 
-	public Float getPeso_real() {
+	public Double getPeso_real() {
 		return this.peso_real;
 	}
 
@@ -975,11 +1200,11 @@ public class Cotizacionventas {
 		return this.ofrecio_seguro;
 	}
 
-	public void setCopropietario(Float copropietario) {
+	public void setCopropietario(Double copropietario) {
 		this.copropietario = copropietario;
 	}
 
-	public Float getCopropietario() {
+	public Double getCopropietario() {
 		return this.copropietario;
 	}
 
@@ -999,43 +1224,43 @@ public class Cotizacionventas {
 		return this.cuota;
 	}
 
-	public void setVventapublico_conigv(Float vventapublico_conigv) {
+	public void setVventapublico_conigv(Double vventapublico_conigv) {
 		this.vventapublico_conigv = vventapublico_conigv;
 	}
 
-	public Float getVventapublico_conigv() {
+	public Double getVventapublico_conigv() {
 		return this.vventapublico_conigv;
 	}
 
-	public void setImportedscto1_conigv(Float importedscto1_conigv) {
+	public void setImportedscto1_conigv(Double importedscto1_conigv) {
 		this.importedscto1_conigv = importedscto1_conigv;
 	}
 
-	public Float getImportedscto1_conigv() {
+	public Double getImportedscto1_conigv() {
 		return this.importedscto1_conigv;
 	}
 
-	public void setImportedscto2_conigv(Float importedscto2_conigv) {
+	public void setImportedscto2_conigv(Double importedscto2_conigv) {
 		this.importedscto2_conigv = importedscto2_conigv;
 	}
 
-	public Float getImportedscto2_conigv() {
+	public Double getImportedscto2_conigv() {
 		return this.importedscto2_conigv;
 	}
 
-	public void setImportedscto3_conigv(Float importedscto3_conigv) {
+	public void setImportedscto3_conigv(Double importedscto3_conigv) {
 		this.importedscto3_conigv = importedscto3_conigv;
 	}
 
-	public Float getImportedscto3_conigv() {
+	public Double getImportedscto3_conigv() {
 		return this.importedscto3_conigv;
 	}
 
-	public void setAccesorios_conigv(Float accesorios_conigv) {
+	public void setAccesorios_conigv(Double accesorios_conigv) {
 		this.accesorios_conigv = accesorios_conigv;
 	}
 
-	public Float getAccesorios_conigv() {
+	public Double getAccesorios_conigv() {
 		return this.accesorios_conigv;
 	}
 
@@ -1063,11 +1288,11 @@ public class Cotizacionventas {
 		return this.idtg30cotvent_web;
 	}
 
-	public void setCuotainicial(Float cuotainicial) {
+	public void setCuotainicial(Double cuotainicial) {
 		this.cuotainicial = cuotainicial;
 	}
 
-	public Float getCuotainicial() {
+	public Double getCuotainicial() {
 		return this.cuotainicial;
 	}
 
@@ -1082,47 +1307,5 @@ public class Cotizacionventas {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
-
-    /**
-     * @return the razon_social
-     */
-    public String getRazon_social() {
-        return razon_social;
-    }
-
-    /**
-     * @param razon_social the razon_social to set
-     */
-    public void setRazon_social(String razon_social) {
-        this.razon_social = razon_social;
-    }
-
-    /**
-     * @return the listDcotizacionventas
-     */
-    public List<Dcotizacionventas> getListDcotizacionventas() {
-        return listDcotizacionventas;
-    }
-
-    /**
-     * @param listDcotizacionventas the listDcotizacionventas to set
-     */
-    public void setListDcotizacionventas(List<Dcotizacionventas> listDcotizacionventas) {
-        this.listDcotizacionventas = listDcotizacionventas;
-    }
 
 }

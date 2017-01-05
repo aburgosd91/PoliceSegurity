@@ -1,61 +1,85 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "ORDENSERVICIOCLIENTE")
 @XStreamAlias("ORDENSERVICIOCLIENTE")
-public class Ordenserviciocliente {
-	@XStreamAlias("IDBASEDATOS")
-	private String idbasedatos;
-	
-	@XStreamAlias("IDEMPRESA")
-	private String idempresa;
-	
-	@XStreamAlias("IDORDENSERVICIO")
-	private String idordenservicio;
-	
-	@XStreamAlias("IDDOCUMENTO")
-	private String iddocumento;
-	
-	@XStreamAlias("SERIE")
-	private String serie;
-	
-	@XStreamAlias("NUMERO")
-	private String numero;
-	
-	@XStreamAlias("NROMANUAL")
-	private String nromanual;
-	
-	@XStreamAlias("IDCLIEPROV")
-	private String idclieprov;
-	
-	@XStreamAlias("FECHA")
+
+public class Ordenserviciocliente implements Serializable {
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@Columna
+	@SerializedName("idordenservicio") 
+	@XStreamAlias("idordenservicio") 
+	private String idordenservicio = "" ;
+	@Columna
+	@SerializedName("iddocumento") 
+	@XStreamAlias("iddocumento") 
+	private String iddocumento = "" ;
+	@Columna
+	@SerializedName("serie") 
+	@XStreamAlias("serie") 
+	private String serie = "" ;
+	@Columna
+	@SerializedName("numero") 
+	@XStreamAlias("numero") 
+	private String numero = "" ;
+	@Columna
+	@SerializedName("nromanual") 
+	@XStreamAlias("nromanual") 
+	private String nromanual = "" ;
+	@Columna
+	@SerializedName("idclieprov") 
+	@XStreamAlias("idclieprov") 
+	private String idclieprov = "" ;
+	@Columna
+	@SerializedName("fecha") 
+	@XStreamAlias("fecha") 
 	private Date fecha;
-	
-	@XStreamAlias("TIPO_SERVICIO")
-	private String tipo_servicio;
-	
-	@XStreamAlias("AMBITO_SERVICIO")
-	private String ambito_servicio;
-	
-	@XStreamAlias("IDESTADO")
-	private String idestado;
-	
-	@XStreamAlias("SINCRONIZA")
-	private String sincroniza;
-	
-	@XStreamAlias("FECHACREACION")
+	@Columna
+	@SerializedName("tipo_servicio") 
+	@XStreamAlias("tipo_servicio") 
+	private String tipo_servicio = "" ;
+	@Columna
+	@SerializedName("ambito_servicio") 
+	@XStreamAlias("ambito_servicio") 
+	private String ambito_servicio = "" ;
+	@Columna
+	@SerializedName("idestado") 
+	@XStreamAlias("idestado") 
+	private String idestado = "" ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	@XStreamAlias("NROCONTENEDOR")
-	private String nrocontenedor;
-	
-	@XStreamAlias("NROPRECINTO")
-	private String nroprecinto;
-	
-	@XStreamAlias("NRO_OSERVICIO")
-	private String nro_oservicio;
-	private String idcotizacionv;
-	private String razonsocial;
+	@Columna
+	@SerializedName("nrocontenedor") 
+	@XStreamAlias("nrocontenedor") 
+	private String nrocontenedor = "" ;
+	@Columna
+	@SerializedName("nroprecinto") 
+	@XStreamAlias("nroprecinto") 
+	private String nroprecinto = "" ;
+	@Columna
+	@SerializedName("nro_oservicio") 
+	@XStreamAlias("nro_oservicio") 
+	private String nro_oservicio = "" ;
+
+
 
 	/* Sets & Gets */
 	public void setIdempresa(String idempresa) {
@@ -189,47 +213,5 @@ public class Ordenserviciocliente {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idcotizacionv
-     */
-    public String getIdcotizacionv() {
-        return idcotizacionv;
-    }
-
-    /**
-     * @param idcotizacionv the idcotizacionv to set
-     */
-    public void setIdcotizacionv(String idcotizacionv) {
-        this.idcotizacionv = idcotizacionv;
-    }
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
-
-    /**
-     * @return the razonsocial
-     */
-    public String getRazonsocial() {
-        return razonsocial;
-    }
-
-    /**
-     * @param razonsocial the razonsocial to set
-     */
-    public void setRazonsocial(String razonsocial) {
-        this.razonsocial = razonsocial;
-    }
 
 }

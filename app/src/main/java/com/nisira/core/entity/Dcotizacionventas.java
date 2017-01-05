@@ -1,146 +1,295 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Dcotizacionventas {
-	
-	private String idempresa;
-	
-	private String idcotizacionv;
-	
-	private String item;
-	
-	private String idcompra;
-	
-	private String itemcotizacion;
-	
-	private String idproducto;
-	
-	private String descripcion;
-	
-	private String idmedida;
-	
-	private Float cantidad;
-	
-	private Float precio;
-	
-	private Float descuento;
-	
-	private Float importe;
-	
-	private Float es_afecto;
-	
-	private Float porcentajedscto1;
-	
-	private Float porcentajedscto2;
-	
-	private Float porcentajedscto3;
-	
-	private Float impuesto_i;
-	
-	private Float impuesto;
-	
-	private Float importedscto1;
-	
-	private Float importedscto2;
-	
-	private Float importedscto3;
-	
-	private Float subtotalsindscto;
-	
-	private Float subtotalcondscto;
-	
-	private String idestadoproducto;
-	
-	private Float descuento_total;
-	
-	private String destino;
-	
-	private String idestado;
-	
-	private String idestadoold;
-	
-	private String observaciones;
-	
-	private String anniofabricacion;
-	
-	private String clase;
-	
-	private String carroceria;
-	
-	private String transmision;
-	
-	private String tipomotor;
-	
-	private String combustible;
-	
-	private String idreferencia;
-	
-	private String itemref;
-	
-	private String tablaref;
-	
-	private String documentoref;
-	
-	private String sincroniza;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "DCOTIZACIONVENTAS")
+@XStreamAlias("DCOTIZACIONVENTAS")
+
+public class Dcotizacionventas implements Serializable {
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@Columna
+	@SerializedName("idcotizacionv") 
+	@XStreamAlias("idcotizacionv") 
+	private String idcotizacionv = "" ;
+	@Columna
+	@SerializedName("item") 
+	@XStreamAlias("item") 
+	private String item = "" ;
+	@Columna
+	@SerializedName("idcompra") 
+	@XStreamAlias("idcompra") 
+	private String idcompra = "" ;
+	@Columna
+	@SerializedName("itemcotizacion") 
+	@XStreamAlias("itemcotizacion") 
+	private String itemcotizacion = "" ;
+	@Columna
+	@SerializedName("idproducto") 
+	@XStreamAlias("idproducto") 
+	private String idproducto = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("idmedida") 
+	@XStreamAlias("idmedida") 
+	private String idmedida = "" ;
+	@Columna
+	@SerializedName("cantidad") 
+	@XStreamAlias("cantidad") 
+	private Double cantidad = 0.00 ;
+	@Columna
+	@SerializedName("precio") 
+	@XStreamAlias("precio") 
+	private Double precio = 0.00 ;
+	@Columna
+	@SerializedName("descuento") 
+	@XStreamAlias("descuento") 
+	private Double descuento = 0.00 ;
+	@Columna
+	@SerializedName("importe") 
+	@XStreamAlias("importe") 
+	private Double importe = 0.00 ;
+	@Columna
+	@SerializedName("es_afecto") 
+	@XStreamAlias("es_afecto") 
+	private Double es_afecto = 0.00 ;
+	@Columna
+	@SerializedName("porcentajedscto1") 
+	@XStreamAlias("porcentajedscto1") 
+	private Double porcentajedscto1 = 0.00 ;
+	@Columna
+	@SerializedName("porcentajedscto2") 
+	@XStreamAlias("porcentajedscto2") 
+	private Double porcentajedscto2 = 0.00 ;
+	@Columna
+	@SerializedName("porcentajedscto3") 
+	@XStreamAlias("porcentajedscto3") 
+	private Double porcentajedscto3 = 0.00 ;
+	@Columna
+	@SerializedName("impuesto_i") 
+	@XStreamAlias("impuesto_i") 
+	private Double impuesto_i = 0.00 ;
+	@Columna
+	@SerializedName("impuesto") 
+	@XStreamAlias("impuesto") 
+	private Double impuesto = 0.00 ;
+	@Columna
+	@SerializedName("importedscto1") 
+	@XStreamAlias("importedscto1") 
+	private Double importedscto1 = 0.00 ;
+	@Columna
+	@SerializedName("importedscto2") 
+	@XStreamAlias("importedscto2") 
+	private Double importedscto2 = 0.00 ;
+	@Columna
+	@SerializedName("importedscto3") 
+	@XStreamAlias("importedscto3") 
+	private Double importedscto3 = 0.00 ;
+	@Columna
+	@SerializedName("subtotalsindscto") 
+	@XStreamAlias("subtotalsindscto") 
+	private Double subtotalsindscto = 0.00 ;
+	@Columna
+	@SerializedName("subtotalcondscto") 
+	@XStreamAlias("subtotalcondscto") 
+	private Double subtotalcondscto = 0.00 ;
+	@Columna
+	@SerializedName("idestadoproducto") 
+	@XStreamAlias("idestadoproducto") 
+	private String idestadoproducto = "" ;
+	@Columna
+	@SerializedName("descuento_total") 
+	@XStreamAlias("descuento_total") 
+	private Double descuento_total = 0.00 ;
+	@Columna
+	@SerializedName("destino") 
+	@XStreamAlias("destino") 
+	private String destino = "" ;
+	@Columna
+	@SerializedName("idestado") 
+	@XStreamAlias("idestado") 
+	private String idestado = "" ;
+	@Columna
+	@SerializedName("idestadoold") 
+	@XStreamAlias("idestadoold") 
+	private String idestadoold = "" ;
+	@Columna
+	@SerializedName("observaciones") 
+	@XStreamAlias("observaciones") 
+	private String observaciones = "" ;
+	@Columna
+	@SerializedName("anniofabricacion") 
+	@XStreamAlias("anniofabricacion") 
+	private String anniofabricacion = "" ;
+	@Columna
+	@SerializedName("clase") 
+	@XStreamAlias("clase") 
+	private String clase = "" ;
+	@Columna
+	@SerializedName("carroceria") 
+	@XStreamAlias("carroceria") 
+	private String carroceria = "" ;
+	@Columna
+	@SerializedName("transmision") 
+	@XStreamAlias("transmision") 
+	private String transmision = "" ;
+	@Columna
+	@SerializedName("tipomotor") 
+	@XStreamAlias("tipomotor") 
+	private String tipomotor = "" ;
+	@Columna
+	@SerializedName("combustible") 
+	@XStreamAlias("combustible") 
+	private String combustible = "" ;
+	@Columna
+	@SerializedName("idreferencia") 
+	@XStreamAlias("idreferencia") 
+	private String idreferencia = "" ;
+	@Columna
+	@SerializedName("itemref") 
+	@XStreamAlias("itemref") 
+	private String itemref = "" ;
+	@Columna
+	@SerializedName("tablaref") 
+	@XStreamAlias("tablaref") 
+	private String tablaref = "" ;
+	@Columna
+	@SerializedName("documentoref") 
+	@XStreamAlias("documentoref") 
+	private String documentoref = "" ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private String idconsumidor;
-	
-	private String idplantillacv;
-	
+	@Columna
+	@SerializedName("idconsumidor") 
+	@XStreamAlias("idconsumidor") 
+	private String idconsumidor = "" ;
+	@Columna
+	@SerializedName("idplantillacv") 
+	@XStreamAlias("idplantillacv") 
+	private String idplantillacv = "" ;
+	@Columna
+	@SerializedName("parafecha") 
+	@XStreamAlias("parafecha") 
 	private Date parafecha;
-	
-	private Float dias;
-	
-	private String idserie;
-	
-	private String idcolor;
-	
-	private String idsucursal;
-	
-	private String idalmacen;
-	
-	private String calibremm;
-	
-	private Float factorce;
-	
-	private String idinsumo;
-	
-	private String idpresentacion;
-	
-	private String idtalla;
-	
-	private String largo;
-	
-	private Float total_ce;
-	
+	@Columna
+	@SerializedName("dias") 
+	@XStreamAlias("dias") 
+	private Double dias = 0.00 ;
+	@Columna
+	@SerializedName("idserie") 
+	@XStreamAlias("idserie") 
+	private String idserie = "" ;
+	@Columna
+	@SerializedName("idcolor") 
+	@XStreamAlias("idcolor") 
+	private String idcolor = "" ;
+	@Columna
+	@SerializedName("idsucursal") 
+	@XStreamAlias("idsucursal") 
+	private String idsucursal = "" ;
+	@Columna
+	@SerializedName("idalmacen") 
+	@XStreamAlias("idalmacen") 
+	private String idalmacen = "" ;
+	@Columna
+	@SerializedName("calibremm") 
+	@XStreamAlias("calibremm") 
+	private String calibremm = "" ;
+	@Columna
+	@SerializedName("factorce") 
+	@XStreamAlias("factorce") 
+	private Double factorce = 0.00 ;
+	@Columna
+	@SerializedName("idinsumo") 
+	@XStreamAlias("idinsumo") 
+	private String idinsumo = "" ;
+	@Columna
+	@SerializedName("idpresentacion") 
+	@XStreamAlias("idpresentacion") 
+	private String idpresentacion = "" ;
+	@Columna
+	@SerializedName("idtalla") 
+	@XStreamAlias("idtalla") 
+	private String idtalla = "" ;
+	@Columna
+	@SerializedName("largo") 
+	@XStreamAlias("largo") 
+	private String largo = "" ;
+	@Columna
+	@SerializedName("total_ce") 
+	@XStreamAlias("total_ce") 
+	private Double total_ce = 0.00 ;
+	@Columna
+	@SerializedName("undxphl") 
+	@XStreamAlias("undxphl") 
 	private Integer undxphl;
-	
-	private Float descuento_i;
-	
-	private Float importe_isc;
-	
-	private Float accesorios_conigv;
-	
-	private Float importedscto1_conigv;
-	
-	private Float importedscto2_conigv;
-	
-	private Float importedscto3_conigv;
-	
-	private Float importedscto_importador_real;
-	
-	private Float importedscto_maxpermitido;
-	
-	private Float vventapublico_conigv;
-	
-	private String anniomodelo;
-	
+	@Columna
+	@SerializedName("descuento_i") 
+	@XStreamAlias("descuento_i") 
+	private Double descuento_i = 0.00 ;
+	@Columna
+	@SerializedName("importe_isc") 
+	@XStreamAlias("importe_isc") 
+	private Double importe_isc = 0.00 ;
+	@Columna
+	@SerializedName("accesorios_conigv") 
+	@XStreamAlias("accesorios_conigv") 
+	private Double accesorios_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto1_conigv") 
+	@XStreamAlias("importedscto1_conigv") 
+	private Double importedscto1_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto2_conigv") 
+	@XStreamAlias("importedscto2_conigv") 
+	private Double importedscto2_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto3_conigv") 
+	@XStreamAlias("importedscto3_conigv") 
+	private Double importedscto3_conigv = 0.00 ;
+	@Columna
+	@SerializedName("importedscto_importador_real") 
+	@XStreamAlias("importedscto_importador_real") 
+	private Double importedscto_importador_real = 0.00 ;
+	@Columna
+	@SerializedName("importedscto_maxpermitido") 
+	@XStreamAlias("importedscto_maxpermitido") 
+	private Double importedscto_maxpermitido = 0.00 ;
+	@Columna
+	@SerializedName("vventapublico_conigv") 
+	@XStreamAlias("vventapublico_conigv") 
+	private Double vventapublico_conigv = 0.00 ;
+	@Columna
+	@SerializedName("anniomodelo") 
+	@XStreamAlias("anniomodelo") 
+	private String anniomodelo = "" ;
+	@Columna
+	@SerializedName("idtg20versionveh") 
+	@XStreamAlias("idtg20versionveh") 
 	private Integer idtg20versionveh;
-	
-	private Float importeaccesorios;
+	@Columna
+	@SerializedName("importeaccesorios") 
+	@XStreamAlias("importeaccesorios") 
+	private Double importeaccesorios = 0.00 ;
 
 
 
@@ -209,123 +358,123 @@ public class Dcotizacionventas {
 		return this.idmedida;
 	}
 
-	public void setCantidad(Float cantidad) {
+	public void setCantidad(Double cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public Float getCantidad() {
+	public Double getCantidad() {
 		return this.cantidad;
 	}
 
-	public void setPrecio(Float precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
-	public Float getPrecio() {
+	public Double getPrecio() {
 		return this.precio;
 	}
 
-	public void setDescuento(Float descuento) {
+	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
 
-	public Float getDescuento() {
+	public Double getDescuento() {
 		return this.descuento;
 	}
 
-	public void setImporte(Float importe) {
+	public void setImporte(Double importe) {
 		this.importe = importe;
 	}
 
-	public Float getImporte() {
+	public Double getImporte() {
 		return this.importe;
 	}
 
-	public void setEs_afecto(Float es_afecto) {
+	public void setEs_afecto(Double es_afecto) {
 		this.es_afecto = es_afecto;
 	}
 
-	public Float getEs_afecto() {
+	public Double getEs_afecto() {
 		return this.es_afecto;
 	}
 
-	public void setPorcentajedscto1(Float porcentajedscto1) {
+	public void setPorcentajedscto1(Double porcentajedscto1) {
 		this.porcentajedscto1 = porcentajedscto1;
 	}
 
-	public Float getPorcentajedscto1() {
+	public Double getPorcentajedscto1() {
 		return this.porcentajedscto1;
 	}
 
-	public void setPorcentajedscto2(Float porcentajedscto2) {
+	public void setPorcentajedscto2(Double porcentajedscto2) {
 		this.porcentajedscto2 = porcentajedscto2;
 	}
 
-	public Float getPorcentajedscto2() {
+	public Double getPorcentajedscto2() {
 		return this.porcentajedscto2;
 	}
 
-	public void setPorcentajedscto3(Float porcentajedscto3) {
+	public void setPorcentajedscto3(Double porcentajedscto3) {
 		this.porcentajedscto3 = porcentajedscto3;
 	}
 
-	public Float getPorcentajedscto3() {
+	public Double getPorcentajedscto3() {
 		return this.porcentajedscto3;
 	}
 
-	public void setImpuesto_i(Float impuesto_i) {
+	public void setImpuesto_i(Double impuesto_i) {
 		this.impuesto_i = impuesto_i;
 	}
 
-	public Float getImpuesto_i() {
+	public Double getImpuesto_i() {
 		return this.impuesto_i;
 	}
 
-	public void setImpuesto(Float impuesto) {
+	public void setImpuesto(Double impuesto) {
 		this.impuesto = impuesto;
 	}
 
-	public Float getImpuesto() {
+	public Double getImpuesto() {
 		return this.impuesto;
 	}
 
-	public void setImportedscto1(Float importedscto1) {
+	public void setImportedscto1(Double importedscto1) {
 		this.importedscto1 = importedscto1;
 	}
 
-	public Float getImportedscto1() {
+	public Double getImportedscto1() {
 		return this.importedscto1;
 	}
 
-	public void setImportedscto2(Float importedscto2) {
+	public void setImportedscto2(Double importedscto2) {
 		this.importedscto2 = importedscto2;
 	}
 
-	public Float getImportedscto2() {
+	public Double getImportedscto2() {
 		return this.importedscto2;
 	}
 
-	public void setImportedscto3(Float importedscto3) {
+	public void setImportedscto3(Double importedscto3) {
 		this.importedscto3 = importedscto3;
 	}
 
-	public Float getImportedscto3() {
+	public Double getImportedscto3() {
 		return this.importedscto3;
 	}
 
-	public void setSubtotalsindscto(Float subtotalsindscto) {
+	public void setSubtotalsindscto(Double subtotalsindscto) {
 		this.subtotalsindscto = subtotalsindscto;
 	}
 
-	public Float getSubtotalsindscto() {
+	public Double getSubtotalsindscto() {
 		return this.subtotalsindscto;
 	}
 
-	public void setSubtotalcondscto(Float subtotalcondscto) {
+	public void setSubtotalcondscto(Double subtotalcondscto) {
 		this.subtotalcondscto = subtotalcondscto;
 	}
 
-	public Float getSubtotalcondscto() {
+	public Double getSubtotalcondscto() {
 		return this.subtotalcondscto;
 	}
 
@@ -337,11 +486,11 @@ public class Dcotizacionventas {
 		return this.idestadoproducto;
 	}
 
-	public void setDescuento_total(Float descuento_total) {
+	public void setDescuento_total(Double descuento_total) {
 		this.descuento_total = descuento_total;
 	}
 
-	public Float getDescuento_total() {
+	public Double getDescuento_total() {
 		return this.descuento_total;
 	}
 
@@ -497,11 +646,11 @@ public class Dcotizacionventas {
 		return this.parafecha;
 	}
 
-	public void setDias(Float dias) {
+	public void setDias(Double dias) {
 		this.dias = dias;
 	}
 
-	public Float getDias() {
+	public Double getDias() {
 		return this.dias;
 	}
 
@@ -545,11 +694,11 @@ public class Dcotizacionventas {
 		return this.calibremm;
 	}
 
-	public void setFactorce(Float factorce) {
+	public void setFactorce(Double factorce) {
 		this.factorce = factorce;
 	}
 
-	public Float getFactorce() {
+	public Double getFactorce() {
 		return this.factorce;
 	}
 
@@ -585,11 +734,11 @@ public class Dcotizacionventas {
 		return this.largo;
 	}
 
-	public void setTotal_ce(Float total_ce) {
+	public void setTotal_ce(Double total_ce) {
 		this.total_ce = total_ce;
 	}
 
-	public Float getTotal_ce() {
+	public Double getTotal_ce() {
 		return this.total_ce;
 	}
 
@@ -601,75 +750,75 @@ public class Dcotizacionventas {
 		return this.undxphl;
 	}
 
-	public void setDescuento_i(Float descuento_i) {
+	public void setDescuento_i(Double descuento_i) {
 		this.descuento_i = descuento_i;
 	}
 
-	public Float getDescuento_i() {
+	public Double getDescuento_i() {
 		return this.descuento_i;
 	}
 
-	public void setImporte_isc(Float importe_isc) {
+	public void setImporte_isc(Double importe_isc) {
 		this.importe_isc = importe_isc;
 	}
 
-	public Float getImporte_isc() {
+	public Double getImporte_isc() {
 		return this.importe_isc;
 	}
 
-	public void setAccesorios_conigv(Float accesorios_conigv) {
+	public void setAccesorios_conigv(Double accesorios_conigv) {
 		this.accesorios_conigv = accesorios_conigv;
 	}
 
-	public Float getAccesorios_conigv() {
+	public Double getAccesorios_conigv() {
 		return this.accesorios_conigv;
 	}
 
-	public void setImportedscto1_conigv(Float importedscto1_conigv) {
+	public void setImportedscto1_conigv(Double importedscto1_conigv) {
 		this.importedscto1_conigv = importedscto1_conigv;
 	}
 
-	public Float getImportedscto1_conigv() {
+	public Double getImportedscto1_conigv() {
 		return this.importedscto1_conigv;
 	}
 
-	public void setImportedscto2_conigv(Float importedscto2_conigv) {
+	public void setImportedscto2_conigv(Double importedscto2_conigv) {
 		this.importedscto2_conigv = importedscto2_conigv;
 	}
 
-	public Float getImportedscto2_conigv() {
+	public Double getImportedscto2_conigv() {
 		return this.importedscto2_conigv;
 	}
 
-	public void setImportedscto3_conigv(Float importedscto3_conigv) {
+	public void setImportedscto3_conigv(Double importedscto3_conigv) {
 		this.importedscto3_conigv = importedscto3_conigv;
 	}
 
-	public Float getImportedscto3_conigv() {
+	public Double getImportedscto3_conigv() {
 		return this.importedscto3_conigv;
 	}
 
-	public void setImportedscto_importador_real(Float importedscto_importador_real) {
+	public void setImportedscto_importador_real(Double importedscto_importador_real) {
 		this.importedscto_importador_real = importedscto_importador_real;
 	}
 
-	public Float getImportedscto_importador_real() {
+	public Double getImportedscto_importador_real() {
 		return this.importedscto_importador_real;
 	}
 
-	public void setImportedscto_maxpermitido(Float importedscto_maxpermitido) {
+	public void setImportedscto_maxpermitido(Double importedscto_maxpermitido) {
 		this.importedscto_maxpermitido = importedscto_maxpermitido;
 	}
 
-	public Float getImportedscto_maxpermitido() {
+	public Double getImportedscto_maxpermitido() {
 		return this.importedscto_maxpermitido;
 	}
 
-	public void setVventapublico_conigv(Float vventapublico_conigv) {
+	public void setVventapublico_conigv(Double vventapublico_conigv) {
 		this.vventapublico_conigv = vventapublico_conigv;
 	}
 
-	public Float getVventapublico_conigv() {
+	public Double getVventapublico_conigv() {
 		return this.vventapublico_conigv;
 	}
 
@@ -689,11 +838,11 @@ public class Dcotizacionventas {
 		return this.idtg20versionveh;
 	}
 
-	public void setImporteaccesorios(Float importeaccesorios) {
+	public void setImporteaccesorios(Double importeaccesorios) {
 		this.importeaccesorios = importeaccesorios;
 	}
 
-	public Float getImporteaccesorios() {
+	public Double getImporteaccesorios() {
 		return this.importeaccesorios;
 	}
 

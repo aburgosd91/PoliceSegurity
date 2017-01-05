@@ -1,59 +1,76 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "PERSONAL_SERVICIO")
 @XStreamAlias("PERSONAL_SERVICIO")
-public class Personal_servicio {
-	private String idbasedatos;
-	
-	@XStreamAlias("IDEMPRESA")
-	private String idempresa;
-	
-	@XStreamAlias("IDORDENSERVICIO")
-	private String idordenservicio;
-	
-	@XStreamAlias("ITEM")
-	private String item;
-	
-	@XStreamAlias("IDPERSONAL")
-	private String idpersonal;
-	
-	@XStreamAlias("DNI")
-	private String dni;
-	
-	@XStreamAlias("NOMBRES")
-	private String nombres;
-	
-	@XStreamAlias("HORA_REQ")
-	private Float hora_req;
-	
-	@XStreamAlias("HORA_LLEGADA")
-	private Float hora_llegada;
-	
-	@XStreamAlias("HORA_INICIO_SERV")
-	private Float hora_inicio_serv;
-	
-	@XStreamAlias("HORA_FIN_SERV")
-	private Float hora_fin_serv;
-	
-	@XStreamAlias("HORA_LIBERACION")
-	private Float hora_liberacion;
-	
-	@XStreamAlias("IDCARGO")
-	private String idcargo;
-	
-	@XStreamAlias("FECHAREGISTRO")
+
+public class Personal_servicio implements Serializable {
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@Columna
+	@SerializedName("idordenservicio") 
+	@XStreamAlias("idordenservicio") 
+	private String idordenservicio = "" ;
+	@Columna
+	@SerializedName("item") 
+	@XStreamAlias("item") 
+	private String item = "" ;
+	@Columna
+	@SerializedName("idpersonal") 
+	@XStreamAlias("idpersonal") 
+	private String idpersonal = "" ;
+	@Columna
+	@SerializedName("dni") 
+	@XStreamAlias("dni") 
+	private String dni = "" ;
+	@Columna
+	@SerializedName("nombres") 
+	@XStreamAlias("nombres") 
+	private String nombres = "" ;
+	@Columna
+	@SerializedName("hora_req") 
+	@XStreamAlias("hora_req") 
+	private Double hora_req = 0.00 ;
+	@Columna
+	@SerializedName("hora_llegada") 
+	@XStreamAlias("hora_llegada") 
+	private Double hora_llegada = 0.00 ;
+	@Columna
+	@SerializedName("hora_inicio_serv") 
+	@XStreamAlias("hora_inicio_serv") 
+	private Double hora_inicio_serv = 0.00 ;
+	@Columna
+	@SerializedName("hora_fin_serv") 
+	@XStreamAlias("hora_fin_serv") 
+	private Double hora_fin_serv = 0.00 ;
+	@Columna
+	@SerializedName("hora_liberacion") 
+	@XStreamAlias("hora_liberacion") 
+	private Double hora_liberacion = 0.00 ;
+	@Columna
+	@SerializedName("idcargo") 
+	@XStreamAlias("idcargo") 
+	private String idcargo = "" ;
+	@Columna
+	@SerializedName("fecharegistro") 
+	@XStreamAlias("fecharegistro") 
 	private Date fecharegistro;
-	
-	@XStreamAlias("FECHAOPERACION")
+	@Columna
+	@SerializedName("fechaoperacion") 
+	@XStreamAlias("fechaoperacion") 
 	private Date fechaoperacion;
-	/*ADICIONALES - OPERACIONES*/
-	private String cargo;
-	private Date fhora_req;
-	private Date fhora_llegada;
-	private Date fhora_inicio_serv;
-	private Date fhora_fin_serv;
-	private Date fhora_liberacion;
+
 
 
 	/* Sets & Gets */
@@ -105,43 +122,43 @@ public class Personal_servicio {
 		return this.nombres;
 	}
 
-	public void setHora_req(Float hora_req) {
+	public void setHora_req(Double hora_req) {
 		this.hora_req = hora_req;
 	}
 
-	public Float getHora_req() {
+	public Double getHora_req() {
 		return this.hora_req;
 	}
 
-	public void setHora_llegada(Float hora_llegada) {
+	public void setHora_llegada(Double hora_llegada) {
 		this.hora_llegada = hora_llegada;
 	}
 
-	public Float getHora_llegada() {
+	public Double getHora_llegada() {
 		return this.hora_llegada;
 	}
 
-	public void setHora_inicio_serv(Float hora_inicio_serv) {
+	public void setHora_inicio_serv(Double hora_inicio_serv) {
 		this.hora_inicio_serv = hora_inicio_serv;
 	}
 
-	public Float getHora_inicio_serv() {
+	public Double getHora_inicio_serv() {
 		return this.hora_inicio_serv;
 	}
 
-	public void setHora_fin_serv(Float hora_fin_serv) {
+	public void setHora_fin_serv(Double hora_fin_serv) {
 		this.hora_fin_serv = hora_fin_serv;
 	}
 
-	public Float getHora_fin_serv() {
+	public Double getHora_fin_serv() {
 		return this.hora_fin_serv;
 	}
 
-	public void setHora_liberacion(Float hora_liberacion) {
+	public void setHora_liberacion(Double hora_liberacion) {
 		this.hora_liberacion = hora_liberacion;
 	}
 
-	public Float getHora_liberacion() {
+	public Double getHora_liberacion() {
 		return this.hora_liberacion;
 	}
 
@@ -172,103 +189,5 @@ public class Personal_servicio {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the cargo
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * @param cargo the cargo to set
-     */
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    /**
-     * @return the fhora_req
-     */
-    public Date getFhora_req() {
-        return fhora_req;
-    }
-
-    /**
-     * @param fhora_req the fhora_req to set
-     */
-    public void setFhora_req(Date fhora_req) {
-        this.fhora_req = fhora_req;
-    }
-
-    /**
-     * @return the fhora_llegada
-     */
-    public Date getFhora_llegada() {
-        return fhora_llegada;
-    }
-
-    /**
-     * @param fhora_llegada the fhora_llegada to set
-     */
-    public void setFhora_llegada(Date fhora_llegada) {
-        this.fhora_llegada = fhora_llegada;
-    }
-
-    /**
-     * @return the fhora_inicio_serv
-     */
-    public Date getFhora_inicio_serv() {
-        return fhora_inicio_serv;
-    }
-
-    /**
-     * @param fhora_inicio_serv the fhora_inicio_serv to set
-     */
-    public void setFhora_inicio_serv(Date fhora_inicio_serv) {
-        this.fhora_inicio_serv = fhora_inicio_serv;
-    }
-
-    /**
-     * @return the fhora_fin_serv
-     */
-    public Date getFhora_fin_serv() {
-        return fhora_fin_serv;
-    }
-
-    /**
-     * @param fhora_fin_serv the fhora_fin_serv to set
-     */
-    public void setFhora_fin_serv(Date fhora_fin_serv) {
-        this.fhora_fin_serv = fhora_fin_serv;
-    }
-
-    /**
-     * @return the fhora_liberacion
-     */
-    public Date getFhora_liberacion() {
-        return fhora_liberacion;
-    }
-
-    /**
-     * @param fhora_liberacion the fhora_liberacion to set
-     */
-    public void setFhora_liberacion(Date fhora_liberacion) {
-        this.fhora_liberacion = fhora_liberacion;
-    }
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

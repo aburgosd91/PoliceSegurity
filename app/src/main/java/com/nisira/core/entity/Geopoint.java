@@ -1,22 +1,47 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Geopoint {
-	private String idbasedatos;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "GEOPOINT")
+@XStreamAlias("GEOPOINT")
+
+public class Geopoint implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idgeopoint") 
+	@XStreamAlias("idgeopoint") 
 	private Integer idgeopoint;
-	
-	private String descripcion;
-	
-	private String latitud;
-	
-	private String longitud;
-	
-	private String idclieprov;
-	
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("latitud") 
+	@XStreamAlias("latitud") 
+	private Float latitud;
+	@Columna
+	@SerializedName("longitud") 
+	@XStreamAlias("longitud") 
+	private Float longitud;
+	@Columna
+	@SerializedName("idclieprov") 
+	@XStreamAlias("idclieprov") 
+	private String idclieprov = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
+	@Columna
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
 	private Integer estado;
 
 
@@ -38,19 +63,19 @@ public class Geopoint {
 		return this.descripcion;
 	}
 
-	public void setLatitud(String latitud) {
+	public void setLatitud(Float latitud) {
 		this.latitud = latitud;
 	}
 
-	public String getLatitud() {
+	public Float getLatitud() {
 		return this.latitud;
 	}
 
-	public void setLongitud(String longitud) {
+	public void setLongitud(Float longitud) {
 		this.longitud = longitud;
 	}
 
-	public String getLongitud() {
+	public Float getLongitud() {
 		return this.longitud;
 	}
 
@@ -81,19 +106,5 @@ public class Geopoint {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }
