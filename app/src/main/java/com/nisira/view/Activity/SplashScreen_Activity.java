@@ -1,9 +1,13 @@
 package com.nisira.view.Activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.nisira.gcalderon.policesecurity.R;
@@ -21,9 +25,26 @@ public class SplashScreen_Activity extends AppCompatActivity {
     public static final int delay=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+        /*
+        if (Build.VERSION.SDK_INT < 16) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        else
+        {
+            View decorView = getWindow().getDecorView();
+            //Hide the status bar.
+            int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+*/
+
         setContentView(R.layout.activity_splash_screen);
         ButterKnife.bind(this);
+        pgBar = new ProgressBar(this);
         pgBar.setMax(max_progress());
         initAnimation();
     }

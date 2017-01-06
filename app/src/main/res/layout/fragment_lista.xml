@@ -39,16 +39,17 @@
         android:layout_marginEnd="16dp">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_agregar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/verde"
+            fab:fab_colorNormal="@color/colorAccent"
             fab:fab_icon="@drawable/ic_add_white"
             fab:fab_colorPressed="@color/colorPrimary"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/naranja"
+            fab:fab_colorNormal="@color/colorAccent"
             fab:fab_icon="@drawable/ic_build_white"
             fab:fab_colorPressed="@color/colorPrimary"
             fab:fab_size="mini"/>
@@ -56,7 +57,7 @@
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_colorNormal="@color/rojo"
+            fab:fab_colorNormal="@color/colorAccent"
             fab:fab_icon="@drawable/ic_delete_white"
             fab:fab_colorPressed="@color/colorPrimary"
             fab:fab_size="mini"/>
