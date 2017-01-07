@@ -1,41 +1,26 @@
-package com.nisira.core.entity;
+package com.nisira.core.entitybase;
 
 import com.google.gson.annotations.SerializedName;
-import com.nisira.annotation.ClavePrimaria;
-import com.nisira.annotation.Columna;
-import com.nisira.annotation.Tabla;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
 
-@Tabla(nombre = "BASEDATOS")
 @XStreamAlias("BASEDATOS")
-
 public class Basedatos implements Serializable {
-	@ClavePrimaria
-	@Columna
-	@SerializedName("idbasedatos")
-	@XStreamAlias("idbasedatos")
+	@SerializedName("idbasedatos") 
+	@XStreamAlias("idbasedatos") 
 	private String idbasedatos = "" ;
-	@Columna
 	@SerializedName("idbasedatosconexion")
-	@XStreamAlias("idbasedatosconexion")
+	@XStreamAlias("idbasedatosconexion") 
 	private String idbasedatosconexion = "" ;
-	@Columna
-	@SerializedName("wsurl")
-	@XStreamAlias("wsurl")
+	@SerializedName("wsurl") 
+	@XStreamAlias("wsurl") 
 	private String wsurl = "" ;
-	@Columna
-	@SerializedName("es_wsnisira")
-	@XStreamAlias("es_wsnisira")
+	@SerializedName("es_wsnisira") 
+	@XStreamAlias("es_wsnisira") 
 	private Double es_wsnisira = 0.00 ;
-	@Columna
-	@SerializedName("habilitado")
-	@XStreamAlias("habilitado")
+	@SerializedName("habilitado") 
+	@XStreamAlias("habilitado") 
 	private Double habilitado = 0.00 ;
-
-
-
 	/* Sets & Gets */
 	public void setIdbasedatos(String idbasedatos) {
 		this.idbasedatos = idbasedatos;
@@ -81,12 +66,4 @@ public class Basedatos implements Serializable {
 
 	/* Sets & Gets FK*/
 
-	/*-Inicio-*/
-
-	@Override
-	public String toString(){
-		return this.idbasedatos+"@@@@"+this.idbasedatos;
-	}
-
-	/*-Fin-*/
 }

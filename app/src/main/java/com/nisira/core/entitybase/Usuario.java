@@ -1,43 +1,43 @@
-package com.nisira.core.entity;
+package com.nisira.core.entitybase;
 
 import com.google.gson.annotations.SerializedName;
-import com.nisira.annotation.ClavePrimaria;
-import com.nisira.annotation.Columna;
-import com.nisira.annotation.Tabla;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
 
-@Tabla(nombre = "USUARIO")
 @XStreamAlias("USUARIO")
 
 public class Usuario implements Serializable {
-	@ClavePrimaria
-	@Columna
-	@SerializedName("idbasedatos")
-	@XStreamAlias("idbasedatos")
+	
+	@SerializedName("idbasedatos") 
+	@XStreamAlias("idbasedatos") 
 	private String idbasedatos = "" ;
-	@ClavePrimaria
-	@Columna
-	@SerializedName("idempresa")
-	@XStreamAlias("idempresa")
+	
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
 	private String idempresa = "" ;
-	@ClavePrimaria
-	@Columna
-	@SerializedName("idusuario")
-	@XStreamAlias("idusuario")
+	
+	@SerializedName("idusuario") 
+	@XStreamAlias("idusuario") 
 	private String idusuario = "" ;
-	@Columna
-	@SerializedName("idvendedor")
-	@XStreamAlias("idvendedor")
+	
+	@SerializedName("idvendedor") 
+	@XStreamAlias("idvendedor") 
 	private String idvendedor = "" ;
-	@Columna
-	@SerializedName("password")
-	@XStreamAlias("password")
+        
+	@SerializedName("usr_nombres") 
+	@XStreamAlias("usr_nombres") 
+	private String usr_nombres = "" ;
+        
+	@SerializedName("idclieprov") 
+	@XStreamAlias("idclieprov") 
+	private String idclieprov = "" ;
+	
+	@SerializedName("password") 
+	@XStreamAlias("password") 
 	private String password = "" ;
-	@Columna
-	@SerializedName("estado")
-	@XStreamAlias("estado")
+	
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
 	private Double estado = 0.00 ;
 
 
@@ -94,5 +94,33 @@ public class Usuario implements Serializable {
 
 
 	/* Sets & Gets FK*/
+
+    /**
+     * @return the usr_nombres
+     */
+    public String getUsr_nombres() {
+        return usr_nombres;
+    }
+
+    /**
+     * @param usr_nombres the usr_nombres to set
+     */
+    public void setUsr_nombres(String usr_nombres) {
+        this.usr_nombres = usr_nombres;
+    }
+
+    /**
+     * @return the idclieprov
+     */
+    public String getIdclieprov() {
+        return idclieprov;
+    }
+
+    /**
+     * @param idclieprov the idclieprov to set
+     */
+    public void setIdclieprov(String idclieprov) {
+        this.idclieprov = idclieprov;
+    }
 
 }
