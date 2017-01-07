@@ -1,44 +1,89 @@
 package com.nisira.core.entity;
 
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
-public class Cargos_personal {
+@Tabla(nombre = "CARGOS_PERSONAL")
+@XStreamAlias("CARGOS_PERSONAL")
 
-	private String idbasedatos;
-
-	private String idempresa;
-
-	private String idcargo;
-
-	private String descripcion;
-	
-	private String idactividad;
-	
-	private String idlabor;
-	
-	private String sincroniza;
-	
+public class Cargos_personal implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idcargo") 
+	@XStreamAlias("idcargo") 
+	private String idcargo = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("idactividad") 
+	@XStreamAlias("idactividad") 
+	private String idactividad = "" ;
+	@Columna
+	@SerializedName("idlabor") 
+	@XStreamAlias("idlabor") 
+	private String idlabor = "" ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private String codalterno;
-	
+	@Columna
+	@SerializedName("codalterno") 
+	@XStreamAlias("codalterno") 
+	private String codalterno = "" ;
+	@Columna
+	@SerializedName("es_guardian") 
+	@XStreamAlias("es_guardian") 
 	private Integer es_guardian;
-	
-	private Float es_pers_aereo;
-	
-	private String cargo_pesquera;
-	
-	private Float produccion_pesquera;
-	
-	private String tipo_trabajo;
-	
-	private String idarea;
-	
-	private Float es_jefedearea;
-	
-	private Float usa_subsector;
-	
-	private Float tipo_cargo;
+	@Columna
+	@SerializedName("es_pers_aereo") 
+	@XStreamAlias("es_pers_aereo") 
+	private Double es_pers_aereo = 0.00 ;
+	@Columna
+	@SerializedName("cargo_pesquera") 
+	@XStreamAlias("cargo_pesquera") 
+	private String cargo_pesquera = "" ;
+	@Columna
+	@SerializedName("produccion_pesquera") 
+	@XStreamAlias("produccion_pesquera") 
+	private Double produccion_pesquera = 0.00 ;
+	@Columna
+	@SerializedName("tipo_trabajo") 
+	@XStreamAlias("tipo_trabajo") 
+	private String tipo_trabajo = "" ;
+	@Columna
+	@SerializedName("idarea") 
+	@XStreamAlias("idarea") 
+	private String idarea = "" ;
+	@Columna
+	@SerializedName("es_jefedearea") 
+	@XStreamAlias("es_jefedearea") 
+	private Double es_jefedearea = 0.00 ;
+	@Columna
+	@SerializedName("usa_subsector") 
+	@XStreamAlias("usa_subsector") 
+	private Double usa_subsector = 0.00 ;
+	@Columna
+	@SerializedName("tipo_cargo") 
+	@XStreamAlias("tipo_cargo") 
+	private Double tipo_cargo = 0.00 ;
 
 
 
@@ -115,11 +160,11 @@ public class Cargos_personal {
 		return this.es_guardian;
 	}
 
-	public void setEs_pers_aereo(Float es_pers_aereo) {
+	public void setEs_pers_aereo(Double es_pers_aereo) {
 		this.es_pers_aereo = es_pers_aereo;
 	}
 
-	public Float getEs_pers_aereo() {
+	public Double getEs_pers_aereo() {
 		return this.es_pers_aereo;
 	}
 
@@ -131,11 +176,11 @@ public class Cargos_personal {
 		return this.cargo_pesquera;
 	}
 
-	public void setProduccion_pesquera(Float produccion_pesquera) {
+	public void setProduccion_pesquera(Double produccion_pesquera) {
 		this.produccion_pesquera = produccion_pesquera;
 	}
 
-	public Float getProduccion_pesquera() {
+	public Double getProduccion_pesquera() {
 		return this.produccion_pesquera;
 	}
 
@@ -155,46 +200,32 @@ public class Cargos_personal {
 		return this.idarea;
 	}
 
-	public void setEs_jefedearea(Float es_jefedearea) {
+	public void setEs_jefedearea(Double es_jefedearea) {
 		this.es_jefedearea = es_jefedearea;
 	}
 
-	public Float getEs_jefedearea() {
+	public Double getEs_jefedearea() {
 		return this.es_jefedearea;
 	}
 
-	public void setUsa_subsector(Float usa_subsector) {
+	public void setUsa_subsector(Double usa_subsector) {
 		this.usa_subsector = usa_subsector;
 	}
 
-	public Float getUsa_subsector() {
+	public Double getUsa_subsector() {
 		return this.usa_subsector;
 	}
 
-	public void setTipo_cargo(Float tipo_cargo) {
+	public void setTipo_cargo(Double tipo_cargo) {
 		this.tipo_cargo = tipo_cargo;
 	}
 
-	public Float getTipo_cargo() {
+	public Double getTipo_cargo() {
 		return this.tipo_cargo;
 	}
 
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

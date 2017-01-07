@@ -1,39 +1,61 @@
 package com.nisira.core.entity;
 
-
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "RUTA_SERVICIOS")
 @XStreamAlias("RUTA_SERVICIOS")
-public class Ruta_servicios {
-	private String idbasedatos;
-	@XStreamAlias("IDEMPRESA")
-	
-	private String idempresa;
-	@XStreamAlias("IDORDENSERVICIO")
-	
-	private String idordenservicio;
-	@XStreamAlias("ITEM")
-	
-	private String item;
-	@XStreamAlias("ITEMRUTA")
-	
-	private String itemruta;
-	@XStreamAlias("IDRUTA")
-	
-	private String idruta;
-	@XStreamAlias("LATITUD")
-	
-	private String latitud;
-	@XStreamAlias("LONGITUD")
-	
-	private String longitud;
-	@XStreamAlias("GLOSA")
-	
-	private String glosa;
-	@XStreamAlias("FECHACREACION")
-	
+
+public class Ruta_servicios implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idordenservicio") 
+	@XStreamAlias("idordenservicio") 
+	private String idordenservicio = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("item") 
+	@XStreamAlias("item") 
+	private String item = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("itemruta") 
+	@XStreamAlias("itemruta") 
+	private String itemruta = "" ;
+	@Columna
+	@SerializedName("idruta") 
+	@XStreamAlias("idruta") 
+	private String idruta = "" ;
+	@Columna
+	@SerializedName("latitud") 
+	@XStreamAlias("latitud") 
+	private String latitud = "" ;
+	@Columna
+	@SerializedName("longitud") 
+	@XStreamAlias("longitud") 
+	private String longitud = "" ;
+	@Columna
+	@SerializedName("glosa") 
+	@XStreamAlias("glosa") 
+	private String glosa = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	private String ruta;
+
+
 
 	/* Sets & Gets */
 	public void setIdempresa(String idempresa) {
@@ -111,33 +133,5 @@ public class Ruta_servicios {
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the ruta
-     */
-    public String getRuta() {
-        return ruta;
-    }
-
-    /**
-     * @param ruta the ruta to set
-     */
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
-    }
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }

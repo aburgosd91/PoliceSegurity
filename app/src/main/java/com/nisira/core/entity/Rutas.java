@@ -1,46 +1,97 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Rutas {
-	
-	private String idempresa;
-	
-	private String idruta;
-	
-	private String descripcion;
-	
-	private Float kilometros;
-	
-	private String peaje;
-	
-	private int estado;
-	
-	private String sincroniza;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "RUTAS")
+@XStreamAlias("RUTAS")
+
+public class Rutas implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idruta") 
+	@XStreamAlias("idruta") 
+	private String idruta = "" ;
+	@Columna
+	@SerializedName("descripcion") 
+	@XStreamAlias("descripcion") 
+	private String descripcion = "" ;
+	@Columna
+	@SerializedName("kilometros") 
+	@XStreamAlias("kilometros") 
+	private Double kilometros = 0.00 ;
+	@Columna
+	@SerializedName("peaje") 
+	@XStreamAlias("peaje") 
+	private String peaje = "" ;
+	@Columna
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
+	private Double estado = 0.00 ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private Float valorref;
-	
-	private Float flete;
-	
-	private String origen;
-	
-	private String destino;
-	
-	private String idcontratotrans;
-	
-	private String idopetrans;
-	
-	private String idclieprov;
-	
-	private Float kmvirtual;
-	
-	private String origenalterno;
-	
-	private String destinoalterno;
-	
-	private Float exige_guia_confirmacion;
+	@Columna
+	@SerializedName("valorref") 
+	@XStreamAlias("valorref") 
+	private Double valorref = 0.00 ;
+	@Columna
+	@SerializedName("flete") 
+	@XStreamAlias("flete") 
+	private Double flete = 0.00 ;
+	@Columna
+	@SerializedName("origen") 
+	@XStreamAlias("origen") 
+	private String origen = "" ;
+	@Columna
+	@SerializedName("destino") 
+	@XStreamAlias("destino") 
+	private String destino = "" ;
+	@Columna
+	@SerializedName("idcontratotrans") 
+	@XStreamAlias("idcontratotrans") 
+	private String idcontratotrans = "" ;
+	@Columna
+	@SerializedName("idopetrans") 
+	@XStreamAlias("idopetrans") 
+	private String idopetrans = "" ;
+	@Columna
+	@SerializedName("idclieprov") 
+	@XStreamAlias("idclieprov") 
+	private String idclieprov = "" ;
+	@Columna
+	@SerializedName("kmvirtual") 
+	@XStreamAlias("kmvirtual") 
+	private Double kmvirtual = 0.00 ;
+	@Columna
+	@SerializedName("origenalterno") 
+	@XStreamAlias("origenalterno") 
+	private String origenalterno = "" ;
+	@Columna
+	@SerializedName("destinoalterno") 
+	@XStreamAlias("destinoalterno") 
+	private String destinoalterno = "" ;
+	@Columna
+	@SerializedName("exige_guia_confirmacion") 
+	@XStreamAlias("exige_guia_confirmacion") 
+	private Double exige_guia_confirmacion = 0.00 ;
 
 
 
@@ -69,11 +120,11 @@ public class Rutas {
 		return this.descripcion;
 	}
 
-	public void setKilometros(Float kilometros) {
+	public void setKilometros(Double kilometros) {
 		this.kilometros = kilometros;
 	}
 
-	public Float getKilometros() {
+	public Double getKilometros() {
 		return this.kilometros;
 	}
 
@@ -85,11 +136,11 @@ public class Rutas {
 		return this.peaje;
 	}
 
-	public void setEstado(int estado) {
+	public void setEstado(Double estado) {
 		this.estado = estado;
 	}
 
-	public int getEstado() {
+	public Double getEstado() {
 		return this.estado;
 	}
 
@@ -109,19 +160,19 @@ public class Rutas {
 		return this.fechacreacion;
 	}
 
-	public void setValorref(Float valorref) {
+	public void setValorref(Double valorref) {
 		this.valorref = valorref;
 	}
 
-	public Float getValorref() {
+	public Double getValorref() {
 		return this.valorref;
 	}
 
-	public void setFlete(Float flete) {
+	public void setFlete(Double flete) {
 		this.flete = flete;
 	}
 
-	public Float getFlete() {
+	public Double getFlete() {
 		return this.flete;
 	}
 
@@ -165,11 +216,11 @@ public class Rutas {
 		return this.idclieprov;
 	}
 
-	public void setKmvirtual(Float kmvirtual) {
+	public void setKmvirtual(Double kmvirtual) {
 		this.kmvirtual = kmvirtual;
 	}
 
-	public Float getKmvirtual() {
+	public Double getKmvirtual() {
 		return this.kmvirtual;
 	}
 
@@ -189,11 +240,11 @@ public class Rutas {
 		return this.destinoalterno;
 	}
 
-	public void setExige_guia_confirmacion(Float exige_guia_confirmacion) {
+	public void setExige_guia_confirmacion(Double exige_guia_confirmacion) {
 		this.exige_guia_confirmacion = exige_guia_confirmacion;
 	}
 
-	public Float getExige_guia_confirmacion() {
+	public Double getExige_guia_confirmacion() {
 		return this.exige_guia_confirmacion;
 	}
 

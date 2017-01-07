@@ -42,7 +42,7 @@
             android:hint="@string/usuario"
             android:layout_marginBottom="10dp"
             android:ems="10"
-            android:id="@+id/editText" />
+            android:id="@+id/txtUser" />
 
         <EditText
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:layout_marginBottom="10dp"
             android:hint="@string/password"
             android:paddingBottom="15dp"
-            android:id="@+id/editText2"
+            android:id="@+id/txtPassword"
             android:textStyle="normal"
             />
 

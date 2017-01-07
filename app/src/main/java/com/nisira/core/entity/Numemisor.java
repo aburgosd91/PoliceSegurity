@@ -1,35 +1,75 @@
 package com.nisira.core.entity;
 
-import java.util.Date;
+import com.nisira.annotation.ClavePrimaria;
+import com.nisira.annotation.Columna;
+import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.Serializable;
 
-public class Numemisor {
-	private String idbasedatos;
-	
-	private String idempresa;
-	
-	private String idemisor;
-	
-	private String iddocumento;
-	
-	private String serie;
-	
-	private String numero;
-	
-	private Float estado;
-	
-	private Float es_importacion;
-	
-	private String sincroniza;
-	
+import java.util.Date;
+import java.util.ArrayList;
+
+@Tabla(nombre = "NUMEMISOR")
+@XStreamAlias("NUMEMISOR")
+
+public class Numemisor implements Serializable {
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idempresa") 
+	@XStreamAlias("idempresa") 
+	private String idempresa = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("idemisor") 
+	@XStreamAlias("idemisor") 
+	private String idemisor = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("iddocumento") 
+	@XStreamAlias("iddocumento") 
+	private String iddocumento = "" ;
+	@ClavePrimaria
+	@Columna
+	@SerializedName("serie") 
+	@XStreamAlias("serie") 
+	private String serie = "" ;
+	@Columna
+	@SerializedName("numero") 
+	@XStreamAlias("numero") 
+	private String numero = "" ;
+	@Columna
+	@SerializedName("estado") 
+	@XStreamAlias("estado") 
+	private Double estado = 0.00 ;
+	@Columna
+	@SerializedName("es_importacion") 
+	@XStreamAlias("es_importacion") 
+	private Double es_importacion = 0.00 ;
+	@Columna
+	@SerializedName("sincroniza") 
+	@XStreamAlias("sincroniza") 
+	private String sincroniza = "" ;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("fechacreacion") 
 	private Date fechacreacion;
-	
-	private Float nlineas;
-	
-	private String observacion;
-	
-	private String idtipoventa;
-	
-	private Float paradeclaracion_ce;
+	@Columna
+	@SerializedName("nlineas") 
+	@XStreamAlias("nlineas") 
+	private Double nlineas = 0.00 ;
+	@Columna
+	@SerializedName("observacion") 
+	@XStreamAlias("observacion") 
+	private String observacion = "" ;
+	@Columna
+	@SerializedName("idtipoventa") 
+	@XStreamAlias("idtipoventa") 
+	private String idtipoventa = "" ;
+	@Columna
+	@SerializedName("paradeclaracion_ce") 
+	@XStreamAlias("paradeclaracion_ce") 
+	private Double paradeclaracion_ce = 0.00 ;
 
 
 
@@ -74,19 +114,19 @@ public class Numemisor {
 		return this.numero;
 	}
 
-	public void setEstado(Float estado) {
+	public void setEstado(Double estado) {
 		this.estado = estado;
 	}
 
-	public Float getEstado() {
+	public Double getEstado() {
 		return this.estado;
 	}
 
-	public void setEs_importacion(Float es_importacion) {
+	public void setEs_importacion(Double es_importacion) {
 		this.es_importacion = es_importacion;
 	}
 
-	public Float getEs_importacion() {
+	public Double getEs_importacion() {
 		return this.es_importacion;
 	}
 
@@ -106,11 +146,11 @@ public class Numemisor {
 		return this.fechacreacion;
 	}
 
-	public void setNlineas(Float nlineas) {
+	public void setNlineas(Double nlineas) {
 		this.nlineas = nlineas;
 	}
 
-	public Float getNlineas() {
+	public Double getNlineas() {
 		return this.nlineas;
 	}
 
@@ -130,30 +170,16 @@ public class Numemisor {
 		return this.idtipoventa;
 	}
 
-	public void setParadeclaracion_ce(Float paradeclaracion_ce) {
+	public void setParadeclaracion_ce(Double paradeclaracion_ce) {
 		this.paradeclaracion_ce = paradeclaracion_ce;
 	}
 
-	public Float getParadeclaracion_ce() {
+	public Double getParadeclaracion_ce() {
 		return this.paradeclaracion_ce;
 	}
 
 
 
 	/* Sets & Gets FK*/
-
-    /**
-     * @return the idbasedatos
-     */
-    public String getIdbasedatos() {
-        return idbasedatos;
-    }
-
-    /**
-     * @param idbasedatos the idbasedatos to set
-     */
-    public void setIdbasedatos(String idbasedatos) {
-        this.idbasedatos = idbasedatos;
-    }
 
 }
