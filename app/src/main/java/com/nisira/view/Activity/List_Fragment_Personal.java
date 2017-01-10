@@ -3,11 +3,13 @@ package com.nisira.view.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ public class List_Fragment_Personal extends FragmentNisira {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
     private FloatingActionButton fab_agregar;
+    private SwipeRefreshLayout swiperefresh;
 
     // TODO: PARAMETROS DE ENTRADA
     private String mParam1;
@@ -67,15 +70,8 @@ public class List_Fragment_Personal extends FragmentNisira {
 
         View view = inflater.inflate(R.layout.fragment_lista, container, false);
         animacionEntrada();
+        swiperefresh = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
         fab_agregar = (FloatingActionButton) view.findViewById(R.id.fab_agregar);
-        fab_agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new edit_OrdenServicio_Fragment(), "NewFragmentTag");
-                ft.commit();
-            }
-        });
 
         // Inflate the layout for this fragment
         recycler = (RecyclerView) view.findViewById(R.id.reciclador);
@@ -91,6 +87,24 @@ public class List_Fragment_Personal extends FragmentNisira {
         cws.execute("");
         cws.pd = ProgressDialog.show(this.getActivity(), "SINCRONIZANDO","Sincronizando Personal", true, false);
 
+        // TODO: EVENTOS
+
+        swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+        });
+        fab_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.main_content, new edit_OrdenServicio_Fragment(), "NewFragmentTag");
+                ft.commit();
+            }
+        });
+
+
         return view;
     }
     // TODO: TRANSICIONES Y ANIMACIONES
@@ -98,6 +112,7 @@ public class List_Fragment_Personal extends FragmentNisira {
     public void animacionEntrada(){
         Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
         setExitTransition(slide);
+        setEnterTransition(slide);
     }
     @Override
     public  void onPostExecuteWebService(ConsumerService cws, String result) {

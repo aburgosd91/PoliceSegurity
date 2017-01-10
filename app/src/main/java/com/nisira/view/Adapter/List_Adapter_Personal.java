@@ -1,17 +1,21 @@
 package com.nisira.view.Adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nisira.core.entity.Clieprov;
 import com.nisira.gcalderon.policesecurity.R;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by ABURGOS on 05/01/2017.
@@ -27,13 +31,18 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     public TextView nombre;
     public TextView documento;
     public TextView estado;
-    public CheckBox seleccion;
+    public CircleImageView seleccion;
+    public RelativeLayout fondo_seleccion;
+    public boolean bool_seleccion;
     public ListaViewHolder(View v) {
         super(v);
         imagen = (ImageView) v.findViewById(R.id.imagen_personal);
         nombre = (TextView) v.findViewById(R.id.nombre);
         documento = (TextView) v.findViewById(R.id.txtdocumento);
-        estado = (CheckBox) v.findViewById(R.id.checkSeleccion);
+        seleccion = (CircleImageView) v.findViewById(R.id.seleccion);
+        fondo_seleccion = (RelativeLayout) v.findViewById(R.id.fondo_seleccion);
+        bool_seleccion = false;
+        //estado = (CheckBox) v.findViewById(R.id.checkSeleccion);
     }
 }
 
@@ -59,7 +68,29 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         //viewHolder.imagen.setImageResource());
         viewHolder.nombre.setText(items.get(i).getRazon_social());
         viewHolder.documento.setText(items.get(i).getRuc());
-        viewHolder.estado.setText((items.get(i).getEstado()==1.00?"Activo":"Inactivo"));
+        viewHolder.bool_seleccion = false;
+        //viewHolder.estado.setText((items.get(i).getEstado()==1.00?"Activo":"Inactivo"));
 //        viewHolder.seleccion.setChecked(false);
+
+        //TODO: EVENTOS
+        viewHolder.seleccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!viewHolder.bool_seleccion) {
+                    viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
+                    viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
+                    viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
+                    viewHolder.bool_seleccion=true;
+                    Log.i("DEBUG",i+" "+items.get(i).getRazon_social());
+                    notifyDataSetChanged();
+                }else{
+                    viewHolder.bool_seleccion=false;
+                    viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
+                    viewHolder.seleccion.setImageResource(R.drawable.ic_none);
+                    viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
+                    notifyDataSetChanged();
+                }
+            }
+        });
     }
 }

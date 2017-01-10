@@ -139,7 +139,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="probando"
+                            android:hint="Telefono"
                             android:inputType="phone" />
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
@@ -290,7 +290,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:hint="probando"
+                            android:hint="List view"
                             android:inputType="textEmailAddress"
                             android:singleLine="true" />
                     </android.support.design.widget.TextInputLayout>
