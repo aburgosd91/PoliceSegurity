@@ -5,23 +5,29 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
+
+import com.nisira.core.entity.Basedatos;
+import com.nisira.core.interfaces.ActivityNisira;
+import com.nisira.core.interfaces.ActivityNisiraCompat;
+import com.nisira.core.interfaces.FragmentNisira;
+
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.HashMap;
-import com.nisira.core.entity.Basedatos;
-import org.xmlpull.v1.XmlPullParserException;
-import com.nisira.core.interfaces.ActivityNisira;
-import com.nisira.core.interfaces.ActivityNisiraCompat;
+import java.util.LinkedHashMap;
 
 //public class ConsumerService extends AsyncTaskService<String, Void, Integer> {
 public class ConsumerService extends AsyncTask<String, Void, String> {
     private final Context context1;
-    private final Activity activity;
+    private Activity activity;
+    private Fragment fragment;
     String response = "";
     public ProgressDialog pd;
     private String method;
     private Service ws;
-    private HashMap attribute;
+    private LinkedHashMap attribute;
     private Basedatos WSBasedatos;
 //    private Empresa WSEmpresa;
 //    private Usuario WSUsuario;
@@ -32,7 +38,17 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
         this.activity =activity;
         this.setMethod(method);
         this.ws =new Service(context);
-        this.setAttribute(new HashMap());
+        this.setAttribute(new LinkedHashMap());
+        this.WSBasedatos = new Basedatos();
+        WSBasedatos.setWsurl(Service.URL);
+        WSBasedatos.setIdbasedatosconexion("AUTONOR");
+    }
+    public ConsumerService(Fragment fragment, Context context, String method, Integer parametro_timeout) {
+        this.context1 = context;
+        this.fragment =fragment;
+        this.setMethod(method);
+        this.ws =new Service(context);
+        this.setAttribute(new LinkedHashMap());
         this.WSBasedatos = new Basedatos();
         WSBasedatos.setWsurl(Service.URL);
         WSBasedatos.setIdbasedatosconexion("AUTONOR");
@@ -41,26 +57,30 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
     //protected Integer doInBackground(String... args) {
     protected String doInBackground(String... args) {
         try {
+            String xmlGson = "";
             switch (getMethod().trim()){
                 case TypeMethod.METHOD_VERIFICATION_USER           :
-                    String xmlGson = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_VERIFICATION_USER, getAttribute());
+                    xmlGson = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_VERIFICATION_USER, getAttribute());
                     response = ActionService.ACTION_VERIFICATION_USER(WSBasedatos.getIdbasedatos(),xmlGson);
                     break;
-                case TypeMethod.METHOD_SYNC_BASEDATOS              : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_BASEDATOS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_CARGOS_PERSONAL        : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_CARGOS_PERSONAL, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_CLIEPROV               : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_CLIEPROV, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_CONSUMIDOR             : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_CONSUMIDOR, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_COTIZACIONVENTAS       : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_COTIZACIONVENTAS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_DCOTIZACIONVENTAS      : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_DCOTIZACIONVENTAS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_DOCUMENTOS             : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_DOCUMENTOS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_DORDENSERVICIOCLIENTE  : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_DORDENSERVICIOCLIENTE, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_ESTADOS                : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_ESTADOS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_NUMEMISOR              : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_NUMEMISOR, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_ORDENSERVICIOCLIENTE   : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_ORDENSERVICIOCLIENTE, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_PERSONAL_SERVICIO      : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_PERSONAL_SERVICIO, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_PRODUCTOS              : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_PRODUCTOS, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_RUTA_SERVICIO          : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_RUTA_SERVICIO, getAttribute());break;
-                case TypeMethod.METHOD_SYNC_RUTAS                  : response = (String)ws.requestObject(WSBasedatos.getWsurl(),TypeMethod.METHOD_SYNC_RUTAS, getAttribute());break;
+                case TypeMethod.METHOD_LIST_CLIEPROV           :
+                    response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_CLIEPROV, getAttribute());
+                    break;
+                case TypeMethod.METHOD_SYNC_BASEDATOS              : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_BASEDATOS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_CARGOS_PERSONAL        : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_CARGOS_PERSONAL, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_CLIEPROV               : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_CLIEPROV, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_CONSUMIDOR             : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_CONSUMIDOR, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_COTIZACIONVENTAS       : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_COTIZACIONVENTAS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_DCOTIZACIONVENTAS      : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_DCOTIZACIONVENTAS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_DOCUMENTOS             : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_DOCUMENTOS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_DORDENSERVICIOCLIENTE  : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_DORDENSERVICIOCLIENTE, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_ESTADOS                : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_ESTADOS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_NUMEMISOR              : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_NUMEMISOR, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_ORDENSERVICIOCLIENTE   : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_ORDENSERVICIOCLIENTE, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_PERSONAL_SERVICIO      : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_PERSONAL_SERVICIO, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_PRODUCTOS              : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_PRODUCTOS, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_RUTA_SERVICIO          : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_RUTA_SERVICIO, getAttribute());break;
+                case TypeMethod.METHOD_SYNC_RUTAS                  : response = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_SYNC_RUTAS, getAttribute());break;
             }
         } catch (IOException | XmlPullParserException e) {
             response = e.getMessage();
@@ -97,7 +117,11 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
         try {
             ((ActivityNisira) (activity)).onPostExecuteWebService(ConsumerService.this, response);
         }catch (Exception ex){
-            ((ActivityNisiraCompat) (activity)).onPostExecuteWebService(ConsumerService.this, response);
+            try {
+                ((ActivityNisiraCompat) (activity)).onPostExecuteWebService(ConsumerService.this, response);
+            }catch (Exception ex2){
+                ((FragmentNisira)(fragment)).onPostExecuteWebService(ConsumerService.this, response);
+            }
         }
         super.onPostExecute(result);
 
@@ -107,7 +131,7 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
         return attribute;
     }
 
-    public void setAttribute(HashMap attribute) {
+    public void setAttribute(LinkedHashMap attribute) {
         this.attribute = attribute;
     }
 

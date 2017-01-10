@@ -10,7 +10,11 @@ import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.gson.Gson;
 import com.nisira.gcalderon.policesecurity.R;
+import com.thoughtworks.xstream.XStream;
+
+import java.util.List;
 
 /**
  * Created by vzavala on 08/11/2016.
@@ -86,4 +90,33 @@ public final class Util {
 
 
     }
+
+    /************************ AGREGADO by aburgos ***************************/
+    public static Object stringObject(String _class, String obj) throws ClassNotFoundException{
+        Class oClase =  Class.forName(_class);
+        XStream xstream = new XStream();
+        xstream.processAnnotations(oClase);
+        Object object = (Object)xstream.fromXML(obj);
+        return object;
+    }
+    public static List<? extends Object> stringListObject(String _class, String obj) throws ClassNotFoundException{
+        Class oClase =  Class.forName(_class);
+        XStream xstream = new XStream();
+        xstream.processAnnotations(oClase);
+        List<? extends Object> object = (List<? extends Object>)xstream.fromXML(obj);
+        return object;
+    }
+    public static Object stringGson(String _class,String obj) throws ClassNotFoundException{
+        Class oClase =  Class.forName(_class);
+        Gson gson = new Gson();
+        Object object = (Object)gson.fromJson(obj, oClase);
+        return object;
+    }
+    public static List<? extends Object> stringListGson(String _class,String obj) throws ClassNotFoundException{
+        Class oClase =  Class.forName(_class);
+        Gson gson = new Gson();
+        List<? extends Object> object = (List<? extends Object>)gson.fromJson(obj, oClase);
+        return object;
+    }
+
 }

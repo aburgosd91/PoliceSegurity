@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +26,7 @@ import com.nisira.core.service.TypeMethod;
 import com.nisira.core.util.Util;
 import com.nisira.gcalderon.policesecurity.R;
 
-public class Login_Activity extends ActivityNisiraCompat  implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
+public class Login_Activity extends ActivityNisiraCompat implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
     private static final int PERMISSION_REQUEST_CODE = 1;
     /*CONTROLLER*/
     Button btn_login;
@@ -189,6 +188,7 @@ public class Login_Activity extends ActivityNisiraCompat  implements ActivityCom
         if(cws.getMethod().trim().equals(TypeMethod.METHOD_VERIFICATION_USER)){
             if(result.trim().equals("OK")){
                 Toast.makeText(getApplicationContext(),"Session Exitosa !!!.",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Login_Activity.this, SplashScreen_Activity.class));
                 //llenar();
             }
             else{

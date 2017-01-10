@@ -3,6 +3,23 @@
     package="com.nisira.gcalderon.policesecurity">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="nisira.com.pe.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,20 +27,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="com.nisira.core.interfaces.VariableGlobal">
-        <activity android:name="com.nisira.view.Activity.Login_Activity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name="com.nisira.view.Activity.NavigationPolice_Activity"
-            android:label="@string/title_activity_navigation_police"
-            android:theme="@style/AppTheme.NoActionBar" >
+        <activity android:name="com.nisira.view.Activity.Login_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.nisira.view.Activity.NavigationPolice_Activity"
+            android:label="@string/title_activity_navigation_police"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
         <activity
             android:name="com.nisira.view.Activity.SplashScreen_Activity"
             android:label="SplashScreen"

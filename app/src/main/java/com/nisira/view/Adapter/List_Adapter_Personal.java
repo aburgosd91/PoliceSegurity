@@ -4,34 +4,40 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nisira.core.entity.Clieprov;
 import com.nisira.gcalderon.policesecurity.R;
 
 import java.util.List;
 
 /**
- * Created by gcalderon on 05/01/2017.
+ * Created by ABURGOS on 05/01/2017.
  */
 
-public class Lista_Adapter extends RecyclerView.Adapter<Lista_Adapter.ListaViewHolder> {
+public class List_Adapter_Personal extends RecyclerView.Adapter<List_Adapter_Personal.ListaViewHolder> {
 
-    private List<String> items;//Lo cambias por la coleccion que necesites Alex
+    private List<Clieprov> items;//Lo cambias por la coleccion que necesites Alex
 
 public static class ListaViewHolder extends RecyclerView.ViewHolder {
     // Campos respectivos de un item
     public ImageView imagen;
     public TextView nombre;
-
+    public TextView documento;
+    public TextView estado;
+    public CheckBox seleccion;
     public ListaViewHolder(View v) {
         super(v);
         imagen = (ImageView) v.findViewById(R.id.imagen_personal);
         nombre = (TextView) v.findViewById(R.id.nombre);
+        documento = (TextView) v.findViewById(R.id.txtdocumento);
+        estado = (CheckBox) v.findViewById(R.id.checkSeleccion);
     }
 }
 
-    public Lista_Adapter(List<String> items) {
+    public List_Adapter_Personal(List<Clieprov> items) {
         this.items = items;
     }
 
@@ -51,6 +57,9 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(ListaViewHolder viewHolder, int i) {
         //AQUI VAN TODOS LOS ELEMENTOS DE LA LISTA.
         //viewHolder.imagen.setImageResource());
-        viewHolder.nombre.setText(items.get(i));
+        viewHolder.nombre.setText(items.get(i).getRazon_social());
+        viewHolder.documento.setText(items.get(i).getRuc());
+        viewHolder.estado.setText((items.get(i).getEstado()==1.00?"Activo":"Inactivo"));
+//        viewHolder.seleccion.setChecked(false);
     }
 }

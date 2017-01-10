@@ -1,19 +1,21 @@
 package com.nisira.core.entity;
 
+import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
-import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import java.io.Serializable;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.ArrayList;
 
 @Tabla(nombre = "CLIEPROV")
 @XStreamAlias("CLIEPROV")
 
 public class Clieprov implements Serializable {
+	@SerializedName("idbasedatos")
+	@XStreamAlias("idbasedatos")
+	private String idbasedatos = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
@@ -105,8 +107,8 @@ public class Clieprov implements Serializable {
 	@XStreamAlias("nombres") 
 	private String nombres = "" ;
 	@Columna
-	@SerializedName("razon_social") 
-	@XStreamAlias("razon_social") 
+	@SerializedName("razonsocial")
+	@XStreamAlias("razonsocial")
 	private String razon_social = "" ;
 	@Columna
 	@SerializedName("e_mail") 
@@ -888,7 +890,8 @@ public class Clieprov implements Serializable {
 	@SerializedName("codigo_alt") 
 	@XStreamAlias("codigo_alt") 
 	private String codigo_alt = "" ;
-
+	@XStreamAlias("seleccion")
+	private boolean seleccion;
 
 
 	/* Sets & Gets */
@@ -2634,6 +2637,14 @@ public class Clieprov implements Serializable {
 
 	public String getCodigo_alt() {
 		return this.codigo_alt;
+	}
+
+	public boolean isSeleccion() {
+		return seleccion;
+	}
+
+	public void setSeleccion(boolean seleccion) {
+		this.seleccion = seleccion;
 	}
 
 

@@ -32,6 +32,10 @@ public class Usuario implements Serializable {
 	@XStreamAlias("idvendedor")
 	private String idvendedor = "" ;
 	@Columna
+	@SerializedName("usr_nombres")
+	@XStreamAlias("usr_nombres")
+	private String usr_nombres = "" ;
+	@Columna
 	@SerializedName("password")
 	@XStreamAlias("password")
 	private String password = "" ;
@@ -89,6 +93,14 @@ public class Usuario implements Serializable {
 
 	public Double getEstado() {
 		return this.estado;
+	}
+
+	public String getUsr_nombres() {
+		return usr_nombres;
+	}
+
+	public void setUsr_nombres(String usr_nombres) {
+		this.usr_nombres = usr_nombres;
 	}
 
 

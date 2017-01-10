@@ -42,7 +42,8 @@
             android:hint="@string/usuario"
             android:layout_marginBottom="10dp"
             android:ems="10"
-            android:id="@+id/txtUser" />
+            android:id="@+id/txtUser"
+                android:text="ADMINISTRADOR" />
 
         <EditText
             android:layout_width="match_parent"
@@ -54,7 +55,7 @@
             android:paddingBottom="15dp"
             android:id="@+id/txtPassword"
             android:textStyle="normal"
-            />
+            android:text="admin" />
 
             <Button
                 android:text="@string/login"

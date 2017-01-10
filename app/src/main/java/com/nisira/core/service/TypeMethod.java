@@ -6,6 +6,7 @@ package com.nisira.core.service;
 
 public class TypeMethod {
     public static final String METHOD_VERIFICATION_USER            ="METHOD_VERIFICATION_USER";
+    public static final String METHOD_LIST_CLIEPROV               ="METHOD_LIST_CLIEPROV";
     public static final String METHOD_SYNC_BASEDATOS               ="METHOD_SYNC_BASEDATOS";
     public static final String METHOD_SYNC_CARGOS_PERSONAL         ="METHOD_SYNC_CARGOS_PERSONAL";
     public static final String METHOD_SYNC_CLIEPROV                ="METHOD_SYNC_CLIEPROV";

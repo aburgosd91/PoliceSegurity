@@ -1,14 +1,13 @@
 package com.nisira.core.entity;
 
+import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
-import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import java.io.Serializable;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.ArrayList;
 
 @Tabla(nombre = "DOCUMENTOS")
 @XStreamAlias("DOCUMENTOS")

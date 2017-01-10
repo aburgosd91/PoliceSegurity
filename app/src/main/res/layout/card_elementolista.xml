@@ -17,9 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
+            android:text="Nombre"
             android:id="@+id/nombre"
-            android:layout_toRightOf="@+id/imagen"
+            android:layout_toRightOf="@+id/imagen_personal"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp" />
 
@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/texto1"
+            android:text="########"
+            android:id="@+id/txtdocumento"
             android:layout_below="@+id/nombre"
             android:layout_alignLeft="@+id/nombre" />
         <View
@@ -36,12 +36,12 @@
             android:layout_height="1dp"
             android:background="#ffd5d5d5"
             android:id="@+id/linea"
-            android:layout_toRightOf="@+id/imagen">
+            android:layout_toRightOf="@+id/imagen_personal">
 
         </View>
 
         <ImageView
-            android:id="@+id/imagen"
+            android:id="@+id/imagen_personal"
             android:layout_marginLeft="5dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -50,6 +50,22 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="5dp"
             android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtEstado"
+            android:layout_alignBottom="@+id/imagen_personal"
+            android:layout_alignStart="@+id/txtdocumento" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/txtdocumento"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp"
+            android:id="@+id/checkSeleccion" />
 
 
     </RelativeLayout>

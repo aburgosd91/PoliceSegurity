@@ -117,7 +117,7 @@ public class NavigationPolice_Activity extends AppCompatActivity
         Bundle args = new Bundle();
         args.putString("numero de la seccion", title);
 
-        Fragment fragment = Lista_Fragment.newInstance("ejemplo","ejemplo2");
+        Fragment fragment = List_Fragment_Personal.newInstance("ejemplo","ejemplo2");
         fragment.setArguments(args);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager
