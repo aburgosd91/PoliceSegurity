@@ -41,7 +41,6 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         documento = (TextView) v.findViewById(R.id.txtdocumento);
         seleccion = (CircleImageView) v.findViewById(R.id.seleccion);
         fondo_seleccion = (RelativeLayout) v.findViewById(R.id.fondo_seleccion);
-        bool_seleccion = false;
         //estado = (CheckBox) v.findViewById(R.id.checkSeleccion);
     }
 }
@@ -68,28 +67,36 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         //viewHolder.imagen.setImageResource());
         viewHolder.nombre.setText(items.get(i).getRazon_social());
         viewHolder.documento.setText(items.get(i).getRuc());
-        viewHolder.bool_seleccion = false;
+        if(items.get(i).isSeleccion()){
+            viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
+            viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
+            viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
+        }else {
+            viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));
+            viewHolder.seleccion.setImageResource(R.drawable.ic_none);
+            viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));
+        }
         //viewHolder.estado.setText((items.get(i).getEstado()==1.00?"Activo":"Inactivo"));
-//        viewHolder.seleccion.setChecked(false);
+        //viewHolder.seleccion.setChecked(false);
 
         //TODO: EVENTOS
         viewHolder.seleccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!viewHolder.bool_seleccion) {
+                if(!items.get(i).isSeleccion()) {
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
-                    viewHolder.bool_seleccion=true;
+                    items.get(i).setSeleccion(true);
                     Log.i("DEBUG",i+" "+items.get(i).getRazon_social());
-                    notifyDataSetChanged();
+
                 }else{
-                    viewHolder.bool_seleccion=false;
+                    items.get(i).setSeleccion(false);
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_none);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
-                    notifyDataSetChanged();
                 }
+                notifyItemChanged(i);
             }
         });
     }
