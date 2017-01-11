@@ -1,8 +1,12 @@
 package com.nisira.view.Activity;
 
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.transition.Fade;
 import android.transition.Slide;
@@ -12,7 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nisira.gcalderon.policesecurity.R;
 
 
@@ -21,6 +27,9 @@ public class edit_OrdenServicio_Fragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private AutoCompleteTextView listbox;
+    private EditText hora_requerida;
+    private FloatingActionButton btn_cancelar;
+    private FloatingActionButton btn_acaptar;
 
     // TODO: PARAMETROS DE ENTRADA
     private String mParam1;
@@ -58,11 +67,35 @@ public class edit_OrdenServicio_Fragment extends Fragment {
                 "Gian", "Giancarlo", "Alex", "Andy","Ayrton","Acevedo","Antonela","Antony","Antonio"
                 ,"André", "Joshe", "Alejandro","Aldo"
         };
-
+        hora_requerida = (EditText)view.findViewById(R.id.hora_requerida);
+        btn_cancelar = (FloatingActionButton)view.findViewById(R.id.fab_cancelar);
+        btn_acaptar = (FloatingActionButton)view.findViewById(R.id.fab_aceptar);
         listbox = (AutoCompleteTextView) view.findViewById(R.id.autocompletetext1);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line,NOMBRES);
         listbox.setAdapter(adapter);
+
+        //TODO EVENTOS
+        hora_requerida.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onClick(View v) {
+                //DatePickerDialog dpd = new DatePickerDialog(getContext());
+                //dpd.show();
+            }
+        });
+        btn_cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
+        btn_acaptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
 
         return view;
     }
