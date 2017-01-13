@@ -1,13 +1,19 @@
 package com.nisira.core.dao;
 
-
+import com.nisira.core.BaseDao;
 import com.nisira.core.entity.*;
+import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
 import com.nisira.core.database.DataBaseClass;
 import android.content.ContentValues;
 import android.database.Cursor;
+import com.nisira.core.util.ClaveMovil;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import com.nisira.core.NisiraORMException;
+
 public class ConsumidorDao{
 
 	public Boolean insert(Consumidor consumidor) {
@@ -515,7 +521,7 @@ public class ConsumidorDao{
 					consumidor.setCodigo_control(cur.getString(j++));
 					consumidor.setEs_titulo(cur.getDouble(j++));
 					consumidor.setGastoxactividad(cur.getDouble(j++));
-//					consumidor.setFinal(cur.getDouble(j++));
+					consumidor.setFinal(cur.getDouble(j++));
 					consumidor.setCuenta_abono(cur.getString(j++));
 					consumidor.setCuenta_cargo(cur.getString(j++));
 					consumidor.setCuenta_destino(cur.getString(j++));

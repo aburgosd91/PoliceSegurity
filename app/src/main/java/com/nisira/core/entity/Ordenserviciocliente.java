@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "ORDENSERVICIOCLIENTE")
 @XStreamAlias("ORDENSERVICIOCLIENTE")
@@ -14,67 +16,67 @@ import java.util.Date;
 public class Ordenserviciocliente implements Serializable {
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("idordenservicio") 
-	@XStreamAlias("idordenservicio") 
+	@XStreamAlias("IDORDENSERVICIO") 
 	private String idordenservicio = "" ;
 	@Columna
 	@SerializedName("iddocumento") 
-	@XStreamAlias("iddocumento") 
+	@XStreamAlias("IDDOCUMENTO") 
 	private String iddocumento = "" ;
 	@Columna
 	@SerializedName("serie") 
-	@XStreamAlias("serie") 
+	@XStreamAlias("SERIE") 
 	private String serie = "" ;
 	@Columna
 	@SerializedName("numero") 
-	@XStreamAlias("numero") 
+	@XStreamAlias("NUMERO") 
 	private String numero = "" ;
 	@Columna
 	@SerializedName("nromanual") 
-	@XStreamAlias("nromanual") 
+	@XStreamAlias("NROMANUAL") 
 	private String nromanual = "" ;
 	@Columna
 	@SerializedName("idclieprov") 
-	@XStreamAlias("idclieprov") 
+	@XStreamAlias("IDCLIEPROV") 
 	private String idclieprov = "" ;
 	@Columna
 	@SerializedName("fecha") 
-	@XStreamAlias("fecha") 
+	@XStreamAlias("FECHA") 
 	private Date fecha;
 	@Columna
 	@SerializedName("tipo_servicio") 
-	@XStreamAlias("tipo_servicio") 
+	@XStreamAlias("TIPO_SERVICIO") 
 	private String tipo_servicio = "" ;
 	@Columna
 	@SerializedName("ambito_servicio") 
-	@XStreamAlias("ambito_servicio") 
+	@XStreamAlias("AMBITO_SERVICIO") 
 	private String ambito_servicio = "" ;
 	@Columna
 	@SerializedName("idestado") 
-	@XStreamAlias("idestado") 
+	@XStreamAlias("IDESTADO") 
 	private String idestado = "" ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("nrocontenedor") 
-	@XStreamAlias("nrocontenedor") 
+	@XStreamAlias("NROCONTENEDOR") 
 	private String nrocontenedor = "" ;
 	@Columna
 	@SerializedName("nroprecinto") 
-	@XStreamAlias("nroprecinto") 
+	@XStreamAlias("NROPRECINTO") 
 	private String nroprecinto = "" ;
 	@Columna
 	@SerializedName("nro_oservicio") 
-	@XStreamAlias("nro_oservicio") 
+	@XStreamAlias("NRO_OSERVICIO") 
 	private String nro_oservicio = "" ;
 
 

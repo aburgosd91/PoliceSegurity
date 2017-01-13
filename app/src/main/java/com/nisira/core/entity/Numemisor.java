@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "NUMEMISOR")
 @XStreamAlias("NUMEMISOR")
@@ -16,58 +17,58 @@ public class Numemisor implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idemisor") 
-	@XStreamAlias("idemisor") 
+	@XStreamAlias("IDEMISOR") 
 	private String idemisor = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("iddocumento") 
-	@XStreamAlias("iddocumento") 
+	@XStreamAlias("IDDOCUMENTO") 
 	private String iddocumento = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("serie") 
-	@XStreamAlias("serie") 
+	@XStreamAlias("SERIE") 
 	private String serie = "" ;
 	@Columna
 	@SerializedName("numero") 
-	@XStreamAlias("numero") 
+	@XStreamAlias("NUMERO") 
 	private String numero = "" ;
 	@Columna
 	@SerializedName("estado") 
-	@XStreamAlias("estado") 
+	@XStreamAlias("ESTADO") 
 	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("es_importacion") 
-	@XStreamAlias("es_importacion") 
+	@XStreamAlias("ES_IMPORTACION") 
 	private Double es_importacion = 0.00 ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("nlineas") 
-	@XStreamAlias("nlineas") 
+	@XStreamAlias("NLINEAS") 
 	private Double nlineas = 0.00 ;
 	@Columna
 	@SerializedName("observacion") 
-	@XStreamAlias("observacion") 
+	@XStreamAlias("OBSERVACION") 
 	private String observacion = "" ;
 	@Columna
 	@SerializedName("idtipoventa") 
-	@XStreamAlias("idtipoventa") 
+	@XStreamAlias("IDTIPOVENTA") 
 	private String idtipoventa = "" ;
 	@Columna
 	@SerializedName("paradeclaracion_ce") 
-	@XStreamAlias("paradeclaracion_ce") 
+	@XStreamAlias("PARADECLARACION_CE") 
 	private Double paradeclaracion_ce = 0.00 ;
 
 

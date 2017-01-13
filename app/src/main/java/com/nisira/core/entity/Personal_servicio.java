@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "PERSONAL_SERVICIO")
 @XStreamAlias("PERSONAL_SERVICIO")
@@ -14,59 +16,59 @@ import java.util.Date;
 public class Personal_servicio implements Serializable {
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("idordenservicio") 
-	@XStreamAlias("idordenservicio") 
+	@XStreamAlias("IDORDENSERVICIO") 
 	private String idordenservicio = "" ;
 	@Columna
 	@SerializedName("item") 
-	@XStreamAlias("item") 
+	@XStreamAlias("ITEM") 
 	private String item = "" ;
 	@Columna
 	@SerializedName("idpersonal") 
-	@XStreamAlias("idpersonal") 
+	@XStreamAlias("IDPERSONAL") 
 	private String idpersonal = "" ;
 	@Columna
 	@SerializedName("dni") 
-	@XStreamAlias("dni") 
+	@XStreamAlias("DNI") 
 	private String dni = "" ;
 	@Columna
 	@SerializedName("nombres") 
-	@XStreamAlias("nombres") 
+	@XStreamAlias("NOMBRES") 
 	private String nombres = "" ;
 	@Columna
 	@SerializedName("hora_req") 
-	@XStreamAlias("hora_req") 
+	@XStreamAlias("HORA_REQ") 
 	private Double hora_req = 0.00 ;
 	@Columna
 	@SerializedName("hora_llegada") 
-	@XStreamAlias("hora_llegada") 
+	@XStreamAlias("HORA_LLEGADA") 
 	private Double hora_llegada = 0.00 ;
 	@Columna
 	@SerializedName("hora_inicio_serv") 
-	@XStreamAlias("hora_inicio_serv") 
+	@XStreamAlias("HORA_INICIO_SERV") 
 	private Double hora_inicio_serv = 0.00 ;
 	@Columna
 	@SerializedName("hora_fin_serv") 
-	@XStreamAlias("hora_fin_serv") 
+	@XStreamAlias("HORA_FIN_SERV") 
 	private Double hora_fin_serv = 0.00 ;
 	@Columna
 	@SerializedName("hora_liberacion") 
-	@XStreamAlias("hora_liberacion") 
+	@XStreamAlias("HORA_LIBERACION") 
 	private Double hora_liberacion = 0.00 ;
 	@Columna
 	@SerializedName("idcargo") 
-	@XStreamAlias("idcargo") 
+	@XStreamAlias("IDCARGO") 
 	private String idcargo = "" ;
 	@Columna
 	@SerializedName("fecharegistro") 
-	@XStreamAlias("fecharegistro") 
+	@XStreamAlias("FECHAREGISTRO") 
 	private Date fecharegistro;
 	@Columna
 	@SerializedName("fechaoperacion") 
-	@XStreamAlias("fechaoperacion") 
+	@XStreamAlias("FECHAOPERACION") 
 	private Date fechaoperacion;
 
 

@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "RUTAS")
 @XStreamAlias("RUTAS")
@@ -16,80 +17,80 @@ public class Rutas implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idruta") 
-	@XStreamAlias("idruta") 
+	@XStreamAlias("IDRUTA") 
 	private String idruta = "" ;
 	@Columna
 	@SerializedName("descripcion") 
-	@XStreamAlias("descripcion") 
+	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
 	@SerializedName("kilometros") 
-	@XStreamAlias("kilometros") 
+	@XStreamAlias("KILOMETROS") 
 	private Double kilometros = 0.00 ;
 	@Columna
 	@SerializedName("peaje") 
-	@XStreamAlias("peaje") 
+	@XStreamAlias("PEAJE") 
 	private String peaje = "" ;
 	@Columna
 	@SerializedName("estado") 
-	@XStreamAlias("estado") 
+	@XStreamAlias("ESTADO") 
 	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("valorref") 
-	@XStreamAlias("valorref") 
+	@XStreamAlias("VALORREF") 
 	private Double valorref = 0.00 ;
 	@Columna
 	@SerializedName("flete") 
-	@XStreamAlias("flete") 
+	@XStreamAlias("FLETE") 
 	private Double flete = 0.00 ;
 	@Columna
 	@SerializedName("origen") 
-	@XStreamAlias("origen") 
+	@XStreamAlias("ORIGEN") 
 	private String origen = "" ;
 	@Columna
 	@SerializedName("destino") 
-	@XStreamAlias("destino") 
+	@XStreamAlias("DESTINO") 
 	private String destino = "" ;
 	@Columna
 	@SerializedName("idcontratotrans") 
-	@XStreamAlias("idcontratotrans") 
+	@XStreamAlias("IDCONTRATOTRANS") 
 	private String idcontratotrans = "" ;
 	@Columna
 	@SerializedName("idopetrans") 
-	@XStreamAlias("idopetrans") 
+	@XStreamAlias("IDOPETRANS") 
 	private String idopetrans = "" ;
 	@Columna
 	@SerializedName("idclieprov") 
-	@XStreamAlias("idclieprov") 
+	@XStreamAlias("IDCLIEPROV") 
 	private String idclieprov = "" ;
 	@Columna
 	@SerializedName("kmvirtual") 
-	@XStreamAlias("kmvirtual") 
+	@XStreamAlias("KMVIRTUAL") 
 	private Double kmvirtual = 0.00 ;
 	@Columna
 	@SerializedName("origenalterno") 
-	@XStreamAlias("origenalterno") 
+	@XStreamAlias("ORIGENALTERNO") 
 	private String origenalterno = "" ;
 	@Columna
 	@SerializedName("destinoalterno") 
-	@XStreamAlias("destinoalterno") 
+	@XStreamAlias("DESTINOALTERNO") 
 	private String destinoalterno = "" ;
 	@Columna
 	@SerializedName("exige_guia_confirmacion") 
-	@XStreamAlias("exige_guia_confirmacion") 
+	@XStreamAlias("EXIGE_GUIA_CONFIRMACION") 
 	private Double exige_guia_confirmacion = 0.00 ;
 
 

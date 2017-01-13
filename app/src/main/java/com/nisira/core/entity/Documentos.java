@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "DOCUMENTOS")
 @XStreamAlias("DOCUMENTOS")
@@ -16,140 +17,140 @@ public class Documentos implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("iddocumento") 
-	@XStreamAlias("iddocumento") 
+	@XStreamAlias("IDDOCUMENTO") 
 	private String iddocumento = "" ;
 	@Columna
 	@SerializedName("descripcion") 
-	@XStreamAlias("descripcion") 
+	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
 	@SerializedName("codigo_sunat") 
-	@XStreamAlias("codigo_sunat") 
+	@XStreamAlias("CODIGO_SUNAT") 
 	private String codigo_sunat = "" ;
 	@Columna
 	@SerializedName("es_honorarios") 
-	@XStreamAlias("es_honorarios") 
+	@XStreamAlias("ES_HONORARIOS") 
 	private Double es_honorarios = 0.00 ;
 	@Columna
 	@SerializedName("es_importacion") 
-	@XStreamAlias("es_importacion") 
+	@XStreamAlias("ES_IMPORTACION") 
 	private Double es_importacion = 0.00 ;
 	@Columna
 	@SerializedName("incluir_cronograma") 
-	@XStreamAlias("incluir_cronograma") 
+	@XStreamAlias("INCLUIR_CRONOGRAMA") 
 	private Double incluir_cronograma = 0.00 ;
 	@Columna
 	@SerializedName("pide_referencia") 
-	@XStreamAlias("pide_referencia") 
+	@XStreamAlias("PIDE_REFERENCIA") 
 	private Double pide_referencia = 0.00 ;
 	@Columna
 	@SerializedName("registrar_en") 
-	@XStreamAlias("registrar_en") 
+	@XStreamAlias("REGISTRAR_EN") 
 	private String registrar_en = "" ;
 	@Columna
 	@SerializedName("estado") 
-	@XStreamAlias("estado") 
+	@XStreamAlias("ESTADO") 
 	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("factor") 
-	@XStreamAlias("factor") 
+	@XStreamAlias("FACTOR") 
 	private Double factor = 0.00 ;
 	@Columna
 	@SerializedName("incluir_igv") 
-	@XStreamAlias("incluir_igv") 
+	@XStreamAlias("INCLUIR_IGV") 
 	private Double incluir_igv = 0.00 ;
 	@Columna
 	@SerializedName("mostrar_en") 
-	@XStreamAlias("mostrar_en") 
+	@XStreamAlias("MOSTRAR_EN") 
 	private String mostrar_en = "" ;
 	@Columna
 	@SerializedName("retener_igv") 
-	@XStreamAlias("retener_igv") 
+	@XStreamAlias("RETENER_IGV") 
 	private Double retener_igv = 0.00 ;
 	@Columna
 	@SerializedName("es_4ta5ta") 
-	@XStreamAlias("es_4ta5ta") 
+	@XStreamAlias("ES_4TA5TA") 
 	private Double es_4ta5ta = 0.00 ;
 	@Columna
 	@SerializedName("num_grande") 
-	@XStreamAlias("num_grande") 
+	@XStreamAlias("NUM_GRANDE") 
 	private Double num_grande = 0.00 ;
 	@Columna
 	@SerializedName("es_rrhh") 
-	@XStreamAlias("es_rrhh") 
+	@XStreamAlias("ES_RRHH") 
 	private Double es_rrhh = 0.00 ;
 	@Columna
 	@SerializedName("retener_odoc") 
-	@XStreamAlias("retener_odoc") 
+	@XStreamAlias("RETENER_ODOC") 
 	private Double retener_odoc = 0.00 ;
 	@Columna
 	@SerializedName("solo_impuesto") 
-	@XStreamAlias("solo_impuesto") 
+	@XStreamAlias("SOLO_IMPUESTO") 
 	private Double solo_impuesto = 0.00 ;
 	@Columna
 	@SerializedName("sin_igv") 
-	@XStreamAlias("sin_igv") 
+	@XStreamAlias("SIN_IGV") 
 	private Double sin_igv = 0.00 ;
 	@Columna
 	@SerializedName("pide_doccompra") 
-	@XStreamAlias("pide_doccompra") 
+	@XStreamAlias("PIDE_DOCCOMPRA") 
 	private Double pide_doccompra = 0.00 ;
 	@Columna
 	@SerializedName("idregistro_sunat") 
-	@XStreamAlias("idregistro_sunat") 
+	@XStreamAlias("IDREGISTRO_SUNAT") 
 	private String idregistro_sunat = "" ;
 	@Columna
 	@SerializedName("para_declaracion") 
-	@XStreamAlias("para_declaracion") 
+	@XStreamAlias("PARA_DECLARACION") 
 	private Double para_declaracion = 0.00 ;
 	@Columna
 	@SerializedName("es_leasing") 
-	@XStreamAlias("es_leasing") 
+	@XStreamAlias("ES_LEASING") 
 	private Double es_leasing = 0.00 ;
 	@Columna
 	@SerializedName("es_nodomiciliado") 
-	@XStreamAlias("es_nodomiciliado") 
+	@XStreamAlias("ES_NODOMICILIADO") 
 	private Double es_nodomiciliado = 0.00 ;
 	@Columna
 	@SerializedName("es_noemitido") 
-	@XStreamAlias("es_noemitido") 
+	@XStreamAlias("ES_NOEMITIDO") 
 	private Double es_noemitido = 0.00 ;
 	@Columna
 	@SerializedName("es_electronico") 
-	@XStreamAlias("es_electronico") 
+	@XStreamAlias("ES_ELECTRONICO") 
 	private Double es_electronico = 0.00 ;
 	@Columna
 	@SerializedName("inicial_docelectronico") 
-	@XStreamAlias("inicial_docelectronico") 
+	@XStreamAlias("INICIAL_DOCELECTRONICO") 
 	private String inicial_docelectronico = "" ;
 	@Columna
 	@SerializedName("incluir_docan_compra_le") 
-	@XStreamAlias("incluir_docan_compra_le") 
+	@XStreamAlias("INCLUIR_DOCAN_COMPRA_LE") 
 	private Double incluir_docan_compra_le = 0.00 ;
 	@Columna
 	@SerializedName("idtipotitulo_sunat") 
-	@XStreamAlias("idtipotitulo_sunat") 
+	@XStreamAlias("IDTIPOTITULO_SUNAT") 
 	private String idtipotitulo_sunat = "" ;
 	@Columna
 	@SerializedName("es_dieta") 
-	@XStreamAlias("es_dieta") 
+	@XStreamAlias("ES_DIETA") 
 	private Double es_dieta = 0.00 ;
 	@Columna
 	@SerializedName("para_ppago") 
-	@XStreamAlias("para_ppago") 
+	@XStreamAlias("PARA_PPAGO") 
 	private Double para_ppago = 0.00 ;
 
 

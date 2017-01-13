@@ -1,896 +1,896 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "CLIEPROV")
 @XStreamAlias("CLIEPROV")
 
 public class Clieprov implements Serializable {
-	@SerializedName("idbasedatos")
-	@XStreamAlias("idbasedatos")
+	@SerializedName("idempresa")
+	@XStreamAlias("IDBASEDATOS")
 	private String idbasedatos = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idclieprov") 
-	@XStreamAlias("idclieprov") 
+	@XStreamAlias("IDCLIEPROV") 
 	private String idclieprov = "" ;
 	@Columna
 	@SerializedName("tipo_clieprov") 
-	@XStreamAlias("tipo_clieprov") 
+	@XStreamAlias("TIPO_CLIEPROV") 
 	private String tipo_clieprov = "" ;
 	@Columna
 	@SerializedName("tipopersona") 
-	@XStreamAlias("tipopersona") 
+	@XStreamAlias("TIPOPERSONA") 
 	private String tipopersona = "" ;
 	@Columna
 	@SerializedName("idtipocliente") 
-	@XStreamAlias("idtipocliente") 
+	@XStreamAlias("IDTIPOCLIENTE") 
 	private String idtipocliente = "" ;
 	@Columna
 	@SerializedName("con_retencion") 
-	@XStreamAlias("con_retencion") 
+	@XStreamAlias("CON_RETENCION") 
 	private Double con_retencion = 0.00 ;
 	@Columna
 	@SerializedName("sin_retencion") 
-	@XStreamAlias("sin_retencion") 
+	@XStreamAlias("SIN_RETENCION") 
 	private String sin_retencion = "" ;
 	@Columna
 	@SerializedName("contacto") 
-	@XStreamAlias("contacto") 
+	@XStreamAlias("CONTACTO") 
 	private String contacto = "" ;
 	@Columna
 	@SerializedName("direccion") 
-	@XStreamAlias("direccion") 
+	@XStreamAlias("DIRECCION") 
 	private String direccion = "" ;
 	@Columna
 	@SerializedName("idvia1") 
-	@XStreamAlias("idvia1") 
+	@XStreamAlias("IDVIA1") 
 	private String idvia1 = "" ;
 	@Columna
 	@SerializedName("via1_descripcion") 
-	@XStreamAlias("via1_descripcion") 
+	@XStreamAlias("VIA1_DESCRIPCION") 
 	private String via1_descripcion = "" ;
 	@Columna
 	@SerializedName("direccion_numero") 
-	@XStreamAlias("direccion_numero") 
+	@XStreamAlias("DIRECCION_NUMERO") 
 	private Double direccion_numero = 0.00 ;
 	@Columna
 	@SerializedName("direccion_interior") 
-	@XStreamAlias("direccion_interior") 
+	@XStreamAlias("DIRECCION_INTERIOR") 
 	private String direccion_interior = "" ;
 	@Columna
 	@SerializedName("direccion_referencia") 
-	@XStreamAlias("direccion_referencia") 
+	@XStreamAlias("DIRECCION_REFERENCIA") 
 	private String direccion_referencia = "" ;
 	@Columna
 	@SerializedName("idzona1") 
-	@XStreamAlias("idzona1") 
+	@XStreamAlias("IDZONA1") 
 	private String idzona1 = "" ;
 	@Columna
 	@SerializedName("zona1_descripcion") 
-	@XStreamAlias("zona1_descripcion") 
+	@XStreamAlias("ZONA1_DESCRIPCION") 
 	private String zona1_descripcion = "" ;
 	@Columna
 	@SerializedName("idubigeo1") 
-	@XStreamAlias("idubigeo1") 
+	@XStreamAlias("IDUBIGEO1") 
 	private String idubigeo1 = "" ;
 	@Columna
 	@SerializedName("distrito") 
-	@XStreamAlias("distrito") 
+	@XStreamAlias("DISTRITO") 
 	private String distrito = "" ;
 	@Columna
 	@SerializedName("departamento") 
-	@XStreamAlias("departamento") 
+	@XStreamAlias("DEPARTAMENTO") 
 	private String departamento = "" ;
 	@Columna
 	@SerializedName("apellidopaterno") 
-	@XStreamAlias("apellidopaterno") 
+	@XStreamAlias("APELLIDOPATERNO") 
 	private String apellidopaterno = "" ;
 	@Columna
 	@SerializedName("apellidomaterno") 
-	@XStreamAlias("apellidomaterno") 
+	@XStreamAlias("APELLIDOMATERNO") 
 	private String apellidomaterno = "" ;
 	@Columna
 	@SerializedName("nombres") 
-	@XStreamAlias("nombres") 
+	@XStreamAlias("NOMBRES") 
 	private String nombres = "" ;
 	@Columna
-	@SerializedName("razonsocial")
-	@XStreamAlias("razonsocial")
+	@SerializedName("razon_social") 
+	@XStreamAlias("RAZONSOCIAL")
 	private String razon_social = "" ;
 	@Columna
 	@SerializedName("e_mail") 
-	@XStreamAlias("e_mail") 
+	@XStreamAlias("E_MAIL") 
 	private String e_mail = "" ;
 	@Columna
 	@SerializedName("fax") 
-	@XStreamAlias("fax") 
+	@XStreamAlias("FAX") 
 	private String fax = "" ;
 	@Columna
 	@SerializedName("telefono_1") 
-	@XStreamAlias("telefono_1") 
+	@XStreamAlias("TELEFONO_1") 
 	private String telefono_1 = "" ;
 	@Columna
 	@SerializedName("telefono_2") 
-	@XStreamAlias("telefono_2") 
+	@XStreamAlias("TELEFONO_2") 
 	private String telefono_2 = "" ;
 	@Columna
 	@SerializedName("telefono_3") 
-	@XStreamAlias("telefono_3") 
+	@XStreamAlias("TELEFONO_3") 
 	private String telefono_3 = "" ;
 	@Columna
 	@SerializedName("nombre_giro") 
-	@XStreamAlias("nombre_giro") 
+	@XStreamAlias("NOMBRE_GIRO") 
 	private String nombre_giro = "" ;
 	@Columna
 	@SerializedName("iddocidentidad") 
-	@XStreamAlias("iddocidentidad") 
+	@XStreamAlias("IDDOCIDENTIDAD") 
 	private String iddocidentidad = "" ;
 	@Columna
 	@SerializedName("nrodocidentidad") 
-	@XStreamAlias("nrodocidentidad") 
+	@XStreamAlias("NRODOCIDENTIDAD") 
 	private String nrodocidentidad = "" ;
 	@Columna
 	@SerializedName("dni") 
-	@XStreamAlias("dni") 
+	@XStreamAlias("DNI") 
 	private String dni = "" ;
 	@Columna
 	@SerializedName("nextel") 
-	@XStreamAlias("nextel") 
+	@XStreamAlias("NEXTEL") 
 	private String nextel = "" ;
 	@Columna
 	@SerializedName("provincia") 
-	@XStreamAlias("provincia") 
+	@XStreamAlias("PROVINCIA") 
 	private String provincia = "" ;
 	@Columna
 	@SerializedName("regimen_agrario") 
-	@XStreamAlias("regimen_agrario") 
+	@XStreamAlias("REGIMEN_AGRARIO") 
 	private Double regimen_agrario = 0.00 ;
 	@Columna
 	@SerializedName("ruc") 
-	@XStreamAlias("ruc") 
+	@XStreamAlias("RUC") 
 	private String ruc = "" ;
 	@Columna
 	@SerializedName("ruc_anterior") 
-	@XStreamAlias("ruc_anterior") 
+	@XStreamAlias("RUC_ANTERIOR") 
 	private String ruc_anterior = "" ;
 	@Columna
 	@SerializedName("intxclient") 
-	@XStreamAlias("intxclient") 
+	@XStreamAlias("INTXCLIENT") 
 	private Double intxclient = 0.00 ;
 	@Columna
 	@SerializedName("dias_gracia") 
-	@XStreamAlias("dias_gracia") 
+	@XStreamAlias("DIAS_GRACIA") 
 	private Double dias_gracia = 0.00 ;
 	@Columna
 	@SerializedName("idvendedor") 
-	@XStreamAlias("idvendedor") 
+	@XStreamAlias("IDVENDEDOR") 
 	private String idvendedor = "" ;
 	@Columna
 	@SerializedName("idpersonal") 
-	@XStreamAlias("idpersonal") 
+	@XStreamAlias("IDPERSONAL") 
 	private String idpersonal = "" ;
 	@Columna
 	@SerializedName("estado") 
-	@XStreamAlias("estado") 
+	@XStreamAlias("ESTADO") 
 	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("ctacte") 
-	@XStreamAlias("ctacte") 
+	@XStreamAlias("CTACTE") 
 	private String ctacte = "" ;
 	@Columna
 	@SerializedName("extranjero") 
-	@XStreamAlias("extranjero") 
+	@XStreamAlias("EXTRANJERO") 
 	private Double extranjero = 0.00 ;
 	@Columna
 	@SerializedName("precio_aplicado") 
-	@XStreamAlias("precio_aplicado") 
+	@XStreamAlias("PRECIO_APLICADO") 
 	private String precio_aplicado = "" ;
 	@Columna
 	@SerializedName("libreoccliente") 
-	@XStreamAlias("libreoccliente") 
+	@XStreamAlias("LIBREOCCLIENTE") 
 	private Double libreoccliente = 0.00 ;
 	@Columna
 	@SerializedName("regmtc") 
-	@XStreamAlias("regmtc") 
+	@XStreamAlias("REGMTC") 
 	private String regmtc = "" ;
 	@Columna
 	@SerializedName("subcontratado") 
-	@XStreamAlias("subcontratado") 
+	@XStreamAlias("SUBCONTRATADO") 
 	private Double subcontratado = 0.00 ;
 	@Columna
 	@SerializedName("idtiposocio") 
-	@XStreamAlias("idtiposocio") 
+	@XStreamAlias("IDTIPOSOCIO") 
 	private String idtiposocio = "" ;
 	@Columna
 	@SerializedName("fecha_nacimiento") 
-	@XStreamAlias("fecha_nacimiento") 
+	@XStreamAlias("FECHA_NACIMIENTO") 
 	private Date fecha_nacimiento;
 	@Columna
 	@SerializedName("idprofesion") 
-	@XStreamAlias("idprofesion") 
+	@XStreamAlias("IDPROFESION") 
 	private String idprofesion = "" ;
 	@Columna
 	@SerializedName("centrotrabajo") 
-	@XStreamAlias("centrotrabajo") 
+	@XStreamAlias("CENTROTRABAJO") 
 	private String centrotrabajo = "" ;
 	@Columna
 	@SerializedName("sexo") 
-	@XStreamAlias("sexo") 
+	@XStreamAlias("SEXO") 
 	private String sexo = "" ;
 	@Columna
 	@SerializedName("idestadocivil") 
-	@XStreamAlias("idestadocivil") 
+	@XStreamAlias("IDESTADOCIVIL") 
 	private String idestadocivil = "" ;
 	@Columna
 	@SerializedName("idvia2") 
-	@XStreamAlias("idvia2") 
+	@XStreamAlias("IDVIA2") 
 	private String idvia2 = "" ;
 	@Columna
 	@SerializedName("via2_descripcion") 
-	@XStreamAlias("via2_descripcion") 
+	@XStreamAlias("VIA2_DESCRIPCION") 
 	private String via2_descripcion = "" ;
 	@Columna
 	@SerializedName("direccob_numero") 
-	@XStreamAlias("direccob_numero") 
+	@XStreamAlias("DIRECCOB_NUMERO") 
 	private Double direccob_numero = 0.00 ;
 	@Columna
 	@SerializedName("direccob_interior") 
-	@XStreamAlias("direccob_interior") 
+	@XStreamAlias("DIRECCOB_INTERIOR") 
 	private String direccob_interior = "" ;
 	@Columna
 	@SerializedName("direccob_referencia") 
-	@XStreamAlias("direccob_referencia") 
+	@XStreamAlias("DIRECCOB_REFERENCIA") 
 	private String direccob_referencia = "" ;
 	@Columna
 	@SerializedName("idzona2") 
-	@XStreamAlias("idzona2") 
+	@XStreamAlias("IDZONA2") 
 	private String idzona2 = "" ;
 	@Columna
 	@SerializedName("zona2_descripcion") 
-	@XStreamAlias("zona2_descripcion") 
+	@XStreamAlias("ZONA2_DESCRIPCION") 
 	private String zona2_descripcion = "" ;
 	@Columna
 	@SerializedName("idubigeo2") 
-	@XStreamAlias("idubigeo2") 
+	@XStreamAlias("IDUBIGEO2") 
 	private String idubigeo2 = "" ;
 	@Columna
 	@SerializedName("fecha_ingreso") 
-	@XStreamAlias("fecha_ingreso") 
+	@XStreamAlias("FECHA_INGRESO") 
 	private Date fecha_ingreso;
 	@Columna
 	@SerializedName("credito") 
-	@XStreamAlias("credito") 
+	@XStreamAlias("CREDITO") 
 	private String credito = "" ;
 	@Columna
 	@SerializedName("nrocertif") 
-	@XStreamAlias("nrocertif") 
+	@XStreamAlias("NROCERTIF") 
 	private String nrocertif = "" ;
 	@Columna
 	@SerializedName("tipocertif") 
-	@XStreamAlias("tipocertif") 
+	@XStreamAlias("TIPOCERTIF") 
 	private String tipocertif = "" ;
 	@Columna
 	@SerializedName("nrolibro") 
-	@XStreamAlias("nrolibro") 
+	@XStreamAlias("NROLIBRO") 
 	private String nrolibro = "" ;
 	@Columna
 	@SerializedName("idcobrador") 
-	@XStreamAlias("idcobrador") 
+	@XStreamAlias("IDCOBRADOR") 
 	private String idcobrador = "" ;
 	@Columna
 	@SerializedName("idsociocorp") 
-	@XStreamAlias("idsociocorp") 
+	@XStreamAlias("IDSOCIOCORP") 
 	private String idsociocorp = "" ;
 	@Columna
 	@SerializedName("universidad") 
-	@XStreamAlias("universidad") 
+	@XStreamAlias("UNIVERSIDAD") 
 	private String universidad = "" ;
 	@Columna
 	@SerializedName("idubigeo3_ln") 
-	@XStreamAlias("idubigeo3_ln") 
+	@XStreamAlias("IDUBIGEO3_LN") 
 	private String idubigeo3_ln = "" ;
 	@Columna
 	@SerializedName("fecha_email") 
-	@XStreamAlias("fecha_email") 
+	@XStreamAlias("FECHA_EMAIL") 
 	private Date fecha_email;
 	@Columna
 	@SerializedName("idbarra") 
-	@XStreamAlias("idbarra") 
+	@XStreamAlias("IDBARRA") 
 	private String idbarra = "" ;
 	@Columna
 	@SerializedName("idbanco") 
-	@XStreamAlias("idbanco") 
+	@XStreamAlias("IDBANCO") 
 	private String idbanco = "" ;
 	@Columna
 	@SerializedName("tipo_cuentabanco") 
-	@XStreamAlias("tipo_cuentabanco") 
+	@XStreamAlias("TIPO_CUENTABANCO") 
 	private String tipo_cuentabanco = "" ;
 	@Columna
 	@SerializedName("idmoneda") 
-	@XStreamAlias("idmoneda") 
+	@XStreamAlias("IDMONEDA") 
 	private String idmoneda = "" ;
 	@Columna
 	@SerializedName("foto") 
-	@XStreamAlias("foto") 
+	@XStreamAlias("FOTO") 
 	private String foto = "" ;
 	@Columna
 	@SerializedName("crednormal") 
-	@XStreamAlias("crednormal") 
+	@XStreamAlias("CREDNORMAL") 
 	private Double crednormal = 0.00 ;
 	@Columna
 	@SerializedName("credtemporal") 
-	@XStreamAlias("credtemporal") 
+	@XStreamAlias("CREDTEMPORAL") 
 	private Double credtemporal = 0.00 ;
 	@Columna
 	@SerializedName("credtotal") 
-	@XStreamAlias("credtotal") 
+	@XStreamAlias("CREDTOTAL") 
 	private Double credtotal = 0.00 ;
 	@Columna
 	@SerializedName("iddescuento") 
-	@XStreamAlias("iddescuento") 
+	@XStreamAlias("IDDESCUENTO") 
 	private String iddescuento = "" ;
 	@Columna
 	@SerializedName("idgrupoclieprov") 
-	@XStreamAlias("idgrupoclieprov") 
+	@XStreamAlias("IDGRUPOCLIEPROV") 
 	private String idgrupoclieprov = "" ;
 	@Columna
 	@SerializedName("idbanco_pred") 
-	@XStreamAlias("idbanco_pred") 
+	@XStreamAlias("IDBANCO_PRED") 
 	private String idbanco_pred = "" ;
 	@Columna
 	@SerializedName("idctacte_pred") 
-	@XStreamAlias("idctacte_pred") 
+	@XStreamAlias("IDCTACTE_PRED") 
 	private String idctacte_pred = "" ;
 	@Columna
 	@SerializedName("idbanco_prov") 
-	@XStreamAlias("idbanco_prov") 
+	@XStreamAlias("IDBANCO_PROV") 
 	private String idbanco_prov = "" ;
 	@Columna
 	@SerializedName("ctacte2") 
-	@XStreamAlias("ctacte2") 
+	@XStreamAlias("CTACTE2") 
 	private String ctacte2 = "" ;
 	@Columna
 	@SerializedName("ctacte3") 
-	@XStreamAlias("ctacte3") 
+	@XStreamAlias("CTACTE3") 
 	private String ctacte3 = "" ;
 	@Columna
 	@SerializedName("ctacte4") 
-	@XStreamAlias("ctacte4") 
+	@XStreamAlias("CTACTE4") 
 	private String ctacte4 = "" ;
 	@Columna
 	@SerializedName("idbanco_prov2") 
-	@XStreamAlias("idbanco_prov2") 
+	@XStreamAlias("IDBANCO_PROV2") 
 	private String idbanco_prov2 = "" ;
 	@Columna
 	@SerializedName("idbanco_prov3") 
-	@XStreamAlias("idbanco_prov3") 
+	@XStreamAlias("IDBANCO_PROV3") 
 	private String idbanco_prov3 = "" ;
 	@Columna
 	@SerializedName("idbanco_prov4") 
-	@XStreamAlias("idbanco_prov4") 
+	@XStreamAlias("IDBANCO_PROV4") 
 	private String idbanco_prov4 = "" ;
 	@Columna
 	@SerializedName("estado_cta") 
-	@XStreamAlias("estado_cta") 
+	@XStreamAlias("ESTADO_CTA") 
 	private Double estado_cta = 0.00 ;
 	@Columna
 	@SerializedName("estado_cta2") 
-	@XStreamAlias("estado_cta2") 
+	@XStreamAlias("ESTADO_CTA2") 
 	private Double estado_cta2 = 0.00 ;
 	@Columna
 	@SerializedName("estado_cta3") 
-	@XStreamAlias("estado_cta3") 
+	@XStreamAlias("ESTADO_CTA3") 
 	private Double estado_cta3 = 0.00 ;
 	@Columna
 	@SerializedName("estado_cta4") 
-	@XStreamAlias("estado_cta4") 
+	@XStreamAlias("ESTADO_CTA4") 
 	private Double estado_cta4 = 0.00 ;
 	@Columna
 	@SerializedName("idmoneda2") 
-	@XStreamAlias("idmoneda2") 
+	@XStreamAlias("IDMONEDA2") 
 	private String idmoneda2 = "" ;
 	@Columna
 	@SerializedName("idmoneda3") 
-	@XStreamAlias("idmoneda3") 
+	@XStreamAlias("IDMONEDA3") 
 	private String idmoneda3 = "" ;
 	@Columna
 	@SerializedName("idmoneda4") 
-	@XStreamAlias("idmoneda4") 
+	@XStreamAlias("IDMONEDA4") 
 	private String idmoneda4 = "" ;
 	@Columna
 	@SerializedName("girar_cheque") 
-	@XStreamAlias("girar_cheque") 
+	@XStreamAlias("GIRAR_CHEQUE") 
 	private String girar_cheque = "" ;
 	@Columna
 	@SerializedName("nombre_esposa") 
-	@XStreamAlias("nombre_esposa") 
+	@XStreamAlias("NOMBRE_ESPOSA") 
 	private String nombre_esposa = "" ;
 	@Columna
 	@SerializedName("dni_esposa") 
-	@XStreamAlias("dni_esposa") 
+	@XStreamAlias("DNI_ESPOSA") 
 	private String dni_esposa = "" ;
 	@Columna
 	@SerializedName("idsector") 
-	@XStreamAlias("idsector") 
+	@XStreamAlias("IDSECTOR") 
 	private String idsector = "" ;
 	@Columna
 	@SerializedName("nombre_comercial") 
-	@XStreamAlias("nombre_comercial") 
+	@XStreamAlias("NOMBRE_COMERCIAL") 
 	private String nombre_comercial = "" ;
 	@Columna
 	@SerializedName("ciiu") 
-	@XStreamAlias("ciiu") 
+	@XStreamAlias("CIIU") 
 	private String ciiu = "" ;
 	@Columna
 	@SerializedName("idnacionalidad") 
-	@XStreamAlias("idnacionalidad") 
+	@XStreamAlias("IDNACIONALIDAD") 
 	private String idnacionalidad = "" ;
 	@Columna
 	@SerializedName("infoadreporte_pie") 
-	@XStreamAlias("infoadreporte_pie") 
+	@XStreamAlias("INFOADREPORTE_PIE") 
 	private String infoadreporte_pie = "" ;
 	@Columna
 	@SerializedName("es_transportista") 
-	@XStreamAlias("es_transportista") 
+	@XStreamAlias("ES_TRANSPORTISTA") 
 	private Double es_transportista = 0.00 ;
 	@Columna
 	@SerializedName("idconvenio") 
-	@XStreamAlias("idconvenio") 
+	@XStreamAlias("IDCONVENIO") 
 	private String idconvenio = "" ;
 	@Columna
 	@SerializedName("idreferido") 
-	@XStreamAlias("idreferido") 
+	@XStreamAlias("IDREFERIDO") 
 	private String idreferido = "" ;
 	@Columna
 	@SerializedName("idniveleducativo") 
-	@XStreamAlias("idniveleducativo") 
+	@XStreamAlias("IDNIVELEDUCATIVO") 
 	private String idniveleducativo = "" ;
 	@Columna
 	@SerializedName("idcargo") 
-	@XStreamAlias("idcargo") 
+	@XStreamAlias("IDCARGO") 
 	private String idcargo = "" ;
 	@Columna
 	@SerializedName("es_socionegocio") 
-	@XStreamAlias("es_socionegocio") 
+	@XStreamAlias("ES_SOCIONEGOCIO") 
 	private Double es_socionegocio = 0.00 ;
 	@Columna
 	@SerializedName("es_operadoraereo") 
-	@XStreamAlias("es_operadoraereo") 
+	@XStreamAlias("ES_OPERADORAEREO") 
 	private Double es_operadoraereo = 0.00 ;
 	@Columna
 	@SerializedName("idcontacto") 
-	@XStreamAlias("idcontacto") 
+	@XStreamAlias("IDCONTACTO") 
 	private String idcontacto = "" ;
 	@Columna
 	@SerializedName("idcanal") 
-	@XStreamAlias("idcanal") 
+	@XStreamAlias("IDCANAL") 
 	private String idcanal = "" ;
 	@Columna
 	@SerializedName("idfpago") 
-	@XStreamAlias("idfpago") 
+	@XStreamAlias("IDFPAGO") 
 	private String idfpago = "" ;
 	@Columna
 	@SerializedName("seriedocventa") 
-	@XStreamAlias("seriedocventa") 
+	@XStreamAlias("SERIEDOCVENTA") 
 	private String seriedocventa = "" ;
 	@Columna
 	@SerializedName("es_agenteretenedor") 
-	@XStreamAlias("es_agenteretenedor") 
+	@XStreamAlias("ES_AGENTERETENEDOR") 
 	private Double es_agenteretenedor = 0.00 ;
 	@Columna
 	@SerializedName("idpaisemisor") 
-	@XStreamAlias("idpaisemisor") 
+	@XStreamAlias("IDPAISEMISOR") 
 	private String idpaisemisor = "" ;
 	@Columna
 	@SerializedName("estado_sunat") 
-	@XStreamAlias("estado_sunat") 
+	@XStreamAlias("ESTADO_SUNAT") 
 	private String estado_sunat = "" ;
 	@Columna
 	@SerializedName("destacapersonal_cliente") 
-	@XStreamAlias("destacapersonal_cliente") 
+	@XStreamAlias("DESTACAPERSONAL_CLIENTE") 
 	private Double destacapersonal_cliente = 0.00 ;
 	@Columna
 	@SerializedName("destacapersonal_proveedor") 
-	@XStreamAlias("destacapersonal_proveedor") 
+	@XStreamAlias("DESTACAPERSONAL_PROVEEDOR") 
 	private Double destacapersonal_proveedor = 0.00 ;
 	@Columna
 	@SerializedName("idtipoactividad") 
-	@XStreamAlias("idtipoactividad") 
+	@XStreamAlias("IDTIPOACTIVIDAD") 
 	private String idtipoactividad = "" ;
 	@Columna
 	@SerializedName("domiciliado") 
-	@XStreamAlias("domiciliado") 
+	@XStreamAlias("DOMICILIADO") 
 	private Double domiciliado = 0.00 ;
 	@Columna
 	@SerializedName("rep_legal") 
-	@XStreamAlias("rep_legal") 
+	@XStreamAlias("REP_LEGAL") 
 	private String rep_legal = "" ;
 	@Columna
 	@SerializedName("idprocedencia") 
-	@XStreamAlias("idprocedencia") 
+	@XStreamAlias("IDPROCEDENCIA") 
 	private String idprocedencia = "" ;
 	@Columna
 	@SerializedName("es_naviera") 
-	@XStreamAlias("es_naviera") 
+	@XStreamAlias("ES_NAVIERA") 
 	private Double es_naviera = 0.00 ;
 	@Columna
 	@SerializedName("es_agenteaduana") 
-	@XStreamAlias("es_agenteaduana") 
+	@XStreamAlias("ES_AGENTEADUANA") 
 	private Double es_agenteaduana = 0.00 ;
 	@Columna
 	@SerializedName("porcentajecomision") 
-	@XStreamAlias("porcentajecomision") 
+	@XStreamAlias("PORCENTAJECOMISION") 
 	private Double porcentajecomision = 0.00 ;
 	@Columna
 	@SerializedName("comisionminima") 
-	@XStreamAlias("comisionminima") 
+	@XStreamAlias("COMISIONMINIMA") 
 	private Double comisionminima = 0.00 ;
 	@Columna
 	@SerializedName("montocomisionminima") 
-	@XStreamAlias("montocomisionminima") 
+	@XStreamAlias("MONTOCOMISIONMINIMA") 
 	private Double montocomisionminima = 0.00 ;
 	@Columna
 	@SerializedName("condicion_sunat") 
-	@XStreamAlias("condicion_sunat") 
+	@XStreamAlias("CONDICION_SUNAT") 
 	private String condicion_sunat = "" ;
 	@Columna
 	@SerializedName("idregimenaseg_salud") 
-	@XStreamAlias("idregimenaseg_salud") 
+	@XStreamAlias("IDREGIMENASEG_SALUD") 
 	private String idregimenaseg_salud = "" ;
 	@Columna
 	@SerializedName("es_agricultor") 
-	@XStreamAlias("es_agricultor") 
+	@XStreamAlias("ES_AGRICULTOR") 
 	private Double es_agricultor = 0.00 ;
 	@Columna
 	@SerializedName("montomin_garanvscont") 
-	@XStreamAlias("montomin_garanvscont") 
+	@XStreamAlias("MONTOMIN_GARANVSCONT") 
 	private Double montomin_garanvscont = 0.00 ;
 	@Columna
 	@SerializedName("es_aseguradora") 
-	@XStreamAlias("es_aseguradora") 
+	@XStreamAlias("ES_ASEGURADORA") 
 	private Double es_aseguradora = 0.00 ;
 	@Columna
 	@SerializedName("aseguradora_web") 
-	@XStreamAlias("aseguradora_web") 
+	@XStreamAlias("ASEGURADORA_WEB") 
 	private String aseguradora_web = "" ;
 	@Columna
 	@SerializedName("importado_externo") 
-	@XStreamAlias("importado_externo") 
+	@XStreamAlias("IMPORTADO_EXTERNO") 
 	private Double importado_externo = 0.00 ;
 	@Columna
 	@SerializedName("actividad_economica") 
-	@XStreamAlias("actividad_economica") 
+	@XStreamAlias("ACTIVIDAD_ECONOMICA") 
 	private String actividad_economica = "" ;
 	@Columna
 	@SerializedName("conyugue") 
-	@XStreamAlias("conyugue") 
+	@XStreamAlias("CONYUGUE") 
 	private String conyugue = "" ;
 	@Columna
 	@SerializedName("dependiente") 
-	@XStreamAlias("dependiente") 
+	@XStreamAlias("DEPENDIENTE") 
 	private Double dependiente = 0.00 ;
 	@Columna
 	@SerializedName("dirconyugue") 
-	@XStreamAlias("dirconyugue") 
+	@XStreamAlias("DIRCONYUGUE") 
 	private String dirconyugue = "" ;
 	@Columna
 	@SerializedName("dircorrespondencia") 
-	@XStreamAlias("dircorrespondencia") 
+	@XStreamAlias("DIRCORRESPONDENCIA") 
 	private String dircorrespondencia = "" ;
 	@Columna
 	@SerializedName("dni_adicional") 
-	@XStreamAlias("dni_adicional") 
+	@XStreamAlias("DNI_ADICIONAL") 
 	private String dni_adicional = "" ;
 	@Columna
 	@SerializedName("empleador") 
-	@XStreamAlias("empleador") 
+	@XStreamAlias("EMPLEADOR") 
 	private String empleador = "" ;
 	@Columna
 	@SerializedName("e_mail2") 
-	@XStreamAlias("e_mail2") 
+	@XStreamAlias("E_MAIL2") 
 	private String e_mail2 = "" ;
 	@Columna
 	@SerializedName("fnconyugue") 
-	@XStreamAlias("fnconyugue") 
+	@XStreamAlias("FNCONYUGUE") 
 	private Date fnconyugue;
 	@Columna
 	@SerializedName("ref_adicional") 
-	@XStreamAlias("ref_adicional") 
+	@XStreamAlias("REF_ADICIONAL") 
 	private String ref_adicional = "" ;
 	@Columna
 	@SerializedName("cny_email1") 
-	@XStreamAlias("cny_email1") 
+	@XStreamAlias("CNY_EMAIL1") 
 	private String cny_email1 = "" ;
 	@Columna
 	@SerializedName("cny_email2") 
-	@XStreamAlias("cny_email2") 
+	@XStreamAlias("CNY_EMAIL2") 
 	private String cny_email2 = "" ;
 	@Columna
 	@SerializedName("cny_fax") 
-	@XStreamAlias("cny_fax") 
+	@XStreamAlias("CNY_FAX") 
 	private String cny_fax = "" ;
 	@Columna
 	@SerializedName("cny_fono1") 
-	@XStreamAlias("cny_fono1") 
+	@XStreamAlias("CNY_FONO1") 
 	private String cny_fono1 = "" ;
 	@Columna
 	@SerializedName("cny_fono2") 
-	@XStreamAlias("cny_fono2") 
+	@XStreamAlias("CNY_FONO2") 
 	private String cny_fono2 = "" ;
 	@Columna
 	@SerializedName("direc1") 
-	@XStreamAlias("direc1") 
+	@XStreamAlias("DIREC1") 
 	private String direc1 = "" ;
 	@Columna
 	@SerializedName("direc2") 
-	@XStreamAlias("direc2") 
+	@XStreamAlias("DIREC2") 
 	private String direc2 = "" ;
 	@Columna
 	@SerializedName("direc3") 
-	@XStreamAlias("direc3") 
+	@XStreamAlias("DIREC3") 
 	private String direc3 = "" ;
 	@Columna
 	@SerializedName("direc4") 
-	@XStreamAlias("direc4") 
+	@XStreamAlias("DIREC4") 
 	private String direc4 = "" ;
 	@Columna
 	@SerializedName("direc5") 
-	@XStreamAlias("direc5") 
+	@XStreamAlias("DIREC5") 
 	private String direc5 = "" ;
 	@Columna
 	@SerializedName("fnh1") 
-	@XStreamAlias("fnh1") 
+	@XStreamAlias("FNH1") 
 	private String fnh1 = "" ;
 	@Columna
 	@SerializedName("fnh2") 
-	@XStreamAlias("fnh2") 
+	@XStreamAlias("FNH2") 
 	private String fnh2 = "" ;
 	@Columna
 	@SerializedName("fnh3") 
-	@XStreamAlias("fnh3") 
+	@XStreamAlias("FNH3") 
 	private String fnh3 = "" ;
 	@Columna
 	@SerializedName("fnh4") 
-	@XStreamAlias("fnh4") 
+	@XStreamAlias("FNH4") 
 	private String fnh4 = "" ;
 	@Columna
 	@SerializedName("fnh5") 
-	@XStreamAlias("fnh5") 
+	@XStreamAlias("FNH5") 
 	private String fnh5 = "" ;
 	@Columna
 	@SerializedName("fnh6") 
-	@XStreamAlias("fnh6") 
+	@XStreamAlias("FNH6") 
 	private String fnh6 = "" ;
 	@Columna
 	@SerializedName("fnh7") 
-	@XStreamAlias("fnh7") 
+	@XStreamAlias("FNH7") 
 	private String fnh7 = "" ;
 	@Columna
 	@SerializedName("fnh8") 
-	@XStreamAlias("fnh8") 
+	@XStreamAlias("FNH8") 
 	private String fnh8 = "" ;
 	@Columna
 	@SerializedName("hijo1") 
-	@XStreamAlias("hijo1") 
+	@XStreamAlias("HIJO1") 
 	private String hijo1 = "" ;
 	@Columna
 	@SerializedName("hijo2") 
-	@XStreamAlias("hijo2") 
+	@XStreamAlias("HIJO2") 
 	private String hijo2 = "" ;
 	@Columna
 	@SerializedName("hijo3") 
-	@XStreamAlias("hijo3") 
+	@XStreamAlias("HIJO3") 
 	private String hijo3 = "" ;
 	@Columna
 	@SerializedName("hijo4") 
-	@XStreamAlias("hijo4") 
+	@XStreamAlias("HIJO4") 
 	private String hijo4 = "" ;
 	@Columna
 	@SerializedName("hijo5") 
-	@XStreamAlias("hijo5") 
+	@XStreamAlias("HIJO5") 
 	private String hijo5 = "" ;
 	@Columna
 	@SerializedName("hijo6") 
-	@XStreamAlias("hijo6") 
+	@XStreamAlias("HIJO6") 
 	private String hijo6 = "" ;
 	@Columna
 	@SerializedName("hijo7") 
-	@XStreamAlias("hijo7") 
+	@XStreamAlias("HIJO7") 
 	private String hijo7 = "" ;
 	@Columna
 	@SerializedName("hijo8") 
-	@XStreamAlias("hijo8") 
+	@XStreamAlias("HIJO8") 
 	private String hijo8 = "" ;
 	@Columna
 	@SerializedName("ingreso_mensual") 
-	@XStreamAlias("ingreso_mensual") 
+	@XStreamAlias("INGRESO_MENSUAL") 
 	private Double ingreso_mensual = 0.00 ;
 	@Columna
 	@SerializedName("estadolc") 
-	@XStreamAlias("estadolc") 
+	@XStreamAlias("ESTADOLC") 
 	private Double estadolc = 0.00 ;
 	@Columna
 	@SerializedName("idmonedalc") 
-	@XStreamAlias("idmonedalc") 
+	@XStreamAlias("IDMONEDALC") 
 	private String idmonedalc = "" ;
 	@Columna
 	@SerializedName("es_buencontribuyente") 
-	@XStreamAlias("es_buencontribuyente") 
+	@XStreamAlias("ES_BUENCONTRIBUYENTE") 
 	private Double es_buencontribuyente = 0.00 ;
 	@Columna
 	@SerializedName("es_percepcion") 
-	@XStreamAlias("es_percepcion") 
+	@XStreamAlias("ES_PERCEPCION") 
 	private Double es_percepcion = 0.00 ;
 	@Columna
 	@SerializedName("es_retenedor") 
-	@XStreamAlias("es_retenedor") 
+	@XStreamAlias("ES_RETENEDOR") 
 	private Double es_retenedor = 0.00 ;
 	@Columna
 	@SerializedName("autogeneradoafp") 
-	@XStreamAlias("autogeneradoafp") 
+	@XStreamAlias("AUTOGENERADOAFP") 
 	private String autogeneradoafp = "" ;
 	@Columna
 	@SerializedName("idafp") 
-	@XStreamAlias("idafp") 
+	@XStreamAlias("IDAFP") 
 	private String idafp = "" ;
 	@Columna
 	@SerializedName("idcondventa") 
-	@XStreamAlias("idcondventa") 
+	@XStreamAlias("IDCONDVENTA") 
 	private String idcondventa = "" ;
 	@Columna
 	@SerializedName("idflete") 
-	@XStreamAlias("idflete") 
+	@XStreamAlias("IDFLETE") 
 	private String idflete = "" ;
 	@Columna
 	@SerializedName("idtipoprecio") 
-	@XStreamAlias("idtipoprecio") 
+	@XStreamAlias("IDTIPOPRECIO") 
 	private String idtipoprecio = "" ;
 	@Columna
 	@SerializedName("inicio_afp") 
-	@XStreamAlias("inicio_afp") 
+	@XStreamAlias("INICIO_AFP") 
 	private Date inicio_afp;
 	@Columna
 	@SerializedName("inicio_onp") 
-	@XStreamAlias("inicio_onp") 
+	@XStreamAlias("INICIO_ONP") 
 	private Date inicio_onp;
 	@Columna
 	@SerializedName("centrotrabajo_conyuge") 
-	@XStreamAlias("centrotrabajo_conyuge") 
+	@XStreamAlias("CENTROTRABAJO_CONYUGE") 
 	private String centrotrabajo_conyuge = "" ;
 	@Columna
 	@SerializedName("centrotrabajo_ruc") 
-	@XStreamAlias("centrotrabajo_ruc") 
+	@XStreamAlias("CENTROTRABAJO_RUC") 
 	private String centrotrabajo_ruc = "" ;
 	@Columna
 	@SerializedName("condicionindependiente_ruc") 
-	@XStreamAlias("condicionindependiente_ruc") 
+	@XStreamAlias("CONDICIONINDEPENDIENTE_RUC") 
 	private String condicionindependiente_ruc = "" ;
 	@Columna
 	@SerializedName("contratoindeterminado") 
-	@XStreamAlias("contratoindeterminado") 
+	@XStreamAlias("CONTRATOINDETERMINADO") 
 	private String contratoindeterminado = "" ;
 	@Columna
 	@SerializedName("fecha_ingreso_inicioact") 
-	@XStreamAlias("fecha_ingreso_inicioact") 
+	@XStreamAlias("FECHA_INGRESO_INICIOACT") 
 	private Date fecha_ingreso_inicioact;
 	@Columna
 	@SerializedName("facturable") 
-	@XStreamAlias("facturable") 
+	@XStreamAlias("FACTURABLE") 
 	private Double facturable = 0.00 ;
 	@Columna
 	@SerializedName("idcategorialaboral") 
-	@XStreamAlias("idcategorialaboral") 
+	@XStreamAlias("IDCATEGORIALABORAL") 
 	private String idcategorialaboral = "" ;
 	@Columna
 	@SerializedName("idcondicionlaboral") 
-	@XStreamAlias("idcondicionlaboral") 
+	@XStreamAlias("IDCONDICIONLABORAL") 
 	private String idcondicionlaboral = "" ;
 	@Columna
 	@SerializedName("idmonedaingresopromedio") 
-	@XStreamAlias("idmonedaingresopromedio") 
+	@XStreamAlias("IDMONEDAINGRESOPROMEDIO") 
 	private String idmonedaingresopromedio = "" ;
 	@Columna
 	@SerializedName("idtipoclieprov") 
-	@XStreamAlias("idtipoclieprov") 
+	@XStreamAlias("IDTIPOCLIEPROV") 
 	private String idtipoclieprov = "" ;
 	@Columna
 	@SerializedName("ingresopromedio") 
-	@XStreamAlias("ingresopromedio") 
+	@XStreamAlias("INGRESOPROMEDIO") 
 	private Double ingresopromedio = 0.00 ;
 	@Columna
 	@SerializedName("ingresopromedio_anual") 
-	@XStreamAlias("ingresopromedio_anual") 
+	@XStreamAlias("INGRESOPROMEDIO_ANUAL") 
 	private Double ingresopromedio_anual = 0.00 ;
 	@Columna
 	@SerializedName("ingresopromedio_conyuge") 
-	@XStreamAlias("ingresopromedio_conyuge") 
+	@XStreamAlias("INGRESOPROMEDIO_CONYUGE") 
 	private Double ingresopromedio_conyuge = 0.00 ;
 	@Columna
 	@SerializedName("numerohijos") 
-	@XStreamAlias("numerohijos") 
+	@XStreamAlias("NUMEROHIJOS") 
 	private Double numerohijos = 0.00 ;
 	@Columna
 	@SerializedName("ocupacion") 
-	@XStreamAlias("ocupacion") 
+	@XStreamAlias("OCUPACION") 
 	private String ocupacion = "" ;
 	@Columna
 	@SerializedName("separacionbienes") 
-	@XStreamAlias("separacionbienes") 
+	@XStreamAlias("SEPARACIONBIENES") 
 	private String separacionbienes = "" ;
 	@Columna
 	@SerializedName("nrotrabajadores") 
-	@XStreamAlias("nrotrabajadores") 
+	@XStreamAlias("NROTRABAJADORES") 
 	private Double nrotrabajadores = 0.00 ;
 	@Columna
 	@SerializedName("es_proveedor_tercero") 
-	@XStreamAlias("es_proveedor_tercero") 
+	@XStreamAlias("ES_PROVEEDOR_TERCERO") 
 	private Double es_proveedor_tercero = 0.00 ;
 	@Columna
 	@SerializedName("es_registroxweb") 
-	@XStreamAlias("es_registroxweb") 
+	@XStreamAlias("ES_REGISTROXWEB") 
 	private Double es_registroxweb = 0.00 ;
 	@Columna
 	@SerializedName("clave_cita") 
-	@XStreamAlias("clave_cita") 
+	@XStreamAlias("CLAVE_CITA") 
 	private String clave_cita = "" ;
 	@Columna
 	@SerializedName("conrus") 
-	@XStreamAlias("conrus") 
+	@XStreamAlias("CONRUS") 
 	private String conrus = "" ;
 	@Columna
 	@SerializedName("idclasificacion_bs_sunat") 
-	@XStreamAlias("idclasificacion_bs_sunat") 
+	@XStreamAlias("IDCLASIFICACION_BS_SUNAT") 
 	private String idclasificacion_bs_sunat = "" ;
 	@Columna
 	@SerializedName("idvinculo_cr_sunat") 
-	@XStreamAlias("idvinculo_cr_sunat") 
+	@XStreamAlias("IDVINCULO_CR_SUNAT") 
 	private String idvinculo_cr_sunat = "" ;
 	@Columna
 	@SerializedName("idexoneracion_sunat") 
-	@XStreamAlias("idexoneracion_sunat") 
+	@XStreamAlias("IDEXONERACION_SUNAT") 
 	private String idexoneracion_sunat = "" ;
 	@Columna
 	@SerializedName("idtiporenta_sunat") 
-	@XStreamAlias("idtiporenta_sunat") 
+	@XStreamAlias("IDTIPORENTA_SUNAT") 
 	private String idtiporenta_sunat = "" ;
 	@Columna
 	@SerializedName("idmodalidad_sunat") 
-	@XStreamAlias("idmodalidad_sunat") 
+	@XStreamAlias("IDMODALIDAD_SUNAT") 
 	private String idmodalidad_sunat = "" ;
 	@Columna
 	@SerializedName("es_importado") 
-	@XStreamAlias("es_importado") 
+	@XStreamAlias("ES_IMPORTADO") 
 	private Double es_importado = 0.00 ;
 	@Columna
 	@SerializedName("codequivalente") 
-	@XStreamAlias("codequivalente") 
+	@XStreamAlias("CODEQUIVALENTE") 
 	private String codequivalente = "" ;
 	@Columna
 	@SerializedName("codigo_alt") 
-	@XStreamAlias("codigo_alt") 
+	@XStreamAlias("CODIGO_ALT") 
 	private String codigo_alt = "" ;
-	@XStreamAlias("seleccion")
 	private boolean seleccion;
 
 
@@ -2645,6 +2645,14 @@ public class Clieprov implements Serializable {
 
 	public void setSeleccion(boolean seleccion) {
 		this.seleccion = seleccion;
+	}
+
+	public String getIdbasedatos() {
+		return idbasedatos;
+	}
+
+	public void setIdbasedatos(String idbasedatos) {
+		this.idbasedatos = idbasedatos;
 	}
 
 

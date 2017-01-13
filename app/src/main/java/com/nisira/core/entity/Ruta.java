@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "RUTA")
 @XStreamAlias("RUTA")
@@ -16,68 +17,68 @@ public class Ruta implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idruta") 
-	@XStreamAlias("idruta") 
+	@XStreamAlias("IDRUTA") 
 	private Integer idruta;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("nroruta") 
-	@XStreamAlias("nroruta") 
+	@XStreamAlias("NRORUTA") 
 	private String nroruta = "" ;
 	@Columna
 	@SerializedName("denominacionruta") 
-	@XStreamAlias("denominacionruta") 
+	@XStreamAlias("DENOMINACIONRUTA") 
 	private String denominacionruta = "" ;
 	@Columna
 	@SerializedName("idtiporuta") 
-	@XStreamAlias("idtiporuta") 
+	@XStreamAlias("IDTIPORUTA") 
 	private Integer idtiporuta;
 	@Columna
 	@SerializedName("idterminalorigen") 
-	@XStreamAlias("idterminalorigen") 
+	@XStreamAlias("IDTERMINALORIGEN") 
 	private Integer idterminalorigen;
 	@Columna
 	@SerializedName("idterminaldestino") 
-	@XStreamAlias("idterminaldestino") 
+	@XStreamAlias("IDTERMINALDESTINO") 
 	private Integer idterminaldestino;
 	@Columna
 	@SerializedName("distancia") 
-	@XStreamAlias("distancia") 
+	@XStreamAlias("DISTANCIA") 
 	private Double distancia = 0.00 ;
 	@Columna
 	@SerializedName("descripcion") 
-	@XStreamAlias("descripcion") 
+	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
 	@SerializedName("idproducto") 
-	@XStreamAlias("idproducto") 
+	@XStreamAlias("IDPRODUCTO") 
 	private String idproducto = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("estado") 
-	@XStreamAlias("estado") 
+	@XStreamAlias("ESTADO") 
 	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("maxpasajero") 
-	@XStreamAlias("maxpasajero") 
+	@XStreamAlias("MAXPASAJERO") 
 	private Double maxpasajero = 0.00 ;
 	@Columna
 	@SerializedName("ciclovuelo") 
-	@XStreamAlias("ciclovuelo") 
+	@XStreamAlias("CICLOVUELO") 
 	private Integer ciclovuelo;
 	@Columna
 	@SerializedName("rutamultiple") 
-	@XStreamAlias("rutamultiple") 
+	@XStreamAlias("RUTAMULTIPLE") 
 	private Integer rutamultiple;
 	@Columna
 	@SerializedName("idtipoventa") 
-	@XStreamAlias("idtipoventa") 
+	@XStreamAlias("IDTIPOVENTA") 
 	private String idtipoventa = "" ;
 
 

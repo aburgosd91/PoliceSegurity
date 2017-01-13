@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "DORDENSERVICIOCLIENTE")
 @XStreamAlias("DORDENSERVICIOCLIENTE")
@@ -14,35 +16,35 @@ import java.util.Date;
 public class Dordenserviciocliente implements Serializable {
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("idordenservicio") 
-	@XStreamAlias("idordenservicio") 
+	@XStreamAlias("IDORDENSERVICIO") 
 	private String idordenservicio = "" ;
 	@Columna
 	@SerializedName("item") 
-	@XStreamAlias("item") 
+	@XStreamAlias("ITEM") 
 	private String item = "" ;
 	@Columna
 	@SerializedName("idvehiculo") 
-	@XStreamAlias("idvehiculo") 
+	@XStreamAlias("IDVEHICULO") 
 	private String idvehiculo = "" ;
 	@Columna
 	@SerializedName("placa_cliente") 
-	@XStreamAlias("placa_cliente") 
+	@XStreamAlias("PLACA_CLIENTE") 
 	private String placa_cliente = "" ;
 	@Columna
 	@SerializedName("hora_req") 
-	@XStreamAlias("hora_req") 
+	@XStreamAlias("HORA_REQ") 
 	private Double hora_req = 0.00 ;
 	@Columna
 	@SerializedName("fecha_fin_servicio") 
-	@XStreamAlias("fecha_fin_servicio") 
+	@XStreamAlias("FECHA_FIN_SERVICIO") 
 	private Date fecha_fin_servicio;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 
 

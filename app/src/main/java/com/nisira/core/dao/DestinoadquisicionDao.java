@@ -14,22 +14,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.nisira.core.NisiraORMException;
 
-public class GeopointDao{
+public class DestinoadquisicionDao{
 
-	public Boolean insert(Geopoint geopoint) {
+	public Boolean insert(Destinoadquisicion destinoadquisicion) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			ContentValues initialValues = new ContentValues();
-			initialValues.put("IDGEOPOINT",geopoint.getIdgeopoint()); 
-			initialValues.put("DESCRIPCION",geopoint.getDescripcion()); 
-			initialValues.put("LATITUD",geopoint.getLatitud()); 
-			initialValues.put("LONGITUD",geopoint.getLongitud()); 
-			initialValues.put("IDCLIEPROV",geopoint.getIdclieprov()); 
-			initialValues.put("FECHACREACION",dateFormat.format(geopoint.getFechacreacion() ) ); 
-			initialValues.put("ESTADO",geopoint.getEstado()); 
-			resultado = mDb.insert("GEOPOINT",null,initialValues)>0; 
+			initialValues.put("IDDESTINO",destinoadquisicion.getIddestino()); 
+			initialValues.put("DESCRIPCION",destinoadquisicion.getDescripcion()); 
+			initialValues.put("ESTADO",destinoadquisicion.getEstado()); 
+			initialValues.put("SINCRONIZA",destinoadquisicion.getSincroniza()); 
+			initialValues.put("FECHACREACION",dateFormat.format(destinoadquisicion.getFechacreacion() ) ); 
+			resultado = mDb.insert("DESTINOADQUISICION",null,initialValues)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -37,20 +35,18 @@ public class GeopointDao{
 		return resultado; 
 	} 
 
-	public Boolean update(Geopoint geopoint,String where) {
+	public Boolean update(Destinoadquisicion destinoadquisicion,String where) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			ContentValues initialValues = new ContentValues();
-			initialValues.put("IDGEOPOINT",geopoint.getIdgeopoint()) ; 
-			initialValues.put("DESCRIPCION",geopoint.getDescripcion()) ; 
-			initialValues.put("LATITUD",geopoint.getLatitud()) ; 
-			initialValues.put("LONGITUD",geopoint.getLongitud()) ; 
-			initialValues.put("IDCLIEPROV",geopoint.getIdclieprov()) ; 
-			initialValues.put("FECHACREACION",dateFormat.format(geopoint.getFechacreacion() ) ) ; 
-			initialValues.put("ESTADO",geopoint.getEstado()) ; 
-			resultado = mDb.update("GEOPOINT",initialValues,where,null)>0; 
+			initialValues.put("IDDESTINO",destinoadquisicion.getIddestino()) ; 
+			initialValues.put("DESCRIPCION",destinoadquisicion.getDescripcion()) ; 
+			initialValues.put("ESTADO",destinoadquisicion.getEstado()) ; 
+			initialValues.put("SINCRONIZA",destinoadquisicion.getSincroniza()) ; 
+			initialValues.put("FECHACREACION",dateFormat.format(destinoadquisicion.getFechacreacion() ) ) ; 
+			resultado = mDb.update("DESTINOADQUISICION",initialValues,where,null)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -63,7 +59,7 @@ public class GeopointDao{
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
-			resultado = mDb.delete("GEOPOINT",where,null)>0; 
+			resultado = mDb.delete("DESTINOADQUISICION",where,null)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -71,22 +67,20 @@ public class GeopointDao{
 		return resultado; 
 	} 
 
-	public ArrayList<Geopoint> listar(String where,String order,Integer limit) {
+	public ArrayList<Destinoadquisicion> listar(String where,String order,Integer limit) {
 		if(limit == null){
 			limit =0;
 		}
-		ArrayList<Geopoint> lista  = new ArrayList<Geopoint>();
+		ArrayList<Destinoadquisicion> lista  = new ArrayList<Destinoadquisicion>();
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
-			Cursor cur =  mDb.query("GEOPOINT",
+			Cursor cur =  mDb.query("DESTINOADQUISICION",
 					new String[] {
-							 "IDGEOPOINT" ,
+							 "IDDESTINO" ,
 							 "DESCRIPCION" ,
-							 "LATITUD" ,
-							 "LONGITUD" ,
-							 "IDCLIEPROV" ,
-							 "FECHACREACION" ,
-							 "ESTADO" 
+							 "ESTADO" ,
+							 "SINCRONIZA" ,
+							 "FECHACREACION" 
 					},
 			where, null, null, null, order);
 			if (cur!=null){
@@ -94,16 +88,14 @@ public class GeopointDao{
 				int i=0;
 				while (cur.isAfterLast() == false) {
 					int j=0;
-					Geopoint geopoint = new Geopoint() ;
-					geopoint.setIdgeopoint(cur.getInt(j++));
-					geopoint.setDescripcion(cur.getString(j++));
-					geopoint.setLatitud(cur.getFloat(j++));
-					geopoint.setLongitud(cur.getFloat(j++));
-					geopoint.setIdclieprov(cur.getString(j++));
-					geopoint.setFechacreacion(dateFormat.parse(cur.getString(j++)) );
-					geopoint.setEstado(cur.getInt(j++));
+					Destinoadquisicion destinoadquisicion = new Destinoadquisicion() ;
+					destinoadquisicion.setIddestino(cur.getString(j++));
+					destinoadquisicion.setDescripcion(cur.getString(j++));
+					destinoadquisicion.setEstado(cur.getDouble(j++));
+					destinoadquisicion.setSincroniza(cur.getString(j++));
+					destinoadquisicion.setFechacreacion(dateFormat.parse(cur.getString(j++)) );
 
-					lista.add(geopoint); 
+					lista.add(destinoadquisicion); 
 					i++; 
 					if(i == limit){ 
 						break; 

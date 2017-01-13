@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "RUTA_SERVICIOS")
 @XStreamAlias("RUTA_SERVICIOS")
@@ -16,42 +17,42 @@ public class Ruta_servicios implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idordenservicio") 
-	@XStreamAlias("idordenservicio") 
+	@XStreamAlias("IDORDENSERVICIO") 
 	private String idordenservicio = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("item") 
-	@XStreamAlias("item") 
+	@XStreamAlias("ITEM") 
 	private String item = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("itemruta") 
-	@XStreamAlias("itemruta") 
+	@XStreamAlias("ITEMRUTA") 
 	private String itemruta = "" ;
 	@Columna
 	@SerializedName("idruta") 
-	@XStreamAlias("idruta") 
+	@XStreamAlias("IDRUTA") 
 	private String idruta = "" ;
 	@Columna
 	@SerializedName("latitud") 
-	@XStreamAlias("latitud") 
+	@XStreamAlias("LATITUD") 
 	private String latitud = "" ;
 	@Columna
 	@SerializedName("longitud") 
-	@XStreamAlias("longitud") 
+	@XStreamAlias("LONGITUD") 
 	private String longitud = "" ;
 	@Columna
 	@SerializedName("glosa") 
-	@XStreamAlias("glosa") 
+	@XStreamAlias("GLOSA") 
 	private String glosa = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 
 

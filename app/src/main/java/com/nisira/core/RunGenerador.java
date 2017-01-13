@@ -204,7 +204,7 @@ public class RunGenerador {
 				constructor_detalle +="\t\tthis."+nombrecampo.toLowerCase()+" = "+nombrecampo.toLowerCase()+";\n";
 
 				campos += "\t@SerializedName(\""+nombrecampo.toLowerCase()+"\") \n" +
-						"\t@XStreamAlias(\"" +nombrecampo.toLowerCase()+"\") \n" +
+						"\t@XStreamAlias(\"" +nombrecampo.toUpperCase()+"\") \n" +
 						"\tprivate " + tipo + " " + nombrecampo.toLowerCase() +";\n";
 
 				set += "\tpublic void set" + post + "(" + tipo + " " + nombrecampo.toLowerCase() + ") {\n";
@@ -323,7 +323,7 @@ public class RunGenerador {
 					"import java.io.Serializable;\n\n";
 
 			cabecera = "@Tabla(nombre = \"" + tabla.getNombre() + "\")\n" +
-					   "@XStreamAlias(\""+ tabla.getNombre() + "\")\n" +
+					   "@XStreamAlias(\""+ tabla.getNombre().toUpperCase() + "\")\n" +
 					   "\n" +
 					   "public class " + nombre + " implements Serializable {\n";
 
@@ -379,7 +379,7 @@ public class RunGenerador {
 					}
 					campos += "\t@Columna\n" +
 							"\t@SerializedName(\""+c.getNombre().toLowerCase()+"\") \n" +
-							"\t@XStreamAlias(\"" +c.getNombre().toLowerCase()+"\") \n" +
+							"\t@XStreamAlias(\"" +c.getNombre().toUpperCase()+"\") \n" +
 							"\tprivate " + tipo + " " + c.getNombre().toLowerCase() + valordefecto+";\n";
 
 					set += "\tpublic void set" + post + "(" + tipo + " " + c.getNombre().toLowerCase() + ") {\n";
@@ -747,7 +747,7 @@ public class RunGenerador {
 			imports += "import java.text.SimpleDateFormat;\n";
 			imports += "import java.util.Date;\n";
 			imports += "import com.nisira.core.NisiraORMException;\n";
-			imports += "import "+PAQUETEENTIDADSERVICES.trim()+".*;";
+//			imports += "import "+PAQUETEENTIDADSERVICES.trim()+".*;";
 
 			if(TIPOLENGUAJE.trim().equals("JAVA"))
 			{

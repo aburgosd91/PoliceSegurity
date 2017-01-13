@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.nisira.core.NisiraORMException;
+
 public class OrdenservicioclienteDao{
 
 	public Boolean insert(Ordenserviciocliente ordenserviciocliente) {

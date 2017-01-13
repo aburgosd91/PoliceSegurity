@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "DCOTIZACIONVENTAS")
 @XStreamAlias("DCOTIZACIONVENTAS")
@@ -14,279 +16,279 @@ import java.util.Date;
 public class Dcotizacionventas implements Serializable {
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("idcotizacionv") 
-	@XStreamAlias("idcotizacionv") 
+	@XStreamAlias("IDCOTIZACIONV") 
 	private String idcotizacionv = "" ;
 	@Columna
 	@SerializedName("item") 
-	@XStreamAlias("item") 
+	@XStreamAlias("ITEM") 
 	private String item = "" ;
 	@Columna
 	@SerializedName("idcompra") 
-	@XStreamAlias("idcompra") 
+	@XStreamAlias("IDCOMPRA") 
 	private String idcompra = "" ;
 	@Columna
 	@SerializedName("itemcotizacion") 
-	@XStreamAlias("itemcotizacion") 
+	@XStreamAlias("ITEMCOTIZACION") 
 	private String itemcotizacion = "" ;
 	@Columna
 	@SerializedName("idproducto") 
-	@XStreamAlias("idproducto") 
+	@XStreamAlias("IDPRODUCTO") 
 	private String idproducto = "" ;
 	@Columna
 	@SerializedName("descripcion") 
-	@XStreamAlias("descripcion") 
+	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
 	@SerializedName("idmedida") 
-	@XStreamAlias("idmedida") 
+	@XStreamAlias("IDMEDIDA") 
 	private String idmedida = "" ;
 	@Columna
 	@SerializedName("cantidad") 
-	@XStreamAlias("cantidad") 
+	@XStreamAlias("CANTIDAD") 
 	private Double cantidad = 0.00 ;
 	@Columna
 	@SerializedName("precio") 
-	@XStreamAlias("precio") 
+	@XStreamAlias("PRECIO") 
 	private Double precio = 0.00 ;
 	@Columna
 	@SerializedName("descuento") 
-	@XStreamAlias("descuento") 
+	@XStreamAlias("DESCUENTO") 
 	private Double descuento = 0.00 ;
 	@Columna
 	@SerializedName("importe") 
-	@XStreamAlias("importe") 
+	@XStreamAlias("IMPORTE") 
 	private Double importe = 0.00 ;
 	@Columna
 	@SerializedName("es_afecto") 
-	@XStreamAlias("es_afecto") 
+	@XStreamAlias("ES_AFECTO") 
 	private Double es_afecto = 0.00 ;
 	@Columna
 	@SerializedName("porcentajedscto1") 
-	@XStreamAlias("porcentajedscto1") 
+	@XStreamAlias("PORCENTAJEDSCTO1") 
 	private Double porcentajedscto1 = 0.00 ;
 	@Columna
 	@SerializedName("porcentajedscto2") 
-	@XStreamAlias("porcentajedscto2") 
+	@XStreamAlias("PORCENTAJEDSCTO2") 
 	private Double porcentajedscto2 = 0.00 ;
 	@Columna
 	@SerializedName("porcentajedscto3") 
-	@XStreamAlias("porcentajedscto3") 
+	@XStreamAlias("PORCENTAJEDSCTO3") 
 	private Double porcentajedscto3 = 0.00 ;
 	@Columna
 	@SerializedName("impuesto_i") 
-	@XStreamAlias("impuesto_i") 
+	@XStreamAlias("IMPUESTO_I") 
 	private Double impuesto_i = 0.00 ;
 	@Columna
 	@SerializedName("impuesto") 
-	@XStreamAlias("impuesto") 
+	@XStreamAlias("IMPUESTO") 
 	private Double impuesto = 0.00 ;
 	@Columna
 	@SerializedName("importedscto1") 
-	@XStreamAlias("importedscto1") 
+	@XStreamAlias("IMPORTEDSCTO1") 
 	private Double importedscto1 = 0.00 ;
 	@Columna
 	@SerializedName("importedscto2") 
-	@XStreamAlias("importedscto2") 
+	@XStreamAlias("IMPORTEDSCTO2") 
 	private Double importedscto2 = 0.00 ;
 	@Columna
 	@SerializedName("importedscto3") 
-	@XStreamAlias("importedscto3") 
+	@XStreamAlias("IMPORTEDSCTO3") 
 	private Double importedscto3 = 0.00 ;
 	@Columna
 	@SerializedName("subtotalsindscto") 
-	@XStreamAlias("subtotalsindscto") 
+	@XStreamAlias("SUBTOTALSINDSCTO") 
 	private Double subtotalsindscto = 0.00 ;
 	@Columna
 	@SerializedName("subtotalcondscto") 
-	@XStreamAlias("subtotalcondscto") 
+	@XStreamAlias("SUBTOTALCONDSCTO") 
 	private Double subtotalcondscto = 0.00 ;
 	@Columna
 	@SerializedName("idestadoproducto") 
-	@XStreamAlias("idestadoproducto") 
+	@XStreamAlias("IDESTADOPRODUCTO") 
 	private String idestadoproducto = "" ;
 	@Columna
 	@SerializedName("descuento_total") 
-	@XStreamAlias("descuento_total") 
+	@XStreamAlias("DESCUENTO_TOTAL") 
 	private Double descuento_total = 0.00 ;
 	@Columna
 	@SerializedName("destino") 
-	@XStreamAlias("destino") 
+	@XStreamAlias("DESTINO") 
 	private String destino = "" ;
 	@Columna
 	@SerializedName("idestado") 
-	@XStreamAlias("idestado") 
+	@XStreamAlias("IDESTADO") 
 	private String idestado = "" ;
 	@Columna
 	@SerializedName("idestadoold") 
-	@XStreamAlias("idestadoold") 
+	@XStreamAlias("IDESTADOOLD") 
 	private String idestadoold = "" ;
 	@Columna
 	@SerializedName("observaciones") 
-	@XStreamAlias("observaciones") 
+	@XStreamAlias("OBSERVACIONES") 
 	private String observaciones = "" ;
 	@Columna
 	@SerializedName("anniofabricacion") 
-	@XStreamAlias("anniofabricacion") 
+	@XStreamAlias("ANNIOFABRICACION") 
 	private String anniofabricacion = "" ;
 	@Columna
 	@SerializedName("clase") 
-	@XStreamAlias("clase") 
+	@XStreamAlias("CLASE") 
 	private String clase = "" ;
 	@Columna
 	@SerializedName("carroceria") 
-	@XStreamAlias("carroceria") 
+	@XStreamAlias("CARROCERIA") 
 	private String carroceria = "" ;
 	@Columna
 	@SerializedName("transmision") 
-	@XStreamAlias("transmision") 
+	@XStreamAlias("TRANSMISION") 
 	private String transmision = "" ;
 	@Columna
 	@SerializedName("tipomotor") 
-	@XStreamAlias("tipomotor") 
+	@XStreamAlias("TIPOMOTOR") 
 	private String tipomotor = "" ;
 	@Columna
 	@SerializedName("combustible") 
-	@XStreamAlias("combustible") 
+	@XStreamAlias("COMBUSTIBLE") 
 	private String combustible = "" ;
 	@Columna
 	@SerializedName("idreferencia") 
-	@XStreamAlias("idreferencia") 
+	@XStreamAlias("IDREFERENCIA") 
 	private String idreferencia = "" ;
 	@Columna
 	@SerializedName("itemref") 
-	@XStreamAlias("itemref") 
+	@XStreamAlias("ITEMREF") 
 	private String itemref = "" ;
 	@Columna
 	@SerializedName("tablaref") 
-	@XStreamAlias("tablaref") 
+	@XStreamAlias("TABLAREF") 
 	private String tablaref = "" ;
 	@Columna
 	@SerializedName("documentoref") 
-	@XStreamAlias("documentoref") 
+	@XStreamAlias("DOCUMENTOREF") 
 	private String documentoref = "" ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("idconsumidor") 
-	@XStreamAlias("idconsumidor") 
+	@XStreamAlias("IDCONSUMIDOR") 
 	private String idconsumidor = "" ;
 	@Columna
 	@SerializedName("idplantillacv") 
-	@XStreamAlias("idplantillacv") 
+	@XStreamAlias("IDPLANTILLACV") 
 	private String idplantillacv = "" ;
 	@Columna
 	@SerializedName("parafecha") 
-	@XStreamAlias("parafecha") 
+	@XStreamAlias("PARAFECHA") 
 	private Date parafecha;
 	@Columna
 	@SerializedName("dias") 
-	@XStreamAlias("dias") 
+	@XStreamAlias("DIAS") 
 	private Double dias = 0.00 ;
 	@Columna
 	@SerializedName("idserie") 
-	@XStreamAlias("idserie") 
+	@XStreamAlias("IDSERIE") 
 	private String idserie = "" ;
 	@Columna
 	@SerializedName("idcolor") 
-	@XStreamAlias("idcolor") 
+	@XStreamAlias("IDCOLOR") 
 	private String idcolor = "" ;
 	@Columna
 	@SerializedName("idsucursal") 
-	@XStreamAlias("idsucursal") 
+	@XStreamAlias("IDSUCURSAL") 
 	private String idsucursal = "" ;
 	@Columna
 	@SerializedName("idalmacen") 
-	@XStreamAlias("idalmacen") 
+	@XStreamAlias("IDALMACEN") 
 	private String idalmacen = "" ;
 	@Columna
 	@SerializedName("calibremm") 
-	@XStreamAlias("calibremm") 
+	@XStreamAlias("CALIBREMM") 
 	private String calibremm = "" ;
 	@Columna
 	@SerializedName("factorce") 
-	@XStreamAlias("factorce") 
+	@XStreamAlias("FACTORCE") 
 	private Double factorce = 0.00 ;
 	@Columna
 	@SerializedName("idinsumo") 
-	@XStreamAlias("idinsumo") 
+	@XStreamAlias("IDINSUMO") 
 	private String idinsumo = "" ;
 	@Columna
 	@SerializedName("idpresentacion") 
-	@XStreamAlias("idpresentacion") 
+	@XStreamAlias("IDPRESENTACION") 
 	private String idpresentacion = "" ;
 	@Columna
 	@SerializedName("idtalla") 
-	@XStreamAlias("idtalla") 
+	@XStreamAlias("IDTALLA") 
 	private String idtalla = "" ;
 	@Columna
 	@SerializedName("largo") 
-	@XStreamAlias("largo") 
+	@XStreamAlias("LARGO") 
 	private String largo = "" ;
 	@Columna
 	@SerializedName("total_ce") 
-	@XStreamAlias("total_ce") 
+	@XStreamAlias("TOTAL_CE") 
 	private Double total_ce = 0.00 ;
 	@Columna
 	@SerializedName("undxphl") 
-	@XStreamAlias("undxphl") 
+	@XStreamAlias("UNDXPHL") 
 	private Integer undxphl;
 	@Columna
 	@SerializedName("descuento_i") 
-	@XStreamAlias("descuento_i") 
+	@XStreamAlias("DESCUENTO_I") 
 	private Double descuento_i = 0.00 ;
 	@Columna
 	@SerializedName("importe_isc") 
-	@XStreamAlias("importe_isc") 
+	@XStreamAlias("IMPORTE_ISC") 
 	private Double importe_isc = 0.00 ;
 	@Columna
 	@SerializedName("accesorios_conigv") 
-	@XStreamAlias("accesorios_conigv") 
+	@XStreamAlias("ACCESORIOS_CONIGV") 
 	private Double accesorios_conigv = 0.00 ;
 	@Columna
 	@SerializedName("importedscto1_conigv") 
-	@XStreamAlias("importedscto1_conigv") 
+	@XStreamAlias("IMPORTEDSCTO1_CONIGV") 
 	private Double importedscto1_conigv = 0.00 ;
 	@Columna
 	@SerializedName("importedscto2_conigv") 
-	@XStreamAlias("importedscto2_conigv") 
+	@XStreamAlias("IMPORTEDSCTO2_CONIGV") 
 	private Double importedscto2_conigv = 0.00 ;
 	@Columna
 	@SerializedName("importedscto3_conigv") 
-	@XStreamAlias("importedscto3_conigv") 
+	@XStreamAlias("IMPORTEDSCTO3_CONIGV") 
 	private Double importedscto3_conigv = 0.00 ;
 	@Columna
 	@SerializedName("importedscto_importador_real") 
-	@XStreamAlias("importedscto_importador_real") 
+	@XStreamAlias("IMPORTEDSCTO_IMPORTADOR_REAL") 
 	private Double importedscto_importador_real = 0.00 ;
 	@Columna
 	@SerializedName("importedscto_maxpermitido") 
-	@XStreamAlias("importedscto_maxpermitido") 
+	@XStreamAlias("IMPORTEDSCTO_MAXPERMITIDO") 
 	private Double importedscto_maxpermitido = 0.00 ;
 	@Columna
 	@SerializedName("vventapublico_conigv") 
-	@XStreamAlias("vventapublico_conigv") 
+	@XStreamAlias("VVENTAPUBLICO_CONIGV") 
 	private Double vventapublico_conigv = 0.00 ;
 	@Columna
 	@SerializedName("anniomodelo") 
-	@XStreamAlias("anniomodelo") 
+	@XStreamAlias("ANNIOMODELO") 
 	private String anniomodelo = "" ;
 	@Columna
 	@SerializedName("idtg20versionveh") 
-	@XStreamAlias("idtg20versionveh") 
+	@XStreamAlias("IDTG20VERSIONVEH") 
 	private Integer idtg20versionveh;
 	@Columna
 	@SerializedName("importeaccesorios") 
-	@XStreamAlias("importeaccesorios") 
+	@XStreamAlias("IMPORTEACCESORIOS") 
 	private Double importeaccesorios = 0.00 ;
 
 

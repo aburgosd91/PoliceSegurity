@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
+import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "DOCREFERENCIA")
 @XStreamAlias("DOCREFERENCIA")
@@ -14,43 +16,43 @@ import java.util.Date;
 public class Docreferencia implements Serializable {
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@Columna
 	@SerializedName("idorigen") 
-	@XStreamAlias("idorigen") 
+	@XStreamAlias("IDORIGEN") 
 	private String idorigen = "" ;
 	@Columna
 	@SerializedName("tabla") 
-	@XStreamAlias("tabla") 
+	@XStreamAlias("TABLA") 
 	private String tabla = "" ;
 	@Columna
 	@SerializedName("idreferencia") 
-	@XStreamAlias("idreferencia") 
+	@XStreamAlias("IDREFERENCIA") 
 	private String idreferencia = "" ;
 	@Columna
 	@SerializedName("iddocumento") 
-	@XStreamAlias("iddocumento") 
+	@XStreamAlias("IDDOCUMENTO") 
 	private String iddocumento = "" ;
 	@Columna
 	@SerializedName("serie") 
-	@XStreamAlias("serie") 
+	@XStreamAlias("SERIE") 
 	private String serie = "" ;
 	@Columna
 	@SerializedName("numero") 
-	@XStreamAlias("numero") 
+	@XStreamAlias("NUMERO") 
 	private String numero = "" ;
 	@Columna
 	@SerializedName("fecha") 
-	@XStreamAlias("fecha") 
+	@XStreamAlias("FECHA") 
 	private Date fecha;
 	@Columna
 	@SerializedName("exonerado") 
-	@XStreamAlias("exonerado") 
+	@XStreamAlias("EXONERADO") 
 	private Double exonerado = 0.00 ;
 	@Columna
 	@SerializedName("archivar") 
-	@XStreamAlias("archivar") 
+	@XStreamAlias("ARCHIVAR") 
 	private Double archivar = 0.00 ;
 
 

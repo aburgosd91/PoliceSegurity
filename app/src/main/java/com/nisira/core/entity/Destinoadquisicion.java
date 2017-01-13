@@ -10,31 +10,23 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 
-@Tabla(nombre = "ESTADOS")
-@XStreamAlias("ESTADOS")
+@Tabla(nombre = "DESTINOADQUISICION")
+@XStreamAlias("DESTINOADQUISICION")
 
-public class Estados implements Serializable {
+public class Destinoadquisicion implements Serializable {
 	@ClavePrimaria
 	@Columna
-	@SerializedName("idestado") 
-	@XStreamAlias("IDESTADO") 
-	private String idestado = "" ;
+	@SerializedName("iddestino") 
+	@XStreamAlias("IDDESTINO") 
+	private String iddestino = "" ;
 	@Columna
 	@SerializedName("descripcion") 
 	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
-	@SerializedName("orden") 
-	@XStreamAlias("ORDEN") 
-	private Double orden = 0.00 ;
-	@Columna
-	@SerializedName("verflujo") 
-	@XStreamAlias("VERFLUJO") 
-	private Double verflujo = 0.00 ;
-	@Columna
-	@SerializedName("accion") 
-	@XStreamAlias("ACCION") 
-	private String accion = "" ;
+	@SerializedName("estado") 
+	@XStreamAlias("ESTADO") 
+	private Double estado = 0.00 ;
 	@Columna
 	@SerializedName("sincroniza") 
 	@XStreamAlias("SINCRONIZA") 
@@ -43,20 +35,16 @@ public class Estados implements Serializable {
 	@SerializedName("fechacreacion") 
 	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
-	@Columna
-	@SerializedName("color") 
-	@XStreamAlias("COLOR") 
-	private String color = "" ;
 
 
 
 	/* Sets & Gets */
-	public void setIdestado(String idestado) {
-		this.idestado = idestado;
+	public void setIddestino(String iddestino) {
+		this.iddestino = iddestino;
 	}
 
-	public String getIdestado() {
-		return this.idestado;
+	public String getIddestino() {
+		return this.iddestino;
 	}
 
 	public void setDescripcion(String descripcion) {
@@ -67,28 +55,12 @@ public class Estados implements Serializable {
 		return this.descripcion;
 	}
 
-	public void setOrden(Double orden) {
-		this.orden = orden;
+	public void setEstado(Double estado) {
+		this.estado = estado;
 	}
 
-	public Double getOrden() {
-		return this.orden;
-	}
-
-	public void setVerflujo(Double verflujo) {
-		this.verflujo = verflujo;
-	}
-
-	public Double getVerflujo() {
-		return this.verflujo;
-	}
-
-	public void setAccion(String accion) {
-		this.accion = accion;
-	}
-
-	public String getAccion() {
-		return this.accion;
+	public Double getEstado() {
+		return this.estado;
 	}
 
 	public void setSincroniza(String sincroniza) {
@@ -105,14 +77,6 @@ public class Estados implements Serializable {
 
 	public Date getFechacreacion() {
 		return this.fechacreacion;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public String getColor() {
-		return this.color;
 	}
 
 

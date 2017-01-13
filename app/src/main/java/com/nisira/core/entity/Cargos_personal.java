@@ -1,13 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "CARGOS_PERSONAL")
 @XStreamAlias("CARGOS_PERSONAL")
@@ -16,72 +17,72 @@ public class Cargos_personal implements Serializable {
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
-	@XStreamAlias("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
 	@SerializedName("idcargo") 
-	@XStreamAlias("idcargo") 
+	@XStreamAlias("IDCARGO") 
 	private String idcargo = "" ;
 	@Columna
 	@SerializedName("descripcion") 
-	@XStreamAlias("descripcion") 
+	@XStreamAlias("DESCRIPCION") 
 	private String descripcion = "" ;
 	@Columna
 	@SerializedName("idactividad") 
-	@XStreamAlias("idactividad") 
+	@XStreamAlias("IDACTIVIDAD") 
 	private String idactividad = "" ;
 	@Columna
 	@SerializedName("idlabor") 
-	@XStreamAlias("idlabor") 
+	@XStreamAlias("IDLABOR") 
 	private String idlabor = "" ;
 	@Columna
 	@SerializedName("sincroniza") 
-	@XStreamAlias("sincroniza") 
+	@XStreamAlias("SINCRONIZA") 
 	private String sincroniza = "" ;
 	@Columna
 	@SerializedName("fechacreacion") 
-	@XStreamAlias("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
 	@Columna
 	@SerializedName("codalterno") 
-	@XStreamAlias("codalterno") 
+	@XStreamAlias("CODALTERNO") 
 	private String codalterno = "" ;
 	@Columna
 	@SerializedName("es_guardian") 
-	@XStreamAlias("es_guardian") 
+	@XStreamAlias("ES_GUARDIAN") 
 	private Integer es_guardian;
 	@Columna
 	@SerializedName("es_pers_aereo") 
-	@XStreamAlias("es_pers_aereo") 
+	@XStreamAlias("ES_PERS_AEREO") 
 	private Double es_pers_aereo = 0.00 ;
 	@Columna
 	@SerializedName("cargo_pesquera") 
-	@XStreamAlias("cargo_pesquera") 
+	@XStreamAlias("CARGO_PESQUERA") 
 	private String cargo_pesquera = "" ;
 	@Columna
 	@SerializedName("produccion_pesquera") 
-	@XStreamAlias("produccion_pesquera") 
+	@XStreamAlias("PRODUCCION_PESQUERA") 
 	private Double produccion_pesquera = 0.00 ;
 	@Columna
 	@SerializedName("tipo_trabajo") 
-	@XStreamAlias("tipo_trabajo") 
+	@XStreamAlias("TIPO_TRABAJO") 
 	private String tipo_trabajo = "" ;
 	@Columna
 	@SerializedName("idarea") 
-	@XStreamAlias("idarea") 
+	@XStreamAlias("IDAREA") 
 	private String idarea = "" ;
 	@Columna
 	@SerializedName("es_jefedearea") 
-	@XStreamAlias("es_jefedearea") 
+	@XStreamAlias("ES_JEFEDEAREA") 
 	private Double es_jefedearea = 0.00 ;
 	@Columna
 	@SerializedName("usa_subsector") 
-	@XStreamAlias("usa_subsector") 
+	@XStreamAlias("USA_SUBSECTOR") 
 	private Double usa_subsector = 0.00 ;
 	@Columna
 	@SerializedName("tipo_cargo") 
-	@XStreamAlias("tipo_cargo") 
+	@XStreamAlias("TIPO_CARGO") 
 	private Double tipo_cargo = 0.00 ;
 
 

@@ -1,12 +1,19 @@
 package com.nisira.core.dao;
 
+import com.nisira.core.BaseDao;
 import com.nisira.core.entity.*;
+import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
 import com.nisira.core.database.DataBaseClass;
 import android.content.ContentValues;
 import android.database.Cursor;
+import com.nisira.core.util.ClaveMovil;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import com.nisira.core.NisiraORMException;
+
 public class Ruta_serviciosDao{
 
 	public Boolean insert(Ruta_servicios ruta_servicios) {
