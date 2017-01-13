@@ -34,6 +34,8 @@ public class List_Fragment_Personal extends FragmentNisira {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
     private FloatingActionButton fab_agregar;
+    private FloatingActionButton fab_modificar;
+    private FloatingActionButton fab_eliminar;
     private SwipeRefreshLayout swiperefresh;
 
     // TODO: PARAMETROS DE ENTRADA
@@ -72,7 +74,8 @@ public class List_Fragment_Personal extends FragmentNisira {
         animacionEntrada();
         swiperefresh = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
         fab_agregar = (FloatingActionButton) view.findViewById(R.id.fab_agregar);
-
+        fab_modificar = (FloatingActionButton) view.findViewById(R.id.fab_modificar);
+        fab_eliminar = (FloatingActionButton) view.findViewById(R.id.fab_eliminar);
         // Inflate the layout for this fragment
         recycler = (RecyclerView) view.findViewById(R.id.reciclador);
         recycler.setHasFixedSize(true);
@@ -103,7 +106,22 @@ public class List_Fragment_Personal extends FragmentNisira {
                 ft.commit();
             }
         });
-
+        fab_modificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.main_content, new edt_OrdenServicio(), "NewFragmentTag");
+                ft.commit();
+            }
+        });
+        fab_eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.main_content, new edt_OrdenServicio(), "NewFragmentTag");
+                ft.commit();
+            }
+        });
 
         return view;
     }
