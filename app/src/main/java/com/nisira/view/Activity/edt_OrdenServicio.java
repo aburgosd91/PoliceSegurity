@@ -57,9 +57,6 @@ public class edt_OrdenServicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
-        CollapsingToolbarLayout collapser =
-                (CollapsingToolbarLayout) view.findViewById(R.id.collapser);
-        collapser.setTitle("Prueba01"); // Cambiar título
 
         return view;
     }
