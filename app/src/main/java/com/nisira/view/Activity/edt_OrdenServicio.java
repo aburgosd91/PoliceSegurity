@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.nisira.gcalderon.policesecurity.R;
 
@@ -21,6 +22,8 @@ public class edt_OrdenServicio extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private EditText txt_documento;
+    private EditText txt_cliente;
 
     public edt_OrdenServicio() {
         // Required empty public constructor
@@ -57,6 +60,11 @@ public class edt_OrdenServicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
+        txt_documento = (EditText)view.findViewById(R.id.txt_documento);
+        txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
+        txt_documento.setText("Orden Servicio Cliente");
+        txt_cliente.setText("Olivia Peña Carlos Alberto");
+
 
         return view;
     }
