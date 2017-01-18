@@ -80,14 +80,14 @@ public class edt_OrdenServicio extends Fragment {
         lManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(lManager);
         List<String> lista = new ArrayList<>();
-        lista.add("Gian");
-        lista.add("Gian");
-        lista.add("Gian");
-        lista.add("Gian");
-        lista.add("Gian");
-        lista.add("Gian");
-        lista.add("Gian");
-        List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lista);
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lista,getFragmentManager());
         recyclerView.setAdapter(adapter);
 
 
