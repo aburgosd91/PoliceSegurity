@@ -1,6 +1,11 @@
 package com.nisira.view.Adapter;
 
+import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +15,7 @@ import android.widget.TextView;
 
 import com.nisira.core.entity.Clieprov;
 import com.nisira.gcalderon.policesecurity.R;
+import com.nisira.view.Activity.edit_OrdenServicio_Fragment;
 
 import java.util.List;
 
@@ -22,6 +28,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapter_OrdenServicio.ListaViewHolder>{
 
     private List<String> items;//Lo cambias por la coleccion que necesites Alex
+    Context context;
+    FragmentManager fragmentManager;
 
     public class ListaViewHolder extends RecyclerView.ViewHolder {
         public ImageView imagen;
@@ -43,8 +51,9 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
         }
     }
 
-    public List_Adapter_OrdenServicio(List<String> items) {
+    public List_Adapter_OrdenServicio(List<String> items, FragmentManager fragmentManager) {
         this.items = items;
+        this.fragmentManager = fragmentManager;
     }
 
     @Override
@@ -54,6 +63,7 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
 
     @Override
     public List_Adapter_OrdenServicio.ListaViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        context = viewGroup.getContext();
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.card_elementolista2, viewGroup, false);
         return new List_Adapter_OrdenServicio.ListaViewHolder(v);
@@ -74,6 +84,10 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
                 viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                 viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                 viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
+
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.replace(R.id.main_content, new edit_OrdenServicio_Fragment(), "NewFragmentTag");
+                ft.commit();
             }
         });
 
