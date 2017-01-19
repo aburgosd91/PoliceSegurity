@@ -27,6 +27,22 @@ import com.nisira.core.util.Util;
 import com.nisira.gcalderon.policesecurity.R;
 
 public class Login_Activity extends ActivityNisiraCompat implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
+    private static final Object[][] TABLASINCRONIZACION={
+            {"METHOD_LIST_CLIEPROV",5},
+            {"METHOD_LIST_CONSUMIDOR", 6},
+            {"METHOD_LIST_CONCEPTO_CUENTA", 5},
+            {"METHOD_LIST_DOCUMENTOS",6},
+            {"METHOD_LIST_NUMEMISOR",20},
+            {"METHOD_LIST_PERSONAL_SERVICIO",8},
+            {"METHOD_LIST_PRODUCTOS",8},
+            {"METHOD_LIST_RUTAS",8},
+            {"METHOD_LIST_SUCURSALES",5},
+            {"METHOD_LIST_ORDENLIQUIDACIONGASTO",8},
+            {"METHOD_LIST_ORDENSERVICIOCLIENTE",8},
+            {"METHOD_LIST_DORDENLIQUIDACIONGASTO",8},
+            {"METHOD_LIST_DORDENSERVICIOCLIENTE",8}
+    };
+    public int item_tabla_syncro;
     private static final int PERMISSION_REQUEST_CODE = 1;
     /*CONTROLLER*/
     Button btn_login;
@@ -38,7 +54,7 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        item_tabla_syncro = 0;
         variablesglobales = (VariableGlobal)getApplication();
         if (Build.VERSION.SDK_INT >= 23)
         {
@@ -171,16 +187,13 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
         cws.getAttribute().put("user",txtuser.getText());
         cws.getAttribute().put("password",txtpassword.getText());
         cws.execute("");
-        cws.pd = ProgressDialog.show(Login_Activity.this, "SINCRONIZANDO","Sincronizando Base de Datos", true, false);
+        cws.pd = ProgressDialog.show(Login_Activity.this, "VERIFICAR","Validando Usuario", true, false);
+//        cws.pd = ProgressDialog.show(Login_Activity.this, "SINCRONIZANDO","Sincronizando Base de Datos", true, false);
 
     }
     /**************METHOD ADDITIONAL*****************/
     public void SincronizarCredenciales(){
-//        ConsumerService cws = new ConsumerService(Login_Activity.this,getApplicationContext(), ConsumirServiciosWeb.WS_SYNC_DB_EMP_USER_VEND, 5);
-//        String EMPRESA_CLIENTE = "CAYALTI";
-//        cws.setEmpresacliente(EMPRESA_CLIENTE);
-//        cws.execute("");
-//        cws.pd = ProgressDialog.show(Login.this, "SINCRONIZANDO","Sincronizando Base de Datos", true, false);
+        asyncronize();
     }
     @Override
     public  void onPostExecuteWebService(ConsumerService cws, String result) {
@@ -194,6 +207,19 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
             else{
                 Toast.makeText(getApplicationContext(),"Error:"+result.trim(),Toast.LENGTH_SHORT).show();
             }
+        }else if(cws.isSyncronize()){
+            if(TABLASINCRONIZACION.length>item_tabla_syncro){
+                asyncronize();
+            }
         }
+    }
+    public void asyncronize(){
+        String method_syncro=TABLASINCRONIZACION[item_tabla_syncro][0].toString();
+        int time = (int) TABLASINCRONIZACION[item_tabla_syncro][1];
+        item_tabla_syncro++;
+        ConsumerService cws = new ConsumerService(Login_Activity.this,getApplicationContext(), method_syncro, time,true);
+        cws.getAttribute().put("type","XML");
+        cws.execute("");
+        cws.pd = ProgressDialog.show(Login_Activity.this, "SINCRONIZANDO","Sincronizando Base de Datos - "+method_syncro.replace("METHOD_LIST_",""), true, false);
     }
 }

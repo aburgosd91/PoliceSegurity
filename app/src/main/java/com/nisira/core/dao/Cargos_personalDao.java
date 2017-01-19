@@ -1,6 +1,5 @@
 package com.nisira.core.dao;
 
-import com.nisira.core.BaseDao;
 import com.nisira.core.entity.*;
 import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,10 +11,23 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.nisira.core.NisiraORMException;
 
-public class Cargos_personalDao{
+public class Cargos_personalDao extends BaseDao<Cargos_personal> {
+	public Cargos_personalDao() {
+		super(Cargos_personal.class);
+	}
+	public Cargos_personalDao(boolean usaCnBase) throws Exception {
+		super(Cargos_personal.class, usaCnBase);
+	}
+	public Boolean mezclarLocal(Cargos_personal obj)throws Exception{
+		List<Cargos_personal> lst= listar("LTRIM(RTRIM(IDEMPRESA))='"+obj.getIdempresa().trim()+"' AND LTRIM(RTRIM(IDCARGO)) ='"+obj.getIdcargo().trim()+"'","",0);
+		if(lst.isEmpty())
+			return insert(obj);
+		else
+			return update(obj,"LTRIM(RTRIM(IDEMPRESA))='"+obj.getIdempresa().trim()+"' AND LTRIM(RTRIM(IDCARGO)) ='"+obj.getIdcargo().trim()+"'");
+	}
 
+	/******************************************* OBSOLETO **********************************************/
 	public Boolean insert(Cargos_personal cargos_personal) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
@@ -70,7 +82,7 @@ public class Cargos_personalDao{
 			initialValues.put("ES_JEFEDEAREA",cargos_personal.getEs_jefedearea()) ; 
 			initialValues.put("USA_SUBSECTOR",cargos_personal.getUsa_subsector()) ; 
 			initialValues.put("TIPO_CARGO",cargos_personal.getTipo_cargo()) ; 
-			resultado = mDb.update("CARGOS_PERSONAL",initialValues,where,null)>0; 
+			resultado = mDb.update("CARGOS_PERSONAL",initialValues,where,null)>0;
 		} catch (Exception e) {
 		}finally {
 			mDb.close();

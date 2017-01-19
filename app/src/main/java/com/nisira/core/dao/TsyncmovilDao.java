@@ -12,27 +12,26 @@ import java.util.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class EmisorDao extends BaseDao<Emisor> {
-	public EmisorDao() {
-		super(Emisor.class);
+public class TsyncmovilDao extends BaseDao<Tsyncmovil> {
+	public TsyncmovilDao() {
+		super(Tsyncmovil.class);
 	}
-	public EmisorDao(boolean usaCnBase) throws Exception {
-		super(Emisor.class, usaCnBase);
+	public TsyncmovilDao(boolean usaCnBase) throws Exception {
+		super(Tsyncmovil.class, usaCnBase);
 	}
 
-	public Boolean insert(Emisor emisor) {
+	public Boolean insert(Tsyncmovil tsyncmovil) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			ContentValues initialValues = new ContentValues();
-			initialValues.put("IDEMPRESA",emisor.getIdempresa()); 
-			initialValues.put("IDEMISOR",emisor.getIdemisor()); 
-			initialValues.put("DESCRIPCION",emisor.getDescripcion()); 
-			initialValues.put("ESTADO",emisor.getEstado()); 
-			initialValues.put("SINCRONIZA",emisor.getSincroniza()); 
-			initialValues.put("FECHACREACION",dateFormat.format(emisor.getFechacreacion() ) ); 
-			resultado = mDb.insert("EMISOR",null,initialValues)>0; 
+			initialValues.put("IDEMPRESA",tsyncmovil.getIdempresa()); 
+			initialValues.put("IDAPPMOVIL",tsyncmovil.getIdappmovil()); 
+			initialValues.put("TABLA",tsyncmovil.getTabla()); 
+			initialValues.put("IDSERIEMOVIL",tsyncmovil.getIdseriemovil()); 
+			initialValues.put("FECHA",dateFormat.format(tsyncmovil.getFecha() ) ); 
+			resultado = mDb.insert("TSYNCMOVIL",null,initialValues)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -40,19 +39,18 @@ public class EmisorDao extends BaseDao<Emisor> {
 		return resultado; 
 	} 
 
-	public Boolean update(Emisor emisor,String where) {
+	public Boolean update(Tsyncmovil tsyncmovil,String where) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			ContentValues initialValues = new ContentValues();
-			initialValues.put("IDEMPRESA",emisor.getIdempresa()) ; 
-			initialValues.put("IDEMISOR",emisor.getIdemisor()) ; 
-			initialValues.put("DESCRIPCION",emisor.getDescripcion()) ; 
-			initialValues.put("ESTADO",emisor.getEstado()) ; 
-			initialValues.put("SINCRONIZA",emisor.getSincroniza()) ; 
-			initialValues.put("FECHACREACION",dateFormat.format(emisor.getFechacreacion() ) ) ; 
-			resultado = mDb.update("EMISOR",initialValues,where,null)>0; 
+			initialValues.put("IDEMPRESA",tsyncmovil.getIdempresa()) ; 
+			initialValues.put("IDAPPMOVIL",tsyncmovil.getIdappmovil()) ; 
+			initialValues.put("TABLA",tsyncmovil.getTabla()) ; 
+			initialValues.put("IDSERIEMOVIL",tsyncmovil.getIdseriemovil()) ; 
+			initialValues.put("FECHA",dateFormat.format(tsyncmovil.getFecha() ) ) ; 
+			resultado = mDb.update("TSYNCMOVIL",initialValues,where,null)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -65,7 +63,7 @@ public class EmisorDao extends BaseDao<Emisor> {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
-			resultado = mDb.delete("EMISOR",where,null)>0; 
+			resultado = mDb.delete("TSYNCMOVIL",where,null)>0; 
 		} catch (Exception e) {
 		}finally {
 			mDb.close();
@@ -73,21 +71,20 @@ public class EmisorDao extends BaseDao<Emisor> {
 		return resultado; 
 	} 
 
-	public ArrayList<Emisor> listar(String where,String order,Integer limit) {
+	public ArrayList<Tsyncmovil> listar(String where,String order,Integer limit) {
 		if(limit == null){
 			limit =0;
 		}
-		ArrayList<Emisor> lista  = new ArrayList<Emisor>();
+		ArrayList<Tsyncmovil> lista  = new ArrayList<Tsyncmovil>();
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
-			Cursor cur =  mDb.query("EMISOR",
+			Cursor cur =  mDb.query("TSYNCMOVIL",
 					new String[] {
 							 "IDEMPRESA" ,
-							 "IDEMISOR" ,
-							 "DESCRIPCION" ,
-							 "ESTADO" ,
-							 "SINCRONIZA" ,
-							 "FECHACREACION" 
+							 "IDAPPMOVIL" ,
+							 "TABLA" ,
+							 "IDSERIEMOVIL" ,
+							 "FECHA" 
 					},
 			where, null, null, null, order);
 			if (cur!=null){
@@ -95,15 +92,14 @@ public class EmisorDao extends BaseDao<Emisor> {
 				int i=0;
 				while (cur.isAfterLast() == false) {
 					int j=0;
-					Emisor emisor = new Emisor() ;
-					emisor.setIdempresa(cur.getString(j++));
-					emisor.setIdemisor(cur.getString(j++));
-					emisor.setDescripcion(cur.getString(j++));
-					emisor.setEstado(cur.getDouble(j++));
-					emisor.setSincroniza(cur.getString(j++));
-					emisor.setFechacreacion(dateFormat.parse(cur.getString(j++)) );
+					Tsyncmovil tsyncmovil = new Tsyncmovil() ;
+					tsyncmovil.setIdempresa(cur.getString(j++));
+					tsyncmovil.setIdappmovil(cur.getString(j++));
+					tsyncmovil.setTabla(cur.getString(j++));
+					tsyncmovil.setIdseriemovil(cur.getString(j++));
+					tsyncmovil.setFecha(dateFormat.parse(cur.getString(j++)) );
 
-					lista.add(emisor); 
+					lista.add(tsyncmovil); 
 					i++; 
 					if(i == limit){ 
 						break; 

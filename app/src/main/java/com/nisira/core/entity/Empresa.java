@@ -2,6 +2,7 @@ package com.nisira.core.entity;
 
 import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.io.Serializable;
 
 @XStreamAlias("EMPRESA")

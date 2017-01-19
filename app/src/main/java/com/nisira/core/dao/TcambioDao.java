@@ -1,6 +1,5 @@
 package com.nisira.core.dao;
 
-import com.nisira.core.BaseDao;
 import com.nisira.core.entity.*;
 import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,9 +11,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.nisira.core.NisiraORMException;
 
-public class TcambioDao{
+public class TcambioDao extends BaseDao<Tcambio> {
+	public TcambioDao() {
+		super(Tcambio.class);
+	}
+	public TcambioDao(boolean usaCnBase) throws Exception {
+		super(Tcambio.class, usaCnBase);
+	}
 
 	public Boolean insert(Tcambio tcambio) {
 		Boolean resultado = false;

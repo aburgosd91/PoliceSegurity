@@ -28,12 +28,10 @@ public class Idordenliquidaciongasto implements Serializable {
 	@SerializedName("item") 
 	@XStreamAlias("ITEM") 
 	private String item = "" ;
-	@ClavePrimaria
 	@Columna
 	@SerializedName("idimpuesto") 
 	@XStreamAlias("IDIMPUESTO") 
 	private String idimpuesto = "" ;
-	@ClavePrimaria
 	@Columna
 	@SerializedName("subitem") 
 	@XStreamAlias("SUBITEM") 

@@ -67,7 +67,7 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         //viewHolder.imagen.setImageResource());
         viewHolder.nombre.setText(items.get(i).getRazon_social());
         viewHolder.documento.setText(items.get(i).getRuc());
-        if(items.get(i).isSeleccion()){
+        if(items.get(i).getSeleccion()==1){
             viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
             viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
             viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
@@ -83,15 +83,15 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         viewHolder.seleccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!items.get(i).isSeleccion()) {
+                if(!(items.get(i).getSeleccion()==1)) {
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
-                    items.get(i).setSeleccion(true);
+                    items.get(i).setSeleccion(1);
                     Log.i("DEBUG",i+" "+items.get(i).getRazon_social());
 
                 }else{
-                    items.get(i).setSeleccion(false);
+                    items.get(i).setSeleccion(0);
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_none);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));

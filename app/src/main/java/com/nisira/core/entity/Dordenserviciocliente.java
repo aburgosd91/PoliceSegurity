@@ -14,14 +14,17 @@ import java.util.ArrayList;
 @XStreamAlias("DORDENSERVICIOCLIENTE")
 
 public class Dordenserviciocliente implements Serializable {
+	@ClavePrimaria
 	@Columna
 	@SerializedName("idempresa") 
 	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
+	@ClavePrimaria
 	@Columna
 	@SerializedName("idordenservicio") 
 	@XStreamAlias("IDORDENSERVICIO") 
 	private String idordenservicio = "" ;
+	@ClavePrimaria
 	@Columna
 	@SerializedName("item") 
 	@XStreamAlias("ITEM") 
@@ -46,6 +49,10 @@ public class Dordenserviciocliente implements Serializable {
 	@SerializedName("fechacreacion") 
 	@XStreamAlias("FECHACREACION") 
 	private Date fechacreacion;
+	@Columna
+	@SerializedName("idservicio") 
+	@XStreamAlias("IDSERVICIO") 
+	private String idservicio = "" ;
 
 
 
@@ -112,6 +119,14 @@ public class Dordenserviciocliente implements Serializable {
 
 	public Date getFechacreacion() {
 		return this.fechacreacion;
+	}
+
+	public void setIdservicio(String idservicio) {
+		this.idservicio = idservicio;
+	}
+
+	public String getIdservicio() {
+		return this.idservicio;
 	}
 
 

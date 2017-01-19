@@ -535,27 +535,27 @@ public class RunGenerador {
 			String paquete, imports, cabecera, buscarpor_pk,insert,update,delete,listar = "";
 
 			paquete = "package ".concat(PAQUETEDAO).concat(";\n");
-			imports = "import com.nisira.core.BaseDao;\nimport "+PAQUETEENTIDAD+".*;\n";
+			imports = "import "+PAQUETEENTIDAD+".*;\n";
 			boolean usaUtilList = false;
 			//VAZLL
 
 
-			if (TIPOLENGUAJE.trim().equals("ANDROID"))
-			{
-				cabecera = "public class " + nombre + "{\n";
-			}
-			else
-			{
+//			if (TIPOLENGUAJE.trim().equals("ANDROID"))
+//			{
+//				cabecera = "public class " + nombre + "{\n";
+//			}
+//			else
+//			{
 				cabecera = "public class " + nombre + " extends BaseDao<" + subnombre + "> {\n";
 
 				cabecera += "\tpublic " + nombre + "() {\n";
 				cabecera += "\t\tsuper(" + subnombre + ".class);\n";
 				cabecera += "\t}\n";
 
-				cabecera += "\tpublic " + nombre + "(boolean usaCnBase) throws NisiraORMException {\n";
+				cabecera += "\tpublic " + nombre + "(boolean usaCnBase) throws Exception {\n";
 				cabecera += "\t\tsuper(" + subnombre + ".class, usaCnBase);\n";
 				cabecera += "\t}\n";
-			}
+//			}
 
 			//METODO INSERT-----------------------------------------
 			insert = "";
@@ -746,7 +746,6 @@ public class RunGenerador {
 			imports += "import java.util.LinkedList;\n";
 			imports += "import java.text.SimpleDateFormat;\n";
 			imports += "import java.util.Date;\n";
-			imports += "import com.nisira.core.NisiraORMException;\n";
 //			imports += "import "+PAQUETEENTIDADSERVICES.trim()+".*;";
 
 			if(TIPOLENGUAJE.trim().equals("JAVA"))
@@ -915,7 +914,7 @@ public class RunGenerador {
 				System.out.println("Termino el proceso sin generación de codigo");
 			}
 
-		} catch (SQLException e1) {
+		} catch (Exception e1) {
 			//e1.printStackTrace();
 			System.out.println("Error: "+e1.toString());
 		}

@@ -1,12 +1,14 @@
 package com.nisira.core.entity;
 
-import com.google.gson.annotations.SerializedName;
 import com.nisira.annotation.ClavePrimaria;
 import com.nisira.annotation.Columna;
 import com.nisira.annotation.Tabla;
+import com.google.gson.annotations.SerializedName;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import java.io.Serializable;
+
+import java.util.Date;
+import java.util.ArrayList;
 
 @Tabla(nombre = "USUARIO")
 @XStreamAlias("USUARIO")
@@ -14,35 +16,35 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
 	@ClavePrimaria
 	@Columna
-	@SerializedName("idbasedatos")
-	@XStreamAlias("idbasedatos")
+	@SerializedName("idbasedatos") 
+	@XStreamAlias("IDBASEDATOS") 
 	private String idbasedatos = "" ;
 	@ClavePrimaria
 	@Columna
-	@SerializedName("idempresa")
-	@XStreamAlias("idempresa")
+	@SerializedName("idempresa") 
+	@XStreamAlias("IDEMPRESA") 
 	private String idempresa = "" ;
 	@ClavePrimaria
 	@Columna
-	@SerializedName("idusuario")
-	@XStreamAlias("idusuario")
+	@SerializedName("idusuario") 
+	@XStreamAlias("IDUSUARIO") 
 	private String idusuario = "" ;
 	@Columna
-	@SerializedName("idvendedor")
-	@XStreamAlias("idvendedor")
-	private String idvendedor = "" ;
-	@Columna
-	@SerializedName("usr_nombres")
-	@XStreamAlias("usr_nombres")
+	@SerializedName("usr_nombres") 
+	@XStreamAlias("USR_NOMBRES") 
 	private String usr_nombres = "" ;
 	@Columna
-	@SerializedName("password")
-	@XStreamAlias("password")
+	@SerializedName("password") 
+	@XStreamAlias("PASSWORD") 
 	private String password = "" ;
 	@Columna
-	@SerializedName("estado")
-	@XStreamAlias("estado")
-	private Double estado = 0.00 ;
+	@SerializedName("estado") 
+	@XStreamAlias("ESTADO") 
+	private Integer estado;
+	@Columna
+	@SerializedName("fechacreacion") 
+	@XStreamAlias("FECHACREACION") 
+	private Date fechacreacion;
 
 
 
@@ -71,12 +73,12 @@ public class Usuario implements Serializable {
 		return this.idusuario;
 	}
 
-	public void setIdvendedor(String idvendedor) {
-		this.idvendedor = idvendedor;
+	public void setUsr_nombres(String usr_nombres) {
+		this.usr_nombres = usr_nombres;
 	}
 
-	public String getIdvendedor() {
-		return this.idvendedor;
+	public String getUsr_nombres() {
+		return this.usr_nombres;
 	}
 
 	public void setPassword(String password) {
@@ -87,20 +89,20 @@ public class Usuario implements Serializable {
 		return this.password;
 	}
 
-	public void setEstado(Double estado) {
+	public void setEstado(Integer estado) {
 		this.estado = estado;
 	}
 
-	public Double getEstado() {
+	public Integer getEstado() {
 		return this.estado;
 	}
 
-	public String getUsr_nombres() {
-		return usr_nombres;
+	public void setFechacreacion(Date fechacreacion) {
+		this.fechacreacion = fechacreacion;
 	}
 
-	public void setUsr_nombres(String usr_nombres) {
-		this.usr_nombres = usr_nombres;
+	public Date getFechacreacion() {
+		return this.fechacreacion;
 	}
 
 

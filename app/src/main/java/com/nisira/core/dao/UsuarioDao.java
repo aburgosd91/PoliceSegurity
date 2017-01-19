@@ -1,17 +1,24 @@
 package com.nisira.core.dao;
 
+import com.nisira.core.entity.*;
+import java.util.List;
+import android.database.sqlite.SQLiteDatabase;
+import com.nisira.core.database.DataBaseClass;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-import java.text.SimpleDateFormat;
+import com.nisira.core.util.ClaveMovil;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import com.nisira.core.database.DataBaseClass;
-import com.nisira.core.entity.*;
-
-public class UsuarioDao {
+public class UsuarioDao extends BaseDao<Usuario> {
+	public UsuarioDao() {
+		super(Usuario.class);
+	}
+	public UsuarioDao(boolean usaCnBase) throws Exception {
+		super(Usuario.class, usaCnBase);
+	}
 
 	public Boolean insert(Usuario usuario) {
 		Boolean resultado = false;
@@ -22,9 +29,10 @@ public class UsuarioDao {
 			initialValues.put("IDBASEDATOS",usuario.getIdbasedatos()); 
 			initialValues.put("IDEMPRESA",usuario.getIdempresa()); 
 			initialValues.put("IDUSUARIO",usuario.getIdusuario()); 
-			initialValues.put("IDVENDEDOR",usuario.getIdvendedor()); 
+			initialValues.put("USR_NOMBRES",usuario.getUsr_nombres()); 
 			initialValues.put("PASSWORD",usuario.getPassword()); 
 			initialValues.put("ESTADO",usuario.getEstado()); 
+			initialValues.put("FECHACREACION",dateFormat.format(usuario.getFechacreacion() ) ); 
 			resultado = mDb.insert("USUARIO",null,initialValues)>0; 
 		} catch (Exception e) {
 		}finally {
@@ -33,7 +41,7 @@ public class UsuarioDao {
 		return resultado; 
 	} 
 
-	public Boolean update(Usuario usuario, String where) {
+	public Boolean update(Usuario usuario,String where) {
 		Boolean resultado = false;
 		SQLiteDatabase mDb  = SQLiteDatabase.openDatabase(DataBaseClass.PATH_DATABASE,null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
 		try{
@@ -42,9 +50,10 @@ public class UsuarioDao {
 			initialValues.put("IDBASEDATOS",usuario.getIdbasedatos()) ; 
 			initialValues.put("IDEMPRESA",usuario.getIdempresa()) ; 
 			initialValues.put("IDUSUARIO",usuario.getIdusuario()) ; 
-			initialValues.put("IDVENDEDOR",usuario.getIdvendedor()) ; 
+			initialValues.put("USR_NOMBRES",usuario.getUsr_nombres()) ; 
 			initialValues.put("PASSWORD",usuario.getPassword()) ; 
 			initialValues.put("ESTADO",usuario.getEstado()) ; 
+			initialValues.put("FECHACREACION",dateFormat.format(usuario.getFechacreacion() ) ) ; 
 			resultado = mDb.update("USUARIO",initialValues,where,null)>0; 
 		} catch (Exception e) {
 		}finally {
@@ -66,7 +75,7 @@ public class UsuarioDao {
 		return resultado; 
 	} 
 
-	public ArrayList<Usuario> listar(String where, String order, Integer limit) {
+	public ArrayList<Usuario> listar(String where,String order,Integer limit) {
 		if(limit == null){
 			limit =0;
 		}
@@ -78,9 +87,10 @@ public class UsuarioDao {
 							 "IDBASEDATOS" ,
 							 "IDEMPRESA" ,
 							 "IDUSUARIO" ,
-							 "IDVENDEDOR" ,
+							 "USR_NOMBRES" ,
 							 "PASSWORD" ,
-							 "ESTADO" 
+							 "ESTADO" ,
+							 "FECHACREACION" 
 					},
 			where, null, null, null, order);
 			if (cur!=null){
@@ -92,9 +102,10 @@ public class UsuarioDao {
 					usuario.setIdbasedatos(cur.getString(j++));
 					usuario.setIdempresa(cur.getString(j++));
 					usuario.setIdusuario(cur.getString(j++));
-					usuario.setIdvendedor(cur.getString(j++));
+					usuario.setUsr_nombres(cur.getString(j++));
 					usuario.setPassword(cur.getString(j++));
-					usuario.setEstado(cur.getDouble(j++));
+					usuario.setEstado(cur.getInt(j++));
+					usuario.setFechacreacion(dateFormat.parse(cur.getString(j++)) );
 
 					lista.add(usuario); 
 					i++; 
@@ -111,45 +122,5 @@ public class UsuarioDao {
 		} 
 		return lista; 
 	} 
-	/*-Inicio-*/
-
-	public static String TABLE_NAME = "PRODUCTO";
-
-	public Usuario buscarPorUsuario(String IDBASEDATOS, String IDUSUARIO){
-		String where = " LTRIM(RTRIM(IDBASEDATOS)) = LTRIM(RTRIM('"+IDBASEDATOS+"')) AND  LTRIM(RTRIM(IDUSUARIO)) = LTRIM(RTRIM('"+IDUSUARIO+"'))";
-		List<Usuario> l = listar(where,"",0);
-		if (l.isEmpty()) {
-			return null;
-		} else {
-			return l.get(0);
-		}
-	}
-
-//	public Boolean login(String IDBASEDATOS, String IDEMPRESA, String IDUSUARIO, String PASSWORD){
-//		Boolean selogueo = false;
-//		String PASSWORD_ENCRYPTADO = Clave.Encriptar(PASSWORD);
-//
-//		String where = " LTRIM(RTRIM(IDBASEDATOS)) = LTRIM(RTRIM('"+IDBASEDATOS+"')) " +
-//				" AND LTRIM(RTRIM(IDEMPRESA)) = LTRIM(RTRIM('"+IDEMPRESA+"')) " +
-//				" AND LTRIM(RTRIM(IDUSUARIO)) = LTRIM(RTRIM('"+IDUSUARIO+"')) " +
-//				" AND LTRIM(RTRIM(PASSWORD)) = LTRIM(RTRIM('"+PASSWORD_ENCRYPTADO+"'))  " ;
-//
-//		List<Usuario> l = listar(where,"",0);
-//		if (!l.isEmpty()) {
-//			if(l.size()>0){
-//				selogueo = true;
-//			}
-//		}
-//		return selogueo;
-//	}
-
-	public Boolean deletePorBaseDatos(String IDBASEDATOS){
-
-		String where = " LTRIM(RTRIM(IDBASEDATOS)) = LTRIM(RTRIM('"+IDBASEDATOS+"')) ";
-
-
-		return delete(where);
-	}
-
 	/*-Fin-*/
 }

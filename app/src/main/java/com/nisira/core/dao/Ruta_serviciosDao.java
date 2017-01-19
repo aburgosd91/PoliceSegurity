@@ -1,6 +1,5 @@
 package com.nisira.core.dao;
 
-import com.nisira.core.BaseDao;
 import com.nisira.core.entity.*;
 import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,9 +11,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.nisira.core.NisiraORMException;
 
-public class Ruta_serviciosDao{
+public class Ruta_serviciosDao extends BaseDao<Ruta_servicios> {
+	public Ruta_serviciosDao() {
+		super(Ruta_servicios.class);
+	}
+	public Ruta_serviciosDao(boolean usaCnBase) throws Exception {
+		super(Ruta_servicios.class, usaCnBase);
+	}
 
 	public Boolean insert(Ruta_servicios ruta_servicios) {
 		Boolean resultado = false;

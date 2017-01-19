@@ -6,21 +6,21 @@ package com.nisira.core.service;
 
 public class TypeMethod {
     public static final String METHOD_VERIFICATION_USER            ="METHOD_VERIFICATION_USER";
-    public static final String METHOD_LIST_CLIEPROV               ="METHOD_LIST_CLIEPROV";
-    public static final String METHOD_SYNC_BASEDATOS               ="METHOD_SYNC_BASEDATOS";
-    public static final String METHOD_SYNC_CARGOS_PERSONAL         ="METHOD_SYNC_CARGOS_PERSONAL";
-    public static final String METHOD_SYNC_CLIEPROV                ="METHOD_SYNC_CLIEPROV";
-    public static final String METHOD_SYNC_CONSUMIDOR              ="METHOD_SYNC_CONSUMIDOR";
-    public static final String METHOD_SYNC_COTIZACIONVENTAS        ="METHOD_SYNC_COTIZACIONVENTAS";
-    public static final String METHOD_SYNC_DCOTIZACIONVENTAS       ="METHOD_SYNC_DCOTIZACIONVENTAS";
-    public static final String METHOD_SYNC_DOCUMENTOS              ="METHOD_SYNC_DOCUMENTOS";
-    public static final String METHOD_SYNC_DORDENSERVICIOCLIENTE   ="METHOD_SYNC_DORDENSERVICIOCLIENTE";
-    public static final String METHOD_SYNC_ESTADOS                 ="METHOD_SYNC_ESTADOS";
-    public static final String METHOD_SYNC_NUMEMISOR               ="METHOD_SYNC_NUMEMISOR";
-    public static final String METHOD_SYNC_ORDENSERVICIOCLIENTE    ="METHOD_SYNC_ORDENSERVICIOCLIENTE";
-    public static final String METHOD_SYNC_PERSONAL_SERVICIO       ="METHOD_SYNC_PERSONAL_SERVICIO";
-    public static final String METHOD_SYNC_PRODUCTOS               ="METHOD_SYNC_PRODUCTOS";
-    public static final String METHOD_SYNC_RUTA_SERVICIO           ="METHOD_SYNC_RUTA_SERVICIO";
-    public static final String METHOD_SYNC_RUTAS                   ="METHOD_SYNC_RUTAS";
-
+    public static final String METHOD_LIST_CLIEPROV                ="METHOD_LIST_CLIEPROV";
+    public static final String METHOD_LIST_CONSUMIDOR              ="METHOD_LIST_CONSUMIDOR";
+    public static final String METHOD_LIST_CARGOS_PERSONAL         ="METHOD_LIST_CARGOS_PERSONAL";
+    public static final String METHOD_LIST_CONCEPTO_CUENTA         ="METHOD_LIST_CONCEPTO_CUENTA";
+    public static final String METHOD_LIST_DESTINOADQUISICION      ="METHOD_LIST_DESTINOADQUISICION";
+    public static final String METHOD_LIST_DOCUMENTOS              ="METHOD_LIST_DOCUMENTOS";
+    public static final String METHOD_LIST_NUMEMISOR               ="METHOD_LIST_NUMEMISOR";
+    public static final String METHOD_LIST_PERSONAL_SERVICIO       ="METHOD_LIST_PERSONAL_SERVICIO";
+    public static final String METHOD_LIST_PRODUCTOS               ="METHOD_LIST_PRODUCTOS";
+    public static final String METHOD_LIST_RUTAS                   ="METHOD_LIST_RUTAS";
+    public static final String METHOD_LIST_SUCURSALES              ="METHOD_LIST_SUCURSALES";
+    public static final String METHOD_LIST_ORDENLIQUIDACIONGASTO   ="METHOD_LIST_ORDENLIQUIDACIONGASTO";
+    public static final String METHOD_LIST_ORDENSERVICIOCLIENTE    ="METHOD_LIST_ORDENSERVICIOCLIENTE";
+    public static final String METHOD_LIST_DORDENLIQUIDACIONGASTO  ="METHOD_LIST_DORDENLIQUIDACIONGASTO";
+    public static final String METHOD_LIST_DORDENSERVICIOCLIENTE   ="METHOD_LIST_DORDENSERVICIOCLIENTE";
+    /****************************************************************************************************/
+    public static final String METHOD_SYNCRONIZE   ="METHOD_SYNCRONIZE";
 }

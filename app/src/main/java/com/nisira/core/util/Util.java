@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import com.google.gson.Gson;
 import com.nisira.gcalderon.policesecurity.R;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.mapper.CannotResolveClassException;
+import com.thoughtworks.xstream.mapper.MapperWrapper;
 
 import java.util.List;
 
@@ -94,14 +96,38 @@ public final class Util {
     /************************ AGREGADO by aburgos ***************************/
     public static Object stringObject(String _class, String obj) throws ClassNotFoundException{
         Class oClase =  Class.forName(_class);
-        XStream xstream = new XStream();
+        XStream xstream= new XStream(){
+            protected MapperWrapper wrapMapper(MapperWrapper next) {
+                return new MapperWrapper(next) {
+                    public boolean shouldSerializeMember(Class definedIn, String fieldName) {
+                        try {
+                            return definedIn != Object.class || realClass(fieldName) != null;
+                        } catch (CannotResolveClassException cnrce) {
+                            return false;
+                        }
+                    }
+                };
+            }
+        };
         xstream.processAnnotations(oClase);
         Object object = (Object)xstream.fromXML(obj);
         return object;
     }
     public static List<? extends Object> stringListObject(String _class, String obj) throws ClassNotFoundException{
         Class oClase =  Class.forName(_class);
-        XStream xstream = new XStream();
+        XStream xstream= new XStream(){
+            protected MapperWrapper wrapMapper(MapperWrapper next) {
+                return new MapperWrapper(next) {
+                    public boolean shouldSerializeMember(Class definedIn, String fieldName) {
+                        try {
+                            return definedIn != Object.class || realClass(fieldName) != null;
+                        } catch (CannotResolveClassException cnrce) {
+                            return false;
+                        }
+                    }
+                };
+            }
+        };
         xstream.processAnnotations(oClase);
         List<? extends Object> object = (List<? extends Object>)xstream.fromXML(obj);
         return object;

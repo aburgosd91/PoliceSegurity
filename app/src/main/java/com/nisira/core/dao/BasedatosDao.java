@@ -4,11 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.nisira.core.database.DataBaseClass;
+import com.nisira.core.entity.Basedatos;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
-import com.nisira.core.database.DataBaseClass;
-import com.nisira.core.entity.*;
 
 public class BasedatosDao {
 
