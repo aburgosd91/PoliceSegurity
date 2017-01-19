@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -104,7 +105,7 @@ public class NavigationPolice_Activity extends AppCompatActivity
         }
 
         //AQUI SE AGREGA EL TITULO DEL ELEMENTO SELECCIONADO
-        selectItem((String) item.getTitle());
+        selectItem((String) item.getTitle(),id);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -112,21 +113,34 @@ public class NavigationPolice_Activity extends AppCompatActivity
         return true;
     }
 
-    private void selectItem(String title) {
+    private void selectItem(String title, int id) {
         // Enviar título como arguemento del fragmento
         Bundle args = new Bundle();
         args.putString("numero de la seccion", title);
+        Log.i("INFO",title);
 
-        Fragment fragment = List_Fragment_Personal.newInstance("ejemplo","ejemplo2");
-        fragment.setArguments(args);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.main_content, fragment)
-                .commit();
+        if(id == R.id.mov_ubicacion_gmap){
+            Log.i("INFO","ENTRO");
+            Fragment fragment = mnt_GPS_Ubicacion.newInstance("ejemplo", "ejemplo2");
+            fragment.setArguments(args);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, fragment)
+                    .commit();
+        }
+        else {
+            Log.i("INFO","NO ENTRO");
+            Fragment fragment = List_Fragment_Personal.newInstance("ejemplo", "ejemplo2");
+            fragment.setArguments(args);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, fragment)
+                    .commit();
 
-        // Cerrar drawer
-
+            // Cerrar drawer
+        }
         setTitle(title); // Setear título actual
 
     }
