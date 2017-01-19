@@ -9,10 +9,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nisira.gcalderon.policesecurity.Login">
+    tools:context="com.nisira.view.Activity.Login_Activity">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,15 +22,16 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            app:srcCompat="@drawable/psssinfondo"
+            android:layout_height="wrap_content"
+            android:src="@drawable/psssinfondo"
             android:id="@+id/imageView"
-            android:adjustViewBounds="false"
-            android:paddingBottom="50dp"
-            android:cropToPadding="false" />
+            android:layout_above="@+id/linearl_1"
+            android:paddingBottom="15dp" />
 
         <LinearLayout
+            android:id="@+id/linearl_1"
             android:orientation="vertical"
+            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -75,6 +76,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

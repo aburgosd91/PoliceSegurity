@@ -5,11 +5,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.nisira.gcalderon.policesecurity.R;
+import com.nisira.view.Adapter.List_Adapter_OrdenServicio;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class edt_OrdenServicio extends Fragment {
@@ -21,6 +28,11 @@ public class edt_OrdenServicio extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private EditText txt_documento;
+    private EditText txt_cliente;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager lManager;
 
     public edt_OrdenServicio() {
         // Required empty public constructor
@@ -57,9 +69,27 @@ public class edt_OrdenServicio extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
-        CollapsingToolbarLayout collapser =
-                (CollapsingToolbarLayout) view.findViewById(R.id.collapser);
-        collapser.setTitle("Prueba01"); // Cambiar título
+        txt_documento = (EditText)view.findViewById(R.id.txt_documento);
+        txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
+        recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
+
+        txt_documento.setText("Orden Servicio Cliente");
+        txt_cliente.setText("Olivia Peña Carlos Alberto");
+
+        recyclerView.setHasFixedSize(true);
+        lManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(lManager);
+        List<String> lista = new ArrayList<>();
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        lista.add("Prueba01");
+        List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lista,getFragmentManager());
+        recyclerView.setAdapter(adapter);
+
 
         return view;
     }
