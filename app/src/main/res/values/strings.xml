@@ -5,6 +5,8 @@
     <string name="login">Ingresar</string>
     <string name="powered">Powered by Nisira Systems</string>
 
+    <string name="API_KEY">AIzaSyAoADYIjQkzFELXGwSVoovttW-nXUDCapc</string>
+
     <string name="title_activity_navigation_police">NavigationPolice</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
