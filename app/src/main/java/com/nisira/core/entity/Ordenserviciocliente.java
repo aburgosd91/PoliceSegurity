@@ -83,7 +83,6 @@ public class Ordenserviciocliente implements Serializable {
 	private String cliente = "";
 	private String ruc = "";
 
-
 	/* Sets & Gets */
 	public void setIdempresa(String idempresa) {
 		this.idempresa = idempresa;
