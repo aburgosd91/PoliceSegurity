@@ -1,7 +1,5 @@
 package com.nisira.view.Activity;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -69,7 +67,7 @@ public class Lista_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new edit_OrdenServicio_Fragment(), "NewFragmentTag");
+                ft.replace(R.id.main_content, new mnt_DPersonalServicio_Fragment(), "NewFragmentTag");
                 ft.commit();
             }
         });

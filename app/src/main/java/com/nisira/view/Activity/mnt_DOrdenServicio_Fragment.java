@@ -1,13 +1,8 @@
 package com.nisira.view.Activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.transition.Fade;
 import android.transition.Slide;
@@ -27,7 +22,7 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import java.util.Calendar;
 
 
-public class edit_OrdenServicio_Fragment extends Fragment {
+public class mnt_DOrdenServicio_Fragment extends Fragment {
     // TODO: ELEMENTOS DE LAYOUT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -45,13 +40,13 @@ public class edit_OrdenServicio_Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 /*
-    public edit_OrdenServicio_Fragment() {
+    public mnt_DPersonalServicio_Fragment() {
         // Required empty public constructor
     }
 */
     // TODO: FUNCIONES Y METODOS
-    public static edit_OrdenServicio_Fragment newInstance(String param1, String param2) {
-        edit_OrdenServicio_Fragment fragment = new edit_OrdenServicio_Fragment();
+    public static mnt_DOrdenServicio_Fragment newInstance(String param1, String param2) {
+        mnt_DOrdenServicio_Fragment fragment = new mnt_DOrdenServicio_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

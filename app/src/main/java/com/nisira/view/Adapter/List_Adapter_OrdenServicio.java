@@ -4,8 +4,6 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.transition.Slide;
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.nisira.core.entity.Clieprov;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.gcalderon.policesecurity.R;
-import com.nisira.view.Activity.edit_OrdenServicio_Fragment;
+import com.nisira.view.Activity.mnt_DPersonalServicio_Fragment;
 
 import java.util.List;
 
@@ -87,7 +84,7 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
                 viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
 
                 FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.replace(R.id.main_content, new edit_OrdenServicio_Fragment(), "NewFragmentTag");
+                ft.replace(R.id.main_content, new mnt_DPersonalServicio_Fragment(), "NewFragmentTag");
                 ft.commit();
             }
         });

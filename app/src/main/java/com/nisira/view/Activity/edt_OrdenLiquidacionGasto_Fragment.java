@@ -1,10 +1,6 @@
 package com.nisira.view.Activity;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,11 +14,10 @@ import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Adapter.List_Adapter_OrdenServicio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class edt_OrdenServicio extends FragmentNisira {
+public class edt_OrdenLiquidacionGasto_Fragment extends FragmentNisira {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +32,7 @@ public class edt_OrdenServicio extends FragmentNisira {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
 
-    public edt_OrdenServicio() {
+    public edt_OrdenLiquidacionGasto_Fragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +42,11 @@ public class edt_OrdenServicio extends FragmentNisira {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment edt_OrdenServicio.
+     * @return A new instance of fragment edt_OrdenServicio_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static edt_OrdenServicio newInstance(String param1, String param2) {
-        edt_OrdenServicio fragment = new edt_OrdenServicio();
+    public static edt_OrdenLiquidacionGasto_Fragment newInstance(String param1, String param2) {
+        edt_OrdenLiquidacionGasto_Fragment fragment = new edt_OrdenLiquidacionGasto_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

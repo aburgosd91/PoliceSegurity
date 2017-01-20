@@ -2,9 +2,7 @@ package com.nisira.view.Activity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.res.ResourcesCompat;
@@ -121,7 +119,7 @@ public class NavigationPolice_Activity extends AppCompatActivity
 
         if(id == R.id.mov_ubicacion_gmap){
             Log.i("INFO","ENTRO");
-            Fragment fragment = mnt_GPS_Ubicacion.newInstance("ejemplo", "ejemplo2");
+            Fragment fragment = mnt_Ruta_Gps.newInstance("ejemplo", "ejemplo2");
             fragment.setArguments(args);
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager

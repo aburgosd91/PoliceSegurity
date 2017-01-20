@@ -23,7 +23,7 @@ import com.nisira.view.Adapter.List_Adapter_Personal;
 
 import java.util.List;
 
-public class List_Fragment_Personal extends FragmentNisira {
+public class lst_OrdenServicio_Fragment extends FragmentNisira {
 
     // TODO: ELEMENTOS DEL LAYOUT
     private static final String ARG_PARAM1 = "param1";
@@ -40,13 +40,13 @@ public class List_Fragment_Personal extends FragmentNisira {
     private String mParam1;
     private String mParam2;
 
-    public List_Fragment_Personal() {
+    public lst_OrdenServicio_Fragment() {
         // Required empty public constructor
     }
 
     // TODO: FUNCIONES Y METODOS
-    public static List_Fragment_Personal newInstance(String param1, String param2) {
-        List_Fragment_Personal fragment = new List_Fragment_Personal();
+    public static lst_OrdenServicio_Fragment newInstance(String param1, String param2) {
+        lst_OrdenServicio_Fragment fragment = new lst_OrdenServicio_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
