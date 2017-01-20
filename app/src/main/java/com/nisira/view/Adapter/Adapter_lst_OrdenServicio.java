@@ -1,5 +1,6 @@
 package com.nisira.view.Adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.gcalderon.policesecurity.R;
+import com.nisira.view.Activity.edt_OrdenServicio_Fragment;
 import com.nisira.view.Activity.edt_PersonalServicio_Fragment;
 
 import java.util.List;
@@ -80,7 +82,11 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
                 viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                 viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                 viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
-                Fragment fragment = edt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("OrdenServicio", items.get(i));
+
+                Fragment fragment = edt_OrdenServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+                fragment.setArguments(bundle);
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.main_content, fragment, "NewFragmentTag");
                 ft.commit();

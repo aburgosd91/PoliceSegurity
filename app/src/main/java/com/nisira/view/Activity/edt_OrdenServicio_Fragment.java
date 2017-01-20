@@ -3,10 +3,13 @@ package com.nisira.view.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.nisira.core.dao.OrdenservicioclienteDao;
 import com.nisira.core.entity.Ordenserviciocliente;
@@ -28,9 +31,17 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     private String mParam2;
     private EditText txt_documento;
     private EditText txt_cliente;
+    private EditText txt_nromanual;
+    private EditText txt_nrocont;
+    private EditText txt_nroprecinto;
+    private EditText txt_nroservicio;
+    private TextView txt_fecha;
+    private TextView txt_estado;
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
+    private Ordenserviciocliente ordenserviciocliente;
 
     public edt_OrdenServicio_Fragment() {
         // Required empty public constructor
@@ -45,8 +56,8 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
      * @return A new instance of fragment edt_OrdenServicio_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static edt_OrdenServicio_Fragment newInstance(String param1, String param2) {
-        edt_OrdenServicio_Fragment fragment = new edt_OrdenServicio_Fragment();
+    public static edt_PersonalServicio_Fragment newInstance(String param1, String param2) {
+        edt_PersonalServicio_Fragment fragment = new edt_PersonalServicio_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,6 +71,7 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            ordenserviciocliente = (Ordenserviciocliente) getArguments().getSerializable("OrdenServicio");
         }
     }
 
@@ -67,24 +79,51 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
+        animacionEntrada();
+
         txt_documento = (EditText)view.findViewById(R.id.txt_documento);
         txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
+        txt_nrocont = (EditText)view.findViewById(R.id.txt_nrocont);
+        txt_nromanual = (EditText)view.findViewById(R.id.txt_nromanual);
+        txt_nroprecinto = (EditText)view.findViewById(R.id.txt_nroprecinto);
+        txt_nroservicio = (EditText)view.findViewById(R.id.txt_nroservicio);
+        txt_fecha = (TextView)view.findViewById(R.id.txt_fecha);
+        txt_estado = (TextView)view.findViewById(R.id.txt_estado);
+
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
 
-        txt_documento.setText("Orden Servicio Cliente");
-        txt_cliente.setText("Olivia Peña Carlos Alberto");
+        if(ordenserviciocliente==null){
+            //do something
+        }
+        txt_documento.setText(ordenserviciocliente.getNro_oservicio());
+        txt_documento.setHint("Documento: "+ ordenserviciocliente.getSerie()+ " | "+ ordenserviciocliente.getIdempresa());
+        txt_cliente.setText(ordenserviciocliente.getCliente());
+        txt_cliente.setHint("Cliente: "+ ordenserviciocliente.getIdclieprov());
+        txt_nrocont.setText(ordenserviciocliente.getNrocontenedor());
+        txt_nromanual.setText(ordenserviciocliente.getNromanual());
+        txt_nroprecinto.setText(ordenserviciocliente.getNroprecinto());
+        txt_nroservicio.setText(ordenserviciocliente.getNro_oservicio());
+        txt_fecha.setText((CharSequence) ordenserviciocliente.getFecha());
+        txt_estado.setText(ordenserviciocliente.getIdestado());
 
         recyclerView.setHasFixedSize(true);
         lManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(lManager);
         OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
         try {
-            //List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
-            //List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
-            //recyclerView.setAdapter(adapter);
+            List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
+            List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
+            recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return view;
+    }
+
+
+    public void animacionEntrada(){
+        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
+        setExitTransition(slide);
+        setEnterTransition(slide);
     }
 }

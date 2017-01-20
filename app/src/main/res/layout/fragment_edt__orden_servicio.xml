@@ -107,6 +107,7 @@
                             android:layout_marginRight="10dp"
                             android:src="@drawable/ic_pendiente_white" />
                         <TextView
+                            android:id="@+id/txt_estado"
                             android:textColor="@color/white"
                             android:textSize="20dp"
                             android:layout_width="wrap_content"
@@ -121,6 +122,7 @@
                             android:layout_marginRight="10dp"
                             android:src="@drawable/ic_date_white" />
                         <TextView
+                            android:id="@+id/txt_fecha"
                             android:textColor="@color/white"
                             android:textSize="20dp"
                             android:layout_width="match_parent"
@@ -200,6 +202,7 @@
                             android:layout_marginLeft="10dp">
 
                             <EditText
+                                android:id="@+id/txt_nrocont"
                                 android:hint="N° Contndr."
                                 android:textColor="@color/white"
                                 android:layout_width="wrap_content"
@@ -229,6 +232,7 @@
                             android:layout_marginLeft="10dp">
 
                             <EditText
+                                android:id="@+id/txt_nroprecinto"
                                 android:hint="N° Precinto"
                                 android:textColor="@color/white"
                                 android:layout_width="100dp"
@@ -252,6 +256,7 @@
                             android:layout_marginLeft="10dp">
 
                             <EditText
+                                android:id="@+id/txt_nroservicio"
                                 android:hint="N° Servicio"
                                 android:textColor="@color/white"
                                 android:layout_width="wrap_content"

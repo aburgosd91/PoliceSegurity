@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
+    private Ordenserviciocliente ordenserviciocliente;
 
     public edt_PersonalServicio_Fragment() {
         // Required empty public constructor
@@ -62,6 +64,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            ordenserviciocliente = (Ordenserviciocliente) getArguments().getSerializable("OrdenServicio");
         }
     }
 
@@ -70,12 +73,16 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
         animacionEntrada();
+
         txt_documento = (EditText)view.findViewById(R.id.txt_documento);
         txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
-
-        txt_documento.setText("Orden Servicio Cliente");
-        txt_cliente.setText("Olivia Peña Carlos Alberto");
+        if(ordenserviciocliente==null){
+            //do something
+        }
+        txt_documento.setText(ordenserviciocliente.getNro_oservicio());
+        txt_documento.setHint(ordenserviciocliente.getSerie()+ " | "+ ordenserviciocliente.getIdempresa());
+        txt_cliente.setText(ordenserviciocliente.getCliente());
 
         recyclerView.setHasFixedSize(true);
         lManager = new LinearLayoutManager(getContext());
