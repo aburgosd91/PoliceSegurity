@@ -68,8 +68,8 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     @Override
     public void onBindViewHolder(ListaViewHolder viewHolder, int i) {
         //AQUI VAN TODOS LOS ELEMENTOS DE LA LISTA.
-        viewHolder.nombre.setText(items.get(i).getNumero());
-        viewHolder.ordenservicio.setText(items.get(i).getNro_oservicio());
+        viewHolder.nombre.setText("("+items.get(i).getRuc()+") "+items.get(i).getCliente());
+        viewHolder.ordenservicio.setText(items.get(i).getIddocumento()+" - "+items.get(i).getSerie()+" - "+items.get(i).getNumero());
         viewHolder.fecha.setText(items.get(i).getFecha().toString());
 
         //TODO: EVENTOS

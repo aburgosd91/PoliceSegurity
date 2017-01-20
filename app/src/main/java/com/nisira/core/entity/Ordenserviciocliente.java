@@ -80,7 +80,8 @@ public class Ordenserviciocliente implements Serializable {
 	@SerializedName("nro_oservicio") 
 	@XStreamAlias("NRO_OSERVICIO") 
 	private String nro_oservicio = "" ;
-
+	private String cliente = "";
+	private String ruc = "";
 
 
 	/* Sets & Gets */
@@ -210,6 +211,22 @@ public class Ordenserviciocliente implements Serializable {
 
 	public String getNro_oservicio() {
 		return this.nro_oservicio;
+	}
+
+	public String getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
 	}
 
 

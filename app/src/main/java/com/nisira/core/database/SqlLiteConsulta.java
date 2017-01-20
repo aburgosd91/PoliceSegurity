@@ -444,7 +444,7 @@ public class SqlLiteConsulta {
                     else if(rs.getString(i).equals(""))
                         f.set(efk, null);
                     else {
-                        f.set(efk, new Timestamp((new Date(SqlLiteEstructuraORM.dateFormat.format(rs.getString(i)))).getTime()));
+                        f.set(efk, new Timestamp((SqlLiteEstructuraORM.datetimeFormat.parse(rs.getString(i))).getTime()));
                     }
                     continue;
                 }
@@ -456,7 +456,7 @@ public class SqlLiteConsulta {
                     else if(rs.getString(i).equals(""))
                         f.set(efk, null);
                     else
-                        f.set(efk, new Date(SqlLiteEstructuraORM.dateFormat.format(rs.getString(i))));
+                        f.set(efk, SqlLiteEstructuraORM.datetimeFormat.parse(rs.getString(i)));
                     continue;
                 }
                 if(rs.getString(i) == null){

@@ -81,7 +81,7 @@ public class lst_OrdenServicio_Fragment extends FragmentNisira {
         try {
             OrdenservicioclienteDao ordenservicioclienteDao = new OrdenservicioclienteDao();
             //List<Clieprov> listClieprov = (List<Clieprov>) Util.stringListObject("com.nisira.core.entity.Clieprov",result);
-            List<Ordenserviciocliente> listServCliente = ordenservicioclienteDao.listar();
+            List<Ordenserviciocliente> listServCliente = ordenservicioclienteDao.listOrdenServicioxCliente();
             // Crear un nuevo adaptador
             adapter = new Adapter_lst_OrdenServicio(listServCliente,getFragmentManager());
             recycler.setAdapter(adapter);
