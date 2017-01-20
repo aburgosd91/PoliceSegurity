@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.nisira.core.dao.ClieprovDao;
 import com.nisira.core.entity.Clieprov;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.core.service.ConsumerService;
@@ -85,10 +86,20 @@ public class List_Fragment_Personal extends FragmentNisira {
         recycler.setLayoutManager(lManager);
 
         //Cargar datos desde la BD(items)
-        ConsumerService cws = new ConsumerService(this,this.getContext(), TypeMethod.METHOD_LIST_CLIEPROV, 5);
-        cws.getAttribute().put("type","XML");
-        cws.execute("");
-        cws.pd = ProgressDialog.show(this.getActivity(), "SINCRONIZANDO","Sincronizando Personal", true, false);
+        try {
+            ClieprovDao clieprovDao = new ClieprovDao();
+            //List<Clieprov> listClieprov = (List<Clieprov>) Util.stringListObject("com.nisira.core.entity.Clieprov",result);
+            List<Clieprov> listClieprov = clieprovDao.listar();
+            // Crear un nuevo adaptador
+            adapter = new List_Adapter_Personal(listClieprov);
+            recycler.setAdapter(adapter);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(),"Error :"+e.getMessage(),Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(),"Error :"+e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
 
         // TODO: EVENTOS
 
@@ -134,16 +145,8 @@ public class List_Fragment_Personal extends FragmentNisira {
     }
     @Override
     public  void onPostExecuteWebService(ConsumerService cws, String result) {
+        /*NO UTILIZADO*/
         if(cws.getMethod().trim().equals(TypeMethod.METHOD_LIST_CLIEPROV)){
-            try {
-                List<Clieprov> listClieprov = (List<Clieprov>) Util.stringListObject("com.nisira.core.entity.Clieprov",result);
-                // Crear un nuevo adaptador
-                adapter = new List_Adapter_Personal(listClieprov);
-                recycler.setAdapter(adapter);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                Toast.makeText(getContext(),"Error :"+e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
         }
     }
 }

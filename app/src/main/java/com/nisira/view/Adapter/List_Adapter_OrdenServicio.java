@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nisira.core.entity.Clieprov;
+import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Activity.edit_OrdenServicio_Fragment;
 
@@ -27,7 +28,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapter_OrdenServicio.ListaViewHolder>{
 
-    private List<String> items;//Lo cambias por la coleccion que necesites Alex
+    private List<Ordenserviciocliente> items;//Lo cambias por la coleccion que necesites Alex
     Context context;
     FragmentManager fragmentManager;
 
@@ -51,7 +52,7 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
         }
     }
 
-    public List_Adapter_OrdenServicio(List<String> items, FragmentManager fragmentManager) {
+    public List_Adapter_OrdenServicio(List<Ordenserviciocliente> items, FragmentManager fragmentManager) {
         this.items = items;
         this.fragmentManager = fragmentManager;
     }
@@ -72,8 +73,8 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
     @Override
     public void onBindViewHolder(List_Adapter_OrdenServicio.ListaViewHolder viewHolder, int i) {
 
-        viewHolder.nombre.setText(items.get(i));
-
+        viewHolder.nombre.setText("("+items.get(i).getRuc()+") "+items.get(i).getCliente());
+        viewHolder.documento.setText(items.get(i).getSerie()+'-'+items.get(i).getNumero()+" - FR : "+items.get(i).getFecha());
         viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));
         viewHolder.seleccion.setImageResource(R.drawable.ic_arrow_white);
         viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));

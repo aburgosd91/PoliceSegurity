@@ -28,7 +28,7 @@ import com.nisira.gcalderon.policesecurity.R;
 
 public class Login_Activity extends ActivityNisiraCompat implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
     private static final Object[][] TABLASINCRONIZACION={
-            {"METHOD_LIST_CLIEPROV",5},
+            {"METHOD_LIST_CLIEPROV",20},
             {"METHOD_LIST_CONSUMIDOR", 6},
             {"METHOD_LIST_CONCEPTO_CUENTA", 5},
             {"METHOD_LIST_DOCUMENTOS",6},

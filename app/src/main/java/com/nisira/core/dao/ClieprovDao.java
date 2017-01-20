@@ -1,5 +1,6 @@
 package com.nisira.core.dao;
 
+import com.nisira.core.Consulta;
 import com.nisira.core.entity.*;
 import java.util.List;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,5 +29,12 @@ public class ClieprovDao extends BaseDao<Clieprov> {
 				actualizar(obj);
 //			update(obj,"IDEMPRESA='"+obj.getIdempresa()+"' AND IDCLIEPROV='"+obj.getIdclieprov()+"'");
 		}
+	}
+	public Clieprov getClientexempresa_codigo(String idempresa , String idclieprov) throws Exception {
+		List<Clieprov> lst = listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDCLIEPROV))=?",idempresa.trim(),idclieprov.trim());
+		if(!lst.isEmpty()){
+			return lst.get(0);
+		}
+		return null;
 	}
 }

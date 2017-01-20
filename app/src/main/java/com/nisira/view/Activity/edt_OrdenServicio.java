@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.nisira.core.dao.OrdenservicioclienteDao;
+import com.nisira.core.entity.Ordenserviciocliente;
+import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Adapter.List_Adapter_OrdenServicio;
 
@@ -19,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class edt_OrdenServicio extends Fragment {
+public class edt_OrdenServicio extends FragmentNisira {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -79,21 +82,14 @@ public class edt_OrdenServicio extends Fragment {
         recyclerView.setHasFixedSize(true);
         lManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(lManager);
-        List<String> lista = new ArrayList<>();
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        lista.add("Prueba01");
-        List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lista,getFragmentManager());
-        recyclerView.setAdapter(adapter);
-
-
+        OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
+        try {
+            List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
+            List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
+            recyclerView.setAdapter(adapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return view;
     }
-
-
-
 }

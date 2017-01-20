@@ -28,5 +28,21 @@ public class OrdenservicioclienteDao extends BaseDao<Ordenserviciocliente> {
 				actualizar(obj);
 		}
 	}
+	public List<Ordenserviciocliente> listOrdenServicioxCliente()throws Exception{
+		List<Ordenserviciocliente> lst= listar();
+		ClieprovDao clientedao = new ClieprovDao();
+		Clieprov cliente = null;
+		int i=0;
+		for(Ordenserviciocliente obj : lst){
+			cliente=clientedao.getClientexempresa_codigo(obj.getIdempresa(),obj.getIdclieprov());
+			if(cliente!=null){
+				obj.setCliente(cliente.getRazon_social());
+				obj.setRuc(cliente.getRuc());
+				lst.set(i,obj);
+			}
+			i++;
+		}
+		return lst;
+	}
 
 }
