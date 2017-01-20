@@ -28,6 +28,7 @@ public class OrdenservicioclienteDao extends BaseDao<Ordenserviciocliente> {
 				actualizar(obj);
 		}
 	}
+	/*
 	public List<Ordenserviciocliente> listOrdenServicioxCliente()throws Exception{
 		List<Ordenserviciocliente> lst= listar();
 		ClieprovDao clientedao = new ClieprovDao();
@@ -44,5 +45,5 @@ public class OrdenservicioclienteDao extends BaseDao<Ordenserviciocliente> {
 		}
 		return lst;
 	}
-
+*/
 }

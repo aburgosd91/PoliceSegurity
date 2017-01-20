@@ -3,6 +3,8 @@ package com.nisira.view.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +69,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
+        animacionEntrada();
         txt_documento = (EditText)view.findViewById(R.id.txt_documento);
         txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
@@ -79,12 +82,19 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         recyclerView.setLayoutManager(lManager);
         OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
         try {
-            List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
-            List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
-            recyclerView.setAdapter(adapter);
+            //List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
+            //List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
+            //recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return view;
+    }
+
+
+    public void animacionEntrada(){
+        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
+        setExitTransition(slide);
+        setEnterTransition(slide);
     }
 }

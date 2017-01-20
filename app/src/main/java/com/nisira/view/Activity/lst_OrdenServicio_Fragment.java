@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nisira.core.dao.ClieprovDao;
+import com.nisira.core.dao.OrdenservicioclienteDao;
 import com.nisira.core.entity.Clieprov;
+import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.core.service.ConsumerService;
 import com.nisira.core.service.TypeMethod;
 import com.nisira.gcalderon.policesecurity.R;
+import com.nisira.view.Adapter.Adapter_lst_OrdenServicio;
 import com.nisira.view.Adapter.List_Adapter_Personal;
 
 import java.util.List;
@@ -31,10 +34,6 @@ public class lst_OrdenServicio_Fragment extends FragmentNisira {
     private RecyclerView recycler;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
-    private FloatingActionButton fab_agregar;
-    private FloatingActionButton fab_modificar;
-    private FloatingActionButton fab_eliminar;
-    private SwipeRefreshLayout swiperefresh;
 
     // TODO: PARAMETROS DE ENTRADA
     private String mParam1;
@@ -68,12 +67,8 @@ public class lst_OrdenServicio_Fragment extends FragmentNisira {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_lista, container, false);
+        View view = inflater.inflate(R.layout.fragment_lst_ordenservicio, container, false);
         animacionEntrada();
-        swiperefresh = (SwipeRefreshLayout) view.findViewById(R.id.swiperefresh);
-        fab_agregar = (FloatingActionButton) view.findViewById(R.id.fab_agregar);
-        fab_modificar = (FloatingActionButton) view.findViewById(R.id.fab_modificar);
-        fab_eliminar = (FloatingActionButton) view.findViewById(R.id.fab_eliminar);
         // Inflate the layout for this fragment
         recycler = (RecyclerView) view.findViewById(R.id.reciclador);
         recycler.setHasFixedSize(true);
@@ -84,11 +79,11 @@ public class lst_OrdenServicio_Fragment extends FragmentNisira {
 
         //Cargar datos desde la BD(items)
         try {
-            ClieprovDao clieprovDao = new ClieprovDao();
+            OrdenservicioclienteDao ordenservicioclienteDao = new OrdenservicioclienteDao();
             //List<Clieprov> listClieprov = (List<Clieprov>) Util.stringListObject("com.nisira.core.entity.Clieprov",result);
-            List<Clieprov> listClieprov = clieprovDao.listar();
+            List<Ordenserviciocliente> listServCliente = ordenservicioclienteDao.listar();
             // Crear un nuevo adaptador
-            adapter = new List_Adapter_Personal(listClieprov);
+            adapter = new Adapter_lst_OrdenServicio(listServCliente,getFragmentManager());
             recycler.setAdapter(adapter);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -99,37 +94,6 @@ public class lst_OrdenServicio_Fragment extends FragmentNisira {
         }
 
         // TODO: EVENTOS
-
-        swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-            }
-        });
-        fab_agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new mnt_DPersonalServicio_Fragment(), "NewFragmentTag");
-                ft.commit();
-            }
-        });
-        fab_modificar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new edt_OrdenServicio_Fragment(), "NewFragmentTag");
-                ft.commit();
-            }
-        });
-        fab_eliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new edt_OrdenServicio_Fragment(), "NewFragmentTag");
-                ft.commit();
-            }
-        });
 
         return view;
     }

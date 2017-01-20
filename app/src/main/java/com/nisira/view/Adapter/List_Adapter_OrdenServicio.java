@@ -70,7 +70,7 @@ public class List_Adapter_OrdenServicio extends RecyclerView.Adapter<List_Adapte
     @Override
     public void onBindViewHolder(List_Adapter_OrdenServicio.ListaViewHolder viewHolder, int i) {
 
-        viewHolder.nombre.setText("("+items.get(i).getRuc()+") "+items.get(i).getCliente());
+        //viewHolder.nombre.setText("("+items.get(i).getRuc()+") "+items.get(i).getCliente());
         viewHolder.documento.setText(items.get(i).getSerie()+'-'+items.get(i).getNumero()+" - FR : "+items.get(i).getFecha());
         viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));
         viewHolder.seleccion.setImageResource(R.drawable.ic_arrow_white);

@@ -79,9 +79,9 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         recyclerView.setLayoutManager(lManager);
         OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
         try {
-            List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
-            List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
-            recyclerView.setAdapter(adapter);
+            //List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
+            //List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
+            //recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }

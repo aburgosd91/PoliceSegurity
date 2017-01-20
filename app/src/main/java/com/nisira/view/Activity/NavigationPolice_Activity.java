@@ -82,11 +82,20 @@ public class NavigationPolice_Activity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        Bundle args = new Bundle();
+        args.putString("numero de la seccion", item.getTitle().toString());
         int id = item.getItemId();
 
         if (id == R.id.mov_configuracion) {
-            // Handle the camera action
+
         } else if (id == R.id.mov_asignacion_personal) {
+            Fragment fragment = lst_OrdenServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+            fragment.setArguments(args);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, fragment)
+                    .commit();
 
         } else if (id == R.id.mov_registro_horas_cmt) {
 
@@ -103,9 +112,9 @@ public class NavigationPolice_Activity extends AppCompatActivity
         }
 
         //AQUI SE AGREGA EL TITULO DEL ELEMENTO SELECCIONADO
-        selectItem((String) item.getTitle(),id);
+        //selectItem((String) item.getTitle(),id);
 
-
+        setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

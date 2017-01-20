@@ -87,7 +87,7 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
 
         if(Util.isOnLine(this.getApplicationContext()))
         {
-//            SincronizarCredenciales();/*CONDICIONAL*/
+            //SincronizarCredenciales();/*CONDICIONAL*/
         }
         txtuser = (EditText) findViewById(R.id.txtUser);
         txtpassword = (EditText)findViewById(R.id.txtPassword);
