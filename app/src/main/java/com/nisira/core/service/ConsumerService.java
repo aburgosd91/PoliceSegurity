@@ -117,6 +117,9 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
                 case TypeMethod.METHOD_LIST_PERSONAL_SERVICIO       :
                     trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_PERSONAL_SERVICIO, getAttribute(),this.timeout);
                     response = ActionService.ACTION_SYNCRONIZE_PERSONAL_SERVICIO(WSBasedatos.getIdbasedatos(),trama);break;
+                case TypeMethod.METHOD_LIST_DPERSONAL_SERVICIO       :
+                    trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_DPERSONAL_SERVICIO, getAttribute(),this.timeout);
+                    response = ActionService.ACTION_SYNCRONIZE_DPERSONAL_SERVICIO(WSBasedatos.getIdbasedatos(),trama);break;
                 case TypeMethod.METHOD_LIST_PRODUCTOS               :
                     trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_PRODUCTOS, getAttribute(),this.timeout);
                     response = ActionService.ACTION_SYNCRONIZE_PRODUCTOS(WSBasedatos.getIdbasedatos(),trama);break;

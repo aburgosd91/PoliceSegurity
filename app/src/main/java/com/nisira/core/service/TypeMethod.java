@@ -14,6 +14,7 @@ public class TypeMethod {
     public static final String METHOD_LIST_DOCUMENTOS              ="METHOD_LIST_DOCUMENTOS";
     public static final String METHOD_LIST_NUMEMISOR               ="METHOD_LIST_NUMEMISOR";
     public static final String METHOD_LIST_PERSONAL_SERVICIO       ="METHOD_LIST_PERSONAL_SERVICIO";
+    public static final String METHOD_LIST_DPERSONAL_SERVICIO       ="METHOD_LIST_DPERSONAL_SERVICIO";
     public static final String METHOD_LIST_PRODUCTOS               ="METHOD_LIST_PRODUCTOS";
     public static final String METHOD_LIST_RUTAS                   ="METHOD_LIST_RUTAS";
     public static final String METHOD_LIST_SUCURSALES              ="METHOD_LIST_SUCURSALES";
