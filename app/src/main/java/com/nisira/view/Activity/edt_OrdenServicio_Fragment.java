@@ -1,16 +1,20 @@
 package com.nisira.view.Activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.nisira.core.dao.OrdenservicioclienteDao;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
@@ -29,12 +33,12 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private EditText txt_documento;
-    private EditText txt_cliente;
-    private EditText txt_nromanual;
-    private EditText txt_nrocont;
-    private EditText txt_nroprecinto;
-    private EditText txt_nroservicio;
+    private TextInputEditText txt_documento;
+    private TextInputEditText txt_cliente;
+    private TextInputEditText txt_nromanual;
+    private TextInputEditText txt_nrocont;
+    private TextInputEditText txt_nroprecinto;
+    private TextInputEditText txt_nroservicio;
     private TextView txt_fecha;
     private TextView txt_estado;
 
@@ -71,7 +75,6 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            ordenserviciocliente = (Ordenserviciocliente) getArguments().getSerializable("OrdenServicio");
         }
     }
 
@@ -80,29 +83,34 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
         animacionEntrada();
+        System.out.println("ORDEN SERVICIO");
+        ordenserviciocliente = (Ordenserviciocliente) getArguments().getSerializable("OrdenServicio");
+        System.out.println(ordenserviciocliente.getNro_oservicio());
+        System.out.println(ordenserviciocliente.getNrocontenedor());
+        System.out.println(ordenserviciocliente.getNromanual());
+        System.out.println(ordenserviciocliente.getNroprecinto());
 
-        txt_documento = (EditText)view.findViewById(R.id.txt_documento);
-        txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
-        txt_nrocont = (EditText)view.findViewById(R.id.txt_nrocont);
-        txt_nromanual = (EditText)view.findViewById(R.id.txt_nromanual);
-        txt_nroprecinto = (EditText)view.findViewById(R.id.txt_nroprecinto);
-        txt_nroservicio = (EditText)view.findViewById(R.id.txt_nroservicio);
+        txt_documento = (TextInputEditText)view.findViewById(R.id.txt_documento);
+        txt_cliente = (TextInputEditText)view.findViewById(R.id.txt_cliente);
+        txt_nrocont = (TextInputEditText)view.findViewById(R.id.txt_nrocont);
+        txt_nromanual = (TextInputEditText)view.findViewById(R.id.txt_nromanual);
+        txt_nroprecinto = (TextInputEditText)view.findViewById(R.id.txt_nroprecinto);
+        txt_nroservicio = (TextInputEditText)view.findViewById(R.id.txt_nroservicio);
         txt_fecha = (TextView)view.findViewById(R.id.txt_fecha);
         txt_estado = (TextView)view.findViewById(R.id.txt_estado);
 
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
 
-        if(ordenserviciocliente==null){
-            //do something
-        }
-        txt_documento.setText(ordenserviciocliente.getNro_oservicio());
-        txt_documento.setHint("Documento: "+ ordenserviciocliente.getSerie()+ " | "+ ordenserviciocliente.getIdempresa());
-        txt_cliente.setText(ordenserviciocliente.getCliente());
-        txt_cliente.setHint("Cliente: "+ ordenserviciocliente.getIdclieprov());
         txt_nrocont.setText(ordenserviciocliente.getNrocontenedor());
         txt_nromanual.setText(ordenserviciocliente.getNromanual());
         txt_nroprecinto.setText(ordenserviciocliente.getNroprecinto());
         txt_nroservicio.setText(ordenserviciocliente.getNro_oservicio());
+
+        txt_documento.setHint("Documento: "+ ordenserviciocliente.getSerie()+ " | "+ ordenserviciocliente.getIdempresa());
+        txt_documento.setText(ordenserviciocliente.getNro_oservicio());
+        txt_cliente.setText(ordenserviciocliente.getCliente());
+        txt_cliente.setHint("Cliente: "+ ordenserviciocliente.getIdclieprov());
+
         txt_fecha.setText((CharSequence) ordenserviciocliente.getFecha());
         txt_estado.setText(ordenserviciocliente.getIdestado());
 
@@ -111,9 +119,9 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         recyclerView.setLayoutManager(lManager);
         OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
         try {
-            List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
-            List_Adapter_OrdenServicio adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
-            recyclerView.setAdapter(adapter);
+            //List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
+            //adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
+            //recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }

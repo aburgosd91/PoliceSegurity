@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Activity.edt_OrdenServicio_Fragment;
@@ -70,9 +73,12 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     @Override
     public void onBindViewHolder(ListaViewHolder viewHolder, int i) {
         //AQUI VAN TODOS LOS ELEMENTOS DE LA LISTA.
-        viewHolder.nombre.setText("("+items.get(i).getRuc()+") "+items.get(i).getCliente());
+        viewHolder.nombre.setText("("+items.get(i).getRuc()+") ");
         viewHolder.ordenservicio.setText(items.get(i).getIddocumento()+" - "+items.get(i).getSerie()+" - "+items.get(i).getNumero());
         viewHolder.fecha.setText(items.get(i).getFecha().toString());
+
+        Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().create();
+        System.out.println(gson.toJson(items.get(i)));
 
         //TODO: EVENTOS
         viewHolder.seleccion.setOnClickListener(new View.OnClickListener() {
