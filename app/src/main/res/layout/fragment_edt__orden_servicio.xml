@@ -81,11 +81,11 @@
                             android:layout_marginLeft="10dp">
 
                             <android.support.design.widget.TextInputEditText
-                                android:hint="Documento: 001 | 0004"
                                 android:textColor="@color/white"
                                 android:id="@+id/txt_documento"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:hint="Documento:"
                                 android:ems="10"
                                 android:enabled="false"
                                 android:textColorHint="@color/white"
@@ -155,7 +155,7 @@
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:enabled="false"
-                                android:hint="Cliente: .1042101886"
+                                android:hint="Cliente:"
                                 android:textColorHint="@color/white"/>
                         </android.support.design.widget.TextInputLayout>
 
@@ -184,6 +184,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
+                                android:textSize="10sp"
                                 android:enabled="false"
                                 android:textColorHint="@color/white"
                                 android:id="@+id/txt_nromanual" />
@@ -208,6 +209,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
+                                android:textSize="10sp"
                                 android:enabled="false"
                                 android:textColorHint="@color/white"
                                 />
@@ -238,6 +240,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
+                                android:textSize="10sp"
                                 android:enabled="false"
                                 android:textColorHint="@color/white"
                                 />
@@ -262,6 +265,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
+                                android:textSize="10sp"
                                 android:enabled="false"
                                 android:textColorHint="@color/white"
                                 />

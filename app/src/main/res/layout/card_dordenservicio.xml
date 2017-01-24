@@ -18,7 +18,7 @@
             android:layout_marginLeft="5dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_menu_people"
+            android:src="@drawable/ic_menu_documento"
             android:scaleType="centerCrop"
             android:layout_alignParentTop="true"
             android:layout_marginTop="5dp"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="########"
-            android:id="@+id/txtdocumento"
+            android:id="@+id/txtplaca"
             android:layout_below="@+id/nombre"
             android:layout_alignLeft="@+id/nombre" />
         <TextView
@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="########"
-            android:id="@+id/txt2"
-            android:layout_below="@+id/txtdocumento"
+            android:id="@+id/txtfechafin"
+            android:layout_below="@+id/txtplaca"
             android:layout_alignLeft="@+id/nombre" />
 
     </RelativeLayout>

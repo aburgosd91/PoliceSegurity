@@ -54,6 +54,7 @@ public class Dordenserviciocliente implements Serializable {
 	@XStreamAlias("IDSERVICIO") 
 	private String idservicio = "" ;
 
+	private String descripcion_servicio = "" ;
 
 
 	/* Sets & Gets */
@@ -127,6 +128,14 @@ public class Dordenserviciocliente implements Serializable {
 
 	public String getIdservicio() {
 		return this.idservicio;
+	}
+
+	public String getDescripcion_servicio() {
+		return descripcion_servicio;
+	}
+
+	public void setDescripcion_servicio(String descripcion_servicio) {
+		this.descripcion_servicio = descripcion_servicio;
 	}
 
 

@@ -28,5 +28,24 @@ public class DordenservicioclienteDao extends BaseDao<Dordenserviciocliente> {
 				actualizar(obj);
 		}
 	}
+	public List<Dordenserviciocliente> ListarxOrdenServicio(Ordenserviciocliente obj) throws Exception {
+
+		if(obj!=null) {
+			List<Dordenserviciocliente> dordenservicioclientes = listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDORDENSERVICIO))=?", obj.getIdempresa().trim(), obj.getIdordenservicio().trim());
+			ProductosDao productosDao = new ProductosDao();
+			int i = 0;
+			for(Dordenserviciocliente x:dordenservicioclientes){
+				List<Productos> lst = productosDao.listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDPRODUCTO))=?", x.getIdempresa().trim(), x.getIdservicio().trim());
+				if(!lst.isEmpty()){
+					x.setDescripcion_servicio(lst.get(0).getDescripcion());
+					dordenservicioclientes.set(i,x);
+				}
+				i++;
+			}
+			return dordenservicioclientes;
+		}
+		return null;
+	}
+
 
 }

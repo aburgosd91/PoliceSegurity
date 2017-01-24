@@ -25,7 +25,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Created by ABURGOS on 05/01/2017.
+ * Created by GIANCARLO on 05/01/2017.
  */
 
 public class Adapter_lst_OrdenServicio extends RecyclerView.Adapter<Adapter_lst_OrdenServicio.ListaViewHolder> {

@@ -15,7 +15,7 @@ import com.nisira.core.dao.OrdenservicioclienteDao;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.gcalderon.policesecurity.R;
-import com.nisira.view.Adapter.List_Adapter_OrdenServicio;
+
 
 import java.util.List;
 
