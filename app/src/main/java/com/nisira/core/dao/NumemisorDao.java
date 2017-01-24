@@ -21,7 +21,7 @@ public class NumemisorDao extends BaseDao<Numemisor> {
 	}
 	public void mezclarLocal(Numemisor obj)throws Exception{
 
-		List<Numemisor> lst= listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND AND LTRIM(RTRIM(t0.IDEMISOR))=? AND LTRIM(RTRIM(t0.IDDOCUMENTO))=? AND LTRIM(RTRIM(t0.SERIE))=?",
+		List<Numemisor> lst= listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDEMISOR))=? AND LTRIM(RTRIM(t0.IDDOCUMENTO))=? AND LTRIM(RTRIM(t0.SERIE))=?",
 				obj.getIdempresa().trim(),obj.getIdemisor().trim(),obj.getIddocumento().trim(),obj.getSerie().trim());
 		if(lst.isEmpty())
 			insertar(obj);

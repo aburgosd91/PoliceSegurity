@@ -624,7 +624,7 @@ public class SqlLiteConsulta {
                             if(o .toString().equals(""))
                                 ps.bindString(i + 1, "");
                             else {
-                                ps.bindString(i + 1, SqlLiteEstructuraORM.dateFormat.format(o.toString()));
+                                ps.bindString(i + 1, SqlLiteEstructuraORM.dateFormat.format((Date)o));
 //                            ps.setTimestamp(i + 1, new Timestamp(((Date) o).getTime()));
                             }
                             if (c.getValue1().isEsPK()) {

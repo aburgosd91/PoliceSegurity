@@ -25,7 +25,7 @@ public class Service {
     */
     static final String URL="http://69.64.88.9:8080/WebServiceNisira?wsdl";
     static final String NAMESPACE="http://webservice/";
-    static final Integer timeout=10*1000;
+    static final Integer timeout_=10*1000;
     /*
         CONFIGURACIONES
     */
@@ -38,7 +38,7 @@ public class Service {
         this.context = context;
     }
 
-    public Object requestObject(String URL,String METHOD_NAME, HashMap params) throws IOException, XmlPullParserException {
+    public Object requestObject(String URL,String METHOD_NAME, HashMap params,int timeout) throws IOException, XmlPullParserException {
         SOAP_ACTION = NAMESPACE+METHOD_NAME;
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME); /*DECLARACION SOAP*/
         /*ATRIBUTOS*/
@@ -50,7 +50,7 @@ public class Service {
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
         envelope.setOutputSoapObject(request);
 
-        HttpTransportSE ht = new HttpTransportSE(URL,timeout);
+        HttpTransportSE ht = new HttpTransportSE(URL,timeout*1000);
         /***************************CORRIGE ERROR DE CONECTIVIDAD***********************************/
         ArrayList<HeaderProperty> headerPropertyArrayList = new ArrayList<HeaderProperty>();
         headerPropertyArrayList.add(new HeaderProperty("Connection", "close"));

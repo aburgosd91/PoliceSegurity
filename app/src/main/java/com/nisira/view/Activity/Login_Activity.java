@@ -28,12 +28,12 @@ import com.nisira.gcalderon.policesecurity.R;
 
 public class Login_Activity extends ActivityNisiraCompat implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
     private static final Object[][] TABLASINCRONIZACION={
-            {"METHOD_LIST_CLIEPROV",10},
+            {"METHOD_LIST_CLIEPROV",20},
             {"METHOD_LIST_CONSUMIDOR", 8},
             {"METHOD_LIST_CONCEPTO_CUENTA", 5},
             {"METHOD_LIST_DOCUMENTOS",6},
-            {"METHOD_LIST_NUMEMISOR",20},
-//            {"METHOD_LIST_PERSONAL_SERVICIO",8},
+            {"METHOD_LIST_NUMEMISOR",10},
+            {"METHOD_LIST_PERSONAL_SERVICIO",8},
             {"METHOD_LIST_PRODUCTOS",8},
             {"METHOD_LIST_RUTAS",8},
             {"METHOD_LIST_SUCURSALES",5},
@@ -87,7 +87,7 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
 
         if(Util.isOnLine(this.getApplicationContext()))
         {
-            //SincronizarCredenciales();/*CONDICIONAL*/
+            SincronizarCredenciales();/*CONDICIONAL*/
         }
         txtuser = (EditText) findViewById(R.id.txtUser);
         txtpassword = (EditText)findViewById(R.id.txtPassword);

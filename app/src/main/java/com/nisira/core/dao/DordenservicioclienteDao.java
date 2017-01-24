@@ -21,7 +21,7 @@ public class DordenservicioclienteDao extends BaseDao<Dordenserviciocliente> {
 	}
 	public void mezclarLocal(Dordenserviciocliente obj)throws Exception{
 		if(obj !=null){
-			List<Dordenserviciocliente> lst= listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDORDEN))=? AND LTRIM(RTRIM(t0.ITEM))=?",obj.getIdempresa().trim(),obj.getIdordenservicio().trim(),obj.getItem().trim());
+			List<Dordenserviciocliente> lst= listar("LTRIM(RTRIM(t0.IDEMPRESA)) =? AND LTRIM(RTRIM(t0.IDORDENSERVICIO))=? AND LTRIM(RTRIM(t0.ITEM))=?",obj.getIdempresa().trim(),obj.getIdordenservicio().trim(),obj.getItem().trim());
 			if(lst.isEmpty())
 				insertar(obj);
 			else

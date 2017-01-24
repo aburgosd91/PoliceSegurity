@@ -181,7 +181,7 @@ public class ActionService {
     }
     public static String ACTION_SYNCRONIZE_DOCUMENTOS (String db,String response){
         try {
-            List lstdocumentos = (List<Documentos>) Util.stringObject("com.nisira.core.entity.Documentos",response);
+            List<Documentos> lstdocumentos = (List<Documentos>) Util.stringObject("com.nisira.core.entity.Documentos",response);
             DocumentosDao documentosDao = new DocumentosDao();
             if(lstdocumentos!=null){
                 for(int i=0;i<lstdocumentos.size();i++){
@@ -208,7 +208,7 @@ public class ActionService {
     }
     public static String ACTION_SYNCRONIZE_NUMEMISOR (String db,String response){
         try {
-            List numemisors = (List<Numemisor>) Util.stringObject("com.nisira.core.entity.Numemisor",response);
+            List<Numemisor> numemisors = (List<Numemisor>) Util.stringObject("com.nisira.core.entity.Numemisor",response);
             NumemisorDao numemisorDao = new NumemisorDao();
             if(numemisors!=null){
                 for(int i=0;i<numemisors.size();i++){
