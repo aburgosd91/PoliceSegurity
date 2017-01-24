@@ -15,12 +15,13 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.nisira.core.dao.DordenservicioclienteDao;
 import com.nisira.core.dao.OrdenservicioclienteDao;
+import com.nisira.core.entity.Dordenserviciocliente;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.gcalderon.policesecurity.R;
-import com.nisira.view.Adapter.List_Adapter_OrdenServicio;
-
+import com.nisira.view.Adapter.Adapter_edt_DOrdenServicio;
 import java.util.List;
 
 
@@ -60,8 +61,8 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
      * @return A new instance of fragment edt_OrdenServicio_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static edt_PersonalServicio_Fragment newInstance(String param1, String param2) {
-        edt_PersonalServicio_Fragment fragment = new edt_PersonalServicio_Fragment();
+    public static edt_OrdenServicio_Fragment newInstance(String param1, String param2) {
+        edt_OrdenServicio_Fragment fragment = new edt_OrdenServicio_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -106,22 +107,26 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         txt_nroprecinto.setText(ordenserviciocliente.getNroprecinto());
         txt_nroservicio.setText(ordenserviciocliente.getNro_oservicio());
 
-        txt_documento.setHint("Documento: "+ ordenserviciocliente.getSerie()+ " | "+ ordenserviciocliente.getIdempresa());
-        txt_documento.setText(ordenserviciocliente.getNro_oservicio());
-        txt_cliente.setText(ordenserviciocliente.getCliente());
-        txt_cliente.setHint("Cliente: "+ ordenserviciocliente.getIdclieprov());
+        txt_documento.setText(ordenserviciocliente.getIddocumento()+"-"+ ordenserviciocliente.getSerie()+ "-"+ ordenserviciocliente.getIdempresa());
+        txt_documento.setHint("Documento: ");
+        txt_cliente.setText(ordenserviciocliente.getIdclieprov());
+        txt_cliente.setHint("Cliente:");
 
-        txt_fecha.setText((CharSequence) ordenserviciocliente.getFecha());
-        txt_estado.setText(ordenserviciocliente.getIdestado());
+//        txt_fecha.setText((CharSequence) ordenserviciocliente.getFecha());
+        String estado = ordenserviciocliente.getIdestado();
+        if(estado.equals("PE")){
+            txt_estado.setText("Pendiente");
+        }
+
 
         recyclerView.setHasFixedSize(true);
         lManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(lManager);
-        OrdenservicioclienteDao  ordenservicioclienteDao = new OrdenservicioclienteDao();
+        DordenservicioclienteDao  DordenservicioclienteDao = new DordenservicioclienteDao();
         try {
-            //List<Ordenserviciocliente> lstordenserviciocliente = ordenservicioclienteDao.listOrdenServicioxCliente();
-            //adapter = new List_Adapter_OrdenServicio(lstordenserviciocliente,getFragmentManager());
-            //recyclerView.setAdapter(adapter);
+            List<Dordenserviciocliente> lstordenserviciocliente = DordenservicioclienteDao.ListarxOrdenServicio(ordenserviciocliente);
+            adapter = new Adapter_edt_DOrdenServicio(lstordenserviciocliente,getFragmentManager());
+            recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
