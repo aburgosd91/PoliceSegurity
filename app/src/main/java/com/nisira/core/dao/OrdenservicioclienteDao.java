@@ -36,7 +36,10 @@ public class OrdenservicioclienteDao extends BaseDao<Ordenserviciocliente> {
 		for(Ordenserviciocliente obj : lst){
 			cliente=clientedao.getClientexempresa_codigo(obj.getIdempresa(),obj.getIdclieprov());
 			if(cliente!=null){
-				obj.setCliente(cliente.getRazon_social());
+				obj.setCliente(cliente.getApellidopaterno()+ " "
+								+cliente.getApellidomaterno()+" "
+								+cliente.getNombres()
+				);
 				obj.setRuc(cliente.getRuc());
 				lst.set(i,obj);
 			}

@@ -1,8 +1,6 @@
 package com.nisira.view.Activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
@@ -12,17 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.nisira.core.dao.ClieprovDao;
 import com.nisira.core.dao.OrdenservicioclienteDao;
-import com.nisira.core.entity.Clieprov;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.core.service.ConsumerService;
 import com.nisira.core.service.TypeMethod;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Adapter.Adapter_lst_OrdenServicio;
-import com.nisira.view.Adapter.List_Adapter_Personal;
 
 import java.util.List;
 

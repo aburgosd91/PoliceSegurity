@@ -22,6 +22,8 @@ import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Adapter.Adapter_edt_DOrdenServicio;
+
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -82,7 +84,7 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
+        View view = inflater.inflate(R.layout.fragment_edt__dorden_servicio, container, false);
         animacionEntrada();
         System.out.println("ORDEN SERVICIO");
         ordenserviciocliente = (Ordenserviciocliente) getArguments().getSerializable("OrdenServicio");
@@ -92,7 +94,7 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         System.out.println(ordenserviciocliente.getNroprecinto());
 
         txt_documento = (TextInputEditText)view.findViewById(R.id.txt_documento);
-        txt_cliente = (TextInputEditText)view.findViewById(R.id.txt_cliente);
+        txt_cliente = (TextInputEditText)view.findViewById(R.id.txt_ordenservicio);
         txt_nrocont = (TextInputEditText)view.findViewById(R.id.txt_nrocont);
         txt_nromanual = (TextInputEditText)view.findViewById(R.id.txt_nromanual);
         txt_nroprecinto = (TextInputEditText)view.findViewById(R.id.txt_nroprecinto);
@@ -111,8 +113,10 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         txt_documento.setHint("Documento: ");
         txt_cliente.setText(ordenserviciocliente.getIdclieprov());
         txt_cliente.setHint("Cliente:");
+        SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+        String strDate = sm.format("Fecha Operación: "+ordenserviciocliente.getFecha());
+        txt_fecha.setText(strDate);
 
-//        txt_fecha.setText((CharSequence) ordenserviciocliente.getFecha());
         String estado = ordenserviciocliente.getIdestado();
         if(estado.equals("PE")){
             txt_estado.setText("Pendiente");
@@ -125,7 +129,7 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         DordenservicioclienteDao  DordenservicioclienteDao = new DordenservicioclienteDao();
         try {
             List<Dordenserviciocliente> lstordenserviciocliente = DordenservicioclienteDao.ListarxOrdenServicio(ordenserviciocliente);
-            adapter = new Adapter_edt_DOrdenServicio(lstordenserviciocliente,getFragmentManager());
+            adapter = new Adapter_edt_DOrdenServicio(lstordenserviciocliente,getFragmentManager(),ordenserviciocliente);
             recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();

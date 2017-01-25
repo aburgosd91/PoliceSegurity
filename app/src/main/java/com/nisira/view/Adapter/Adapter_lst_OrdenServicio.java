@@ -20,6 +20,7 @@ import com.nisira.gcalderon.policesecurity.R;
 import com.nisira.view.Activity.edt_OrdenServicio_Fragment;
 import com.nisira.view.Activity.edt_PersonalServicio_Fragment;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -73,9 +74,11 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     @Override
     public void onBindViewHolder(ListaViewHolder viewHolder, int i) {
         //AQUI VAN TODOS LOS ELEMENTOS DE LA LISTA.
-        viewHolder.nombre.setText("("+items.get(i).getRuc()+") ");
-        viewHolder.ordenservicio.setText(items.get(i).getIddocumento()+" - "+items.get(i).getSerie()+" - "+items.get(i).getNumero());
-        viewHolder.fecha.setText(items.get(i).getFecha().toString());
+        viewHolder.nombre.setText(items.get(i).getCliente());
+        viewHolder.ordenservicio.setText("Orden: "+items.get(i).getIddocumento()+" - "+items.get(i).getSerie()+" - "+items.get(i).getNumero());
+        SimpleDateFormat sm = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = sm.format(items.get(i).getFecha());
+        viewHolder.fecha.setText("Fecha: "+strDate);
 
         Gson gson = new GsonBuilder().serializeSpecialFloatingPointValues().create();
         System.out.println(gson.toJson(items.get(i)));

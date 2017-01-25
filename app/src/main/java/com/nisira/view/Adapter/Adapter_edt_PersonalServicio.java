@@ -1,18 +1,20 @@
 package com.nisira.view.Adapter;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nisira.core.entity.Clieprov;
+import com.nisira.core.entity.Personal_servicio;
 import com.nisira.gcalderon.policesecurity.R;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -21,9 +23,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by ABURGOS on 05/01/2017.
  */
 
-public class List_Adapter_Personal extends RecyclerView.Adapter<List_Adapter_Personal.ListaViewHolder> {
+public class Adapter_edt_PersonalServicio extends RecyclerView.Adapter<Adapter_edt_PersonalServicio.ListaViewHolder> {
 
-    private List<Clieprov> items;//Lo cambias por la coleccion que necesites Alex
+    private List<Personal_servicio> items;//Lo cambias por la coleccion que necesites Alex
 
 public static class ListaViewHolder extends RecyclerView.ViewHolder {
     // Campos respectivos de un item
@@ -41,11 +43,11 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         documento = (TextView) v.findViewById(R.id.txtdocumento);
         seleccion = (CircleImageView) v.findViewById(R.id.seleccion);
         fondo_seleccion = (RelativeLayout) v.findViewById(R.id.fondo_seleccion);
-        //estado = (CheckBox) v.findViewById(R.id.checkSeleccion);
+        estado = (TextView) v.findViewById(R.id.txt2);
     }
 }
 
-    public List_Adapter_Personal(List<Clieprov> items) {
+    public Adapter_edt_PersonalServicio(List<Personal_servicio> items, FragmentManager fragmentManager) {
         this.items = items;
     }
 
@@ -57,7 +59,7 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     @Override
     public ListaViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.card_elementolista, viewGroup, false);
+                .inflate(R.layout.card_personalservicio, viewGroup, false);
         return new ListaViewHolder(v);
     }
 
@@ -65,9 +67,13 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(ListaViewHolder viewHolder, int i) {
         //AQUI VAN TODOS LOS ELEMENTOS DE LA LISTA.
         //viewHolder.imagen.setImageResource());
-        viewHolder.nombre.setText(items.get(i).getRazon_social());
-        viewHolder.documento.setText(items.get(i).getRuc());
-        if(items.get(i).getSeleccion()==1){
+        viewHolder.nombre.setText(items.get(i).getNombres());
+        viewHolder.documento.setText("Dni: "+items.get(i).getDni());
+        SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+        String strDate = sm.format("Fecha Operación: "+items.get(i).getFechaoperacion());
+        viewHolder.estado.setText(strDate);
+
+        if(items.get(i).isSeleccion()){
             viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
             viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
             viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
@@ -76,6 +82,7 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
             viewHolder.seleccion.setImageResource(R.drawable.ic_none);
             viewHolder.fondo_seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.blue_gray));
         }
+
         //viewHolder.estado.setText((items.get(i).getEstado()==1.00?"Activo":"Inactivo"));
         //viewHolder.seleccion.setChecked(false);
 
@@ -83,15 +90,19 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         viewHolder.seleccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(items.get(i).getSeleccion()==1)) {
+
+                if(!(items.get(i).isSeleccion())) {
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
-                    items.get(i).setSeleccion(1);
-                    Log.i("DEBUG",i+" "+items.get(i).getRazon_social());
+                    for(int j=0;j<items.size();j++){
+                        items.get(j).setSeleccion(false);
+                        notifyItemChanged(j);
+                    }
+                    items.get(i).setSeleccion(true);
 
                 }else{
-                    items.get(i).setSeleccion(0);
+                    items.get(i).setSeleccion(false);
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_none);
                     viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.blue_gray));

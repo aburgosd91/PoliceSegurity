@@ -149,13 +149,13 @@
                             android:layout_marginLeft="10dp">
 
                             <android.support.design.widget.TextInputEditText
-                                android:id="@+id/txt_cliente"
+                                android:id="@+id/txt_ordenservicio"
                                 android:textColor="@color/white"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ems="10"
                                 android:enabled="false"
-                                android:hint="Cliente:"
+                                android:hint="Orden Servicio:"
                                 android:textColorHint="@color/white"/>
                         </android.support.design.widget.TextInputLayout>
 

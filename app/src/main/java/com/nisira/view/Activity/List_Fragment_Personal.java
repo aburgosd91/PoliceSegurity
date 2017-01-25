@@ -19,7 +19,7 @@ import com.nisira.core.interfaces.FragmentNisira;
 import com.nisira.core.service.ConsumerService;
 import com.nisira.core.service.TypeMethod;
 import com.nisira.gcalderon.policesecurity.R;
-import com.nisira.view.Adapter.List_Adapter_Personal;
+import com.nisira.view.Adapter.Adapter_edt_PersonalServicio;
 
 import java.util.List;
 
@@ -88,7 +88,7 @@ public class List_Fragment_Personal extends FragmentNisira {
             //List<Clieprov> listClieprov = (List<Clieprov>) Util.stringListObject("com.nisira.core.entity.Clieprov",result);
             List<Clieprov> listClieprov = clieprovDao.listar();
             // Crear un nuevo adaptador
-            adapter = new List_Adapter_Personal(listClieprov);
+            //adapter = new Adapter_edt_PersonalServicio(listClieprov);
             recycler.setAdapter(adapter);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
