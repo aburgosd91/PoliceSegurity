@@ -94,10 +94,11 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("OrdenServicio", items.get(i));
 
-                Fragment fragment = edt_OrdenServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+                Fragment fragment = edt_OrdenServicio_Fragment.newInstance("Asignacion Personal", "lst_OrdenServicio_Fragment");
                 fragment.setArguments(bundle);
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.main_content, fragment, "NewFragmentTag");
+                ft.addToBackStack(null);
                 ft.commit();
 
                 notifyItemChanged(i);

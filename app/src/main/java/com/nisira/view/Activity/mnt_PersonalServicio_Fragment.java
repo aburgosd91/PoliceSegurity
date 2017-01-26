@@ -197,17 +197,15 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
         btn_cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new List_Fragment_Personal(), "NewFragmentTag");
-                ft.commit();
+                getFragmentManager().popBackStack();
             }
         });
         btn_acaptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, new List_Fragment_Personal(), "NewFragmentTag");
-                ft.commit();
+
+
+                getFragmentManager().popBackStack();
             }
         });
 

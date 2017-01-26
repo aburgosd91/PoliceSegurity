@@ -6,17 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.nisira.core.dao.DordenservicioclienteDao;
-import com.nisira.core.dao.OrdenservicioclienteDao;
 import com.nisira.core.entity.Dordenserviciocliente;
 import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.core.interfaces.FragmentNisira;
@@ -30,8 +25,8 @@ import java.util.List;
 public class edt_OrdenServicio_Fragment extends FragmentNisira {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String OPCION = "param1";
+    private static final String ANTERIOR = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -66,8 +61,8 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     public static edt_OrdenServicio_Fragment newInstance(String param1, String param2) {
         edt_OrdenServicio_Fragment fragment = new edt_OrdenServicio_Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(OPCION, param1);
+        args.putString(ANTERIOR, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -76,8 +71,8 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(OPCION);
+            mParam2 = getArguments().getString(ANTERIOR);
         }
     }
 
@@ -109,12 +104,12 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         txt_nroprecinto.setText(ordenserviciocliente.getNroprecinto());
         txt_nroservicio.setText(ordenserviciocliente.getNro_oservicio());
 
-        txt_documento.setText(ordenserviciocliente.getIddocumento()+"-"+ ordenserviciocliente.getSerie()+ "-"+ ordenserviciocliente.getIdempresa());
+        txt_documento.setText(ordenserviciocliente.getIddocumento()+"-"+ ordenserviciocliente.getSerie()+ "-"+ ordenserviciocliente.getNumero());
         txt_documento.setHint("Documento: ");
-        txt_cliente.setText(ordenserviciocliente.getIdclieprov());
+        txt_cliente.setText(ordenserviciocliente.getCliente());
         txt_cliente.setHint("Cliente:");
         SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
-        String strDate = sm.format("Fecha Operación: "+ordenserviciocliente.getFecha());
+        String strDate = sm.format(ordenserviciocliente.getFecha());
         txt_fecha.setText(strDate);
 
         String estado = ordenserviciocliente.getIdestado();
@@ -136,7 +131,7 @@ public class edt_OrdenServicio_Fragment extends FragmentNisira {
         }
         return view;
     }
-
+    
 
     public void animacionEntrada(){
         Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);

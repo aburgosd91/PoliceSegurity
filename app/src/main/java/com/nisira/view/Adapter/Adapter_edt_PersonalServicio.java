@@ -70,8 +70,8 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
         viewHolder.nombre.setText(items.get(i).getNombres());
         viewHolder.documento.setText("Dni: "+items.get(i).getDni());
         SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
-        String strDate = sm.format("Fecha Operación: "+items.get(i).getFechaoperacion());
-        viewHolder.estado.setText(strDate);
+        String strDate = sm.format(items.get(i).getFechaoperacion());
+        viewHolder.estado.setText("Fecha Operación: "+strDate);
 
         if(items.get(i).isSeleccion()){
             viewHolder.seleccion.setBackgroundColor(viewHolder.itemView.getResources().getColor(R.color.amarillo));
@@ -92,9 +92,10 @@ public static class ListaViewHolder extends RecyclerView.ViewHolder {
             public void onClick(View v) {
 
                 if(!(items.get(i).isSeleccion())) {
+                    viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                     viewHolder.seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
                     viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
-                    viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
+
                     for(int j=0;j<items.size();j++){
                         items.get(j).setSeleccion(false);
                         notifyItemChanged(j);

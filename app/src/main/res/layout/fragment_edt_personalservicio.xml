@@ -15,52 +15,7 @@
         android:fitsSystemWindows="true">
 
         <!-- Objeto con Scroll -->
-
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/multiple_actions_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            fab:fab_addButtonColorNormal="@color/colorPrimary"
-            fab:fab_addButtonColorPressed="@color/colorAccent"
-            fab:fab_addButtonSize="normal"
-            fab:fab_addButtonPlusIconColor="@color/white"
-            fab:fab_addButtonStrokeVisible="false"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp">
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_agregar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/verde"
-                fab:fab_icon="@drawable/ic_add_white"
-                fab:fab_colorPressed="@color/colorPrimary"/>
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_modificar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/amarillo"
-                fab:fab_icon="@drawable/ic_build_white"
-                fab:fab_colorPressed="@color/colorPrimary"
-                fab:fab_size="mini"/>
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_eliminar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                fab:fab_colorNormal="@color/rojo"
-                fab:fab_icon="@drawable/ic_delete_white"
-                fab:fab_colorPressed="@color/colorPrimary"
-                fab:fab_size="mini"/>
-
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
-            <android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_os"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -68,14 +23,13 @@
                 android:layout_below="@+id/app_bar"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 >
-
-
             </android.support.v7.widget.RecyclerView>
+
         <!-- App Bar -->
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -235,62 +189,6 @@
                         </android.support.design.widget.TextInputLayout>
 
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="9dp"
-                            android:src="@drawable/ic_documento_white" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:hintTextAppearance="@color/white"
-                            android:layout_marginLeft="10dp">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/txt_nroprecinto"
-                                android:hint="N° Precinto"
-                                android:textColor="@color/white"
-                                android:layout_width="100dp"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:textSize="10sp"
-                                android:enabled="false"
-                                android:textColorHint="@color/white"
-                                />
-                        </android.support.design.widget.TextInputLayout>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="9dp"
-                            android:src="@drawable/ic_documento_white" />
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:hintTextAppearance="@color/white"
-                            android:layout_marginLeft="10dp">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:id="@+id/txt_nroservicio"
-                                android:hint="N° Servicio"
-                                android:textColor="@color/white"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:ems="10"
-                                android:textSize="10sp"
-                                android:enabled="false"
-                                android:textColorHint="@color/white"
-                                />
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -298,6 +196,53 @@
 
 
         </android.support.design.widget.AppBarLayout>
+
+        <!-- FAB-->
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/multiple_actions_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            fab:fab_addButtonColorNormal="@color/colorPrimary"
+            fab:fab_addButtonColorPressed="@color/colorAccent"
+            fab:fab_addButtonSize="normal"
+            fab:fab_addButtonPlusIconColor="@color/white"
+            fab:fab_addButtonStrokeVisible="false"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_agregar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/blue"
+                fab:fab_icon="@drawable/ic_add_white"
+                fab:fab_size="mini"
+                fab:fab_colorPressed="@color/colorAccent"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_modificar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/blue"
+                fab:fab_icon="@drawable/ic_build_white"
+                fab:fab_colorPressed="@color/colorAccent"
+                fab:fab_size="mini"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_eliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/blue"
+                fab:fab_icon="@drawable/ic_delete_white"
+                fab:fab_colorPressed="@color/colorAccent"
+                fab:fab_size="mini"/>
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </android.support.design.widget.CoordinatorLayout>
 

@@ -106,10 +106,11 @@ public class Adapter_edt_DOrdenServicio extends RecyclerView.Adapter<Adapter_edt
                 bundle.putSerializable("DOrdenServicio", items.get(i));
                 bundle.putSerializable("OrdenServicio",ordenserviciocliente);
 
-                Fragment fragment = edt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+                Fragment fragment = edt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "edt_OrdenServicio_Fragment");
                 fragment.setArguments(bundle);
                 FragmentTransaction ft = fragmentManager.beginTransaction();
                 ft.replace(R.id.main_content, fragment, "NewFragmentTag");
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });
