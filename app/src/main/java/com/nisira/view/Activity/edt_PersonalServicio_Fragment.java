@@ -45,7 +45,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
     private RecyclerView.LayoutManager lManager;
     private Dordenserviciocliente dordenserviciocliente;
     private Ordenserviciocliente ordenserviciocliente;
-    private FloatingActionButton  btn_agregar;
+    private FloatingActionButton  btn_agregar,btn_modificar;
 
     public edt_PersonalServicio_Fragment() {
         // Required empty public constructor
@@ -84,6 +84,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         txt_estado = (TextView)view.findViewById(R.id.txt_estado);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
         btn_agregar = (FloatingActionButton)view.findViewById(R.id.fab_agregar);
+        btn_modificar = (FloatingActionButton)view.findViewById(R.id.fab_modificar);
         if(dordenserviciocliente==null){
             //do something
         }
@@ -112,7 +113,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "ejemplo2");
+                Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "Agregar");
                 //fragment.setArguments(bundle);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.main_content, fragment, "NewFragmentTag");
@@ -121,6 +122,20 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
             }
         });
 
+        btn_modificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle =  new Bundle();
+                bundle.putSerializable("DOrdenServicio",dordenserviciocliente);
+                Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "Modificar");
+                fragment.setArguments(bundle);
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.main_content, fragment, "NewFragmentTag");
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
 
         return view;
     }

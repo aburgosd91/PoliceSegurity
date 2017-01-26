@@ -15,18 +15,24 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.nisira.core.dao.Personal_servicioDao;
+import com.nisira.core.entity.Dordenserviciocliente;
+import com.nisira.core.entity.Personal_servicio;
 import com.nisira.gcalderon.policesecurity.R;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class mnt_PersonalServicio_Fragment extends Fragment {
     // TODO: ELEMENTOS DE LAYOUT
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private AutoCompleteTextView listbox;
+    private Dordenserviciocliente dordenserviciocliente;
+    private AutoCompleteTextView listbox,campo_personal;
     private EditText hora_llegada;
     private EditText hora_requerida;
     private EditText hora_inicio;
@@ -60,6 +66,7 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            dordenserviciocliente = (Dordenserviciocliente) getArguments().getSerializable("DOrdenServicio");
         }
     }
     @SuppressLint("NewApi")
@@ -81,9 +88,28 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
         btn_cancelar = (FloatingActionButton)view.findViewById(R.id.fab_cancelar);
         btn_acaptar = (FloatingActionButton)view.findViewById(R.id.fab_aceptar);
         listbox = (AutoCompleteTextView) view.findViewById(R.id.autocompletetext1);
+        campo_personal = (AutoCompleteTextView)view.findViewById(R.id.campo_personal);
+
+        if(dordenserviciocliente!=null) {
+            hora_requerida.setText(dordenserviciocliente.getFechacreacion() + "");
+            hora_requerida.setText(dordenserviciocliente.getHora_req()+"");
+            //GG
+        }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line,NOMBRES);
         listbox.setAdapter(adapter);
+
+        Personal_servicioDao personal_servicioDao = new Personal_servicioDao();
+        List<Personal_servicio> list_ps = new ArrayList<>();
+        try {
+            list_ps = personal_servicioDao.listar();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ArrayAdapter<Personal_servicio> adapterps = new ArrayAdapter<Personal_servicio>(getContext(),
+                android.R.layout.simple_dropdown_item_1line,list_ps);
+        campo_personal.setAdapter(adapterps);
 
         //TODO EVENTOS
         hora_requerida.setOnClickListener(new View.OnClickListener() {
