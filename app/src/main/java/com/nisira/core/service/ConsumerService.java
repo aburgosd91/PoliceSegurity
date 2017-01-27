@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 
+import com.nisira.core.database.DataBaseClass;
 import com.nisira.core.entity.Basedatos;
 import com.nisira.core.interfaces.ActivityNisira;
 import com.nisira.core.interfaces.ActivityNisiraCompat;
@@ -87,7 +88,7 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
     //protected Integer doInBackground(String... args) {
     protected String doInBackground(String... args) {
         try {
-            String trama = "";
+            String trama = "",zip="";
             switch (getMethod().trim()){
                 case TypeMethod.METHOD_VERIFICATION_USER           :
                     trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_VERIFICATION_USER, getAttribute(),this.timeout);
@@ -95,6 +96,7 @@ public class ConsumerService extends AsyncTask<String, Void, String> {
                     break;
                 case TypeMethod.METHOD_LIST_CLIEPROV                :
                     trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_CLIEPROV, getAttribute(),this.timeout);
+                    //trama = Utilitarios.getXml(DataBaseClass.FOLDER_BASE_APP,zip);
                     response = ActionService.ACTION_SYNCRONIZE_CLIEPROV(WSBasedatos.getIdbasedatos(),trama);break;
                 case TypeMethod.METHOD_LIST_CONSUMIDOR              :
                     trama = (String)ws.requestObject(WSBasedatos.getWsurl(), TypeMethod.METHOD_LIST_CONSUMIDOR, getAttribute(),this.timeout);
