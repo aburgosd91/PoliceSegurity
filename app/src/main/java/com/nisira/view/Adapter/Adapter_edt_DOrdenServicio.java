@@ -1,6 +1,8 @@
 package com.nisira.view.Adapter;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +16,10 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nisira.core.entity.Dordenserviciocliente;
+import com.nisira.core.entity.Ordenserviciocliente;
 import com.nisira.gcalderon.policesecurity.R;
+import com.nisira.view.Activity.edt_OrdenServicio_Fragment;
+import com.nisira.view.Activity.edt_PersonalServicio_Fragment;
 import com.nisira.view.Activity.mnt_DPersonalServicio_Fragment;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +36,7 @@ public class Adapter_edt_DOrdenServicio extends RecyclerView.Adapter<Adapter_edt
     private List<Dordenserviciocliente> items;
     Context context;
     FragmentManager fragmentManager;
+    Ordenserviciocliente ordenserviciocliente;
 
     public class ListaViewHolder extends RecyclerView.ViewHolder {
         public ImageView imagen;
@@ -54,9 +60,10 @@ public class Adapter_edt_DOrdenServicio extends RecyclerView.Adapter<Adapter_edt
         }
     }
 
-    public Adapter_edt_DOrdenServicio(List<Dordenserviciocliente> items, FragmentManager fragmentManager) {
+    public Adapter_edt_DOrdenServicio(List<Dordenserviciocliente> items, FragmentManager fragmentManager, Ordenserviciocliente ordenserviciocliente) {
         this.items = items;
         this.fragmentManager = fragmentManager;
+        this.ordenserviciocliente = ordenserviciocliente;
     }
 
     @Override
@@ -76,7 +83,7 @@ public class Adapter_edt_DOrdenServicio extends RecyclerView.Adapter<Adapter_edt
     public void onBindViewHolder(Adapter_edt_DOrdenServicio.ListaViewHolder viewHolder, int i) {
 
         viewHolder.nombre.setText(items.get(i).getDescripcion_servicio());
-        SimpleDateFormat sm = new SimpleDateFormat("mm-dd-yyyy");
+        SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
         String strDate = sm.format(items.get(i).getFecha_fin_servicio());
         viewHolder.fecha_fin.setText("Fin servicio: "+strDate);
         viewHolder.placa.setText("Placa: "+items.get(i).getPlaca_cliente());
@@ -95,8 +102,15 @@ public class Adapter_edt_DOrdenServicio extends RecyclerView.Adapter<Adapter_edt
                 viewHolder.seleccion.setImageResource(R.drawable.ic_check_big);
                 viewHolder.fondo_seleccion.setBackgroundColor(v.getResources().getColor(R.color.amarillo));
 
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("DOrdenServicio", items.get(i));
+                bundle.putSerializable("OrdenServicio",ordenserviciocliente);
+
+                Fragment fragment = edt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "edt_OrdenServicio_Fragment");
+                fragment.setArguments(bundle);
                 FragmentTransaction ft = fragmentManager.beginTransaction();
-                ft.replace(R.id.main_content, new mnt_DPersonalServicio_Fragment(), "NewFragmentTag");
+                ft.replace(R.id.main_content, fragment, "NewFragmentTag");
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });

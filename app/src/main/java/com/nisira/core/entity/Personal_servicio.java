@@ -55,6 +55,8 @@ public class Personal_servicio implements Serializable {
 	@XStreamAlias("IDCARGO") 
 	private String idcargo = "" ;
 
+	private boolean seleccion;
+
 
 
 	/* Sets & Gets */
@@ -128,6 +130,14 @@ public class Personal_servicio implements Serializable {
 
 	public String getIdcargo() {
 		return this.idcargo;
+	}
+
+	public boolean isSeleccion() {
+		return seleccion;
+	}
+
+	public void setSeleccion(boolean seleccion) {
+		this.seleccion = seleccion;
 	}
 
 

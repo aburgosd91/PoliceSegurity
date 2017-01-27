@@ -67,7 +67,7 @@ public class edt_Personal_Ruta_Fragment extends FragmentNisira {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edt__orden_servicio, container, false);
         txt_documento = (EditText)view.findViewById(R.id.txt_documento);
-        txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
+        //txt_cliente = (EditText)view.findViewById(R.id.txt_cliente);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
 
         txt_documento.setText("Orden Servicio Cliente");

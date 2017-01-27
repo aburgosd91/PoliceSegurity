@@ -66,7 +66,7 @@ public class mnt_DOrdenServicio_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edit__orden_servicio, container, false);
+        View view = inflater.inflate(R.layout.fragment_mnt_personalservicio, container, false);
         animacionEntrada();
         String[] NOMBRES = new String[] {
                 "Gian", "Giancarlo", "Alex", "Andy","Ayrton","Acevedo","Antonela","Antony","Antonio"
