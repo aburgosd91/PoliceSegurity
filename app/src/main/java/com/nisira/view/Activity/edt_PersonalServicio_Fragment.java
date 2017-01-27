@@ -28,14 +28,16 @@ import java.util.List;
 
 
 public class edt_PersonalServicio_Fragment extends FragmentNisira {
+
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String OPCION = "param1";
     private static final String ANTERIOR = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    List<Personal_servicio> list;
     private EditText txt_documento;
     private EditText txt_cliente;
     private TextView txt_estado;
@@ -45,7 +47,7 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
     private RecyclerView.LayoutManager lManager;
     private Dordenserviciocliente dordenserviciocliente;
     private Ordenserviciocliente ordenserviciocliente;
-    private FloatingActionButton  btn_agregar,btn_modificar;
+    private FloatingActionButton  btn_agregar,btn_modificar,btn_delete;
 
     public edt_PersonalServicio_Fragment() {
         // Required empty public constructor
@@ -83,11 +85,24 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         txt_producto = (TextInputEditText)view.findViewById(R.id.txt_producto);
         txt_estado = (TextView)view.findViewById(R.id.txt_estado);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_os);
+        /******FIJOS PARA MANTENEDOR**************/
         btn_agregar = (FloatingActionButton)view.findViewById(R.id.fab_agregar);
         btn_modificar = (FloatingActionButton)view.findViewById(R.id.fab_modificar);
-        if(dordenserviciocliente==null){
-            //do something
-        }
+        btn_delete = (FloatingActionButton)view.findViewById(R.id.fab_eliminar);
+        /*****************************************/
+        Listeners();
+        LlenarCampos();
+        return view;
+    }
+
+    public void animacionEntrada(){
+        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
+        setExitTransition(slide);
+        setEnterTransition(slide);
+    }
+
+    public void LlenarCampos(){
+        //TODO LLENAR CAMPOS
         txt_documento.setText(ordenserviciocliente.getIddocumento()+ " " +
                 ordenserviciocliente.getSerie()+ "-"+
                 ordenserviciocliente.getNumero());
@@ -101,24 +116,21 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
         recyclerView.setLayoutManager(lManager);
         Personal_servicioDao  personal_servicioDao = new Personal_servicioDao();
         try {
-            List<Personal_servicio> list = personal_servicioDao.listarxDordenservicio(dordenserviciocliente);
+            list = personal_servicioDao.listarxDordenservicio(dordenserviciocliente);
             Adapter_edt_PersonalServicio adapter = new Adapter_edt_PersonalServicio(list,getFragmentManager());
             recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void Listeners(){
         //TODO EVENTOS
 
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "Agregar");
-                //fragment.setArguments(bundle);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, fragment, "NewFragmentTag");
-                ft.addToBackStack(null);
-                ft.commit();
+
             }
         });
 
@@ -126,24 +138,29 @@ public class edt_PersonalServicio_Fragment extends FragmentNisira {
             @Override
             public void onClick(View v) {
 
-                Bundle bundle =  new Bundle();
-                bundle.putSerializable("DOrdenServicio",dordenserviciocliente);
-                Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "Modificar");
-                fragment.setArguments(bundle);
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.main_content, fragment, "NewFragmentTag");
-                ft.addToBackStack(null);
-                ft.commit();
+                for(int i=0;i<list.size();i++) {
+                    if (list.get(i).isSeleccion()) {
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("DOrdenServicio", dordenserviciocliente);
+                        bundle.putSerializable("PersonalServicio", list.get(i));
+                        Fragment fragment = mnt_PersonalServicio_Fragment.newInstance("Asignacion Personal", "Modificar");
+                        fragment.setArguments(bundle);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.main_content, fragment, "NewFragmentTag");
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    }
+                }
             }
         });
 
-        return view;
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //DEFINIR
+            }
+        });
     }
 
-
-    public void animacionEntrada(){
-        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
-        setExitTransition(slide);
-        setEnterTransition(slide);
-    }
 }

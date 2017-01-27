@@ -1,9 +1,7 @@
 package com.nisira.view.Activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.TransitionInflater;
@@ -13,49 +11,42 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.nisira.core.dao.Personal_servicioDao;
 import com.nisira.core.entity.Dordenserviciocliente;
 import com.nisira.core.entity.Personal_servicio;
 import com.nisira.gcalderon.policesecurity.R;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
-import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
 
 public class mnt_PersonalServicio_Fragment extends Fragment {
     // TODO: ELEMENTOS DE LAYOUT
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String OPCION = "param1";
+    private static final String TIPO = "param2";
+    private Personal_servicio personal_servicio;
     private Dordenserviciocliente dordenserviciocliente;
     private AutoCompleteTextView listbox,campo_personal;
-    private EditText hora_llegada;
-    private EditText hora_requerida;
-    private EditText hora_inicio;
-    private EditText hora_fin;
-    private EditText hora_liberacion;
-    private EditText fecha_operacion;
     private FloatingActionButton btn_cancelar;
     private FloatingActionButton btn_acaptar;
+    private TextView txt_titulo;
+    private EditText campo_ID,campo_numero;
 
     // TODO: PARAMETROS DE ENTRADA
     private String mParam1;
     private String mParam2;
-/*
-    public mnt_DPersonalServicio_Fragment() {
+
+    public mnt_PersonalServicio_Fragment() {
         // Required empty public constructor
     }
-*/
-    // TODO: FUNCIONES Y METODOS
+
     public static mnt_PersonalServicio_Fragment newInstance(String param1, String param2) {
         mnt_PersonalServicio_Fragment fragment = new mnt_PersonalServicio_Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(OPCION, param1);
+        args.putString(TIPO, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -64,41 +55,52 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(OPCION);
+            mParam2 = getArguments().getString(TIPO);
             dordenserviciocliente = (Dordenserviciocliente) getArguments().getSerializable("DOrdenServicio");
+            personal_servicio = (Personal_servicio) getArguments().getSerializable("PersonalServicio");
         }
     }
-    @SuppressLint("NewApi")
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mnt_personalservicio, container, false);
         animacionEntrada();
+
+        campo_numero = (EditText) view.findViewById(R.id.campo_personal);
+        campo_ID = (EditText) view.findViewById(R.id.campo_ID);
+        btn_cancelar = (FloatingActionButton)view.findViewById(R.id.fab_cancelar);
+        btn_acaptar = (FloatingActionButton)view.findViewById(R.id.fab_aceptar);
+        listbox = (AutoCompleteTextView) view.findViewById(R.id.autocompletetext1);
+        txt_titulo = (TextView) view.findViewById(R.id.txt_titulo);
+        campo_personal = (AutoCompleteTextView)view.findViewById(R.id.campo_personal);
+        LlenarCampos();
+        Listeners();
+
+        return view;
+    }
+
+    public void animacionEntrada(){
+        // TODO: TRANSICIONES Y ANIMACIONES
+        Fade fade = (Fade) TransitionInflater.from(this.getContext()).inflateTransition(R.transition.activity_fade);
+        setEnterTransition(fade);
+        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
+        setExitTransition(slide);
+    }
+
+    public void LlenarCampos(){
+
         String[] NOMBRES = new String[] {
                 "Gian", "Giancarlo", "Alex", "Andy","Ayrton","Acevedo","Antonela","Antony","Antonio"
                 ,"André", "Joshe", "Alejandro","Aldo"
         };
-        hora_requerida = (EditText)view.findViewById(R.id.hora_requerida);
-        hora_llegada = (EditText)view.findViewById(R.id.hora_llegada);
-        hora_inicio = (EditText)view.findViewById(R.id.hora_inicio);
-        hora_fin = (EditText)view.findViewById(R.id.hora_fin);
-        hora_liberacion = (EditText)view.findViewById(R.id.hora_liberacion);
-        fecha_operacion = (EditText)view.findViewById(R.id.fecha_servicio);
-        btn_cancelar = (FloatingActionButton)view.findViewById(R.id.fab_cancelar);
-        btn_acaptar = (FloatingActionButton)view.findViewById(R.id.fab_aceptar);
-        listbox = (AutoCompleteTextView) view.findViewById(R.id.autocompletetext1);
-        campo_personal = (AutoCompleteTextView)view.findViewById(R.id.campo_personal);
-
-        if(dordenserviciocliente!=null) {
-            hora_requerida.setText(dordenserviciocliente.getFechacreacion() + "");
-            hora_requerida.setText(dordenserviciocliente.getHora_req()+"");
-            //GG
-        }
-
+        campo_ID.setText(personal_servicio.getItem2());
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_dropdown_item_1line,NOMBRES);
         listbox.setAdapter(adapter);
+
+        txt_titulo.setText(TIPO);
 
         Personal_servicioDao personal_servicioDao = new Personal_servicioDao();
         List<Personal_servicio> list_ps = new ArrayList<>();
@@ -110,122 +112,17 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
         ArrayAdapter<Personal_servicio> adapterps = new ArrayAdapter<Personal_servicio>(getContext(),
                 android.R.layout.simple_dropdown_item_1line,list_ps);
         campo_personal.setAdapter(adapterps);
+    }
 
+    public void Listeners(){
         //TODO EVENTOS
-        hora_requerida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                TimePickerDialog tpd = TimePickerDialog.newInstance(
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-                                hora_requerida.setText(hourOfDay+":"+minute);
-                            }
-                        },
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        true
-                );
-                tpd.show(getActivity().getFragmentManager(), "Timepickerdialog");
-            }
-        });
-        hora_llegada.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                TimePickerDialog tpd = TimePickerDialog.newInstance(
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-                                hora_llegada.setText(hourOfDay+":"+minute);
-                            }
-                        },
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        true
-                );
-                tpd.show(getActivity().getFragmentManager(), "Timepickerdialog");
-            }
-        });
-        hora_inicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                TimePickerDialog tpd = TimePickerDialog.newInstance(
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-                                hora_inicio.setText(hourOfDay+":"+minute);
-                            }
-                        },
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        true
-                );
-                tpd.show(getActivity().getFragmentManager(), "Timepickerdialog");
-            }
-        });
-        hora_fin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                TimePickerDialog tpd = TimePickerDialog.newInstance(
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-                                hora_fin.setText(hourOfDay+":"+minute);
-                            }
-                        },
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        true
-                );
-                tpd.show(getActivity().getFragmentManager(), "Timepickerdialog");
-            }
-        });
-        hora_liberacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                TimePickerDialog tpd = TimePickerDialog.newInstance(
-                        new TimePickerDialog.OnTimeSetListener() {
-                            @Override
-                            public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
-                                hora_liberacion.setText(hourOfDay+":"+minute);
-                            }
-                        },
-                        now.get(Calendar.HOUR_OF_DAY),
-                        now.get(Calendar.MINUTE),
-                        true
-                );
-                tpd.show(getActivity().getFragmentManager(), "Timepickerdialog");
-            }
-        });
-        fecha_operacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar now = Calendar.getInstance();
-                DatePickerDialog dpd = DatePickerDialog.newInstance(
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-                                fecha_operacion.setText(dayOfMonth+"/"+monthOfYear+1+"/"+year);
-                            }
-                        },
-                        now.get(Calendar.YEAR),
-                        now.get(Calendar.MONTH),
-                        now.get(Calendar.DAY_OF_MONTH)
-                );
-                dpd.show(getActivity().getFragmentManager(), "Datepickerdialog");
-            }
-        });
         btn_cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStack();
             }
         });
+
         btn_acaptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,20 +131,7 @@ public class mnt_PersonalServicio_Fragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
-
-        return view;
     }
-
-    // TODO: TRANSICIONES Y ANIMACIONES
-
-    @SuppressLint("NewApi")
-    public void animacionEntrada(){
-        Fade fade = (Fade) TransitionInflater.from(this.getContext()).inflateTransition(R.transition.activity_fade);
-        setEnterTransition(fade);
-        Slide slide = (Slide) TransitionInflater.from(getContext()).inflateTransition(R.transition.activity_slide);
-        setExitTransition(slide);
-    }
-
 
 
 }

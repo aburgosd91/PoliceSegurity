@@ -19,17 +19,18 @@
             android:elevation="@dimen/activity_horizontal_margin"
             android:orientation="horizontal">
 
-                    <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:layout_toStartOf="@+id/fab_cancelar"
-                    android:text="Insertar"
-                    android:textSize="24dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    android:enabled="false"/>
+            <TextView
+                android:id="@+id/txt_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:layout_toStartOf="@+id/fab_cancelar"
+                android:text="Insertar"
+                android:textSize="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:enabled="false"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_cancelar"
@@ -51,9 +52,9 @@
                 android:layout_height="@dimen/fab_size_normal"
                 android:layout_gravity="end|center_horizontal"
                 android:background="@color/colorPrimary"
-                app:fab_colorNormal="@color/verde"
+                app:fab_colorNormal="@color/verdedark"
                 android:src="@drawable/ic_check_white"
-                app:backgroundTint="@color/verde"
+                app:backgroundTint="@color/verdedark"
                 app:fab_colorPressed="@color/colorAccent"
                 app:fab_size="mini"
                 android:layout_alignTop="@+id/fab_cancelar"
@@ -215,6 +216,7 @@
                 card_view:cardElevation="4dp"
                 card_view:cardUseCompatPadding="true">
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
