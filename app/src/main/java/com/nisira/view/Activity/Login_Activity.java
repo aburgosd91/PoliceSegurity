@@ -3,6 +3,7 @@ package com.nisira.view.Activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -23,23 +24,27 @@ import com.nisira.core.interfaces.ActivityNisiraCompat;
 import com.nisira.core.interfaces.VariableGlobal;
 import com.nisira.core.service.ConsumerService;
 import com.nisira.core.service.TypeMethod;
+import com.nisira.core.service.VolleyService;
 import com.nisira.core.util.Util;
+import com.nisira.core.view.BaseView;
 import com.nisira.gcalderon.policesecurity.R;
 
-public class Login_Activity extends ActivityNisiraCompat implements ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
+public class Login_Activity extends ActivityNisiraCompat implements BaseView,ActivityCompat.OnRequestPermissionsResultCallback,SearchView.OnQueryTextListener,SearchView.OnCloseListener{
     private static final Object[][] TABLASINCRONIZACION={
-            {"METHOD_LIST_CLIEPROV",20},
-            {"METHOD_LIST_CONSUMIDOR", 8},
-            {"METHOD_LIST_CONCEPTO_CUENTA", 5},
-            {"METHOD_LIST_DOCUMENTOS",6},
-            {"METHOD_LIST_NUMEMISOR",10},
-            {"METHOD_LIST_PERSONAL_SERVICIO",8},
-            {"METHOD_LIST_PRODUCTOS",8},
-            {"METHOD_LIST_RUTAS",8},
-            {"METHOD_LIST_SUCURSALES",5},
-            {"METHOD_LIST_ORDENLIQUIDACIONGASTO",8},
-            {"METHOD_LIST_ORDENSERVICIOCLIENTE",8},
-            {"METHOD_LIST_DORDENLIQUIDACIONGASTO",8},
+//            {"METHOD_LIST_CLIEPROV",20},
+//            {"METHOD_LIST_CONSUMIDOR", 8},
+//            {"METHOD_LIST_CARGOS_PERSONAL", 5},
+//            {"METHOD_LIST_CONCEPTO_CUENTA", 5},
+//            {"METHOD_LIST_DOCUMENTOS",6},
+//            {"METHOD_LIST_NUMEMISOR",10},
+//            {"METHOD_LIST_PERSONAL_SERVICIO",8},
+            {"METHOD_LIST_DPERSONAL_SERVICIO",8},
+//            {"METHOD_LIST_PRODUCTOS",8},
+//            {"METHOD_LIST_RUTAS",8},
+//            {"METHOD_LIST_SUCURSALES",5},
+//            {"METHOD_LIST_ORDENLIQUIDACIONGASTO",8},
+//            {"METHOD_LIST_ORDENSERVICIOCLIENTE",8},
+//            {"METHOD_LIST_DORDENLIQUIDACIONGASTO",8},
             {"METHOD_LIST_DORDENSERVICIOCLIENTE",8}
     };
     public int item_tabla_syncro;
@@ -87,7 +92,7 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
 
         if(Util.isOnLine(this.getApplicationContext()))
         {
-            //SincronizarCredenciales();/*CONDICIONAL*/
+            SincronizarCredenciales();/*CONDICIONAL*/
         }
         txtuser = (EditText) findViewById(R.id.txtUser);
         txtpassword = (EditText)findViewById(R.id.txtPassword);
@@ -95,6 +100,7 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                startActivity(new Intent(Login_Activity.this, progressdialog_Activity.class));
                 verification_login();
                 //startActivity(new Intent(Login_Activity.this, SplashScreen_Activity.class));
                 //startActivity(new Intent(Login_Activity.this, NavigationPolice_Activity.class));
@@ -217,9 +223,30 @@ public class Login_Activity extends ActivityNisiraCompat implements ActivityComp
         String method_syncro=TABLASINCRONIZACION[item_tabla_syncro][0].toString();
         int time = (int) TABLASINCRONIZACION[item_tabla_syncro][1];
         item_tabla_syncro++;
+        VolleyService voley = new VolleyService(this,this);
         ConsumerService cws = new ConsumerService(Login_Activity.this,getApplicationContext(), method_syncro, time,true);
         cws.getAttribute().put("type","XML");
         cws.execute("");
         cws.pd = ProgressDialog.show(Login_Activity.this, "SINCRONIZANDO","Sincronizando Base de Datos - "+method_syncro.replace("METHOD_LIST_",""), true, false);
+    }
+
+    @Override
+    public void showLoading(boolean b) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void completeSuccess(Object object, int type) {
+
+    }
+
+    @Override
+    public void completeError(Object object, int type) {
+
     }
 }

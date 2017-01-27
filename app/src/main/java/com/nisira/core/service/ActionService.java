@@ -10,6 +10,7 @@ import com.nisira.core.dao.DestinoadquisicionDao;
 import com.nisira.core.dao.DocumentosDao;
 import com.nisira.core.dao.DordenliquidaciongastoDao;
 import com.nisira.core.dao.DordenservicioclienteDao;
+import com.nisira.core.dao.Dpersonal_servicioDao;
 import com.nisira.core.dao.NumemisorDao;
 import com.nisira.core.dao.OrdenliquidaciongastoDao;
 import com.nisira.core.dao.OrdenservicioclienteDao;
@@ -26,6 +27,7 @@ import com.nisira.core.entity.Destinoadquisicion;
 import com.nisira.core.entity.Documentos;
 import com.nisira.core.entity.Dordenliquidaciongasto;
 import com.nisira.core.entity.Dordenserviciocliente;
+import com.nisira.core.entity.Dpersonal_servicio;
 import com.nisira.core.entity.Numemisor;
 import com.nisira.core.entity.Ordenliquidaciongasto;
 import com.nisira.core.entity.Ordenserviciocliente;
@@ -241,6 +243,33 @@ public class ActionService {
                 for(int i=0;i<personal_servicios.size();i++){
                     Personal_servicio obj= (Personal_servicio)personal_servicios.get(i);
                     personal_servicioDao.mezclarLocal(obj);
+                }
+                //boolean request= (new UsuarioDao()).insertar(usuario);
+                return "OK";
+            }
+            return "";
+        }
+        catch (Exception e)
+        {
+            return e.getMessage();
+//            if(VERERRORESSINCRONIZACION==1)
+//            {
+//                return e.toString();
+//            }
+//            else
+//            {
+//                return "Error de conectividad, Intente de nuevo";
+//            }
+        }
+    }
+    public static String ACTION_SYNCRONIZE_DPERSONAL_SERVICIO (String db,String response){
+        try {
+            List dpersonal_servicios = (List<Dpersonal_servicio>) Util.stringObject("com.nisira.core.entity.Personal_servicio",response);
+            Dpersonal_servicioDao dpersonal_servicioDao = new Dpersonal_servicioDao();
+            if(dpersonal_servicios!=null){
+                for(int i=0;i<dpersonal_servicios.size();i++){
+                    Dpersonal_servicio obj= (Dpersonal_servicio)dpersonal_servicios.get(i);
+                    dpersonal_servicioDao.mezclarLocal(obj);
                 }
                 //boolean request= (new UsuarioDao()).insertar(usuario);
                 return "OK";

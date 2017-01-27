@@ -26,6 +26,7 @@ public class DataBaseClass {
 
     public static String FOLDER_EXCEL = FOLDER_BASE_APP+"/excel/";
     public static String FOLDER_BACKUP = FOLDER_BASE_APP+"/back/";
+    public static String FOLDER_ZIP = FOLDER_BASE_APP+"/zip/";
     public static String DATABASE_NAME_SDCARD = "tmp.nsr";
     public static String DATABASE_NAME_MEMORY = "data";
     public static String DATABASE_VERSION= "1";
@@ -55,6 +56,9 @@ public class DataBaseClass {
         directorio.mkdirs();
 
         directorio = new File(FOLDER_EXCEL);
+        directorio.mkdirs();
+
+        directorio = new File(FOLDER_ZIP);
         directorio.mkdirs();
         try {
             if (!ExistsDB()){
